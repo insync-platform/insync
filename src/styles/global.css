@@ -177,6 +177,6 @@
     }
 
     .display {
-        @apply text-[3rem] sm:text-[4rem] leading-[1.2] font-semibold;
+        @apply text-[2.75rem] sm:text-[4rem] leading-[1.2] font-semibold;
     }
 }

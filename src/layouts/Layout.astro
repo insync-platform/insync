@@ -16,11 +16,11 @@ const { pathname } = Astro.url;
 		<meta name="description" content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten." />
 	</head>
 	<body>
-		<header class="h-18 flex items-center bg-background/80 backdrop-blur-md z-50">
+		<header class="h-18 flex items-center">
 			<div class="container">
 				<div class="flex items-center justify-between">
 					<a href="/">
-						<img src="/logo.svg" alt="Insync" class="h-9"/>
+						<img src="/logo.svg" alt="Insync" class="h-8 sm:h-9"/>
 					</a>
 					<nav class="hidden lg:flex font-medium space-x-12">
 						<a href="/" class="inline-block p-2" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
