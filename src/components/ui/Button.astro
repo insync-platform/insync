@@ -1,0 +1,62 @@
+---
+  import clsx from 'clsx';
+
+  type Variant = keyof typeof variants;
+  type Size = keyof typeof sizes;
+
+  const {
+    variant = 'default' as Variant,
+    size = 'md' as Size,
+    as,
+    href,
+    type = 'button',
+    disabled = false,
+    class: className = '',
+    ...rest
+  } = Astro.props;
+
+  const variants = {
+    default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+    destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+    outline: 'border border-border bg-transparent hover:bg-muted',
+    ghost: 'bg-transparent hover:bg-muted',
+    link: 'underline-offset-4 hover:underline bg-transparent text-primary',
+  };
+
+  const sizes = {
+    sm: 'h-8 px-3 text-sm rounded-md',
+    md: 'h-10 px-4 rounded-lg',
+    lg: 'h-14 px-8 rounded-lg',
+  };
+
+  const base = 'inline-flex items-center justify-center gap-2 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
+
+  const classes = clsx(
+    base,
+    variants[variant],
+    sizes[size],
+    className
+  );
+---
+
+{href ? (
+  <a
+    href={href}
+    class={classes}
+    aria-disabled={disabled ? 'true' : undefined}
+    tabindex={disabled ? -1 : undefined}
+    {...rest}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    class={classes}
+    disabled={disabled}
+    {...rest}
+  >
+    <slot />
+  </button>
+)}

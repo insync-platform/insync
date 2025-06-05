@@ -1,11 +1,181 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import DuGardijn from '../assets/logos/du-gardijn.svg';
+import Klantportaal from '../assets/klantportaal-mockup.webp';
+import Klantportaal2 from '../assets/klantportaal-mockup-2.webp';
+import IntegrationsHorizontal from '../assets/integrations-horizontal.svg';
+import IntegrationsVertical from '../assets/integrations-vertical.svg';
+import Button from "../components/ui/Button.astro";
+import { ArrowRight, HeartHandshake, Files, Zap, Blocks } from '@lucide/astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const features = [
+  {
+    title: 'Minder herhaalvragen, meer persoonlijk advies',
+    description: 'Tot 30% minder herhaalvragen dankzij self-service.',
+    icon: HeartHandshake,
+  },
+  {
+    title: 'Altijd volledig en actueel klantinzicht',
+    description: 'Realtime data vanuit je backoffice systeem, zonder handwerk.',
+    icon: Files,
+  },
+  {
+    title: 'Sneller schakelen met klanten',
+    description: 'Documenten en meldingen direct digitaal geregeld.',
+    icon: Zap,
+  },
+  {
+    title: 'Meegroeien met jouw dienstverlening',
+    description: 'Kies alleen wat je nodig hebt. Uitbreiden kan altijd.',
+    icon: Blocks,
+  }
+]
 ---
 
 <Layout>
-	<Welcome />
+  <section id="hero" class="pt-24 2xl:pt-32 pb-16 sm:pb-32 overflow-x-clip">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row items-center gap-24">
+        <div>
+          <div class="space-y-4">
+            <a href="/blog/novulo-koppeling" class="inline-flex items-center border rounded-full text-sm px-3 py-1 starting:opacity-0 starting:translate-y-2 transition-all duration-500">
+              <div class="size-1.5 rounded-full bg-primary mr-2 shrink-0"></div>
+              <div>
+                <span class="font-bold mr-1">Nieuw!</span> Koppel je Insync klantportaal aan Novulo
+              </div>
+            </a>
+            <h1 class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+              Altijd verbonden met je klant. Efficiënt en moeiteloos.
+            </h1>
+            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
+              Voor intermediairs die klaar zijn voor minder handwerk, meer klantgemak en een platform dat meegroeit met jouw dienstverlening en je klanten.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 mt-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
+            <Button href="/demo" size="lg" class="shadow-[0_0_25px_-5px_var(--color-primary)]">Plan een demo</Button>
+            <Button href="/contact" size="lg" variant="ghost">
+              Praat met een expert
+              <ArrowRight class="size-6" />
+            </Button>
+          </div>
+        </div>
+        <div class="relative sm:w-[560px] grid place-items-center mx-auto">
+          <Image src={Klantportaal} alt="Klantportaal" class="w-[280px] starting:opacity-0 starting:scale-95 transition-all duration-1000 delay-600"/>
+          <div class="starting:opacity-0 transition-all duration-2000 delay-1000 -z-10">
+            <div class="absolute -top-[64px] -left-[64px] bg-accent/10 size-[500px] rounded-[120px] blur-[150px]"></div>
+            <div class="absolute -bottom-[64px] -right-[64px] bg-primary/15 size-[500px] rounded-[120px] blur-[150px]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--<section id="social-proof" class="py-12 sm:py-16 starting:opacity-0 duration-600 delay-600">-->
+  <!--  <div class="container">-->
+  <!--    <div class="flex flex-col items-center">-->
+  <!--      <h1 class="text-lg font-medium text-muted-foreground mb-12 sm:mb-16">Vertrouwd door intermediairs</h1>-->
+  <!--      <ul class="flex items-center gap-32">-->
+  <!--        <li>-->
+  <!--          <a href="https://dugardijn.nl">-->
+  <!--            <Image src={DuGardijn} alt="du Gardijn" class="grayscale hover:grayscale-0 duration-300"/>-->
+  <!--          </a>-->
+  <!--        </li>-->
+  <!--      </ul>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</section>-->
+
+  <section id="customer-portal" class="py-24 sm:py-32">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-32">
+        <div>
+          <div class="text-primary font-medium mb-2">Klantportaal</div>
+          <h1 class="mb-4">Digitaal gemak voor jouw klant</h1>
+          <p class="mb-10">
+            Jouw klant verwacht overzicht, snelheid en eenvoud. Met Insync geef je hen toegang tot een persoonlijk
+            portaal waar ze zelf hun verzekeringen, documenten en schades kunnen inzien. Veilig en altijd beschikbaar.
+          </p>
+          <Button href="/oplossingen/klanten" size="lg">
+            Klantportaal ontdekken
+            <ArrowRight class="size-5"/>
+          </Button>
+        </div>
+        <div class="lg:max-w-[640px] w-full">
+          <Image src={Klantportaal2} alt="Klantportaal" class="rounded-3xl"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agent-portal" class="py-24 sm:py-32">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-32">
+        <div class="order-last lg:order-first lg:max-w-[640px] w-full">
+          <div class="bg-muted w-full h-96 rounded-3xl"></div>
+          <!--<Image src={Intermediairportaal} alt="Intermediairportaal" class="rounded-3xl"/>-->
+        </div>
+        <div>
+          <div class="text-primary font-medium mb-2">Intermediairportaal</div>
+          <h1 class="mb-4">Efficiënter werken, sterker verbinden</h1>
+          <p class="mb-10">
+            Als intermediair wil je grip houden én goed bereikbaar zijn. Insync automatiseert terugkerende klantvragen
+            en centraliseert communicatie, zonder dat het afstandelijk wordt.
+          </p>
+          <Button href="/oplossingen/intermediairs" size="lg">
+            Intermediairportaal ontdekken
+            <ArrowRight class="size-5"/>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-24 sm:py-32">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row justify-between items-end gap-4 lg:gap-10 mb-16">
+        <div class="lg:max-w-[600px]">
+          <div class="text-primary font-medium mb-2">Voordelen van Insync</div>
+          <h1>Efficiëntie voor jou. Gemak voor je klant.</h1>
+        </div>
+        <p class="lg:max-w-[640px]">Met Insync haal je direct meetbaar resultaat: minder losse klantvragen, meer grip op je dossiers en een
+          efficiënter werkproces zonder extra tools.</p>
+      </div>
+
+      <ul class="grid md:grid-cols-2 xl:grid-cols-4 border rounded-2xl">
+        {features.map((feature) => (
+          <li class="flex p-6 border-b border-r md:max-xl:nth-[3]:border-b-0 last:border-0 xl:border-b-0">
+            <feature.icon class="size-6 text-primary shrink-0 mt-0.5 mr-3" />
+            <div>
+              <div class="text-lg font-medium mb-1">{feature.title}</div>
+              <p class="text-muted-foreground">{feature.description}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section id="integrations" class="bg-muted/50 py-24 sm:py-32">
+    <div class="container">
+      <div class="flex flex-col items-center">
+        <h1 class="max-w-[720px] text-center lg:mb-16">Naadloos verbonden met jouw systeemlandschap</h1>
+      </div>
+    </div>
+    <Image src={IntegrationsHorizontal} alt="Integraties van Insync" class="hidden lg:block max-h-80 mx-auto"/>
+    <Image src={IntegrationsVertical} alt="Integraties van Insync" class="lg:hidden w-full max-w-[560px] mx-auto"/>
+  </section>
+
+  <section id="cta" class="py-24 sm:py-32">
+    <div class="container">
+      <div class="bg-secondary rounded-4xl px-6 py-12 sm:px-12">
+        <div class="max-w-[800px] mx-auto text-center">
+          <h1 class="mb-4">Klaar voor de klantreis van de toekomst?</h1>
+          <p class="font-medium mb-10">Vraag vrijblijvend een demo aan en ontdek hoe Insync jouw kantoor ondersteunt.</p>
+          <Button href="/demo" size="lg" class="shadow-[0_0_25px_-5px_var(--color-primary)]">Plan een demo</Button>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

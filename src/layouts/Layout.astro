@@ -1,3 +1,10 @@
+---
+import "../styles/global.css";
+import Button from "../components/ui/Button.astro";
+
+const { pathname } = Astro.url;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +12,51 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Insync – Flexibel Klantportaal voor Intermediairs</title>
+		<meta name="description" content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten." />
 	</head>
 	<body>
+		<header class="h-18 flex items-center bg-background/80 backdrop-blur-md z-50">
+			<div class="container">
+				<div class="flex items-center justify-between">
+					<a href="/">
+						<img src="/logo.svg" alt="Insync" class="h-9"/>
+					</a>
+					<nav class="hidden lg:flex font-medium space-x-12">
+						<a href="/" class="inline-block p-2" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
+						<button>
+							Oplossingen
+						</button>
+						<a href="/blog" class="inline-block p-2" aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a>
+						<a href="/contact" class="inline-block p-2" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a>
+					</nav>
+					<Button href="/demo">Plan een demo</Button>
+				</div>
+			</div>
+		</header>
+
 		<slot />
+
+		<footer class="bg-muted py-12">
+			<div class="container">
+				<div class="flex flex-col sm:flex-row justify-between gap-10">
+					<div>
+						<img src="/logo.svg" alt="Insync" class="h-8 mb-2"/>
+						<p class="text-sm text-muted-foreground">© 2025 Bizzly. Alle rechten voorbehouden.</p>
+					</div>
+					<nav class="flex gap-6 text-sm text-muted-foreground">
+						<a href="/algemene-voorwaarden" class="hover:underline">Algemene voorwaarden</a>
+						<a href="/privacybeleid" class="hover:underline">Privacybeleid</a>
+					</nav>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+	nav a:active,
+	nav a[aria-current="page"] {
+		color: var(--color-primary);
 	}
 </style>
