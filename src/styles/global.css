@@ -17,13 +17,13 @@
         --border: hsl(240 5.9% 90%);
         --input: hsl(240 5.9% 90%);
 
-        --primary: hsl(241 92% 66%);
+        --primary: 241 92% 66%;
         --primary-foreground: hsl(0 0% 98%);
 
         --secondary: hsl(241 92% 90%);
         --secondary-foreground: hsl(240 10% 3.9%);
 
-        --accent: hsl(290 100% 49%);
+        --accent: 290 100% 49%;
         --accent-foreground: hsl(240 10% 3.9%);
 
         --muted: hsl(240 4.8% 95.9%);
@@ -59,7 +59,7 @@
         --border: hsl(240 3.7% 15.9%);
         --input: hsl(240 3.7% 15.9%);
 
-        --primary: hsl(241 92% 66%);
+        --primary: 241 92% 66%;
 
         --secondary: hsl(240 4.8% 12%);
         --secondary-foreground: hsl(0 0% 98%);
@@ -74,10 +74,10 @@
     --color-foreground: var(--foreground);
     --color-border: var(--border);
     --color-input: var(--input);
-    --color-primary: var(--primary);
+    --color-primary: hsl(var(--primary));
     --color-primary-dark: color-mix(in srgb, var(--primary) 80%, var(--foreground));
     --color-primary-foreground: var(--primary-foreground);
-    --color-accent: var(--accent);
+    --color-accent: hsl(var(--accent));
     --color-accent-dark: color-mix(in srgb, var(--accent) 80%, var(--foreground));
     --color-accent-foreground: var(--accent-foreground);
     --color-muted: var(--muted);
@@ -149,7 +149,7 @@
     }
 
     html {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground scroll-smooth;
     }
 
     h1, .h1,

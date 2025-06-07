@@ -1,62 +1,108 @@
 ---
 import "../styles/global.css";
 import Button from "../components/ui/Button.astro";
+import {ChevronDown, Users, BriefcaseBusiness} from "@lucide/astro";
 
-const { pathname } = Astro.url;
+const {pathname} = Astro.url;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Insync – Flexibel Klantportaal voor Intermediairs</title>
-		<meta name="description" content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten." />
-	</head>
-	<body>
-		<header class="h-18 flex items-center">
-			<div class="container">
-				<div class="flex items-center justify-between">
-					<a href="/">
-						<img src="/logo.svg" alt="Insync" class="h-8 sm:h-9"/>
-					</a>
-					<nav class="hidden lg:flex font-medium space-x-12">
-						<a href="/" class="inline-block p-2" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
-						<button>
-							Oplossingen
-						</button>
-						<a href="/blog" class="inline-block p-2" aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a>
-						<a href="/contact" class="inline-block p-2" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a>
-					</nav>
-					<Button href="/demo">Plan een demo</Button>
-				</div>
-			</div>
-		</header>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="generator" content={Astro.generator}/>
+  <title>Insync – Flexibel Klantportaal voor Intermediairs</title>
+  <meta name="description"
+        content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
+</head>
+<body>
+<header class="h-18 flex items-center">
+  <div class="container">
+    <div class="flex items-center justify-between">
+      <a href="/">
+        <img src="/logo.svg" alt="Insync" class="h-8 sm:h-9"/>
+      </a>
+      <nav class="hidden lg:block font-medium">
+        <ul class="flex gap-x-12">
+          <li>
+            <a href="/" class="inline-block p-2" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
+          </li>
+          <li class="relative group">
+            <button
+                    class="flex items-center p-2"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+            >
+              Oplossingen
+              <ChevronDown class="size-5 ml-2"/>
+            </button>
 
-		<slot />
+            <div class="absolute left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 p-4">
+              <ul class="w-[280px] bg-background border rounded-xl shadow-md p-1.5 space-y-1">
+                <li>
+                  <a href="/oplossingen/klanten"
+                     class="flex items-center rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted">
+                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3">
+                      <Users class="size-5"/>
+                    </div>
+                    <div>
+                      <span class="block font-medium text-foreground">Voor klanten</span>
+                      Geef klanten meer controle
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="/oplossingen/intermediairs"
+                     class="flex items-center rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted">
+                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3">
+                      <BriefcaseBusiness class="size-5"/>
+                    </div>
+                    <div>
+                      <span class="block font-medium text-foreground">Voor intermediairs</span>
+                      Grip op klantdata
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="/blog" class="inline-block p-2" aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a>
+          </li>
+          <li>
+            <a href="/contact" class="inline-block p-2" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <Button href="/demo">Plan een demo</Button>
+    </div>
+  </div>
+</header>
 
-		<footer class="bg-muted py-12">
-			<div class="container">
-				<div class="flex flex-col sm:flex-row justify-between gap-10">
-					<div>
-						<img src="/logo.svg" alt="Insync" class="h-8 mb-2"/>
-						<p class="text-sm text-muted-foreground">© 2025 Bizzly. Alle rechten voorbehouden.</p>
-					</div>
-					<nav class="flex gap-6 text-sm text-muted-foreground">
-						<a href="/algemene-voorwaarden" class="hover:underline">Algemene voorwaarden</a>
-						<a href="/privacybeleid" class="hover:underline">Privacybeleid</a>
-					</nav>
-				</div>
-			</div>
-		</footer>
-	</body>
+<slot/>
+
+<footer class="bg-muted py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row justify-between gap-10">
+      <div>
+        <img src="/logo.svg" alt="Insync" class="h-8 mb-2"/>
+        <p class="text-sm text-muted-foreground">© 2025 Insync. Alle rechten voorbehouden.</p>
+      </div>
+      <nav class="flex gap-6 text-sm text-muted-foreground">
+        <a href="/algemene-voorwaarden" class="hover:underline">Algemene voorwaarden</a>
+        <a href="/privacybeleid" class="hover:underline">Privacybeleid</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+</body>
 </html>
 
 <style>
-	nav a:active,
-	nav a[aria-current="page"] {
-		color: var(--color-primary);
-	}
+    nav a:active,
+    nav a[aria-current="page"] {
+        color: var(--color-primary);
+    }
 </style>

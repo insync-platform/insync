@@ -8,6 +8,7 @@ import IntegrationsHorizontal from '../assets/integrations-horizontal.svg';
 import IntegrationsVertical from '../assets/integrations-vertical.svg';
 import Button from "../components/ui/Button.astro";
 import { ArrowRight, HeartHandshake, Files, Zap, Blocks } from '@lucide/astro';
+import Cta from "../components/sections/Cta.astro";
 
 const features = [
   {
@@ -167,15 +168,5 @@ const features = [
     <Image src={IntegrationsVertical} alt="Integraties van Insync" class="lg:hidden w-full max-w-[560px] mx-auto"/>
   </section>
 
-  <section id="cta" class="py-20 sm:py-28">
-    <div class="container">
-      <div class="bg-secondary rounded-4xl px-6 py-12 sm:px-12">
-        <div class="max-w-[800px] mx-auto text-center">
-          <h1 class="mb-4">Klaar voor de klantreis van de toekomst?</h1>
-          <p class="font-medium mb-10">Vraag vrijblijvend een demo aan en ontdek hoe Insync jouw kantoor ondersteunt.</p>
-          <Button href="/demo" size="lg" class="shadow-[0_0_25px_-5px_var(--color-primary)]">Plan een demo</Button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Cta/>
 </Layout>
