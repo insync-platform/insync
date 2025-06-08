@@ -39,22 +39,22 @@ const features = [
     <div class="container">
       <div class="flex flex-col lg:flex-row items-center gap-24">
         <div>
-          <div class="space-y-4">
-            <a href="/blog/novulo-koppeling" class="inline-flex items-center border rounded-full text-sm px-3 py-1 starting:opacity-0 starting:translate-y-2 transition-all duration-500">
+          <div class="flex flex-col items-center lg:items-start space-y-4">
+            <a href="/blog/novulo-koppeling" class="inline-flex items-center border rounded-full text-sm px-3 py-1 hover:bg-muted starting:opacity-0 starting:translate-y-2 transition-all duration-500">
               <div class="size-1.5 rounded-full bg-primary mr-2 shrink-0"></div>
               <div>
-                <span class="font-bold mr-1">Nieuw!</span> Koppel je Insync klantportaal aan Novulo
+                <span class="font-bold mr-1">Nieuw!</span>Koppel Insync aan Novulo
               </div>
             </a>
-            <h1 class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+            <h1 class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
               Altijd verbonden met je klant. Efficiënt en moeiteloos.
             </h1>
-            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
+            <p class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
               Voor intermediairs die klaar zijn voor minder handwerk, meer klantgemak en een platform dat meegroeit met jouw dienstverlening en je klanten.
             </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-4 mt-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
+          <div class="flex flex-col justify-center lg:justify-start sm:flex-row gap-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
             <Button href="/demo" size="lg" class="shadow-[0_0_25px_-5px_var(--color-primary)]">Plan een demo</Button>
             <Button href="/contact" size="lg" variant="ghost">
               Praat met een expert
@@ -98,7 +98,7 @@ const features = [
             Jouw klant verwacht overzicht, snelheid en eenvoud. Met Insync geef je hen toegang tot een persoonlijk
             portaal waar ze zelf hun verzekeringen, documenten en schades kunnen inzien. Veilig en altijd beschikbaar.
           </p>
-          <Button href="/oplossingen/klanten" size="lg">
+          <Button href="/oplossingen/klanten" size="lg" class="w-full sm:w-auto">
             Klantportaal ontdekken
             <ArrowRight class="size-5"/>
           </Button>
@@ -124,7 +124,7 @@ const features = [
             Als intermediair wil je grip houden én goed bereikbaar zijn. Insync automatiseert terugkerende klantvragen
             en centraliseert communicatie, zonder dat het afstandelijk wordt.
           </p>
-          <Button href="/oplossingen/intermediairs" size="lg">
+          <Button href="/oplossingen/intermediairs" size="lg" class="w-full sm:w-auto">
             Intermediairportaal ontdekken
             <ArrowRight class="size-5"/>
           </Button>

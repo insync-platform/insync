@@ -1,9 +1,26 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import IntermediairPortaal from "../../assets/intermediairportaal-mockup-laptop.webp";
 ---
 
 <Layout>
-  <div class="container max-w-[900px]">
-    <h1>Koppel je Novulo backoffice direct met Insync</h1>
-  </div>
+  <article class="py-16">
+    <div class="container max-w-[900px]">
+      <Image src={IntermediairPortaal} alt="Novulo koppeling" class="w-full h-64 mb-8 rounded-lg object-cover" />
+      <h1 class="mb-6">Koppel je Novulo backoffice direct met Insync</h1>
+
+      <p class="mb-4">
+        Met de Novulo koppeling in Insync koppel je jouw Novulo backoffice direct aan ons platform. Dit zorgt voor een
+        naadloze integratie van klantdata en verzekeringsbeheer, waardoor je efficiënter kunt werken en je klanten beter
+        kunt bedienen.
+      </p>
+
+      <p class="mb-4">
+        De koppeling zorgt ervoor dat alle klantgegevens, polissen en documenten automatisch worden gesynchroniseerd tussen
+        Novulo en Insync. Hierdoor heb je altijd toegang tot de meest actuele informatie zonder handmatig gegevens te
+        hoeven invoeren of bijwerken.
+      </p>
+    </div>
+  </article>
 </Layout>

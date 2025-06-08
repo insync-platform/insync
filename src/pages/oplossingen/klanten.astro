@@ -37,23 +37,21 @@ const features = [
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         <div>
           <div class="space-y-4">
-            <h1 class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+            <h1 class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
               Geef je klant grip, gemak en vertrouwen
             </h1>
-            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
+            <p class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
               Via het klantportaal van Insync hebben jouw klanten 24/7 toegang tot hun verzekeringen, documenten en schades. Dat voorkomt onnodige vragen én versterkt jullie relatie.
             </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-4 mt-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
-            <Button href="#features" variant="outline" size="lg">
-              <ArrowDown class="text-primary size-6"/>
-              Ontdek de voordelen
-            </Button>
-          </div>
+          <Button href="#features" variant="outline" size="lg" class="w-full lg:w-auto starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
+            <ArrowDown class="text-primary size-6"/>
+            Ontdek de voordelen
+          </Button>
         </div>
-        <div class="grid place-items-center gradient-background w-full lg:size-[600px] max-h-[440px] lg:max-h-none border rounded-3xl mx-auto overflow-hidden">
-          <Image src={Klantportaal} alt="Klantportaal" class="max-w-[280px] lg:max-w-[320px] xl:max-w-[360px] w-full mt-6 lg:mt-16 starting:opacity-0 starting:translate-y-4 transition-all duration-1000"/>
+        <div class="grid place-items-center gradient-background lg:aspect-square w-full lg:w-auto  h-[400px] lg:h-[440px] 2xl:h-[600px] lg:max-h-none border rounded-3xl mx-auto overflow-hidden shrink-0">
+          <Image src={Klantportaal} alt="Klantportaal" class="w-[260px] lg:w-3/5 mt-6 lg:mt-16 starting:opacity-0 starting:translate-y-4 transition-all duration-1000"/>
         </div>
       </div>
     </div>
@@ -62,11 +60,11 @@ const features = [
   <section id="features" class="py-20 sm:py-28">
     <div class="container">
       <div class="flex flex-col lg:flex-row justify-between gap-8 sm:gap-16">
-        <Image src={KlantportaalAirplane} alt="Klantportaal" class="lg:max-w-[640px] w-full lg:aspect-square rounded-3xl object-cover"/>
+        <Image src={KlantportaalAirplane} alt="Klantportaal" class="order-last lg:order-first lg:max-w-[600px] xl:max-w-[640px] w-full lg:aspect-square rounded-3xl object-cover"/>
         <div>
           <div class="text-primary font-medium mb-2">Voordelen voor klanten</div>
           <h1 class="mb-12 sm:mb-16">Wat Insync voor jouw klanten betekent</h1>
-          <ul class="grid md:grid-cols-2 gap-x-6 gap-y-8 sm:gap-y-12">
+          <ul class="grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-8 sm:gap-y-12">
             {features.map((feature) => (
               <li class="flex flex-col items-start">
                 <div class="flex items-center justify-center text-primary border rounded-lg size-12 mb-4">
