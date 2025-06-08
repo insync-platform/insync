@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Button from "../components/ui/Button.astro";
-import {ChevronDown, Users, BriefcaseBusiness} from "@lucide/astro";
+import {ChevronDown, Users, BriefcaseBusiness, Menu, X} from "@lucide/astro";
 
 const {pathname} = Astro.url;
 ---
@@ -18,7 +18,7 @@ const {pathname} = Astro.url;
         content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
 </head>
 <body>
-<header class="h-18 flex items-center">
+<header class="sticky top-0 h-[var(--header-height)] flex items-center bg-background/80 backdrop-blur z-50">
   <div class="container">
     <div class="flex items-center justify-between">
       <a href="/">
@@ -76,10 +76,88 @@ const {pathname} = Astro.url;
           </li>
         </ul>
       </nav>
-      <Button href="/demo">Plan een demo</Button>
+      <Button href="/demo" class="hidden lg:inline-flex">Plan een demo</Button>
+      <Button id="mobile-nav-toggle" size="icon" variant="ghost" class="inline-flex lg:hidden -mr-2">
+        <Menu class="size-6" id="mobile-menu-icon-open"/>
+        <X class="size-6 hidden" id="mobile-menu-icon-close"/>
+      </Button>
     </div>
   </div>
 </header>
+
+<div id="mobile-menu" class="hidden lg:hidden fixed top-[var(--header-height)] h-svh inset-x-0 bottom-0 bg-background/80 backdrop-blur starting:opacity-0 transition-all duration-200 z-50">
+  <nav class="pt-4 pb-8">
+    <div class="container">
+      <ul>
+        <li>
+          <a href="/"
+             class="block py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200">
+            Home
+          </a>
+        </li>
+        <li class="relative group">
+          <button
+                  class="flex items-center justify-between w-full py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  type="button"
+                  id="mobile-solutions-toggle"
+                  onclick="toggleMobileSolutionsDropdown()"
+          >
+            Oplossingen
+            <ChevronDown class="size-5"/>
+          </button>
+          <div
+                  class="hidden mb-3 starting:opacity-0 starting:-translate-y-2 duration-200 z-10"
+                  id="mobile-solutions-dropdown"
+          >
+            <ul class="space-y-2">
+              <li>
+                <a href="/oplossingen/klanten"
+                   class="flex items-center rounded-lg text-muted-foreground py-1">
+                  <div class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 mr-3">
+                    <Users class="size-6"/>
+                  </div>
+                  <div>
+                    <span class="block font-medium text-foreground">Voor klanten</span>
+                    Geef klanten meer controle
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="/oplossingen/intermediairs"
+                   class="flex items-center rounded-lg text-muted-foreground py-1">
+                  <div class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 mr-3">
+                    <BriefcaseBusiness class="size-6"/>
+                  </div>
+                  <div>
+                    <span class="block font-medium text-foreground">Voor intermediairs</span>
+                    Grip op klantdata
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="/blog"
+             class="block py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200">
+            Blog
+          </a>
+        </li>
+        <li>
+          <a href="/contact"
+             class="block py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200">
+            Contact
+          </a>
+        </li>
+        <li>
+          <Button href="/demo" size="lg" class="w-full mt-4">Plan een demo</Button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 <slot/>
 
@@ -101,8 +179,60 @@ const {pathname} = Astro.url;
 </html>
 
 <style>
+    :root {
+        --header-height: 72px;
+    }
+
     nav a:active,
     nav a[aria-current="page"] {
         color: var(--color-primary);
     }
+
+    [popover].popover-menu {
+        animation: fadeIn 0.2s ease-in-out;
+        animation-fill-mode: forwards;
+        transform-origin: top center;
+
+        &:popover-open {
+            position: absolute;
+            top: var(--header-height);
+            margin: 0;
+            left: 50%;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            translate: -50% -1rem;
+        }
+        to {
+            translate: -50% 0;
+        }
+    }
 </style>
+
+<script is:inline lang="ts">
+  const toggleButton = document.getElementById('mobile-nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const solutionsToggle = document.getElementById('mobile-solutions-toggle');
+  const solutionsDropdown = document.getElementById('mobile-solutions-dropdown');
+  const iconOpen = document.getElementById('mobile-menu-icon-open');
+  const iconClose = document.getElementById('mobile-menu-icon-close');
+
+  if (toggleButton && menu) {
+    toggleButton.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
+      toggleButton.setAttribute('aria-expanded', String(!isHidden));
+      iconOpen.classList.toggle('hidden', !isHidden);
+      iconClose.classList.toggle('hidden', isHidden);
+    });
+  }
+
+  function toggleMobileSolutionsDropdown() {
+    if (solutionsDropdown && solutionsToggle) {
+      const isOpen = !solutionsDropdown.classList.toggle('hidden');
+      solutionsToggle.setAttribute('aria-expanded', String(isOpen));
+    }
+  }
+</script>

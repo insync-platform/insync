@@ -3,10 +3,12 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+import vue from '@astrojs/vue';
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
   site: 'https://insync.insure',
-  integrations: [sitemap()]
+  integrations: [sitemap(), vue()]
 });

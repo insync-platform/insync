@@ -1,8 +1,126 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Cta from "../../components/sections/Cta.astro";
+import {ArrowDown} from "@lucide/astro";
+import Button from "../../components/ui/Button.astro";
+import {Image} from "astro:assets";
+import IntermediairPortaalLaptop from "../../assets/intermediairportaal-mockup-laptop.webp";
+import {Clock, MessageSquare, LayoutDashboard, Database, ShieldCheck, Brain} from "@lucide/astro";
+
+const features = [
+  {
+    title: "Minder onnodige klantvragen",
+    description: "Laat klanten zelf polissen, documenten, etc. inzien. Zo verminder je repeterende vragen via mail of telefoon.",
+    icon: Clock
+  },
+  {
+    title: "Meer tijd voor advies",
+    description: "Door selfservice-functies en centrale informatie is er minder ruis en ruimte voor persoonlijk contact.",
+    icon: MessageSquare
+  },
+  {
+    title: "Modulair en schaalbaar",
+    description: "Je kiest zelf welke modules je activeert. Start klein, en breid uit wanneer jouw organisatie of klantwens groeit.",
+    icon: LayoutDashboard
+  },
+  {
+    title: "Altijd actuele klantdata",
+    description: "Door directe koppeling met je bronsysteem is alle klantinformatie in het portaal altijd up-to-date.",
+    icon: Database
+  },
+  {
+    title: "Veilig en compliant",
+    description: "Klant- en intermediairportaal werken naadloos samen via een veilige koppeling.",
+    icon: ShieldCheck
+  },
+  {
+    title: "Eén centraal overzicht",
+    description: "Beheer al je klanten in één overzichtelijk systeem met inzicht in interacties, documenten en gebruik.",
+    icon: Brain
+  }
+]
 ---
 
 <Layout>
+  <section id="hero" class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        <div>
+          <div class="space-y-4">
+            <h1 class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+              Werk slimmer. Dien beter. Groei met vertrouwen.
+            </h1>
+            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
+              Insync is hét platform voor intermediairs die hun klantrelatie willen versterken met minder gedoe. Digitaal waar het kan, persoonlijk waar het telt.            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 mt-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
+            <Button href="#features" variant="outline" size="lg">
+              <ArrowDown class="text-primary size-6"/>
+              Ontdek de voordelen
+            </Button>
+          </div>
+        </div>
+          <Image src={IntermediairPortaalLaptop} alt="Intermediairportaal" class="max-w-[600px] max-h-[600px] h-full w-full rounded-3xl"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-20 sm:py-28">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row justify-between items-end gap-4 lg:gap-10 mb-16">
+        <div class="lg:max-w-[600px]">
+          <div class="text-primary font-medium mb-2">Voordelen voor intermediairs</div>
+          <h1>Wat Insync voor jou betekent</h1>
+        </div>
+        <p class="lg:max-w-[640px]">Insync helpt je om slimmer te werken en je klanten beter te bedienen, zonder dat het
+          meer tijd kost.</p>
+      </div>
+
+      <ul class="grid md:grid-cols-2 xl:grid-cols-3 border rounded-2xl">
+        {features.map((feature) => (
+                <li class="flex p-6 border-b border-r md:nth-[5]:border-b-0 xl:nth-[4]:border-b-0 last:border-0">
+                  <feature.icon class="size-6 text-primary shrink-0 mt-0.5 mr-3" />
+                  <div>
+                    <div class="text-lg font-medium mb-1">{feature.title}</div>
+                    <p class="text-muted-foreground">{feature.description}</p>
+                  </div>
+                </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-t from-muted to-muted/50 py-20 sm:py-28">
+    <div class="container">
+      <div class="flex flex-col items-center">
+        <h1 class="text-center max-w-[600px] mb-16">Jouw cockpit voor klantcommunicatie</h1>
+        <ul class="grid lg:grid-cols-2 gap-8 max-w-[1200px] w-full">
+          <li>
+            <div class="relative bg-background border rounded-2xl shadow-md overflow-hidden h-[320px] mb-6">
+              <div class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent"></div>
+              <!--<Image src={} alt="Verzekeringen overzicht"/>-->
+            </div>
+            <h2 class="h4 mb-2">Alle klantdata op één plek. Altijd actueel.</h2>
+            <p class="text-sm text-muted-foreground">Van verzekeringspolissen tot contactmomenten en documenten: je hebt
+              direct overzicht van alles wat er speelt per klant. Dankzij de directe koppeling met je backoffice werk je
+              altijd met realtime data. Veilig, volledig en zonder dubbel werk.</p>
+          </li>
+          <li>
+            <div class="relative bg-background border rounded-2xl shadow-md overflow-hidden h-[320px] mb-6">
+              <div class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent"></div>
+              <!--<Image src={} alt="Verzekeringen overzicht"/>-->
+            </div>
+            <h2 class="h4 mb-2">Sneller contact, minder losse mailtjes</h2>
+            <p class="text-sm text-muted-foreground">Via het platform zie je in één oogopslag wat er speelt bij je klant
+              en neem je direct actie. Zo voorkom je onnodige vragen, losse mailwisselingen en heb je meer ruimte voor
+              persoonlijk advies.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <Cta/>
+
 </Layout>

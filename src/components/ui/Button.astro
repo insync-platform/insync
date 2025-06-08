@@ -1,5 +1,5 @@
 ---
-  import clsx from 'clsx';
+  import cn from "../../utils/cn";
 
   type Variant = keyof typeof variants;
   type Size = keyof typeof sizes;
@@ -28,11 +28,12 @@
     sm: 'h-8 px-3 text-sm rounded-md',
     md: 'h-10 px-4 rounded-lg',
     lg: 'h-14 px-8 rounded-lg',
+    icon: 'h-10 w-10 rounded-lg',
   };
 
   const base = 'inline-flex items-center justify-center gap-2 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
-  const classes = clsx(
+  const classes = cn(
     base,
     variants[variant],
     sizes[size],
