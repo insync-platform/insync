@@ -1,7 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import {Check} from "@lucide/astro";
+import DemoForm from "../components/DemoForm.astro";
 ---
 
 <Layout>
+  <section id="hero" class="py-16 sm:py-24 2xl:py-42 pb-16 sm:pb-28 overflow-x-clip min-h-[80vh]">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-24">
+        <div>
+          <div class="space-y-4 mb-10">
+            <h1 class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+              Plan een demo
+            </h1>
+            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
+              Ontdek hoe je met Insync je klantportaal professionaliseert, werkdruk verlaagt en tijd overhoudt voor echt
+              klantcontact. Kosteloos en zonder verplichtingen.</p>
+          </div>
 
+          <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
+            <div class="h4 mb-4">Wat kun je verwachten van de demo?</div>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <Check class="size-6 text-green-500 mr-2"/>
+                Een korte kennismaking
+              </li>
+              <li class="flex items-center">
+                <Check class="size-6 text-green-500 mr-2"/>
+                Een live rondleiding door het platform
+              </li>
+              <li class="flex items-center">
+                <Check class="size-6 text-green-500 mr-2"/>
+                Inzicht in hoe Insync koppelt met je backoffice
+              </li>
+              <li class="flex items-center">
+                <Check class="size-6 text-green-500 mr-2"/>
+                Mogelijkheid om vragen te stellen over jouw situatie
+              </li>
+            </ul>
+          </div>
+        </div>
+        <DemoForm/>
+      </div>
+    </div>
+  </section>
 </Layout>
