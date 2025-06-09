@@ -13,9 +13,25 @@ const {pathname} = Astro.url;
   <meta name="viewport" content="width=device-width"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <meta name="generator" content={Astro.generator}/>
+
   <title>Insync – Flexibel Klantportaal voor Intermediairs</title>
   <meta name="description"
         content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
+
+  <meta name="og:title" content="Insync – Flexibel Klantportaal voor Intermediairs"/>
+  <meta name="og:description"
+        content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
+  <meta name="og:image" content="/og-image.jpg"/>
+  <meta name="og:type" content="website"/>
+  <meta name="og:url" content={Astro.url.href}/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Insync – Flexibel Klantportaal voor Intermediairs"/>
+  <meta name="twitter:description"
+        content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
+  <meta name="twitter:image" content="/og-image.jpg"/>
+
+  <meta name="theme-color" content="#5B59F8">
 </head>
 <body>
 <header class="sticky top-0 h-[var(--header-height)] flex items-center bg-background/80 backdrop-blur z-50">
@@ -84,7 +100,6 @@ const {pathname} = Astro.url;
     </div>
   </div>
 </header>
-
 <div id="mobile-menu" class="hidden lg:hidden fixed top-[var(--header-height)] h-svh inset-x-0 bottom-0 bg-background/80 backdrop-blur starting:opacity-0 transition-all duration-200 z-50">
   <nav class="pt-4 pb-8">
     <div class="container">
@@ -175,6 +190,8 @@ const {pathname} = Astro.url;
     </div>
   </div>
 </footer>
+
+<script src="../utils/aos.js"></script>
 </body>
 </html>
 
