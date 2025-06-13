@@ -4,6 +4,13 @@ import Button from "../components/ui/Button.astro";
 import {ChevronDown, Users, BriefcaseBusiness, Menu, X} from "@lucide/astro";
 import Umami from "../components/Umami.astro";
 
+const {
+  title,
+  description = "Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."
+} = Astro.props;
+
+const defaultTitle = "Insync – Flexibel Klantportaal voor Intermediairs";
+
 const {pathname} = Astro.url;
 ---
 
@@ -16,21 +23,18 @@ const {pathname} = Astro.url;
   <meta name="generator" content={Astro.generator}/>
   <Umami id="5a34bef4-d77e-4dec-8273-166ae1c8d495"/>
 
-  <title>Insync – Flexibel Klantportaal voor Intermediairs</title>
-  <meta name="description"
-        content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
+  <title>{title ? `${title} – Insync` : defaultTitle}</title>
+  <meta name="description" content={description}/>
 
-  <meta name="og:title" content="Insync – Flexibel Klantportaal voor Intermediairs"/>
-  <meta name="og:description"
-        content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
+  <meta name="og:title" content={title}/>
+  <meta name="og:description" content={description}/>
   <meta name="og:image" content="/og-image.jpg"/>
   <meta name="og:type" content="website"/>
   <meta name="og:url" content={Astro.url.href}/>
 
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Insync – Flexibel Klantportaal voor Intermediairs"/>
-  <meta name="twitter:description"
-        content="Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."/>
+  <meta name="twitter:title" content={title}/>
+  <meta name="twitter:description" content={description}/>
   <meta name="twitter:image" content="/og-image.jpg"/>
 
   <meta name="theme-color" content="#5B59F8">
