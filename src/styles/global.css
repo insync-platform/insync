@@ -41,7 +41,7 @@
         --destructive: hsl(0 72% 51%);
         --destructive-foreground: hsl(0 0% 98%);
 
-        --ring: var(--primary);
+        --ring: hsl(var(--primary));
 
         --radius: 0.5rem;
     }

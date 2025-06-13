@@ -9,33 +9,33 @@ import {SendHorizontal} from "@lucide/astro";
     <h2 class="h3 sm:col-span-2">Stuur ons een bericht</h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-6">
       <div class="space-y-1.5">
-        <label for="name" class="inline-block text-sm font-medium">Naam*</label>
+        <label for="name" class="inline-block text-sm font-medium">Naam<span class="text-primary">*</span></label>
         <input id="name" name="name" type="text" required
-               class="bg-background h-10 text-sm text-foreground rounded-lg border px-4 placeholder:font-medium w-full"
+               class="bg-background h-10 text-sm text-foreground rounded-lg border px-3 py-2 outline-ring placeholder:font-medium w-full"
         />
       </div>
       <div class="space-y-1.5">
         <label for="company" class="inline-block text-sm font-medium">Bedrijfsnaam</label>
         <input id="company" name="company" type="text"
-               class="bg-background h-10 text-sm text-foreground rounded-lg border px-4 placeholder:font-medium w-full"
+               class="bg-background h-10 text-sm text-foreground rounded-lg border px-3 py-2 outline-ring placeholder:font-medium w-full"
         />
       </div>
       <div class="space-y-1.5">
-        <label for="email" class="inline-block text-sm font-medium">E-mailadres*</label>
+        <label for="email" class="inline-block text-sm font-medium">E-mailadres<span class="text-primary">*</span></label>
         <input id="email" name="email" type="email" required
-               class="bg-background h-10 text-sm text-foreground rounded-lg border px-4 placeholder:font-medium w-full"
+               class="bg-background h-10 text-sm text-foreground rounded-lg border px-3 py-2 outline-ring placeholder:font-medium w-full"
         />
       </div>
       <div class="space-y-1.5">
         <label for="phone" class="inline-block text-sm font-medium">Telefoonnummer</label>
         <input id="phone" name="phone" type="tel"
-               class="bg-background h-10 text-sm text-foreground rounded-lg border px-4 placeholder:font-medium w-full"
+               class="bg-background h-10 text-sm text-foreground rounded-lg border px-3 py-2 outline-ring placeholder:font-medium w-full"
         />
       </div>
       <div class="sm:col-span-2 lg:col-span-1 2xl:col-span-2 space-y-1.5">
-        <label for="message" class="inline-block text-sm font-medium">Bericht*</label>
+        <label for="message" class="inline-block text-sm font-medium">Bericht<span class="text-primary">*</span></label>
         <textarea id="message" name="message" rows="4" required
-                  class="bg-background text-sm text-foreground rounded-lg border p-4 placeholder:font-medium w-full"
+                  class="bg-background text-sm text-foreground rounded-lg border px-3 py-2 outline-ring placeholder:font-medium w-full"
                   placeholder="Typ hier je bericht..."></textarea>
       </div>
     </div>

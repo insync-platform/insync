@@ -49,11 +49,11 @@ const {pathname} = Astro.url;
       <nav class="hidden lg:block font-medium">
         <ul class="flex gap-x-12">
           <li>
-            <a href="/" class="inline-block p-2" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
+            <a href="/" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
           </li>
           <li class="relative group">
             <button
-                    class="flex items-center p-2"
+                    class="peer flex items-center rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150"
                     aria-haspopup="true"
                     aria-expanded="false"
             >
@@ -61,12 +61,12 @@ const {pathname} = Astro.url;
               <ChevronDown class="size-5 ml-2"/>
             </button>
 
-            <div class="absolute left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 p-4">
+            <div class="absolute left-1/2 -translate-x-1/2 opacity-0 peer-focus-visible:opacity-100 group-hover:opacity-100 has-[a:focus-visible]:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 p-4">
               <ul class="w-[280px] bg-background border rounded-xl shadow-md p-1.5 space-y-1">
                 <li>
                   <a href="/oplossingen/klanten"
                      class="flex items-center rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted">
-                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3">
+                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3" aria-hidden="true">
                       <Users class="size-5"/>
                     </div>
                     <div>
@@ -78,7 +78,7 @@ const {pathname} = Astro.url;
                 <li>
                   <a href="/oplossingen/intermediairs"
                      class="flex items-center rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted">
-                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3">
+                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3" aria-hidden="true">
                       <BriefcaseBusiness class="size-5"/>
                     </div>
                     <div>
@@ -91,15 +91,15 @@ const {pathname} = Astro.url;
             </div>
           </li>
           <li>
-            <a href="/blog" class="inline-block p-2" aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a>
+            <a href="/blog" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150" aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a>
           </li>
           <li>
-            <a href="/contact" class="inline-block p-2" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a>
+            <a href="/contact" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a>
           </li>
         </ul>
       </nav>
       <Button href="/demo" class="hidden lg:inline-flex">Plan een demo</Button>
-      <Button id="mobile-nav-toggle" size="icon" variant="ghost" class="inline-flex lg:hidden -mr-2">
+      <Button id="mobile-nav-toggle" size="icon" variant="ghost" class="inline-flex lg:hidden -mr-2" aria-label="Open menu">
         <Menu class="size-6" id="mobile-menu-icon-open"/>
         <X class="size-6 hidden" id="mobile-menu-icon-close"/>
       </Button>

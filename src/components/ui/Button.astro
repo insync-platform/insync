@@ -42,22 +42,11 @@
 ---
 
 {href ? (
-  <a
-    href={href}
-    class={classes}
-    aria-disabled={disabled ? 'true' : undefined}
-    tabindex={disabled ? -1 : undefined}
-    {...rest}
-  >
+  <a href={href} class={classes} aria-disabled={disabled ? 'true' : undefined} tabindex={disabled ? -1 : undefined} {...rest}>
     <slot />
   </a>
 ) : (
-  <button
-    type={type}
-    class={classes}
-    disabled={disabled}
-    {...rest}
-  >
+  <button type={type} class={classes} disabled={disabled} {...rest}>
     <slot />
   </button>
 )}
