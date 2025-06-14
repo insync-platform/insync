@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import DuGardijn from '../assets/logos/du-gardijn.svg';
 import Klantportaal from '../assets/klantportaal-mockup.webp';
 import Klantportaal2 from '../assets/klantportaal-mockup-2.webp';
+import Intermediair from '../assets/intermediair.webp';
 import IntegrationsHorizontal from '../assets/integrations-horizontal.svg';
 import IntegrationsVertical from '../assets/integrations-vertical.svg';
 import Button from "../components/ui/Button.astro";
@@ -114,8 +114,8 @@ const features = [
     <div class="container">
       <div class="flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-32">
         <div class="order-last lg:order-first lg:max-w-[640px] w-full">
-          <div class="bg-muted w-full h-96 rounded-3xl"></div>
-          <!--<Image src={Intermediairportaal} alt="Intermediairportaal" class="rounded-3xl"/>-->
+          <!--<div class="bg-muted w-full h-96 rounded-3xl"></div>-->
+          <Image src={Intermediair} alt="Intermediairportaal" class="rounded-3xl"/>
         </div>
         <div>
           <div class="text-primary font-medium mb-2">Intermediairportaal</div>
