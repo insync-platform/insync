@@ -17,7 +17,7 @@ export const server = {
     handler: async ({name, company, email, phone, message}) => {
       const { data, error } = await resend.emails.send({
         from: 'Insync <hello@insync.insure>',
-        to: 'hello@patrickhuizinga.nl', // TODO: Replace with actual support email
+        to: 'hello@insync.insure',
         subject: 'Nieuwe bericht via insync.insure',
         html: `
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
@@ -59,7 +59,7 @@ export const server = {
       const { data, error } = await resend.emails.send({
         from: 'Insync <hello@insync.insure>',
         to: email,
-        replyTo: 'hello@patrickhuizinga.nl', // TODO: Replace with actual company email, also in email body!
+        replyTo: 'hello@insync.insure',
         subject: 'Demo-aanvraag bevestigd',
         html: `
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
@@ -91,7 +91,7 @@ export const server = {
               </ul>
               
               <p>
-                Heb je in de tussentijd vragen? Neem gerust contact met ons op via <a href="mailto:hello@patrickhuizinga.nl" style="color: #5B59F8;">hello@patrickhuizinga.nl</a> of reageer op deze mail.
+                Heb je in de tussentijd vragen? Neem gerust contact met ons op via <a href="mailto:hello@insync.insure" style="color: #5B59F8;">hello@insync.insure</a> of reageer op deze mail.
               </p>
               
               <p>
