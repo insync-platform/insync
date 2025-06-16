@@ -180,3 +180,23 @@
         @apply text-[2.75rem] sm:text-[4rem] leading-[1.2] font-semibold;
     }
 }
+
+[data-aos="custom-fade-up"] {
+    transform: translateY(1rem);
+    opacity: 0;
+    transition: ease-out;
+}
+[data-aos="custom-fade-up"].aos-animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+[data-aos="custom-zoom-in"] {
+    opacity: 0;
+    scale: 0.95;
+    transition: ease-out;
+}
+[data-aos="custom-zoom-in"].aos-animate {
+    opacity: 1;
+    scale: 1;
+}
