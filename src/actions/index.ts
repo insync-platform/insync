@@ -17,7 +17,7 @@ export const server = {
     handler: async ({name, company, email, phone, message}) => {
       const { data, error } = await resend.emails.send({
         from: 'Insync <hello@insync.insure>',
-        to: 'hello@insync.insure',
+        to: ['hello@insync.insure', 'geertjan@geertjanweijman.nl'],
         subject: 'Nieuwe bericht via de website',
         html: `
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
@@ -112,7 +112,7 @@ export const server = {
         },
         {
           from: 'Insync <hello@insync.insure>',
-          to: 'hello@insync.insure',
+          to: ['hello@insync.insure', 'geertjan@geertjanweijman.nl'],
           subject: 'Nieuwe demo-aanvraag',
           html: `
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
