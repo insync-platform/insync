@@ -1,27 +1,103 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { Image } from 'astro:assets';
-import IntermediairPortaal from "../../assets/intermediairportaal-mockup-laptop.webp";
+import {Image} from 'astro:assets';
+import InsyncNovulo from "../../assets/insync-novulo.webp";
+import {Plus} from "@lucide/astro";
 ---
 
-<Layout title="Novulo koppeling" description="Koppel je Novulo backoffice direct met Insync voor een naadloze integratie van klantdata en verzekeringsbeheer.">
+<Layout title="Novulo koppeling"
+        description="Koppel je Novulo backoffice direct met Insync voor een naadloze integratie van klantdata en verzekeringsbeheer.">
   <article class="py-16">
     <div class="container max-w-[900px]">
-      <Image src={IntermediairPortaal} alt="Novulo koppeling" class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500" />
+      <Image src={InsyncNovulo} alt="Novulo koppeling"
+             class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500"/>
       <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-200">
         <h1 class="h2 mb-6">Koppel je Novulo backoffice direct met Insync</h1>
 
-        <p class="mb-4">
-          Met de Novulo koppeling in Insync koppel je jouw Novulo backoffice direct aan ons platform. Dit zorgt voor een
-          naadloze integratie van klantdata en verzekeringsbeheer, waardoor je efficiënter kunt werken en je klanten beter
-          kunt bedienen.
-        </p>
+        <!--<p class="mb-4">-->
+        <!--  Met de Novulo koppeling in Insync koppel je jouw Novulo backoffice direct aan ons platform. Dit zorgt voor een-->
+        <!--  naadloze integratie van klantdata en verzekeringsbeheer, waardoor je efficiënter kunt werken en je klanten beter-->
+        <!--  kunt bedienen.-->
+        <!--</p>-->
+
+        <!--<p class="mb-4">-->
+        <!--  De koppeling zorgt ervoor dat alle klantgegevens, polissen en documenten automatisch worden gesynchroniseerd tussen-->
+        <!--  Novulo en Insync. Hierdoor heb je altijd toegang tot de meest actuele informatie zonder handmatig gegevens te-->
+        <!--  hoeven invoeren of bijwerken.-->
+        <!--</p>-->
 
         <p class="mb-4">
-          De koppeling zorgt ervoor dat alle klantgegevens, polissen en documenten automatisch worden gesynchroniseerd tussen
-          Novulo en Insync. Hierdoor heb je altijd toegang tot de meest actuele informatie zonder handmatig gegevens te
-          hoeven invoeren of bijwerken.
+          In de verzekeringswereld draait het om vertrouwen, snelheid en gemak. Klanten verwachten directe toegang tot
+          hun gegevens, en intermediairs willen kunnen handelen op basis van actuele informatie zonder dubbele
+          administratieve lasten.
         </p>
+        <p class="mb-4">
+          Met de <strong>rechtstreekse koppeling tussen Novulo en ons Insync klant- en intermediairportaal</strong> maak
+          je dat mogelijk. Deze integratie zorgt ervoor dat alle relevante klant-, polis- en documentgegevens vanuit
+          Novulo automatisch beschikbaar zijn in het portaal. Geen handmatige handelingen meer, maar een slimme, veilige
+          en efficiënte manier van werken.
+        </p>
+        <p>
+          Zo krijgen intermediairs een compleet overzicht van hun klanten en kunnen zij sneller, beter en met minder
+          foutgevoeligheid opereren — terwijl eindklanten profiteren van self‑service en transparantie. De combinatie
+          van de flexibiliteit van Novulo als backoffice en de gebruiksvriendelijkheid van Insync als front-end portaal
+          maakt het verschil in een steeds digitaler wordende markt.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Wat levert de koppeling op voor jou als intermediair of verzekeraar?</h2>
+        <ul class="space-y-4">
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5"/>
+            <div class="mt-0.5">
+              <strong>Realtime klant- en polisbeheer</strong><br>
+              Intermediairs en eindklanten zien actuele gegevens altijd direct in het portaal, zonder vertraging of
+              handmatige updates.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5"/>
+            <div class="mt-0.5">
+              <strong>Administratieve verlichting</strong><br>
+              Door automatische data‑sync tussen Novulo en Insync portalen ontstaat minder handwerk, meer focus op
+              advies.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5"/>
+            <div class="mt-0.5">
+              <strong>Betere ervaring voor klant én adviseur</strong><br>
+              Via het portaal hebben adviseurs en klanten direct toegang tot documenten, statusupdates en acties — in
+              één
+              uniforme interface.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5"/>
+            <div class="mt-0.5">
+              <strong>Consistente dataflow, geen silo’s</strong><br>
+              Geen dubbele data of verspreide systemen: één helder portaal front-end voor alle relevante informatie.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5"/>
+            <div>
+              <strong>Toekomstvaste uitbreiding</strong><br>
+              Nieuwe producten, klantprocessen of portaalfeatures rollen soepel uit dankzij low‑code Novulo-componenten
+              en
+              het flexibele Insync‑frontend.
+            </div>
+          </li>
+        </ul>
+
+        <h2 class="h3 mt-12 mb-6">Over Novulo</h2>
+        <p>Novulo is een composable low‑code platform dat verzekeraars en intermediairs helpt om hun softwareomgeving
+          modulair en toekomstbestendig in te richten. Door herbruikbare componenten uit de Novulo Store te combineren
+          met low‑code ontwikkeling, realiseer je functionaliteit zonder langdurige trajecten.</p>
+
+        <h2 class="h3 mt-12 mb-6">Ontdek de impact zelf</h2>
+        <p><strong>Wil je weten hoe deze koppeling jouw intermediair werkpraktijk verandert?</strong><br>
+          <a href="/demo" class="text-primary font-medium hover:underline">Plan snel een demo in</a> of <a
+                  href="/contact" class="text-primary font-medium hover:underline">neem contact op</a>.</p>
       </div>
     </div>
   </article>
