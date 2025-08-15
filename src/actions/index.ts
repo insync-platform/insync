@@ -61,7 +61,7 @@ export const server = {
           from: 'Insync <hello@insync.insure>',
           to: email,
           replyTo: 'hello@insync.insure',
-          subject: 'Demo-aanvraag bevestigd',
+          subject: 'Proefaccount-aanvraag bevestigd',
           html: `
           <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
           <tr>
@@ -71,18 +71,18 @@ export const server = {
           </tr>
             <tr>
               <td style="text-align: center; padding-bottom: 30px;">
-                <h1 style="font-size: 28px; margin: 0; color: #111827;">Bedankt voor je demo-aanvraag</h1>
+                <h1 style="font-size: 28px; margin: 0; color: #111827;">Bedankt voor je proefaccount-aanvraag</h1>
               </td>
             </tr>
             <tr>
               <td style="font-size: 16px; line-height: 1.6;">
                 <p>Hallo ${name},</p>
                 
-                <p>We hebben je aanvraag voor een demo van <strong>Insync</strong> goed ontvangen. Binnenkort nemen we 
+                <p>We hebben je aanvraag voor een proefaccount van <strong>Insync</strong> goed ontvangen. Binnenkort nemen we 
                 contact met je op om een geschikt moment af te stemmen.</p>
                 
                 <p>
-                  Tijdens de demo laten we je graag zien hoe je met Insync:
+                  Met een proefaccount kun je zien hoe je met Insync:
                 </p>
           
                 <ul style="padding-left: 1.25rem;">

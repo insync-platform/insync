@@ -59,7 +59,7 @@ import {SendHorizontal} from "@lucide/astro";
 
       if (!response && response.error) throw response.error
 
-      form.outerHTML = '<p class="block px-4 py-2 text-green-600 bg-green-100 border border-green-500 font-medium rounded-lg">Dankjewel voor je aanvraag! We nemen snel contact met je op om een moment af te stemmen voor de demo.</p>'
+      form.outerHTML = '<p class="block px-4 py-2 text-green-600 bg-green-100 border border-green-500 font-medium rounded-lg">Dankjewel voor je aanvraag! We nemen snel contact met je op wanneer je toegang hebt tot je proefaccount.</p>'
     } catch (ereror) {
       errorEl.innerHTML = 'Er is iets fout gegaan. Probeer het opnieuw of neem contact op met hello@insync.insure'
       console.error('Error in response:', response?.error)
