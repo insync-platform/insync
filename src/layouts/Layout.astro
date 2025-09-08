@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Button from "../components/ui/Button.astro";
-import {ChevronDown, Users, BriefcaseBusiness, Menu, X} from "@lucide/astro";
+import {ChevronDown, Users, BriefcaseBusiness, Menu, X, ShoppingCart, SearchCheck} from "@lucide/astro";
 import Umami from "../components/Umami.astro";
 
 const {
@@ -55,11 +55,11 @@ const {pathname} = Astro.url;
       <nav class="hidden lg:block font-medium">
         <ul class="flex gap-x-12">
           <li>
-            <a href="/" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
+            <a href="/" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background duration-150" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
           </li>
           <li class="relative group">
             <button
-                    class="peer flex items-center rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150"
+                    class="peer flex items-center rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background duration-150"
                     aria-haspopup="true"
                     aria-expanded="false"
             >
@@ -68,39 +68,61 @@ const {pathname} = Astro.url;
             </button>
 
             <div class="absolute left-1/2 -translate-x-1/2 opacity-0 peer-focus-visible:opacity-100 group-hover:opacity-100 has-[a:focus-visible]:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 p-4">
-              <ul class="w-[280px] bg-background border rounded-xl shadow-md p-1.5 space-y-1">
-                <li>
-                  <a href="/oplossingen/klanten"
-                     class="flex items-center rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted">
-                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3" aria-hidden="true">
-                      <Users class="size-5"/>
-                    </div>
-                    <div>
-                      <span class="block font-medium text-foreground">Voor klanten</span>
-                      Geef klanten meer controle
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="/oplossingen/intermediairs"
-                     class="flex items-center rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted">
-                    <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3" aria-hidden="true">
-                      <BriefcaseBusiness class="size-5"/>
-                    </div>
-                    <div>
-                      <span class="block font-medium text-foreground">Voor intermediairs</span>
-                      Grip op klantdata
-                    </div>
-                  </a>
-                </li>
-              </ul>
+              <div class="grid gap-x-6 w-[320px] bg-background border rounded-xl shadow-md p-4">
+                <div class="space-y-3">
+                  <div class="text-sm font-semibold text-muted-foreground">Voor je klanten</div>
+                  <ul class="space-y-2">
+                    <li>
+                      <a href="/oplossingen/klantportaal"
+                         class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5">
+                        <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5" aria-hidden="true">
+                          <Users class="size-5"/>
+                        </div>
+                        <div>
+                          <span class="block font-medium text-foreground">Klantportaal</span>
+                          Geef klanten meer inzicht
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/oplossingen/afsluitstraat"
+                         class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5">
+                        <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5" aria-hidden="true">
+                          <ShoppingCart class="size-5"/>
+                        </div>
+                        <div>
+                          <span class="block font-medium text-foreground">Afsluitstraat</span>
+                          Eenvoudig verzekeringen afsluiten en aanvragen
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!--<div class="space-y-3">-->
+                <!--  <div class="text-sm font-semibold text-muted-foreground">Tools</div>-->
+                <!--  <ul class="space-y-2">-->
+                <!--    <li>-->
+                <!--      <a href="/oplossingen/schade-analyse"-->
+                <!--         class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5">-->
+                <!--        <div class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5" aria-hidden="true">-->
+                <!--          <SearchCheck class="size-5"/>-->
+                <!--        </div>-->
+                <!--        <div>-->
+                <!--          <span class="block font-medium text-foreground">AI Schade analyse</span>-->
+                <!--          Automatiseer schadeclaims-->
+                <!--        </div>-->
+                <!--      </a>-->
+                <!--    </li>-->
+                <!--  </ul>-->
+                <!--</div>-->
+              </div>
             </div>
           </li>
           <li>
-            <a href="/blog" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150" aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a>
+            <a href="/blog" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background duration-150" aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a>
           </li>
           <li>
-            <a href="/contact" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] duration-150" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a>
+            <a href="/contact" class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background duration-150" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a>
           </li>
         </ul>
       </nav>

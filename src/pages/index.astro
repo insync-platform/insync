@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import Klantportaal from '../assets/klantportaal-mockup.webp';
-import Klantportaal2 from '../assets/klantportaal-mockup-2.webp';
-import Intermediair from '../assets/intermediair.webp';
+import CustomerPortal from '../assets/customer-portal/home.webp';
+import CustomerPortal2 from '../assets/customer-portal/mockup.webp';
+import InsurancePortalCar from "../assets/insurance-portal/car-insurance-mockup.webp";
 import IntegrationsHorizontal from '../assets/integrations-horizontal.svg';
 import IntegrationsVertical from '../assets/integrations-vertical.svg';
 import Button from "../components/ui/Button.astro";
@@ -17,8 +17,8 @@ const features = [
     icon: HeartHandshake,
   },
   {
-    title: 'Altijd volledig en actueel klantinzicht',
-    description: 'Realtime data vanuit je backoffice systeem, zonder handwerk.',
+    title: 'Altijd volledig en actueel',
+    description: 'Realtime data vanuit je backoffice systeem. Veilig en compliant.',
     icon: Files,
   },
   {
@@ -65,7 +65,7 @@ const features = [
           </div>
         </div>
         <div class="relative sm:w-[560px] grid place-items-center mx-auto">
-          <Image src={Klantportaal} alt="Klantportaal" class="w-[280px] starting:opacity-0 starting:scale-95 transition-all duration-1000 delay-600"/>
+          <Image src={CustomerPortal} alt="Klantportaal" class="w-[280px] starting:opacity-0 starting:scale-95 transition-all duration-1000 delay-600"/>
           <div class="starting:opacity-0 transition-all duration-2000 delay-1000 -z-10">
             <div class="absolute -top-[64px] -left-[64px] bg-accent/10 size-[500px] rounded-[120px] blur-[150px]"></div>
             <div class="absolute -bottom-[64px] -right-[64px] bg-primary/15 size-[500px] rounded-[120px] blur-[150px]"></div>
@@ -94,8 +94,8 @@ const features = [
     <div class="container">
       <div class="flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-32">
         <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
-          <div class="text-primary font-medium mb-2">Voor jouw klanten</div>
-          <h1 class="mb-4">Digitaal gemak voor jouw klant</h1>
+          <div class="text-primary font-medium mb-2">Klantportaal</div>
+          <h1 class="mb-4">Digitaal gemak voor je klant</h1>
           <p class="mb-10">
             Jouw klant verwacht overzicht, snelheid en eenvoud. Met Insync geef je hen toegang tot een persoonlijk
             portaal waar ze zelf hun verzekeringen, documenten en schades kunnen inzien. Veilig en altijd beschikbaar.
@@ -106,28 +106,35 @@ const features = [
           </Button>
         </div>
         <div class="lg:max-w-[640px] w-full" data-aos="custom-zoom-in" data-aos-duration="400" data-aos-delay="400" data-aos-once="true">
-          <Image src={Klantportaal2} alt="Klantportaal" class="rounded-3xl"/>
+          <Image src={CustomerPortal2} alt="Klantportaal" class="rounded-3xl"/>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="agent-portal" class="py-20 sm:py-28">
+  <section id="insurance-portal" class="py-20 sm:py-28">
     <div class="container">
       <div class="flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-32">
         <div class="order-last lg:order-first lg:max-w-[640px] w-full" data-aos="custom-zoom-in" data-aos-duration="400" data-aos-delay="400" data-aos-once="true">
-          <Image src={Intermediair} alt="Intermediairportaal" class="rounded-3xl"/>
+          <Image
+            src={InsurancePortalCar}
+            alt="Digitale afsluitstraat voor verzekeringen"
+            class="rounded-3xl"
+            width={640}
+            height={480}
+            loading="lazy"
+          />
         </div>
         <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
-          <div class="text-primary font-medium mb-2">Voor intermediairs</div>
-          <h1 class="mb-4">Efficiënter werken, sterker verbinden</h1>
+          <div class="text-primary font-medium mb-2">Digitale afsluitstraat</div>
+          <h2 class="h1 mb-4">Efficiënt en veilig verzekeringen afsluiten</h2>
           <p class="mb-10">
-            Als intermediair wil je grip houden én goed bereikbaar zijn. Insync automatiseert terugkerende klantvragen
-            en centraliseert communicatie, zonder dat het afstandelijk wordt.
+            Laat klanten eenvoudig online verzekeringen aanvragen en afsluiten. Met de dynamische afsluitstraat van Insync
+            worden aanvragen automatisch verwerkt in je administratie, zonder extra handwerk.
           </p>
-          <Button href="/oplossingen/intermediairs" size="lg" class="w-full sm:w-auto">
-            Intermediairportaal ontdekken
-            <ArrowRight class="size-5"/>
+          <Button href="/oplossingen/afsluitstraat" size="lg" class="w-full sm:w-auto">
+            Afsluitstraat ontdekken
+            <ArrowRight class="size-5" aria-hidden="true" />
           </Button>
         </div>
       </div>

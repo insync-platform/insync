@@ -8,7 +8,7 @@ const posts = [
   {
     title: 'Novulo koppeling',
     description: 'Koppel Insync aan Novulo voor een naadloze integratie van klantdata en verzekeringsbeheer.',
-    date: '2025-06-09',
+    date: '09-06-2025',
     link: '/blog/novulo-koppeling',
     thumbnail: InsyncNovulo
   }
@@ -43,7 +43,7 @@ const posts = [
               <div class="px-4">
                 <div class="h4 mb-1">{post.title}</div>
                 <p class="text-sm text-muted-foreground mb-4">{post.description}</p>
-                <p class="text-sm text-primary font-mono">{new Date(post.date).toLocaleDateString()}</p>
+                <p class="text-sm text-primary font-mono">{post.date}</p>
               </div>
             </a>
           ))}
