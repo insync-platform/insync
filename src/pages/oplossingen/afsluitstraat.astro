@@ -34,17 +34,21 @@ const features = [
 ]
 ---
 
-<Layout title="Klantportaal" description="Bied je klanten inzicht in verzekeringen, documenten en contactopties. Met een gebruiksvriendelijk portaal dat volledig in jouw stijl werkt.">
+<Layout title="Klantportaal"
+        description="Bied je klanten inzicht in verzekeringen, documenten en contactopties. Met een gebruiksvriendelijk portaal dat volledig in jouw stijl werkt.">
   <section id="hero" class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip">
     <div class="container">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         <div>
           <div class="space-y-4">
-            <h1 class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+            <h1
+              class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
               Efficiënt en veilig afsluiten met de digitale afsluitstraat
             </h1>
-            <p class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
-              Laat klanten eenvoudig online verzekeringen aanvragen en afsluiten. Dynamisch opgezet, volledig gekoppeld aan jouw administratie.
+            <p
+              class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
+              Laat klanten eenvoudig online verzekeringen aanvragen en afsluiten. Dynamisch opgezet, volledig gekoppeld
+              aan jouw administratie.
             </p>
           </div>
 
@@ -55,8 +59,10 @@ const features = [
             </Button>
           </div>
         </div>
-        <div class="grid place-items-center gradient-background lg:aspect-square w-full lg:w-auto  h-[400px] lg:h-[440px] 2xl:h-[600px] lg:max-h-none border rounded-3xl mx-auto overflow-hidden shrink-0">
-          <Image src={InsurancePortal} alt="Afsluitstraat" class="w-[260px] lg:w-3/5 mt-6 lg:mt-16 starting:opacity-0 starting:translate-y-4 transition-all duration-1000"/>
+        <div
+          class="grid place-items-center gradient-background lg:aspect-square w-full lg:w-auto  h-[400px] lg:h-[440px] 2xl:h-[600px] lg:max-h-none border rounded-3xl mx-auto overflow-hidden shrink-0">
+          <Image src={InsurancePortal} alt="Afsluitstraat"
+                 class="w-[260px] lg:w-3/5 mt-6 lg:mt-16 starting:opacity-0 starting:translate-y-4 transition-all duration-1000"/>
         </div>
       </div>
     </div>
@@ -66,13 +72,13 @@ const features = [
     <div class="container">
       <div class="flex flex-col lg:flex-row justify-between gap-8 sm:gap-16">
         <Image
-                src={InsurancePortalCar}
-                alt="Klantportaal"
-                class="order-last lg:order-first lg:max-w-[600px] xl:max-w-[640px] w-full lg:aspect-square rounded-3xl object-cover"
-                data-aos="custom-zoom-in"
-                data-aos-duration="400"
-                data-aos-delay="400"
-                data-aos-once="true"
+          src={InsurancePortalCar}
+          alt="Klantportaal"
+          class="order-last lg:order-first lg:max-w-[600px] xl:max-w-[640px] w-full lg:aspect-square rounded-3xl object-cover"
+          data-aos="custom-zoom-in"
+          data-aos-duration="400"
+          data-aos-delay="400"
+          data-aos-once="true"
         />
         <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
           <div class="text-primary font-medium mb-2">Voordelen voor klanten en intermediairs</div>
@@ -98,7 +104,8 @@ const features = [
   <section class="bg-gradient-to-t from-muted to-muted/50 py-20 sm:py-28">
     <div class="container">
       <div class="flex flex-col items-center">
-        <h1 class="text-center max-w-[600px] mb-16" data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+        <h1 class="text-center max-w-[600px] mb-16" data-aos="custom-fade-up" data-aos-duration="400"
+            data-aos-once="true">
           Hoe werkt het?</h1>
         <ul class="grid lg:grid-cols-3 gap-8">
           <li data-aos="custom-fade-up" data-aos-duration="400" data-aos-delay="200" data-aos-once="true">
@@ -125,20 +132,22 @@ const features = [
               <Image src={Inbox} alt="Verwerking aanvraag" class="w-[350px] mx-auto"/>
             </div>
             <h2 class="h4 mb-2">3. Direct verwerkt in de administratie</h2>
-            <p class="text-sm text-muted-foreground">De aanvraag wordt direct verwerkt in je backoffice en zichtbaar in je backoffice en het klantportaal.</p>
+            <p class="text-sm text-muted-foreground">De aanvraag wordt direct verwerkt in je backoffice en zichtbaar in
+              het klantportaal.</p>
           </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <Cta heading="Klaar om sneller en slimmer af te sluiten?"/>
+  <Cta
+    heading="Klaar om sneller en slimmer af te sluiten?"
+    text="Vraag vrijblijvend een demo aan en ontdek hoe hoe je binnen een week jouw afsluitstraat live kunt hebben."/>
 </Layout>
 
 <style>
   .gradient-background {
-      background:
-              linear-gradient(-45deg, hsl(var(--primary) / .25), transparent 50%),
-              linear-gradient(45deg, hsl(var(--accent) / .25), transparent 50%);
+    background: linear-gradient(-45deg, hsl(var(--primary) / .25), transparent 50%),
+    linear-gradient(45deg, hsl(var(--accent) / .25), transparent 50%);
   }
 </style>
