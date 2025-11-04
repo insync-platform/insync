@@ -5,8 +5,7 @@ import {ArrowDown} from "@lucide/astro";
 import Button from "../../components/ui/Button.astro";
 import {Image} from "astro:assets";
 import IntermediairPortaalLaptop from "../../assets/intermediairportaal-mockup-laptop.webp";
-import ClientView from "../../assets/relatie-bekijken.webp";
-import {Zap, Puzzle, ShieldCheck, Brain} from "@lucide/astro";
+import {Zap, Languages, ShieldCheck, Brain} from "@lucide/astro";
 
 const features = [
   {
@@ -21,9 +20,14 @@ const features = [
   },
   {
     title: "Volledig veilig & gekoppeld",
-    description: "Insync AI werkt bovenop je bestaande backoffice (zoals Anva of Novulo) via een beveiligde MCP-server. Jouw data blijft waar hij hoort.",
+    description: "Insync AI werkt bovenop je bestaande backoffice (zoals Anva of Novulo) via een beveiligde MCP-server. Jouw data blijft waar hij hoort: In jouw backoffice",
     icon: ShieldCheck
-  }
+  },
+  {
+    title: "Meertalige ondersteuning",
+    description: "Communiceer met Insync AI in jouw voorkeurstaal. Het systeem begrijpt en reageert in meerdere talen voor optimaal gebruiksgemak.",
+    icon: Languages
+  },
 ]
 ---
 
@@ -38,7 +42,7 @@ const features = [
             </h1>
             <p class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
               Een slimme AI-assistent die rechtstreeks communiceert met jouw backoffice.
-              Voer acties uit, vind klantgegevens en beheer je administratie… gewoon via chat.
+              Voer acties uit, vind klantgegevens en beheer je administratie… gewoon via chat of spraak.
             </p>
           </div>
 
@@ -124,7 +128,7 @@ const features = [
               <img src="/logo.svg" alt="Insync" class="h-12 opacity-50"/>
               <span class="text-muted-foreground/75 text-sm mt-2">Binnenkort beschikbaar</span>
             </div>
-            <h2 class="h4 mb-2">3. DIrect uitgevoerd in je backoffice</h2>
+            <h2 class="h4 mb-2">3. Direct uitgevoerd in jouw backoffice</h2>
             <p class="text-sm text-muted-foreground">
               De opdracht wordt direct via de Insync MCP-server uitgevoerd.</p>
           </li>
