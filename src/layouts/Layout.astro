@@ -8,10 +8,10 @@ import Umami from "../components/Umami.astro";
 
 const {
   title,
-  description = "Insync is het modulaire klantportaal en intermediairplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."
+  description = "Insync is het modulaire klantportaal en medewerkerplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten."
 } = Astro.props;
 
-const defaultTitle = "Insync – Flexibel Klantportaal voor Intermediairs";
+const defaultTitle = "Insync – Flexibel Klantportaal voor Verzekeringen";
 const pageTitle = title ? `${title} – Insync` : defaultTitle
 const {pathname} = Astro.url;
 ---
@@ -101,7 +101,7 @@ const {pathname} = Astro.url;
                   </ul>
                 </div>
                 <div class="space-y-3">
-                  <div class="text-sm font-semibold text-muted-foreground">Voor intermediairs</div>
+                  <div class="text-sm font-semibold text-muted-foreground">Voor kantoren</div>
                   <ul class="space-y-2">
                     <li>
                       <a href="/oplossingen/insync-ai"
@@ -192,7 +192,7 @@ const {pathname} = Astro.url;
               </ul>
             </div>
             <div class="mt-6">
-              <div class="text-sm font-semibold text-muted-foreground mb-3">Voor intermediairs</div>
+              <div class="text-sm font-semibold text-muted-foreground mb-3">Voor kantoren</div>
               <ul class="space-y-2">
                 <li>
                   <a href="/oplossingen/insync-ai"

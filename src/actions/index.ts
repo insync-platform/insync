@@ -87,7 +87,7 @@ export const server = {
           
                 <ul style="padding-left: 1.25rem;">
                   <li>Klanten een modern, veilig portaal biedt</li>
-                  <li>Efficiënter werkt als intermediair</li>
+                  <li>Efficiënter werkt als kantoor</li>
                   <li>Inzicht krijgt in al je klantdata</li>
                 </ul>
                 
