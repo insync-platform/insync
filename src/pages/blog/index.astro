@@ -1,56 +1,104 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import InsyncNovulo from "../../assets/insync-novulo.webp";
+import InsurancePortal from "../../assets/insurance-portal/car-insurance-mockup.webp";
+import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
 import Cta from "../../components/sections/Cta.astro";
 
 const posts = [
   {
-    title: 'Novulo koppeling',
-    description: 'Koppel Insync aan Novulo voor een naadloze integratie van klantdata en verzekeringsbeheer.',
-    date: '09-06-2025',
-    link: '/blog/novulo-koppeling',
-    thumbnail: InsyncNovulo
-  }
-]
+    title: "Afsluitstraat",
+    description:
+      "Ontdek de slimme afsluitstraat van Insync voor efficiënte verzekeringsaanvragen met realtime verwerking.",
+    date: "04-12-2025",
+    link: "/blog/afsluitstraat",
+    thumbnail: InsurancePortal,
+  },
+  {
+    title: "Insync AI",
+    description:
+      "Ontdek Insync AI: de nieuwe manier om een backoffice aan te sturen via chat of spraak.",
+    date: "10-11-2025",
+    link: "/blog/insync-ai",
+    thumbnail: InsyncLaptopMockup,
+  },
+  {
+    title: "Slimme documentdistributie",
+    description:
+      "Ontdek hoe slimme documentdistributie in het Insync klantportaal zorgt voor minder handwerk en meer overzicht.",
+    date: "15-08-2025",
+    link: "/blog/slimme-documentdistributie",
+    thumbnail: InsyncLaptopMockup,
+  },
+  {
+    title: "Novulo koppeling",
+    description:
+      "Koppel Insync aan Novulo voor een naadloze integratie van klantdata en verzekeringsbeheer.",
+    date: "09-06-2025",
+    link: "/blog/novulo-koppeling",
+    thumbnail: InsyncNovulo,
+  },
+];
 ---
 
-<Layout title="Blog" description="Lees hoe kantoren klantcontact versterken met digitale tools, AI en slimme processen. Tips, inzichten en innovaties van het Insync-team.">
+<Layout
+  title="Blog"
+  description="Lees hoe kantoren klantcontact versterken met digitale tools, AI en slimme processen. Tips, inzichten en innovaties van het Insync-team."
+>
   <section id="hero" class="pt-16 pb-12 sm:pb-16 overflow-x-clip">
     <div class="container">
       <div>
         <div class="space-y-4">
-          <h1 class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+          <h1
+            class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150"
+          >
             Blog
           </h1>
-          <p class="text-center lg:text-left max-w-[800px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
-            Welkom op onze blog! Hier delen we inzichten, tips en nieuws over Insync en de verzekeringsbranche. Blijf
-            op de hoogte van de laatste ontwikkelingen en leer hoe je het meeste uit ons platform haalt.
+          <p
+            class="text-center lg:text-left max-w-[800px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
+          >
+            Welkom op onze blog! Hier delen we inzichten, tips en nieuws over
+            Insync en de verzekeringsbranche. Blijf op de hoogte van de laatste
+            ontwikkelingen en leer hoe je het meeste uit ons platform haalt.
           </p>
         </div>
       </div>
-      </div>
+    </div>
   </section>
   <section id="overview" class="overflow-x-hidden">
     <div class="container">
-      <div class="bg-muted p-6 sm:rounded-3xl -mx-4 sm:-mx-6 starting:opacity-0 starting:scale-95 transition-all duration-500 delay-500">
+      <div
+        class="bg-muted p-6 sm:rounded-3xl -mx-4 sm:-mx-6 starting:opacity-0 starting:scale-95 transition-all duration-500 delay-500"
+      >
         <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <a href={post.link} class="bg-background border rounded-2xl shadow-lg p-2 pb-4">
-              <div>
-                <Image src={post.thumbnail} alt={post.title} class="w-full h-64 object-cover rounded-2xl mb-4" />
-              </div>
-              <div class="px-4">
-                <div class="h4 mb-1">{post.title}</div>
-                <p class="text-sm text-muted-foreground mb-4">{post.description}</p>
-                <p class="text-sm text-primary font-mono">{post.date}</p>
-              </div>
-            </a>
-          ))}
+          {
+            posts.map((post) => (
+              <a
+                href={post.link}
+                class="bg-background border rounded-2xl shadow-lg p-2 pb-4"
+              >
+                <div>
+                  <Image
+                    src={post.thumbnail}
+                    alt={post.title}
+                    class="w-full h-64 object-cover rounded-2xl mb-4"
+                  />
+                </div>
+                <div class="px-4">
+                  <div class="h4 mb-1">{post.title}</div>
+                  <p class="text-sm text-muted-foreground mb-4">
+                    {post.description}
+                  </p>
+                  <p class="text-sm text-primary font-mono">{post.date}</p>
+                </div>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
   </section>
 
-  <Cta/>
+  <Cta />
 </Layout>

@@ -1,76 +1,112 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Cta from "../../components/sections/Cta.astro";
-import {ArrowDown} from "@lucide/astro";
+import { ArrowDown } from "@lucide/astro";
 import Button from "../../components/ui/Button.astro";
-import {Image} from "astro:assets";
-import IntermediairPortaalLaptop from "../../assets/intermediairportaal-mockup-laptop.webp";
+import { Image } from "astro:assets";
+import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
 import ClientView from "../../assets/relatie-bekijken.webp";
-import {Clock, MessageSquare, LayoutDashboard, Database, ShieldCheck, Brain} from "@lucide/astro";
+import {
+  Clock,
+  MessageSquare,
+  LayoutDashboard,
+  Database,
+  ShieldCheck,
+  Brain,
+} from "@lucide/astro";
 
 const features = [
   {
     title: "Minder onnodige klantvragen",
-    description: "Laat klanten zelf polissen, documenten, etc. inzien. Zo verminder je repeterende vragen via mail of telefoon.",
-    icon: Clock
+    description:
+      "Laat klanten zelf polissen, documenten, etc. inzien. Zo verminder je repeterende vragen via mail of telefoon.",
+    icon: Clock,
   },
   {
     title: "Meer tijd voor advies",
-    description: "Door selfservice-functies en centrale informatie is er minder ruis en ruimte voor persoonlijk contact.",
-    icon: MessageSquare
+    description:
+      "Door selfservice-functies en centrale informatie is er minder ruis en ruimte voor persoonlijk contact.",
+    icon: MessageSquare,
   },
   {
     title: "Modulair en schaalbaar",
-    description: "Je kiest zelf welke modules je activeert. Start klein, en breid uit wanneer jouw organisatie of klantwens groeit.",
-    icon: LayoutDashboard
+    description:
+      "Je kiest zelf welke modules je activeert. Start klein, en breid uit wanneer jouw organisatie of klantwens groeit.",
+    icon: LayoutDashboard,
   },
   {
     title: "Altijd actuele klantdata",
-    description: "Door directe koppeling met je bronsysteem is alle klantinformatie in het portaal altijd up-to-date.",
-    icon: Database
+    description:
+      "Door directe koppeling met je bronsysteem is alle klantinformatie in het portaal altijd up-to-date.",
+    icon: Database,
   },
   {
     title: "Veilig en compliant",
-    description: "Klant- en medewerkerportaal werken naadloos samen via een veilige koppeling.",
-    icon: ShieldCheck
+    description:
+      "Klant- en medewerkerportaal werken naadloos samen via een veilige koppeling.",
+    icon: ShieldCheck,
   },
   {
     title: "Eén centraal overzicht",
-    description: "Beheer al je klanten in één overzichtelijk systeem met inzicht in interacties, documenten en gebruik.",
-    icon: Brain
-  }
-]
+    description:
+      "Beheer al je klanten in één overzichtelijk systeem met inzicht in interacties, documenten en gebruik.",
+    icon: Brain,
+  },
+];
 ---
 
-<Layout title="Medewerkerportaal" description="Ontdek hoe Insync intermediairs helpt met klantinzicht, procesautomatisering en veilige koppelingen met je backoffice.">
-  <section id="hero" class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip">
+<Layout
+  title="Medewerkerportaal"
+  description="Ontdek hoe Insync intermediairs helpt met klantinzicht, procesautomatisering en veilige koppelingen met je backoffice."
+>
+  <section
+    id="hero"
+    class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip"
+  >
     <div class="container">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         <div>
           <div class="space-y-4">
-            <h1 class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+            <h1
+              class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150"
+            >
               Werk slimmer. Dien beter. Groei met vertrouwen.
             </h1>
-            <p class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
-              Insync is hét platform voor kantoren die hun klantrelatie willen versterken met minder gedoe. Digitaal waar het kan, persoonlijk waar het telt.            </p>
+            <p
+              class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
+            >
+              Insync is hét platform voor kantoren die hun klantrelatie willen
+              versterken met minder gedoe. Digitaal waar het kan, persoonlijk
+              waar het telt.
+            </p>
           </div>
 
-          <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
-            <Button href="#features" variant="outline" size="lg" class="w-full lg:w-auto">
-              <ArrowDown class="text-primary size-6"/>
+          <div
+            class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450"
+          >
+            <Button
+              href="#features"
+              variant="outline"
+              size="lg"
+              class="w-full lg:w-auto"
+            >
+              <ArrowDown class="text-primary size-6" />
               Ontdek de voordelen
             </Button>
           </div>
         </div>
-        <div class="aspect-video lg:aspect-square max-w-full lg:max-w-[600px] w-full">
+        <div
+          class="aspect-video lg:aspect-square max-w-full lg:max-w-[600px] w-full"
+        >
           <Image
-            src={IntermediairPortaalLaptop}
+            src={InsyncLaptopMockup}
             alt="Medewerkerportaal"
             class="h-full w-full rounded-3xl object-cover"
             data-aos="custom-zoom-in"
             data-aos-duration="1000"
             data-aos-delay="600"
-            data-aos-once="true"/>
+            data-aos-once="true"
+          />
         </div>
       </div>
     </div>
@@ -78,25 +114,42 @@ const features = [
 
   <section id="features" class="py-20 sm:py-28">
     <div class="container">
-      <div class="flex flex-col lg:flex-row justify-between items-end gap-4 lg:gap-10 mb-16" data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+      <div
+        class="flex flex-col lg:flex-row justify-between items-end gap-4 lg:gap-10 mb-16"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-once="true"
+      >
         <div class="lg:max-w-[600px]">
-          <div class="text-primary font-medium mb-2">Voordelen voor kantoren</div>
+          <div class="text-primary font-medium mb-2">
+            Voordelen voor kantoren
+          </div>
           <h1>Wat Insync voor jou betekent</h1>
         </div>
-        <p class="lg:max-w-[640px]">Insync helpt je om slimmer te werken en je klanten beter te bedienen, zonder dat het
-          meer tijd kost.</p>
+        <p class="lg:max-w-[640px]">
+          Insync helpt je om slimmer te werken en je klanten beter te bedienen,
+          zonder dat het meer tijd kost.
+        </p>
       </div>
 
-      <ul class="grid md:grid-cols-2 xl:grid-cols-3 border rounded-2xl" data-aos="custom-fade-up" data-aos-duration="400" data-aos-delay="200" data-aos-once="true">
-        {features.map((feature) => (
-                <li class="flex p-6 border-b border-r md:nth-[5]:border-b-0 xl:nth-[4]:border-b-0 last:border-0">
-                  <feature.icon class="size-6 text-primary shrink-0 mt-0.5 mr-3" />
-                  <div>
-                    <div class="text-lg font-medium mb-1">{feature.title}</div>
-                    <p class="text-muted-foreground">{feature.description}</p>
-                  </div>
-                </li>
-        ))}
+      <ul
+        class="grid md:grid-cols-2 xl:grid-cols-3 border rounded-2xl"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-delay="200"
+        data-aos-once="true"
+      >
+        {
+          features.map((feature) => (
+            <li class="flex p-6 border-b border-r md:nth-[5]:border-b-0 xl:nth-[4]:border-b-0 last:border-0">
+              <feature.icon class="size-6 text-primary shrink-0 mt-0.5 mr-3" />
+              <div>
+                <div class="text-lg font-medium mb-1">{feature.title}</div>
+                <p class="text-muted-foreground">{feature.description}</p>
+              </div>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
@@ -104,35 +157,69 @@ const features = [
   <section class="bg-gradient-to-t from-muted to-muted/50 py-20 sm:py-28">
     <div class="container">
       <div class="flex flex-col items-center">
-        <h1 class="text-center max-w-[600px] mb-16" data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">Jouw cockpit voor klantcommunicatie</h1>
+        <h1
+          class="text-center max-w-[600px] mb-16"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-once="true"
+        >
+          Jouw cockpit voor klantcommunicatie
+        </h1>
         <ul class="grid lg:grid-cols-2 gap-8 max-w-[1200px] w-full">
-          <li data-aos="custom-fade-up" data-aos-duration="400" data-aos-delay="200" data-aos-once="true">
-            <div class="grid place-items-center relative bg-background border rounded-2xl shadow-md overflow-hidden aspect-video mb-6 px-2 pt-2">
-              <div class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent"></div>
-              <Image src={ClientView} alt="Relatie bekijken"/>
+          <li
+            data-aos="custom-fade-up"
+            data-aos-duration="400"
+            data-aos-delay="200"
+            data-aos-once="true"
+          >
+            <div
+              class="grid place-items-center relative bg-background border rounded-2xl shadow-md overflow-hidden aspect-video mb-6 px-2 pt-2"
+            >
+              <div
+                class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent"
+              >
+              </div>
+              <Image src={ClientView} alt="Relatie bekijken" />
             </div>
             <h2 class="h4 mb-2">Alle klantdata op één plek. Altijd actueel.</h2>
-            <p class="text-sm text-muted-foreground">Van verzekeringspolissen tot aantekeningen en documenten: je hebt
-              direct overzicht van alles wat er speelt per klant. Dankzij de directe koppeling met je backoffice werk je
-              altijd met realtime data. Veilig, volledig en zonder dubbel werk.</p>
+            <p class="text-sm text-muted-foreground">
+              Van verzekeringspolissen tot aantekeningen en documenten: je hebt
+              direct overzicht van alles wat er speelt per klant. Dankzij de
+              directe koppeling met je backoffice werk je altijd met realtime
+              data. Veilig, volledig en zonder dubbel werk.
+            </p>
           </li>
-          <li data-aos="custom-fade-up" data-aos-duration="400" data-aos-delay="400" data-aos-once="true">
-            <div class="flex flex-col items-center justify-center relative bg-background border rounded-2xl shadow-md overflow-hidden aspect-video mb-6">
-              <div class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+          <li
+            data-aos="custom-fade-up"
+            data-aos-duration="400"
+            data-aos-delay="400"
+            data-aos-once="true"
+          >
+            <div
+              class="flex flex-col items-center justify-center relative bg-background border rounded-2xl shadow-md overflow-hidden aspect-video mb-6"
+            >
+              <div
+                class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-primary/20 to-transparent"
+              >
+              </div>
               <!--<Image src={} alt="Verzekeringen overzicht"/>-->
-              <img src="/logo.svg" alt="Insync" class="h-12 opacity-50"/>
-              <span class="text-muted-foreground/75 text-sm mt-2">Binnenkort beschikbaar</span>
+              <img src="/logo.svg" alt="Insync" class="h-12 opacity-50" />
+              <span class="text-muted-foreground/75 text-sm mt-2"
+                >Binnenkort beschikbaar</span
+              >
             </div>
             <h2 class="h4 mb-2">Sneller contact, minder losse mailtjes</h2>
-            <p class="text-sm text-muted-foreground">Via het platform zie je in één oogopslag wat er speelt bij je klant
-              en neem je direct actie. Zo voorkom je onnodige vragen, losse mailwisselingen en heb je meer ruimte voor
-              persoonlijk advies.</p>
+            <p class="text-sm text-muted-foreground">
+              Via het platform zie je in één oogopslag wat er speelt bij je
+              klant en neem je direct actie. Zo voorkom je onnodige vragen,
+              losse mailwisselingen en heb je meer ruimte voor persoonlijk
+              advies.
+            </p>
           </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <Cta/>
-
+  <Cta />
 </Layout>

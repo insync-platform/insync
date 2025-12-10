@@ -1,0 +1,117 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
+import { Plus } from "@lucide/astro";
+---
+
+<Layout
+  title="Slimme documentdistributie"
+  description="Ontdek hoe slimme documentdistributie in het Insync klantportaal zorgt voor minder handwerk en meer overzicht."
+>
+  <article class="py-16">
+    <div class="container max-w-[900px]">
+      <Image
+        src={InsyncLaptopMockup}
+        alt="Slimme documentdistributie"
+        class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500"
+      />
+      <div
+        class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-200"
+      >
+        <h1 class="h2 mb-6">
+          Slimme documentdistributie in het klantportaal: minder handwerk, meer
+          overzicht
+        </h1>
+
+        <p class="mb-4">
+          Voor veel intermediairs is documentverwerking nog steeds een
+          tijdrovend proces. Verzekeringsdocumenten komen binnen via systemen
+          zoals Aplaza, maar moeten eerst worden beoordeeld voordat ze veilig
+          gedeeld kunnen worden met de klant. Dat kost tijd, aandacht en vaak
+          ook veel dubbel werk.
+        </p>
+        <p class="mb-4">
+          In het Insync klantportaal draait dit proces volledig om: documenten
+          die voor klanten relevant zijn, worden automatisch beschikbaar gemaakt
+          — zonder dat jij elk item handmatig hoeft te controleren.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Hoe werkt dit?</h2>
+        <p class="mb-4">
+          Ons klantportaal maakt gebruik van duidelijke business rules die
+          bepalen welke documenten wel of niet automatisch gepubliceerd worden.
+          Denk hierbij aan:
+        </p>
+        <ul class="space-y-4 mb-4">
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Type document</strong><br />
+              Polisblad, prolongatie, wijziging, schade-communicatie, etc.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Maatschappij of product</strong><br />
+              Flexibel in te stellen per productgroep.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Databron</strong><br />
+              Bijvoorbeeld documenten die via Aplaza binnenkomen.
+            </div>
+          </li>
+        </ul>
+        <p>
+          Hierdoor kun je als intermediair vertrouwen op een systeem dat het
+          meeste werk al voor je doet, terwijl jij alleen nog uitzonderingen
+          hoeft te beoordelen.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Waarom is dit waardevol?</h2>
+        <ul class="space-y-4">
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Minder operationele lasten</strong><br />
+              Minder handmatige controles, minder foutgevoelig.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Betere klantbeleving</strong><br />
+              Klanten vinden direct hun meest recente documenten — zonder dat je ze
+              hoeft na te sturen.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Consistente werkwijze</strong><br />
+              Iedereen in de organisatie werkt op dezelfde manier.
+            </div>
+          </li>
+        </ul>
+
+        <h2 class="h3 mt-12 mb-6">Zelf ervaren hoe dit werkt?</h2>
+        <p>
+          <strong
+            >Wil je meer weten over slimme documentdistributie of het
+            klantportaal zelf proberen?</strong
+          ><br />
+          <a href="/demo" class="text-primary font-medium hover:underline"
+            >Plan een demo in</a
+          > of <a
+            href="/contact"
+            class="text-primary font-medium hover:underline">neem contact op</a
+          >.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>
