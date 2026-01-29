@@ -4,11 +4,20 @@ import { Image } from "astro:assets";
 import InsyncNovulo from "../../assets/insync-novulo.webp";
 import InsurancePortal from "../../assets/insurance-portal/car-insurance-mockup.webp";
 import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
+import DuGardijn from "../../assets/insync-du-gardijn.webp";
 import Cta from "../../components/sections/Cta.astro";
 
 const posts = [
   {
-    title: "Afsluitstraat",
+    title: "Insync live bij du Gardijn Verzekeringen",
+    description:
+      "Ons klantportaal is live bij meerdere klanten. Lees hoe we samen met du Gardijn Verzekeringen een succesvolle implementatie realiseerden.",
+    date: "19-12-2025",
+    link: "/blog/eerste-klanten-live",
+    thumbnail: DuGardijn,
+  },
+  {
+    title: "Van aanvraag tot polis in één vloeiende flow",
     description:
       "Ontdek de slimme afsluitstraat van Insync voor efficiënte verzekeringsaanvragen met realtime verwerking.",
     date: "04-12-2025",
@@ -16,7 +25,7 @@ const posts = [
     thumbnail: InsurancePortal,
   },
   {
-    title: "Insync AI",
+    title: "Je backoffice bedienen met je stem of chat",
     description:
       "Ontdek Insync AI: de nieuwe manier om een backoffice aan te sturen via chat of spraak.",
     date: "10-11-2025",
@@ -24,7 +33,7 @@ const posts = [
     thumbnail: InsyncLaptopMockup,
   },
   {
-    title: "Slimme documentdistributie",
+    title: "Documenten automatisch op de juiste plek",
     description:
       "Ontdek hoe slimme documentdistributie in het Insync klantportaal zorgt voor minder handwerk en meer overzicht.",
     date: "15-08-2025",
@@ -32,7 +41,7 @@ const posts = [
     thumbnail: InsyncLaptopMockup,
   },
   {
-    title: "Novulo koppeling",
+    title: "Novulo en Insync: één geïntegreerd systeem",
     description:
       "Koppel Insync aan Novulo voor een naadloze integratie van klantdata en verzekeringsbeheer.",
     date: "09-06-2025",
@@ -58,9 +67,9 @@ const posts = [
           <p
             class="text-center lg:text-left max-w-[800px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
           >
-            Welkom op onze blog! Hier delen we inzichten, tips en nieuws over
-            Insync en de verzekeringsbranche. Blijf op de hoogte van de laatste
-            ontwikkelingen en leer hoe je het meeste uit ons platform haalt.
+            Welkom op onze blog! Hier delen we inzichten, tips en nieuws over Insync en de
+            verzekeringsbranche. Blijf op de hoogte van de laatste ontwikkelingen en leer hoe je het
+            meeste uit ons platform haalt.
           </p>
         </div>
       </div>
@@ -74,22 +83,17 @@ const posts = [
         <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-6">
           {
             posts.map((post) => (
-              <a
-                href={post.link}
-                class="bg-background border rounded-2xl shadow-lg p-2 pb-4"
-              >
+              <a href={post.link} class="bg-background border rounded-2xl shadow-lg p-2 pb-4">
                 <div>
                   <Image
                     src={post.thumbnail}
                     alt={post.title}
-                    class="w-full h-64 object-cover rounded-2xl mb-4"
+                    class="w-full h-64 object-cover rounded-xl mb-4"
                   />
                 </div>
                 <div class="px-4">
                   <div class="h4 mb-1">{post.title}</div>
-                  <p class="text-sm text-muted-foreground mb-4">
-                    {post.description}
-                  </p>
+                  <p class="text-sm text-muted-foreground mb-4">{post.description}</p>
                   <p class="text-sm text-primary font-mono">{post.date}</p>
                 </div>
               </a>

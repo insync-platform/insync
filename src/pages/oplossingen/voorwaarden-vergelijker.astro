@@ -1,0 +1,265 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Cta from "../../components/sections/Cta.astro";
+import { ArrowDown } from "@lucide/astro";
+import Button from "../../components/ui/Button.astro";
+import { Image } from "astro:assets";
+import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
+import {
+  Upload,
+  FileSearch,
+  MessageSquare,
+  ShieldAlert,
+  Layers,
+  Mic,
+  FileText,
+  Zap,
+  Quote,
+} from "@lucide/astro";
+
+const features = [
+  {
+    title: "Automatische documentherkenning",
+    description: "Upload een PDF en het systeem herkent automatisch alle eigenschappen.",
+    icon: Upload,
+  },
+  {
+    title: "Slimme vergelijkingen",
+    description:
+      "Vergelijk polissen van verschillende verzekeraars in een overzichtelijke tabel met duidelijke symbolen.",
+    icon: FileSearch,
+  },
+  {
+    title: "Vraag & antwoord",
+    description:
+      "Stel specifieke dekkingsvragen en krijg direct antwoord met exacte bronvermelding naar de polis.",
+    icon: MessageSquare,
+  },
+  {
+    title: "Uitsluitingen in kaart",
+    description:
+      "Identificeer risico's en uitsluitingen automatisch en vergelijk deze tussen verschillende verzekeraars.",
+    icon: ShieldAlert,
+  },
+];
+
+const chatFeatures = [
+  {
+    title: "Polisvoorwaarden vergelijken",
+    description:
+      "Vergelijk verzekeringen systematisch met automatische controle van alle secties en een volledige vergelijkingstabel.",
+    icon: FileSearch,
+  },
+  {
+    title: "Polisvoorwaarden samenvatten",
+    description:
+      "Krijg beknopte overzichten van hoofddekkingen in klantgerichte taal, zonder jargon.",
+    icon: FileText,
+  },
+  {
+    title: "Vragen over polisvoorwaarden",
+    description: "Stel specifieke dekkingsvragen en krijg duidelijke antwoorden met uitleg.",
+    icon: MessageSquare,
+  },
+];
+---
+
+<Layout
+  title="Voorwaarden Vergelijker"
+  description="Upload polisdocumenten en laat AI automatisch de inhoud herkennen. Vergelijk, analyseer en vat polisvoorwaarden samen via een intelligente chat."
+>
+  <section id="hero" class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        <div>
+          <div class="space-y-4">
+            <h1
+              class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150"
+            >
+              Polisvoorwaarden vergelijken was nog nooit zo eenvoudig
+            </h1>
+            <p
+              class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
+            >
+              Upload je polisdocumenten en laat AI automatisch de inhoud herkennen. Vergelijk,
+              analyseer en vat polisvoorwaarden samen via een intelligente chat. Krijg direct
+              antwoord op dekkingsvragen met exacte bronvermelding.
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col justify-center lg:justify-start sm:flex-row gap-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450"
+          >
+            <Button href="/demo" size="lg" class="w-full lg:w-auto">
+              Proefaccount aanvragen
+            </Button>
+            <Button href="#features" variant="outline" size="lg" class="w-full lg:w-auto">
+              <ArrowDown class="text-primary size-6" />
+              Ontdek hoe het werkt
+            </Button>
+          </div>
+        </div>
+        <div class="aspect-video lg:aspect-square max-w-full lg:max-w-[600px] w-full">
+          <Image
+            src={InsyncLaptopMockup}
+            alt="Voorwaarden Vergelijker"
+            class="h-full w-full rounded-3xl object-cover"
+            data-aos="custom-zoom-in"
+            data-aos-duration="1000"
+            data-aos-delay="600"
+            data-aos-once="true"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-20 sm:py-28">
+    <div class="container">
+      <div
+        class="flex flex-col lg:flex-row justify-between items-end gap-4 lg:gap-10 mb-16"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-once="true"
+      >
+        <div class="lg:max-w-[600px]">
+          <div class="text-primary font-medium mb-2">Kernfunctionaliteiten</div>
+          <h1>Wat de Voorwaarden Vergelijker voor jou betekent</h1>
+        </div>
+        <p class="lg:max-w-[640px]">
+          Van handmatig doorzoeken naar direct inzicht. Dit zijn de voordelen die je elke dag voelt.
+        </p>
+      </div>
+
+      <ul
+        class="grid md:grid-cols-2 xl:grid-cols-4 border rounded-2xl"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-delay="200"
+        data-aos-once="true"
+      >
+        {
+          features.map((feature) => (
+            <li class="flex p-6 border-b md:border-r md:nth-[2]:border-r-0 xl:nth-[2]:border-r md:nth-[3]:border-b-0 xl:nth-[4]:border-b-0 last:border-0">
+              <feature.icon class="size-6 text-primary shrink-0 mt-0.5 mr-3" />
+              <div>
+                <div class="text-lg font-medium mb-1">{feature.title}</div>
+                <p class="text-muted-foreground">{feature.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="steps" class="bg-gradient-to-t from-muted to-muted/50 py-20 sm:py-28">
+    <div class="container">
+      <div class="flex flex-col items-center">
+        <h1
+          class="text-center max-w-[600px] mb-16"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-once="true"
+        >
+          Hoe werkt het?
+        </h1>
+        <ul class="grid lg:grid-cols-3 gap-8 max-w-[1200px] w-full">
+          <li
+            data-aos="custom-fade-up"
+            data-aos-duration="400"
+            data-aos-delay="200"
+            data-aos-once="true"
+          >
+            <div
+              class="relative bg-background border rounded-2xl shadow-md overflow-hidden aspect-video mb-6 flex items-center justify-center"
+            >
+              <Upload class="size-16 text-primary/50" />
+            </div>
+            <h2 class="h4 mb-2">1. Upload je polisdocument</h2>
+            <p class="text-sm text-muted-foreground">
+              Voeg een nieuw PDF-document met voorwaarden toe aan het systeem.
+            </p>
+          </li>
+          <li
+            data-aos="custom-fade-up"
+            data-aos-duration="400"
+            data-aos-delay="300"
+            data-aos-once="true"
+          >
+            <div
+              class="relative bg-background border rounded-2xl shadow-md overflow-hidden aspect-video mb-6 flex items-center justify-center"
+            >
+              <Zap class="size-16 text-primary/50" />
+            </div>
+            <h2 class="h4 mb-2">2. AI analyseert automatisch</h2>
+            <p class="text-sm text-muted-foreground">
+              Het systeem herkent automatisch de verzekeraar, het type verzekering, product en
+              dekking.
+            </p>
+          </li>
+          <li
+            data-aos="custom-fade-up"
+            data-aos-duration="400"
+            data-aos-delay="400"
+            data-aos-once="true"
+          >
+            <div
+              class="relative bg-background border rounded-2xl shadow-md overflow-hidden aspect-video mb-6 flex items-center justify-center"
+            >
+              <MessageSquare class="size-16 text-primary/50" />
+            </div>
+            <h2 class="h4 mb-2">3. Start de chat</h2>
+            <p class="text-sm text-muted-foreground">
+              Stel vragen, vergelijk polissen of vraag om samenvattingen. De AI geeft direct
+              antwoord met exacte bronvermelding.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="chat-features" class="py-20 sm:py-28">
+    <div class="container">
+      <div class="flex flex-col items-center mb-16">
+        <div class="text-primary font-medium mb-2 text-center">Chat-functionaliteiten</div>
+        <h1
+          class="text-center max-w-[700px]"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-once="true"
+        >
+          Alles wat je nodig hebt in een intelligente chat
+        </h1>
+      </div>
+
+      <ul
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-delay="200"
+        data-aos-once="true"
+      >
+        {
+          chatFeatures.map((feature) => (
+            <li class="flex flex-col items-start p-6 border rounded-2xl">
+              <div class="flex items-center justify-center text-primary border rounded-lg size-12 mb-4">
+                <feature.icon class="size-6" />
+              </div>
+              <div>
+                <h2 class="text-lg font-medium mb-1">{feature.title}</h2>
+                <p class="text-muted-foreground">{feature.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <Cta
+    heading="Klaar om slimmer te vergelijken?"
+    text="Vraag een gratis proefaccount aan en ervaar zelf hoe de Voorwaarden Vergelijker je werk vereenvoudigt."
+  />
+</Layout>

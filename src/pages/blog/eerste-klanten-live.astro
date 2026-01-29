@@ -1,0 +1,99 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import DuGardijn from "../../assets/insync-du-gardijn.webp";
+import { Plus } from "@lucide/astro";
+---
+
+<Layout
+  title="Insync live bij meerdere klanten"
+  description="Insync is live bij meerdere klanten, waaronder du Gardijn Verzekeringen in Enschede. Lees over onze succesvolle implementatie en toekomstplannen."
+>
+  <article class="py-16">
+    <div class="container max-w-[900px]">
+      <Image
+        src={DuGardijn}
+        alt="Du Gardijn Verzekeringen"
+        class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500"
+      />
+      <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-200">
+        <h1 class="h2 mb-6">
+          Insync live bij meerdere klanten – waaronder du Gardijn Verzekeringen
+        </h1>
+
+        <p class="mb-4">
+          De afgelopen maanden stonden in het teken van bouwen, testen en samenwerken. Inmiddels
+          kunnen we met trots zeggen: Insync is live bij meerdere klanten, waaronder du Gardijn
+          Verzekeringen in Enschede.
+        </p>
+
+        <p class="mb-4">
+          Onlangs waren we bij du Gardijn op bezoek om dit moment samen te vieren. In een periode
+          van slechts enkele maanden hebben we, in nauwe samenwerking met Rowin du Gardijn en
+          Danique Vaanholt, ons standaard klantportaal succesvol geïmplementeerd. Dankzij hun
+          betrokkenheid, feedback en inhoudelijke kennis staat er nu een portaal dat écht aansluit
+          op de praktijk van het intermediair.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Een klantportaal als solide basis</h2>
+        <p class="mb-4">
+          Met het Insync klantportaal krijgen klanten van du Gardijn direct inzicht in hun
+          verzekeringen, documenten en gegevens. Tegelijkertijd beschikt het kantoor over een
+          schaalbare en toekomstbestendige digitale basis die meegroeit met hun dienstverlening.
+        </p>
+        <p>
+          De livegang markeert daarmee niet alleen een oplevermoment, maar vooral het startpunt van
+          verdere optimalisatie.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Vooruitkijken: van portaal naar slimme ondersteuning</h2>
+        <p class="mb-4">
+          Tijdens ons bezoek hebben we samen vooruitgekeken naar de volgende stappen. We hebben
+          gebrainstormd over hoe AI-oplossingen kunnen bijdragen aan verdere efficiëntie en
+          kwaliteit, waaronder:
+        </p>
+
+        <ul class="space-y-4 mb-4">
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Een voorwaardenvergelijker</strong><br />
+              Om sneller en beter producten te analyseren.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Geautomatiseerde documentbeoordeling</strong><br />
+              Om handmatig werk te verminderen.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Slimmere ondersteuning</strong><br />
+              Voor adviseurs en medewerkers in het dagelijkse werk.
+            </div>
+          </li>
+        </ul>
+
+        <p>
+          Deze innovaties sluiten naadloos aan op onze visie: bestaande backoffices versterken met
+          moderne, gebruiksvriendelijke technologie.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Ook interesse in Insync?</h2>
+        <p>
+          <strong
+            >Benieuwd hoe het Insync klantportaal of onze AI-oplossingen jouw organisatie kunnen
+            ondersteunen — of wil je weten hoe een livegang eruitziet in de praktijk?</strong
+          ><br />
+          <a href="/demo" class="text-primary font-medium hover:underline">Vraag een demo aan</a> of <a
+            href="/contact"
+            class="text-primary font-medium hover:underline">neem contact op</a
+          >.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>
