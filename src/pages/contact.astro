@@ -1,44 +1,59 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import {Phone, MessageCircle, Mail} from "@lucide/astro";
+import { Phone, MessageCircle, Mail } from "@lucide/astro";
 import ContactForm from "../components/ContactForm.astro";
 ---
 
-<Layout title="Contact" description="Heb je vragen over ons platform of wil je meer informatie? Neem vrijblijvend contact op. We helpen je graag verder.">
+<Layout
+  title="Contact"
+  description="Heb je vragen over ons platform of wil je meer informatie? Neem vrijblijvend contact op. We helpen je graag verder."
+>
   <section id="hero" class="py-16 sm:py-24 2xl:py-42 pb-16 sm:pb-28 overflow-x-clip min-h-[80vh]">
     <div class="container">
       <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-24">
         <div class="xl:shrink-0">
           <div class="space-y-4 mb-10">
-            <h1 class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
+            <h1
+              class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150"
+            >
               Neem contact op
             </h1>
-            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
-              Heb je vragen of wil je iets bespreken? We helpen je graag verder.</p>
-            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
-              Liever een proefaccount aanvragen?
-              <a href="/demo" class="text-primary font-medium hover:underline">Proefaccount aanvragen</a>
+            <p
+              class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
+            >
+              Heb je vragen of wil je iets bespreken? We helpen je graag verder.
+            </p>
+            <p
+              class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
+            >
+              Liever een demo inplannen?
+              <a href="/demo" class="text-primary font-medium hover:underline">Demo inplannen</a>
             </p>
           </div>
 
-          <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
+          <div
+            class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450"
+          >
             <ul class="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-4 text-sm">
               <li>
                 <a href="tel:0618282389" class="group flex items-center">
-                  <div class="flex items-center justify-center text-primary border rounded-lg size-12 mr-3 shrink-0 group-hover:scale-105 duration-150">
-                    <Phone class="size-6"/>
+                  <div
+                    class="flex items-center justify-center text-primary border rounded-lg size-12 mr-3 shrink-0 group-hover:scale-105 duration-150"
+                  >
+                    <Phone class="size-6" />
                   </div>
                   <div>
                     <span class="block text-sm font-medium">Telefoon</span>
                     0618282389
                   </div>
                 </a>
-
               </li>
               <li>
                 <a href="https://wa.me/31618282389" class="group flex items-center">
-                  <div class="flex items-center justify-center text-primary border rounded-lg size-12 mr-3 shrink-0 group-hover:scale-105 duration-150">
-                    <MessageCircle class="size-6"/>
+                  <div
+                    class="flex items-center justify-center text-primary border rounded-lg size-12 mr-3 shrink-0 group-hover:scale-105 duration-150"
+                  >
+                    <MessageCircle class="size-6" />
                   </div>
                   <div>
                     <span class="block text-sm font-medium">WhatsApp</span>
@@ -48,8 +63,10 @@ import ContactForm from "../components/ContactForm.astro";
               </li>
               <li>
                 <a href="mailto:hello@insync.insure" class="group flex items-center">
-                  <div class="flex items-center justify-center text-primary border rounded-lg size-12 mr-3 shrink-0 group-hover:scale-105 duration-150">
-                    <Mail class="size-6"/>
+                  <div
+                    class="flex items-center justify-center text-primary border rounded-lg size-12 mr-3 shrink-0 group-hover:scale-105 duration-150"
+                  >
+                    <Mail class="size-6" />
                   </div>
                   <div>
                     <span class="block text-sm font-medium">E-mailadres</span>
@@ -67,7 +84,7 @@ import ContactForm from "../components/ContactForm.astro";
           <!--  </ul>-->
           <!--</div>-->
         </div>
-        <ContactForm/>
+        <ContactForm />
       </div>
     </div>
   </section>

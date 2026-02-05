@@ -1,16 +1,16 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-import sitemap from '@astrojs/sitemap';
-
-import netlify from '@astrojs/netlify';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
+import sitemap from "@astrojs/sitemap";
+import netlify from "@astrojs/netlify";
+import vue from "@astrojs/vue";
 
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
-  site: 'https://insync.insure',
-  integrations: [sitemap()],
-  adapter: netlify()
+  site: "https://insync.insure",
+  integrations: [sitemap(), vue()],
+  adapter: netlify(),
 });

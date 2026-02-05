@@ -1,46 +1,60 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import {Check} from "@lucide/astro";
+import { Check } from "@lucide/astro";
 import DemoForm from "../components/DemoForm.astro";
 ---
 
-<Layout title="Proefaccount aanvragen" description="Ervaar hoe Insync werkt. Vraag een proefaccount aan en ontdek de voordelen van ons platform.">
+<Layout
+  title="Demo inplannen"
+  description="Ervaar hoe Insync werkt. Plan een demo in en ontdek de voordelen van ons platform."
+>
   <section id="hero" class="py-16 sm:py-24 2xl:py-42 pb-16 sm:pb-28 overflow-x-clip min-h-[80vh]">
     <div class="container">
       <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-24">
         <div>
           <div class="space-y-4 mb-10">
-            <h1 class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150">
-              Vraag een proefaccount aan
+            <h1
+              class="display max-w-[800px] bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150"
+            >
+              Demo inplannen
             </h1>
-            <p class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300">
-              Ontdek hoe je met Insync je klantportaal professionaliseert, werkdruk verlaagt en tijd overhoudt voor echt
-              klantcontact. Kosteloos en zonder verplichtingen.</p>
+            <p
+              class="sm:text-lg max-w-[640px] mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
+            >
+              Ontdek hoe je met Insync je klantportaal professionaliseert, werkdruk verlaagt en tijd
+              overhoudt voor echt klantcontact. Kosteloos en zonder verplichtingen.
+            </p>
           </div>
 
-          <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450">
+          <div
+            class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450"
+          >
             <div class="h4 mb-4">Wat kun je verwachten?</div>
             <ul class="space-y-2">
               <li class="flex">
-                <Check class="size-6 text-green-500 mr-2"/>
+                <Check class="size-6 text-green-500 mr-2" />
                 Een korte kennismaking
               </li>
               <li class="flex">
-                <Check class="size-6 text-green-500 mr-2"/>
+                <Check class="size-6 text-green-500 mr-2" />
                 Toegang tot onze demo-omgeving
               </li>
               <li class="flex">
-                <Check class="size-6 text-green-500 mr-2"/>
-                Inzicht in hoe Insync koppelt met je backoffice
+                <Check class="size-6 text-green-500 mr-2" />
+                Samen kijken naar de mogelijkheden voor koppeling met je backoffice
               </li>
               <li class="flex">
-                <Check class="size-6 text-green-500 mr-2"/>
+                <Check class="size-6 text-green-500 mr-2" />
                 Mogelijkheid om vragen te stellen over jouw situatie
               </li>
             </ul>
           </div>
         </div>
-        <DemoForm/>
+        <div
+          class="starting:opacity-0 starting:scale-95 transition-all duration-400 w-full lg:max-w-[560px] xl:max-w-[640px]"
+        >
+          <DemoForm />
+        </div>
       </div>
     </div>
   </section>
