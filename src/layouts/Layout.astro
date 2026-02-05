@@ -9,15 +9,74 @@ import Umami from "../components/Umami.astro";
 const {
   title,
   description = "Insync is het modulaire klantportaal en medewerkerplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten.",
+  article,
 } = Astro.props;
 
-const defaultTitle = "Insync – Flexibel Klantportaal voor Verzekeringen";
+const defaultTitle = "Insync – Minder administratie, meer tijd voor advies";
 const pageTitle = title ? `${title} – Insync` : defaultTitle;
 const { pathname } = Astro.url;
+const siteUrl = "https://insync.insure";
+const ogImage = `${siteUrl}/og-image.jpg`;
+
+// Structured Data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Insync",
+  url: siteUrl,
+  logo: `${siteUrl}/logo.svg`,
+  description:
+    "Insync biedt AI-tools en digitale klantoplossingen voor verzekeringsadviseurs en assurantiekantoren.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    url: `${siteUrl}/contact`,
+  },
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: pageTitle,
+  description: description,
+  url: Astro.url.href,
+  publisher: {
+    "@type": "Organization",
+    name: "Insync",
+  },
+};
+
+const articleSchema = article
+  ? {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description: description,
+      url: Astro.url.href,
+      publisher: {
+        "@type": "Organization",
+        name: "Insync",
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/logo.svg`,
+        },
+      },
+      ...(article.datePublished && { datePublished: article.datePublished }),
+      ...(article.dateModified && { dateModified: article.dateModified }),
+      ...(article.image && { image: article.image }),
+    }
+  : null;
+
+const schemas =
+  pathname === "/"
+    ? [organizationSchema, webPageSchema]
+    : articleSchema
+      ? [webPageSchema, articleSchema]
+      : [webPageSchema];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -27,6 +86,8 @@ const { pathname } = Astro.url;
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Insync" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={Astro.url.href} />
 
     <meta name="generator" content={Astro.generator} />
     <Umami id="5a34bef4-d77e-4dec-8273-166ae1c8d495" />
@@ -34,18 +95,26 @@ const { pathname } = Astro.url;
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
 
-    <meta name="og:title" content={title} />
-    <meta name="og:description" content={description} />
-    <meta name="og:image" content="/og-image.jpg" />
-    <meta name="og:type" content="website" />
-    <meta name="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content={article ? "article" : "website"} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:site_name" content="Insync" />
+    <meta property="og:locale" content="nl_NL" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:image" content={ogImage} />
 
     <meta name="theme-color" content="#5B59F8" />
+
+    {
+      schemas.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
   </head>
   <body>
     <header
