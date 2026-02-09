@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { getLocalTimeZone, today, type DateValue } from "@internationalized/date";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
@@ -40,9 +40,13 @@ const calculateMinDate = (): DateValue => {
   return date;
 };
 
-const minDate = calculateMinDate();
-const maxDate = today(getLocalTimeZone()).add({ months: 2 });
-const selectedDate = ref<DateValue | undefined>(minDate);
+const minDate = computed(() => calculateMinDate());
+const maxDate = computed(() => today(getLocalTimeZone()).add({ months: 2 }));
+const selectedDate = ref<DateValue | undefined>();
+
+onMounted(() => {
+  selectedDate.value = minDate.value;
+});
 const isSubmitting = ref(false);
 const isSubmitted = ref(false);
 const errorMessage = ref("");
@@ -56,11 +60,20 @@ const formData = ref({
 
 const timeSlots = ["10:00", "11:00", "13:00", "14:00", "15:00", "16:00"];
 
+const disabledDates = new Set([
+  "2026-02-18",
+  "2026-02-19",
+  "2026-02-20",
+  // Add more as needed
+]);
+
 // Function to check if a date is available (Wed, Thu, Fri only)
 const isDateUnavailable = (date: DateValue): boolean => {
   const dayOfWeek = getJsDayOfWeek(date);
-  // Allow only Wednesday (3), Thursday (4), Friday (5)
-  return dayOfWeek !== 3 && dayOfWeek !== 4 && dayOfWeek !== 5;
+  // Block non Wed/Thu/Fri AND any manually disabled dates
+  return (
+    (dayOfWeek !== 3 && dayOfWeek !== 4 && dayOfWeek !== 5) || disabledDates.has(date.toString())
+  );
 };
 
 const canProceedStep1 = computed(
@@ -151,29 +164,6 @@ const handleSubmit = async () => {
 
   <!-- Wizard form -->
   <div v-else class="border rounded-3xl shadow-xl p-6 sm:p-8 space-y-6">
-    <!-- Step indicator -->
-    <!-- <div class="flex items-center justify-center gap-2 mb-6">
-        <template v-for="step in 3" :key="step">
-          <div
-            class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors"
-            :class="[
-              step === currentStep
-                ? 'bg-primary text-primary-foreground'
-                : step < currentStep
-                  ? 'bg-primary/20 text-primary'
-                  : 'bg-muted text-muted-foreground',
-            ]"
-          >
-            {{ step }}
-          </div>
-          <div
-            v-if="step < 3"
-            class="w-12 h-0.5 transition-colors"
-            :class="step < currentStep ? 'bg-primary/20' : 'bg-muted'"
-          />
-        </template>
-      </div> -->
-
     <!-- Step 1: Date and time selection -->
     <div v-show="currentStep === 1">
       <h2 class="h3 mb-6">Kies een datum en tijd</h2>
