@@ -40,11 +40,13 @@ const calculateMinDate = (): DateValue => {
   return date;
 };
 
-const minDate = computed(() => calculateMinDate());
-const maxDate = computed(() => today(getLocalTimeZone()).add({ months: 2 }));
+const minDate = ref<DateValue>();
+const maxDate = ref<DateValue>();
 const selectedDate = ref<DateValue | undefined>();
 
 onMounted(() => {
+  minDate.value = calculateMinDate();
+  maxDate.value = today(getLocalTimeZone()).add({ months: 2 });
   selectedDate.value = minDate.value;
 });
 const isSubmitting = ref(false);
