@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight, SendHorizonal, Check } from "lucide-vue-next
 
 const currentStep = ref(1);
 const selectedTime = ref<string | undefined>();
+const currentDate = ref(today(getLocalTimeZone()));
 
 // Get day of week using standard JS numbering (0=Sunday, 1=Monday, ..., 6=Saturday)
 const getJsDayOfWeek = (date: DateValue): number => {
@@ -15,7 +16,7 @@ const getJsDayOfWeek = (date: DateValue): number => {
 
 // Calculate the minimum date (at least 3 business days from now)
 const calculateMinDate = (): DateValue => {
-  let date = today(getLocalTimeZone());
+  let date = currentDate.value;
   let businessDays = 0;
 
   while (businessDays < 3) {
@@ -27,11 +28,14 @@ const calculateMinDate = (): DateValue => {
     }
   }
 
-  // Now find the next available Wednesday, Thursday, or Friday
+  // Now find the next available Wednesday, Thursday, or Friday that isn't disabled
   while (true) {
     const dayOfWeek = getJsDayOfWeek(date);
     // 3 = Wednesday, 4 = Thursday, 5 = Friday
-    if (dayOfWeek === 3 || dayOfWeek === 4 || dayOfWeek === 5) {
+    if (
+      (dayOfWeek === 3 || dayOfWeek === 4 || dayOfWeek === 5) &&
+      !disabledDates.has(date.toString())
+    ) {
       break;
     }
     date = date.add({ days: 1 });
@@ -46,7 +50,7 @@ const selectedDate = ref<DateValue | undefined>();
 
 onMounted(() => {
   minDate.value = calculateMinDate();
-  maxDate.value = today(getLocalTimeZone()).add({ months: 2 });
+  maxDate.value = currentDate.value.add({ months: 2 });
   selectedDate.value = minDate.value;
 });
 const isSubmitting = ref(false);
