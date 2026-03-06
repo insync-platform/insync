@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, SendHorizonal, Check } from "lucide-vue-next
 
 const currentStep = ref(1);
 const selectedTime = ref<string | undefined>();
-const currentDate = ref(today(getLocalTimeZone()));
+const currentDate = ref<DateValue>(today(getLocalTimeZone()));
 
 // Get day of week using standard JS numbering (0=Sunday, 1=Monday, ..., 6=Saturday)
 const getJsDayOfWeek = (date: DateValue): number => {
@@ -49,6 +49,7 @@ const maxDate = ref<DateValue>();
 const selectedDate = ref<DateValue | undefined>();
 
 onMounted(() => {
+  currentDate.value = today(getLocalTimeZone());
   minDate.value = calculateMinDate();
   maxDate.value = currentDate.value.add({ months: 2 });
   selectedDate.value = minDate.value;
