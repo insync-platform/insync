@@ -10,6 +10,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
+  output: "server",
   site: "https://insync.insure",
   integrations: [sitemap(), vue()],
   adapter: netlify(),

@@ -3,7 +3,22 @@
     "allow": [
       "mcp__acp__Bash",
       "mcp__acp__Write",
-      "mcp__acp__Edit"
+      "mcp__acp__Edit",
+      "Bash(find ./src -type f -name *.astro)",
+      "Bash(find . -name tailwind.config.* -type f)",
+      "Bash(pandoc \"C:\\\\Users\\\\patri\\\\Downloads\\\\Businessplan.docx\" -o /tmp/businessplan.md)",
+      "Read(//tmp/**)",
+      "Bash(python scripts/office/unpack.py \"C:/Users/patri/Downloads/Businessplan.docx\" /tmp/businessplan_unpacked/)",
+      "Bash(where python3.exe)",
+      "Bash(where python.exe)",
+      "Bash(where node.exe)",
+      "Read(//c/tmp/**)",
+      "Bash(mkdir -p bp_out)",
+      "Bash(powershell -Command \"Expand-Archive -Force -LiteralPath ''C:\\\\Users\\\\patri\\\\Downloads\\\\Businessplan.docx'' -DestinationPath ''C:\\\\Users\\\\patri\\\\AppData\\\\Local\\\\Temp\\\\bp_out''\")",
+      "Read(//c/Users/patri/Repositories/Insync/insync/$TEMP/bp_out/**)",
+      "Bash(cp \"C:/Users/patri/Downloads/Businessplan.docx\" \"$TEMP/Businessplan.zip\")",
+      "Bash(powershell -Command \"Expand-Archive -Force -LiteralPath ''C:\\\\Users\\\\patri\\\\AppData\\\\Local\\\\Temp\\\\Businessplan.zip'' -DestinationPath ''C:\\\\Users\\\\patri\\\\AppData\\\\Local\\\\Temp\\\\bp_out''\")",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
