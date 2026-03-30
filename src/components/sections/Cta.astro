@@ -1,27 +1,38 @@
 ---
 import Button from "../ui/Button.astro";
-import { Image } from "astro:assets";
+import { ArrowRight } from "@lucide/astro";
 
 const {
   heading = "Klaar voor de klantreis van de toekomst?",
-  text = "Plan direct een demo in en ontdek hoe Insync jouw kantoor ondersteunt.",
+  text = "Plan direct een demo in en ontdek hoe Insync jouw kantoor ondersteunt met AI.",
 } = Astro.props;
 ---
 
 <section id="cta" class="py-20 sm:py-28">
   <div class="container">
     <div
-      class="bg-gradient-to-b from-primary/40 via-secondary to-secondary/50 border-4 border-secondary/50 rounded-4xl px-6 py-12 sm:px-12"
+      class="relative overflow-hidden rounded-3xl px-6 py-16 sm:px-16 sm:py-20 grain"
       data-aos="custom-zoom-in"
       data-aos-duration="800"
       data-aos-once="true"
     >
-      <div class="max-w-[800px] mx-auto text-center">
-        <h1 class="mb-4">{heading}</h1>
-        <p class="font-medium mb-10">{text}</p>
-        <Button href="/demo" size="lg" class="shadow-[0_0_25px_-5px_var(--color-primary)]"
-          >Demo inplannen</Button
-        >
+      <!-- Gradient background -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary to-accent/5 -z-0"
+        aria-hidden="true"
+      >
+      </div>
+      <!-- Glow orbs -->
+      <div class="absolute -top-24 -left-24 size-64 rounded-full bg-primary/15 blur-[80px]" aria-hidden="true"></div>
+      <div class="absolute -bottom-24 -right-24 size-64 rounded-full bg-accent/10 blur-[80px]" aria-hidden="true"></div>
+
+      <div class="relative z-10 max-w-[700px] mx-auto text-center">
+        <h2 class="mb-4">{heading}</h2>
+        <p class="text-lg text-muted-foreground mb-10">{text}</p>
+        <Button href="/demo" size="lg" class="glow-primary">
+          Demo inplannen
+          <ArrowRight class="size-5" />
+        </Button>
       </div>
     </div>
   </div>

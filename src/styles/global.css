@@ -27,6 +27,9 @@
     --accent: 290 100% 49%;
     --accent-foreground: hsl(240 10% 3.9%);
 
+    --rose: 340 82% 62%;
+    --rose-foreground: hsl(0 0% 98%);
+
     --muted: hsl(240 4.8% 95.9%);
     --muted-foreground: hsl(240 4% 46%);
 
@@ -81,6 +84,8 @@
   --color-accent: hsl(var(--accent));
   --color-accent-dark: color-mix(in srgb, var(--accent) 80%, var(--foreground));
   --color-accent-foreground: var(--accent-foreground);
+  --color-rose: hsl(var(--rose));
+  --color-rose-foreground: var(--rose-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-info: var(--info);
@@ -139,6 +144,7 @@
 @utility container {
   margin-inline: auto;
   padding-inline: 1rem;
+  max-width: 1280px;
 
   @variant md {
     padding-inline: 2rem;
@@ -180,29 +186,97 @@
 
   h1:is(h1),
   .h1 {
-    @apply text-[2.5rem] sm:text-[3.5rem] leading-[1.2] font-semibold;
+    @apply text-[2.5rem] sm:text-[3.5rem] leading-[1.15] font-semibold tracking-tight;
   }
 
   h2:is(h2),
   .h2 {
-    @apply text-[2.25rem] sm:text-[2.5rem] leading-[1.3] font-semibold;
+    @apply text-[2.25rem] sm:text-[2.5rem] leading-[1.2] font-semibold tracking-tight;
   }
 
   h3:is(h3),
   .h3 {
-    @apply text-[1.75rem] sm:text-[2rem] leading-[1.4] font-semibold;
+    @apply text-[1.75rem] sm:text-[2rem] leading-[1.3] font-semibold;
   }
 
   h4:is(h4),
   .h4 {
-    @apply text-[1.25rem] sm:text-[1.5rem] leading-[1.5] font-medium;
+    @apply text-[1.25rem] sm:text-[1.5rem] leading-[1.4] font-medium;
   }
 
   .display {
-    @apply text-[2.75rem] sm:text-[4rem] leading-[1.2] font-semibold;
+    @apply text-[2.75rem] sm:text-[4rem] lg:text-[4.5rem] leading-[1.1] font-semibold tracking-tight;
+  }
+
+  .label {
+    @apply text-sm font-semibold uppercase tracking-widest text-primary;
   }
 }
 
+/* Subtle noise grain overlay for sections */
+.grain {
+  position: relative;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: hsl(0 0% 100% / 0.6);
+  backdrop-filter: blur(24px);
+  border: 1px solid hsl(240 5.9% 90% / 0.8);
+  border-radius: 1.5rem;
+}
+
+/* Glow effect for highlighted elements */
+.glow-primary {
+  box-shadow:
+    0 0 40px -10px hsl(var(--primary) / 0.3),
+    0 0 80px -20px hsl(var(--primary) / 0.15);
+}
+
+.glow-accent {
+  box-shadow:
+    0 0 40px -10px hsl(var(--accent) / 0.3),
+    0 0 80px -20px hsl(var(--accent) / 0.15);
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: var(--background);
+  border-radius: 1.5rem;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+  z-index: -1;
+}
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* AOS custom animations */
 [data-aos="custom-fade-up"] {
   transform: translateY(1rem);
   opacity: 0;
@@ -221,4 +295,33 @@
 [data-aos="custom-zoom-in"].aos-animate {
   opacity: 1;
   scale: 1;
+}
+
+/* AI Tools — card stack */
+.card-stack {
+  perspective: 1200px;
+}
+
+.card-stack-item {
+  transform-origin: top center;
+  transform: translateZ(calc(var(--stack-pos) * -80px)) translateY(calc(var(--stack-pos) * -56px))
+    scale(calc(1 - var(--stack-pos) * 0.06));
+  opacity: calc(1 - var(--stack-pos) * 0.2);
+  z-index: var(--stack-z);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease,
+    border-radius 0.5s ease;
+}
+
+.card-stack-item:not(.is-front):hover {
+  opacity: 1;
+  transform: translateZ(calc(var(--stack-pos) * -80px))
+    translateY(calc(var(--stack-pos) * -56px - 12px)) scale(calc(1 - var(--stack-pos) * 0.06));
+}
+
+.card-stack-item.is-front {
+  z-index: 10;
+  transform: translateZ(0) translateY(0) scale(1);
+  opacity: 1;
 }

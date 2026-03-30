@@ -1,7 +1,18 @@
 ---
 import "../styles/global.css";
 import Button from "../components/ui/Button.astro";
-import { ChevronDown, Users, Menu, X, ShoppingCart, Bot, FileSearch } from "@lucide/astro";
+import {
+  ChevronDown,
+  Users,
+  Menu,
+  X,
+  ShoppingCart,
+  Bot,
+  FileSearch,
+  MessageSquare,
+  ShieldCheck,
+  Mic,
+} from "@lucide/astro";
 import { Image } from "astro:assets";
 import LinkedIn from "../assets/linkedin.svg";
 import Umami from "../components/Umami.astro";
@@ -118,15 +129,16 @@ const schemas =
   </head>
   <body>
     <header
-      class="sticky top-0 h-[var(--header-height)] flex items-center bg-background/80 backdrop-blur z-50"
+      id="site-header"
+      class="fixed top-2 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[1280px] h-[var(--header-height)] border border-transparent flex items-center rounded-2xl z-50 transition-all duration-300"
     >
-      <div class="container">
+      <div class="w-full px-4 sm:px-6">
         <div class="flex items-center justify-between">
           <a href="/">
             <img src="/logo.svg" alt="Insync" class="h-8 sm:h-9" />
           </a>
           <nav class="hidden lg:block font-medium">
-            <ul class="flex gap-x-12">
+            <ul class="flex gap-x-8">
               <li>
                 <a
                   href="/"
@@ -150,53 +162,14 @@ const schemas =
                   class="absolute left-1/2 -translate-x-1/2 opacity-0 peer-focus-visible:opacity-100 group-hover:opacity-100 has-[a:focus-visible]:opacity-100 pointer-events-none group-hover:pointer-events-auto [&.dropdown-open]:opacity-100 [&.dropdown-open]:pointer-events-auto transition-opacity duration-200 p-4"
                 >
                   <div
-                    class="grid grid-cols-2 gap-x-6 w-[600px] bg-background border rounded-xl shadow-md p-4"
+                    class="grid grid-cols-2 gap-x-6 w-[640px] bg-background border rounded-xl shadow-md p-4"
                   >
                     <div class="space-y-3">
-                      <div class="text-sm font-semibold text-muted-foreground">Voor je klanten</div>
+                      <div class="text-sm font-semibold text-muted-foreground">Voor medewerkers</div>
                       <ul class="space-y-2">
                         <li>
                           <a
-                            href="/oplossingen/klantportaal"
-                            class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
-                          >
-                            <div
-                              class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5"
-                              aria-hidden="true"
-                            >
-                              <Users class="size-5" />
-                            </div>
-                            <div>
-                              <span class="block font-medium text-foreground">Klantportaal</span>
-                              Geef klanten meer inzicht
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/oplossingen/afsluitstraat"
-                            class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
-                          >
-                            <div
-                              class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5"
-                              aria-hidden="true"
-                            >
-                              <ShoppingCart class="size-5" />
-                            </div>
-                            <div>
-                              <span class="block font-medium text-foreground">Afsluitstraat</span>
-                              Eenvoudig verzekeringen afsluiten en aanvragen
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="space-y-3">
-                      <div class="text-sm font-semibold text-muted-foreground">Voor kantoren</div>
-                      <ul class="space-y-2">
-                        <li>
-                          <a
-                            href="/oplossingen/insync-ai"
+                            href="/oplossingen/ai-assistent"
                             class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
                           >
                             <div
@@ -206,8 +179,10 @@ const schemas =
                               <Bot class="size-5" />
                             </div>
                             <div>
-                              <span class="block font-medium text-foreground">Insync AI</span>
-                              Versimpel je administratie
+                              <span class="block font-medium text-foreground"
+                                >AI Assistent</span
+                              >
+                              Chat met je backoffice via AI
                             </div>
                           </a>
                         </li>
@@ -227,6 +202,47 @@ const schemas =
                                 >Voorwaarden Vergelijker</span
                               >
                               Vergelijk polisvoorwaarden met AI
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="space-y-3">
+                      <div class="text-sm font-semibold text-muted-foreground">
+                        Voor klanten
+                      </div>
+                      <ul class="space-y-2">
+                        <li>
+                          <a
+                            href="/oplossingen/klantportaal"
+                            class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
+                          >
+                            <div
+                              class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5"
+                              aria-hidden="true"
+                            >
+                              <Users class="size-5" />
+                            </div>
+                            <div>
+                              <span class="block font-medium text-foreground">Klantportaal</span>
+                              Portaal met AI schademelding
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/oplossingen/afsluitstraat"
+                            class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
+                          >
+                            <div
+                              class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5"
+                              aria-hidden="true"
+                            >
+                              <ShoppingCart class="size-5" />
+                            </div>
+                            <div>
+                              <span class="block font-medium text-foreground">Afsluitstraat</span>
+                              Afsluiten met AI chat assistent
                             </div>
                           </a>
                         </li>
@@ -269,7 +285,7 @@ const schemas =
     </header>
     <div
       id="mobile-menu"
-      class="hidden lg:hidden fixed top-[var(--header-height)] h-[calc(100svh-var(--header-height))] inset-x-0 bg-background/80 backdrop-blur overflow-y-auto starting:opacity-0 transition-all duration-200 z-50"
+      class="hidden lg:hidden fixed top-[calc(var(--header-height)+2rem)] h-[calc(100svh-var(--header-height)-2rem)] inset-x-0 bg-background/95 backdrop-blur overflow-y-auto starting:opacity-0 transition-all duration-200 z-50"
     >
       <nav class="pt-4 pb-8">
         <div class="container">
@@ -299,48 +315,11 @@ const schemas =
                 id="mobile-solutions-dropdown"
               >
                 <div>
-                  <div class="text-sm font-semibold text-muted-foreground mb-3">Voor klanten</div>
+                  <div class="text-sm font-semibold text-muted-foreground mb-3">Voor medewerkers</div>
                   <ul class="space-y-2">
                     <li>
                       <a
-                        href="/oplossingen/klantportaal"
-                        class="flex rounded-lg text-muted-foreground py-1"
-                      >
-                        <div
-                          class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 shrink-0 mr-3"
-                        >
-                          <Users class="size-6" />
-                        </div>
-                        <div>
-                          <span class="block font-medium text-foreground">Klantportaal</span>
-                          Geef klanten meer inzicht
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/oplossingen/afsluitstraat"
-                        class="flex rounded-lg text-muted-foreground py-1"
-                      >
-                        <div
-                          class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 shrink-0 mr-3"
-                        >
-                          <ShoppingCart class="size-6" />
-                        </div>
-                        <div>
-                          <span class="block font-medium text-foreground">Afsluitstraat</span>
-                          Eenvoudig verzekeringen afsluiten en aanvragen
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="mt-6">
-                  <div class="text-sm font-semibold text-muted-foreground mb-3">Voor kantoren</div>
-                  <ul class="space-y-2">
-                    <li>
-                      <a
-                        href="/oplossingen/insync-ai"
+                        href="/oplossingen/ai-assistent"
                         class="flex rounded-lg text-muted-foreground py-1"
                       >
                         <div
@@ -349,8 +328,8 @@ const schemas =
                           <Bot class="size-6" />
                         </div>
                         <div>
-                          <span class="block font-medium text-foreground">Insync AI</span>
-                          Versimpel je administratie
+                          <span class="block font-medium text-foreground">AI Assistent</span>
+                          Chat met je backoffice via AI
                         </div>
                       </a>
                     </li>
@@ -369,6 +348,45 @@ const schemas =
                             >Voorwaarden Vergelijker</span
                           >
                           Vergelijk polisvoorwaarden met AI
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-6">
+                  <div class="text-sm font-semibold text-muted-foreground mb-3">
+                    Voor klanten
+                  </div>
+                  <ul class="space-y-2">
+                    <li>
+                      <a
+                        href="/oplossingen/klantportaal"
+                        class="flex rounded-lg text-muted-foreground py-1"
+                      >
+                        <div
+                          class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 shrink-0 mr-3"
+                        >
+                          <Users class="size-6" />
+                        </div>
+                        <div>
+                          <span class="block font-medium text-foreground">Klantportaal</span>
+                          Portaal met AI schademelding
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/oplossingen/afsluitstraat"
+                        class="flex rounded-lg text-muted-foreground py-1"
+                      >
+                        <div
+                          class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 shrink-0 mr-3"
+                        >
+                          <ShoppingCart class="size-6" />
+                        </div>
+                        <div>
+                          <span class="block font-medium text-foreground">Afsluitstraat</span>
+                          Afsluiten met AI chat assistent
                         </div>
                       </a>
                     </li>
@@ -404,30 +422,40 @@ const schemas =
 
     <slot />
 
-    <footer class="bg-muted py-12">
+    <footer class="border-t py-12">
       <div class="container">
-        <div class="flex flex-col sm:flex-row justify-between sm:items-start gap-10">
-          <div>
-            <img src="/logo.svg" alt="Insync" class="h-8" />
-            <p class="text-sm text-muted-foreground mt-4">
-              © {new Date().getFullYear()} Insync. Alle rechten voorbehouden.
-            </p>
-          </div>
-          <div class="flex flex-col items-start sm:items-end">
-            <Button
-              href="https://www.linkedin.com/company/insync-platform"
-              variant="outline"
-              size="icon"
-              target="_blank"
-              class="bg-background"
-            >
-              <Image src={LinkedIn} alt="LinkedIn" class="size-4" />
-            </Button>
-            <nav class="flex gap-6 text-sm text-muted-foreground mt-4">
-              <!-- <a href="/algemene-voorwaarden" class="hover:underline">Algemene voorwaarden</a> -->
-              <a href="/privacybeleid" class="hover:underline">Privacybeleid</a>
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-8">
+          <div class="flex items-center gap-6">
+            <a href="/">
+              <img src="/logo.svg" alt="Insync" class="h-7" />
+            </a>
+            <nav class="flex gap-6 text-sm text-muted-foreground">
+              <a href="/oplossingen/ai-assistent" class="hover:text-foreground duration-150"
+                >AI Assistent</
+              >
+              <a href="/oplossingen/klantportaal" class="hover:text-foreground duration-150"
+                >Klantportaal</a
+              >
+              <a href="/blog" class="hover:text-foreground duration-150">Blog</a>
+              <a href="/contact" class="hover:text-foreground duration-150">Contact</a>
             </nav>
           </div>
+          <div class="flex items-center gap-6">
+            <Button
+              href="https://www.linkedin.com/company/insync-platform"
+              variant="ghost"
+              size="icon"
+              target="_blank"
+            >
+              <img src={LinkedIn.src} alt="LinkedIn" class="size-4" />
+            </Button>
+            <nav class="flex gap-6 text-sm text-muted-foreground">
+              <a href="/privacybeleid" class="hover:text-foreground duration-150">Privacybeleid</a>
+            </nav>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Insync. Alle rechten voorbehouden.
         </div>
       </div>
     </footer>
@@ -444,6 +472,15 @@ const schemas =
   nav a:active,
   nav a[aria-current="page"] {
     color: var(--color-primary);
+  }
+
+  /* Header scroll states */
+  #site-header.header-scrolled {
+    background: hsl(0 0% 100% / 0.85);
+    backdrop-filter: blur(20px);
+    /*border-color: var(--border);*/
+    box-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.1);
+    top: 16px;
   }
 
   [popover].popover-menu {
@@ -469,6 +506,34 @@ const schemas =
     }
   }
 </style>
+
+<script is:inline>
+  // Header scroll effect
+  const header = document.getElementById("site-header");
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle("header-scrolled", window.scrollY > 20);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Hero image scroll-based zoom
+  const heroImage = document.getElementById("hero-image");
+  if (heroImage) {
+    const updateZoom = () => {
+      const rect = heroImage.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+      const center = rect.top + rect.height / 2;
+      // Progress: 0 when element enters viewport bottom, 1 when centered
+      const progress = Math.max(0, Math.min(1, 1 - (center - viewportH * 0.5) / (viewportH * 0.5)));
+      const scale = 0.85 + progress * 0.15; // 0.85 -> 1.0
+      heroImage.style.transform = `scale(${scale})`;
+    };
+    window.addEventListener("scroll", updateZoom, { passive: true });
+    updateZoom();
+  }
+</script>
 
 <script is:inline lang="ts">
   const toggleButton = document.getElementById("mobile-nav-toggle");
