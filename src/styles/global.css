@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: hsl(0 0% 100%);
+    --background: hsl(241 5% 99%);
     --foreground: hsl(240 10% 3.9%);
 
     --popover: hsl(0 0% 100%);
@@ -211,22 +211,6 @@
   .label {
     @apply text-sm font-semibold uppercase tracking-widest text-primary;
   }
-}
-
-/* Subtle noise grain overlay for sections */
-.grain {
-  position: relative;
-}
-.grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-  pointer-events: none;
-  z-index: 1;
-  border-radius: inherit;
 }
 
 /* Glassmorphism card */
