@@ -5,11 +5,13 @@ import { ChevronDown, Users, Menu, X, ShoppingCart, Bot, FileSearch } from "@luc
 import { Image } from "astro:assets";
 import LinkedIn from "../assets/linkedin.svg";
 import Umami from "../components/Umami.astro";
+import StructuredData from "../components/StructuredData.astro";
 
 const {
   title,
   description = "Insync is het modulaire klantportaal en medewerkerplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten.",
   article,
+  softwareApplication,
 } = Astro.props;
 
 const defaultTitle = "Insync – Minder administratie, meer tijd voor advies";
@@ -17,62 +19,6 @@ const pageTitle = title ? `${title} – Insync` : defaultTitle;
 const { pathname } = Astro.url;
 const siteUrl = "https://insync.insure";
 const ogImage = `${siteUrl}/og-image.jpg`;
-
-// Structured Data
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Insync",
-  url: siteUrl,
-  logo: `${siteUrl}/logo.svg`,
-  description:
-    "Insync biedt AI-tools en digitale klantoplossingen voor verzekeringsadviseurs en assurantiekantoren.",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "sales",
-    url: `${siteUrl}/contact`,
-  },
-};
-
-const webPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: pageTitle,
-  description: description,
-  url: Astro.url.href,
-  publisher: {
-    "@type": "Organization",
-    name: "Insync",
-  },
-};
-
-const articleSchema = article
-  ? {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: title,
-      description: description,
-      url: Astro.url.href,
-      publisher: {
-        "@type": "Organization",
-        name: "Insync",
-        logo: {
-          "@type": "ImageObject",
-          url: `${siteUrl}/logo.svg`,
-        },
-      },
-      ...(article.datePublished && { datePublished: article.datePublished }),
-      ...(article.dateModified && { dateModified: article.dateModified }),
-      ...(article.image && { image: article.image }),
-    }
-  : null;
-
-const schemas =
-  pathname === "/"
-    ? [organizationSchema, webPageSchema]
-    : articleSchema
-      ? [webPageSchema, articleSchema]
-      : [webPageSchema];
 ---
 
 <!doctype html>
@@ -110,11 +56,15 @@ const schemas =
 
     <meta name="theme-color" content="#5B59F8" />
 
-    {
-      schemas.map((schema) => (
-        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-      ))
-    }
+    <StructuredData
+      pageTitle={pageTitle}
+      description={description}
+      canonicalUrl={Astro.url.href}
+      pathname={pathname}
+      breadcrumbName={title}
+      softwareApplication={softwareApplication}
+      article={article}
+    />
   </head>
   <body>
     <header

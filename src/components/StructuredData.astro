@@ -1,0 +1,174 @@
+---
+type SoftwareApplication = {
+  name: string;
+  description: string;
+  applicationCategory?: string;
+  applicationSubCategory?: string;
+  featureList?: string[];
+};
+
+type Article = {
+  headline?: string;
+  description?: string;
+  image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  author?: {
+    name: string;
+    jobTitle?: string;
+    url?: string;
+  };
+};
+
+interface Props {
+  pageTitle: string;
+  description: string;
+  canonicalUrl: string;
+  pathname: string;
+  softwareApplication?: SoftwareApplication;
+  article?: Article;
+  breadcrumbName?: string;
+}
+
+const { pageTitle, description, canonicalUrl, pathname, softwareApplication, article, breadcrumbName } =
+  Astro.props;
+
+const siteUrl = "https://insync.insure";
+
+const segmentNames: Record<string, string> = {
+  oplossingen: "Oplossingen",
+  "insync-ai": "Insync AI",
+  klantportaal: "Klantportaal",
+  afsluitstraat: "Afsluitstraat",
+  "voorwaarden-vergelijker": "Voorwaarden Vergelijker",
+  intermediairs: "Medewerkerportaal",
+  blog: "Blog",
+  contact: "Contact",
+  demo: "Demo",
+  privacybeleid: "Privacybeleid",
+  "algemene-voorwaarden": "Algemene voorwaarden",
+};
+
+const segments = pathname.split("/").filter(Boolean);
+
+const breadcrumbItems =
+  segments.length >= 2
+    ? [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+        ...segments.map((segment, idx) => {
+          const url = `${siteUrl}/${segments.slice(0, idx + 1).join("/")}`;
+          const isLast = idx === segments.length - 1;
+          const name = isLast
+            ? segmentNames[segment] || breadcrumbName || pageTitle
+            : segmentNames[segment] || segment;
+          return { "@type": "ListItem", position: idx + 2, name, item: url };
+        }),
+      ]
+    : null;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Insync",
+  legalName: "Insync",
+  url: siteUrl,
+  logo: `${siteUrl}/logo.svg`,
+  description:
+    "AI-tools voor verzekeringsadviseurs en digitale oplossingen voor hun klanten. Klantportaal, afsluitstraat, AI-backoffice-assistent en polisvoorwaarden vergelijker.",
+  foundingDate: "2024",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+31-6-18282389",
+    email: "hello@insync.insure",
+    contactType: "sales",
+    availableLanguage: ["Dutch", "English"],
+    areaServed: "NL",
+  },
+  sameAs: ["https://www.linkedin.com/company/insync-platform"],
+  knowsAbout: [
+    "Verzekeringssoftware",
+    "InsurTech",
+    "Klantportaal verzekeringen",
+    "AI voor verzekeringsadviseurs",
+    "Polisvoorwaarden vergelijken",
+    "Backoffice automatisering",
+  ],
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: pageTitle,
+  description,
+  url: canonicalUrl,
+  publisher: { "@type": "Organization", name: "Insync", url: siteUrl },
+};
+
+const softwareSchema = softwareApplication
+  ? {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: softwareApplication.name,
+      applicationCategory: softwareApplication.applicationCategory || "BusinessApplication",
+      ...(softwareApplication.applicationSubCategory && {
+        applicationSubCategory: softwareApplication.applicationSubCategory,
+      }),
+      operatingSystem: "Web",
+      description: softwareApplication.description,
+      ...(softwareApplication.featureList && { featureList: softwareApplication.featureList }),
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+        url: `${siteUrl}/demo`,
+      },
+      provider: { "@type": "Organization", name: "Insync", url: siteUrl },
+    }
+  : null;
+
+const breadcrumbSchema = breadcrumbItems
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbItems,
+    }
+  : null;
+
+const toAbsoluteUrl = (url: string) => (url.startsWith("http") ? url : `${siteUrl}${url}`);
+
+const articleSchema = article
+  ? {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.headline || pageTitle,
+      description: article.description || description,
+      ...(article.image && { image: toAbsoluteUrl(article.image) }),
+      ...(article.datePublished && { datePublished: article.datePublished }),
+      dateModified: article.dateModified || article.datePublished,
+      author: article.author
+        ? {
+            "@type": "Person",
+            name: article.author.name,
+            ...(article.author.jobTitle && { jobTitle: article.author.jobTitle }),
+            ...(article.author.url && { url: article.author.url }),
+          }
+        : { "@type": "Organization", name: "Insync", url: siteUrl },
+      publisher: {
+        "@type": "Organization",
+        name: "Insync",
+        logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
+      },
+      mainEntityOfPage: canonicalUrl,
+    }
+  : null;
+
+const schemas = [
+  organizationSchema,
+  webPageSchema,
+  softwareSchema,
+  breadcrumbSchema,
+  articleSchema,
+].filter(Boolean);
+---
+
+{schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
