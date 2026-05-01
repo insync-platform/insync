@@ -13,4 +13,5 @@ export default defineConfig({
   site: "https://insync.insure",
   integrations: [sitemap(), vue()],
   adapter: netlify(),
+  output: "server",
 });
