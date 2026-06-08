@@ -18,11 +18,11 @@ import Umami from "../components/Umami.astro";
 
 const {
   title,
-  description = "Insync is het modulaire klantportaal en medewerkerplatform voor verzekeringen. Koppel eenvoudig met je backoffice, werk efficiënter en verbeter het contact met je klanten.",
+  description = "Insync laat AI rechtstreeks met je backoffice praten en neemt administratief werk over — voor verzekeraars, volmachten en adviseurs. Minder klikken, meer regelen.",
   article,
 } = Astro.props;
 
-const defaultTitle = "Insync – Minder administratie, meer tijd voor advies";
+const defaultTitle = "Insync – Minder klikken, meer regelen";
 const pageTitle = title ? `${title} – Insync` : defaultTitle;
 const { pathname } = Astro.url;
 const siteUrl = "https://insync.insure";
@@ -36,7 +36,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/logo.svg`,
   description:
-    "Insync biedt AI-tools en digitale klantoplossingen voor verzekeringsadviseurs en assurantiekantoren.",
+    "Insync biedt AI-oplossingen voor verzekeraars, volmachten en adviseurs: agentic AI op de backoffice, een klantportaal en een afsluitstraat.",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
