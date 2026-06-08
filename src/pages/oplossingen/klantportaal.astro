@@ -2,60 +2,147 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/ui/Button.astro";
-import { ArrowDown, Files, Smartphone, Shield, RefreshCw } from "@lucide/astro";
-import CustomerPortal from "../../assets/customer-portal/home.webp";
-import CustomerPortalAirplane from "../../assets/customer-portal/mockup-airplane.webp";
+import {
+  ArrowRight,
+  ArrowDown,
+  Bot,
+  Camera,
+  FileScan,
+  ListChecks,
+  Lock,
+  Palette,
+  FileText,
+  HelpCircle,
+  Workflow,
+  BarChart3,
+  Users,
+  Shield,
+  KeyRound,
+  RefreshCw,
+} from "@lucide/astro";
+import CustomerPortalHome from "../../assets/customer-portal/home.webp";
 import MyInsurances from "../../assets/customer-portal/mijn-verzekeringen.webp";
 import Documents from "../../assets/customer-portal/documenten.webp";
 import Contact from "../../assets/customer-portal/contact.webp";
+import CustomerPortalAirplane from "../../assets/customer-portal/mockup-airplane.webp";
 import Cta from "../../components/sections/Cta.astro";
 
-const features = [
+const showcase = [
   {
-    title: "Altijd en overal toegang",
-    description:
-      "Laat klanten zelf polissen, documenten, etc. inzien. Zo verminder je repeterende vragen via mail of telefoon.",
-    icon: Smartphone,
+    title: "Inzicht in alle verzekeringen",
+    description: "Polissen, dekkingen en verzekerde objecten — overzichtelijk en altijd actueel.",
+    image: MyInsurances,
+    alt: "Verzekeringen inzien in het klantportaal",
   },
   {
-    title: "Nooit meer zoeken naar documenten",
-    description:
-      "Door selfservice-functies en centrale informatie is er minder ruis en ruimte voor persoonlijk contact.",
-    icon: Files,
+    title: "Documenten op één plek",
+    description: "Polissen, voorwaarden en facturen, veilig bewaard en altijd beschikbaar.",
+    image: Documents,
+    alt: "Documenten in het klantportaal",
   },
   {
-    title: "Veilig en vertrouwd",
-    description: "Het klantportaal voldoet aan de beveiligingsstandaarden, inclusief AVG.",
-    icon: Shield,
+    title: "Direct in contact",
+    description: "Rechtstreeks contact, mét de context van de verzekeringen van je klant.",
+    image: Contact,
+    alt: "Contact opnemen via het klantportaal",
+  },
+];
+
+const claimSteps = [
+  {
+    title: "Automatische schadeclassificatie",
+    description: "De AI herkent het type schade en stelt alleen de relevante vervolgvragen.",
+    icon: ListChecks,
   },
   {
-    title: "Altijd synchroon met jou",
-    description: "Wat jij ziet, ziet je klant dankzij real-time data via veilige koppeling.",
-    icon: RefreshCw,
+    title: "Visueel fotoraster",
+    description: "Foto per positie van het object, plus video en getuigen waar nodig.",
+    icon: Camera,
   },
+  {
+    title: "Schadeformulier uitgelezen",
+    description: "Geüploade schadeformulieren worden automatisch ingelezen en verwerkt.",
+    icon: FileScan,
+  },
+];
+
+const adminFeatures = [
+  {
+    title: "Huisstijl",
+    description: "Logo, kleuren, lettertypen en hoekafrondingen — volledig jouw merk.",
+    icon: Palette,
+  },
+  {
+    title: "Paginateksten & content",
+    description: "Introteksten, CTA's en downloads per pagina, tweetalig.",
+    icon: FileText,
+  },
+  {
+    title: "FAQ",
+    description: "Vragen en antwoorden in categorieën, ook als kennisbron voor de chatbot.",
+    icon: HelpCircle,
+  },
+  {
+    title: "Formulieren & schadeflows",
+    description: "Bouw no-code je eigen formulieren en schademeld-wizards.",
+    icon: Workflow,
+  },
+  {
+    title: "AI-assistent instellen",
+    description: "Tone of voice, guardrails en snelle suggesties bepaal je zelf.",
+    icon: Bot,
+  },
+  {
+    title: "Statistieken & feedback",
+    description: "Bezoekcijfers, populairste pagina's en ingestuurde feedback.",
+    icon: BarChart3,
+  },
+  {
+    title: "Gebruikers & rollen",
+    description: "Nodig beheerders uit met de juiste rechten per rol.",
+    icon: Users,
+  },
+  {
+    title: "Veilig & afgeschermd",
+    description: "Statusmeldingen, portaal-URL en toegang centraal beheerd.",
+    icon: Lock,
+  },
+];
+
+const trust = [
+  { label: "White-label in jouw huisstijl", icon: Palette },
+  { label: "AVG-proof", icon: Shield },
+  { label: "Wachtwoordloos inloggen", icon: KeyRound },
+  { label: "Realtime via veilige koppeling", icon: RefreshCw },
 ];
 ---
 
 <Layout
   title="Klantportaal"
-  description="Een modern klantportaal voor verzekeringsadviseurs en assurantiekantoren. Geef klanten 24/7 inzicht in polissen en documenten, volledig in jouw huisstijl."
+  description="Een modern klantportaal voor verzekeraars, volmachten en adviseurs. Klanten regelen 24/7 zelf hun verzekeringen, documenten en schades — volledig in jouw huisstijl, met een ingebouwde AI-assistent."
 >
+  <!-- Hero -->
   <section id="hero" class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip">
     <div class="container">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         <div>
           <div class="space-y-4">
+            <span
+              class="label inline-block starting:opacity-0 starting:translate-y-2 transition-all duration-500"
+            >
+              Klantportaal · voor je klanten
+            </span>
             <h1
               class="display text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-t from-[#16136C] to-foreground mb-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-150"
             >
-              Geef je klant grip, gemak en vertrouwen
+              Het portaal waar je klanten alles zelf regelen
             </h1>
             <p
               class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
             >
-              Via het klantportaal van Insync hebben jouw klanten 24/7 toegang tot hun
-              verzekeringen, documenten en schades. Dat voorkomt onnodige vragen én versterkt jullie
-              relatie.
+              24/7 inzicht in verzekeringen, documenten, facturen en schades — in jouw huisstijl. Dat
+              scheelt telefoon en mail én versterkt de relatie. Een ingebouwde AI-assistent helpt waar
+              nodig.
             </p>
           </div>
 
@@ -63,9 +150,9 @@ const features = [
             class="flex flex-col justify-center lg:justify-start sm:flex-row gap-4 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450"
           >
             <Button href="/demo" size="lg" class="w-full lg:w-auto"> Demo inplannen </Button>
-            <Button href="#features" variant="outline" size="lg" class="w-full lg:w-auto">
+            <Button href="#selfservice" variant="outline" size="lg" class="w-full lg:w-auto">
               <ArrowDown class="text-primary size-6" />
-              Ontdek de voordelen
+              Ontdek de mogelijkheden
             </Button>
           </div>
         </div>
@@ -73,7 +160,7 @@ const features = [
           class="grid place-items-center gradient-background lg:aspect-square w-full lg:w-auto h-[400px] lg:h-[440px] 2xl:h-[600px] lg:max-h-none border rounded-3xl mx-auto overflow-hidden shrink-0"
         >
           <Image
-            src={CustomerPortal}
+            src={CustomerPortalHome}
             alt="Klantportaal"
             class="w-[260px] lg:w-3/5 mt-6 lg:mt-16 starting:opacity-0 starting:translate-y-4 transition-all duration-1000"
           />
@@ -82,31 +169,92 @@ const features = [
     </div>
   </section>
 
-  <section id="features" class="py-20 sm:py-28">
+  <!-- Selfservice showcase -->
+  <section id="selfservice" class="py-20 sm:py-28">
     <div class="container">
-      <div class="flex flex-col lg:flex-row justify-between gap-8 sm:gap-16">
-        <Image
-          src={CustomerPortalAirplane}
-          alt="Klantportaal"
-          class="order-last lg:order-first lg:max-w-[600px] xl:max-w-[640px] w-full lg:aspect-square rounded-3xl object-cover"
+      <div
+        class="max-w-3xl mx-auto text-center mb-16"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-once="true"
+      >
+        <span class="label mb-4 inline-block">Selfservice</span>
+        <h2 class="mb-4">Alles wat je klant zelf kan regelen</h2>
+        <p class="text-lg text-muted-foreground">
+          Van polissen inzien tot een factuur betalen of een wijziging doorgeven — je klant regelt
+          het zelf, wanneer het hem uitkomt.
+        </p>
+      </div>
+
+      <ul class="grid lg:grid-cols-3 gap-8">
+        {
+          showcase.map((item, i) => (
+            <li
+              data-aos="custom-fade-up"
+              data-aos-duration="400"
+              data-aos-delay={String(i * 150)}
+              data-aos-once="true"
+            >
+              <div class="relative bg-background border rounded-2xl shadow-md overflow-hidden h-[320px] mb-6 pt-4">
+                <div class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent" />
+                <Image src={item.image} alt={item.alt} class="w-[350px] mx-auto" />
+              </div>
+              <h3 class="h4 mb-2">{item.title}</h3>
+              <p class="text-sm text-muted-foreground">{item.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p
+        class="text-center text-muted-foreground mt-12 max-w-2xl mx-auto"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-once="true"
+      >
+        En ook: facturen bekijken en betalen · wijzigingen doorgeven · profiel en gegevens beheren ·
+        wachtwoordloos inloggen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Schade melden — AI-schadewizard -->
+  <section id="schade" class="py-20 sm:py-28 bg-gradient-to-t from-muted to-muted/50">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div
+          class="lg:w-1/2 order-last lg:order-first"
           data-aos="custom-zoom-in"
           data-aos-duration="400"
-          data-aos-delay="400"
+          data-aos-delay="200"
           data-aos-once="true"
-        />
-        <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
-          <div class="text-primary font-medium mb-2">Voordelen voor klanten</div>
-          <h1 class="mb-12 sm:mb-16">Wat het klantportaal voor jouw klanten betekent</h1>
-          <ul class="grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-8 sm:gap-y-12">
+        >
+          <div class="border rounded-3xl overflow-hidden h-[400px] lg:h-[460px]">
+            <Image
+              src={CustomerPortalAirplane}
+              alt="Schade melden via de AI-schadewizard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div class="lg:w-1/2" data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <span class="label mb-3 inline-block">Schade melden</span>
+          <h2 class="mb-4">Schade melden in eigen woorden, AI doet de rest</h2>
+          <p class="text-muted-foreground text-lg mb-8">
+            Je klant vertelt in gewone taal wat er is gebeurd. De AI-schadewizard herkent het type
+            schade, stelt alleen de relevante vervolgvragen en begeleidt stap voor stap. Volledig per
+            merk in te richten — van AI-wizard tot een eigen formulier of directe contactgegevens.
+          </p>
+          <ul class="space-y-4">
             {
-              features.map((feature) => (
-                <li class="flex flex-col items-start">
-                  <div class="flex items-center justify-center text-primary border rounded-lg size-12 mb-4">
-                    <feature.icon class="size-6" />
+              claimSteps.map((step) => (
+                <li class="flex gap-3">
+                  <div class="flex items-center justify-center size-10 rounded-lg bg-secondary text-primary shrink-0">
+                    <step.icon class="size-5" />
                   </div>
                   <div>
-                    <h2 class="text-lg font-medium mb-1">{feature.title}</h2>
-                    <p class="text-muted-foreground">{feature.description}</p>
+                    <div class="font-medium mb-0.5">{step.title}</div>
+                    <p class="text-sm text-muted-foreground">{step.description}</p>
                   </div>
                 </li>
               ))
@@ -117,88 +265,127 @@ const features = [
     </div>
   </section>
 
-  <section class="bg-gradient-to-t from-muted to-muted/50 py-20 sm:py-28">
+  <!-- Digitale assistent -->
+  <section id="assistent" class="py-20 sm:py-28">
     <div class="container">
-      <div class="flex flex-col items-center">
-        <h1
-          class="text-center max-w-[600px] mb-16"
-          data-aos="custom-fade-up"
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div class="lg:w-1/2" data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <span class="label mb-3 inline-block">Digitale assistent</span>
+          <h2 class="mb-4">Een AI-assistent die het dossier van je klant kent</h2>
+          <p class="text-muted-foreground text-lg mb-6">
+            De ingebouwde assistent begroet je klant bij naam, beantwoordt vragen en haalt live
+            verzekeringen, schades, facturen en documenten op. Hij kan documenten analyseren en zelfs
+            een schademelding klaarzetten.
+          </p>
+          <p class="text-muted-foreground">
+            En wil je klant zijn eigen AI gebruiken? Dan koppelt hij die veilig, met expliciete
+            toestemming per gegevenscategorie — op elk moment weer in te trekken.
+          </p>
+        </div>
+
+        <div
+          class="lg:w-1/2 w-full"
+          data-aos="custom-zoom-in"
           data-aos-duration="400"
+          data-aos-delay="200"
           data-aos-once="true"
         >
-          Snel, eenvoudig en gebruiksvriendelijk
-        </h1>
-        <ul class="grid lg:grid-cols-3 gap-8">
-          <li
-            data-aos="custom-fade-up"
-            data-aos-duration="400"
-            data-aos-delay="200"
-            data-aos-once="true"
-          >
-            <div
-              class="relative bg-background border rounded-2xl shadow-md overflow-hidden h-[320px] mb-6 pt-4"
-            >
-              <div
-                class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent"
-              >
+          <div class="rounded-3xl border bg-white shadow-lg p-5 max-w-sm mx-auto">
+            <div class="flex items-center gap-2 pb-3 border-b">
+              <div class="size-9 rounded-lg bg-primary/10 text-primary grid place-items-center">
+                <Bot class="size-5" />
               </div>
-              <Image src={MyInsurances} alt="Verzekeringen overzicht" class="w-[350px] mx-auto" />
-            </div>
-            <h2 class="h4 mb-2">Altijd inzicht in je dekking</h2>
-            <p class="text-sm text-muted-foreground">
-              Klanten zien direct welke verzekeringen ze hebben, inclusief details. Overzichtelijk
-              en actueel.
-            </p>
-          </li>
-          <li
-            data-aos="custom-fade-up"
-            data-aos-duration="400"
-            data-aos-delay="400"
-            data-aos-once="true"
-          >
-            <div
-              class="relative bg-background border rounded-2xl shadow-md overflow-hidden h-[320px] mb-6 pt-4"
-            >
-              <div
-                class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent"
-              >
+              <div>
+                <div class="font-medium text-sm">Assistent</div>
+                <div class="text-xs text-muted-foreground">Altijd bereikbaar</div>
               </div>
-              <Image src={Documents} alt="Documenten" class="w-[350px] mx-auto" />
             </div>
-            <h2 class="h4 mb-2">Alle documenten op één plek</h2>
-            <p class="text-sm text-muted-foreground">
-              Polissen, verzekeringsbewijzen en facturen veilig opgeslagen en altijd beschikbaar.
-              Geen zoekwerk of e-mail nodig
-            </p>
-          </li>
-          <li
-            data-aos="custom-fade-up"
-            data-aos-duration="400"
-            data-aos-delay="600"
-            data-aos-once="true"
-          >
-            <div
-              class="relative bg-background border rounded-2xl shadow-md overflow-hidden h-[320px] mb-6 pt-4"
-            >
-              <div
-                class="absolute h-1/2 inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent"
-              >
+            <div class="space-y-3 py-4">
+              <div class="bg-muted rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm max-w-[85%]">
+                Hoi Sanne 👋 Waarmee kan ik je helpen?
               </div>
-              <Image src={Contact} alt="Contact opnemen" class="w-[350px] mx-auto" />
+              <div
+                class="ml-auto bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-3.5 py-2.5 text-sm max-w-[85%]"
+              >
+                Wanneer loopt mijn autoverzekering af?
+              </div>
+              <div class="bg-muted rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm max-w-[90%]">
+                Je WA+ autoverzekering loopt door tot 1 maart 2027. Zal ik de polis voor je openen?
+              </div>
             </div>
-            <h2 class="h4 mb-2">Eenvoudig in contact met jou</h2>
-            <p class="text-sm text-muted-foreground">
-              Via het klantportaal neemt je klant rechtstreeks contact op, mét context van hun
-              verzekeringen.
-            </p>
-          </li>
-        </ul>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="text-xs font-medium rounded-lg border px-2.5 py-1.5">Mijn facturen</span>
+              <span class="text-xs font-medium rounded-lg border px-2.5 py-1.5">Schade melden</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Beheeromgeving -->
+  <section id="beheer" class="py-20 sm:py-28 bg-gradient-to-t from-muted to-muted/50">
+    <div class="container">
+      <div
+        class="max-w-3xl mx-auto text-center mb-16"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-once="true"
+      >
+        <span class="label mb-4 inline-block">Beheeromgeving</span>
+        <h2 class="mb-4">Beheer je portaal volledig zelf. Zonder ontwikkelaar.</h2>
+        <p class="text-lg text-muted-foreground">
+          Het klantportaal is white-label én no-code. Je stelt alles in vanuit één beheeromgeving — van
+          huisstijl tot schadeflows.
+        </p>
+      </div>
+
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        {
+          adminFeatures.map((feature, i) => (
+            <li
+              class="p-6 rounded-2xl bg-white border border-border/60 shadow-sm"
+              data-aos="custom-fade-up"
+              data-aos-duration="400"
+              data-aos-delay={String((i % 4) * 80)}
+              data-aos-once="true"
+            >
+              <div class="flex items-center justify-center size-11 rounded-xl bg-primary/10 text-primary mb-4">
+                <feature.icon class="size-5" />
+              </div>
+              <h3 class="text-base font-semibold mb-1.5">{feature.title}</h3>
+              <p class="text-muted-foreground text-sm">{feature.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="pt-20 sm:pt-28">
+    <div class="container">
+      <ul
+        class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 max-w-4xl mx-auto"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-once="true"
+      >
+        {
+          trust.map((item) => (
+            <li class="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <item.icon class="size-5 text-primary" />
+              {item.label}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
   <Cta
-    text="Vraag vrijblijvend een demo aan en ontdek hoe hoe je binnen een week jouw klantportaal live kunt hebben."
+    heading="Klaar om je klanten meer zelf te laten regelen?"
+    text="Vraag vrijblijvend een demo aan en ontdek hoe je binnen een week jouw klantportaal live hebt."
   />
 </Layout>
 
