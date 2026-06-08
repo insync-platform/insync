@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Cta from "../../components/sections/Cta.astro";
+import Faq from "../../components/sections/Faq.astro";
 import Button from "../../components/ui/Button.astro";
 import { Image } from "astro:assets";
 import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
@@ -129,6 +130,25 @@ const steps = [
     description: "Via de beveiligde actielaag.",
     icon: CircleCheck,
     color: "text-accent",
+  },
+];
+
+const faqs = [
+  {
+    q: "Werkt Insync AI met onze backoffice?",
+    a: "Ja, Insync AI is backoffice-onafhankelijk. We draaien in productie op Novulo en koppelen daarnaast met Anva en CCS.",
+  },
+  {
+    q: "Voert de AI zelf wijzigingen door?",
+    a: "Nee. Opzoeken en lezen doet de AI direct; elke wijziging zet 'ie volledig klaar en jouw medewerker bevestigt.",
+  },
+  {
+    q: "In welke talen werkt Insync AI?",
+    a: "In chat en spraak: Nederlands, Engels en Pools.",
+  },
+  {
+    q: "Blijft onze data veilig?",
+    a: "Ja. De AI werkt via een afgebakende actielaag en je data blijft in je eigen backoffice. AVG-proof.",
   },
 ];
 ---
@@ -418,6 +438,8 @@ const steps = [
       </div>
     </div>
   </section>
+
+  <Faq heading="Vragen over Insync AI" faqs={faqs} />
 
   <Cta
     heading="Ontdek hoe eenvoudig jouw werkdag kan worden"

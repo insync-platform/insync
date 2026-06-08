@@ -10,7 +10,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  output: "server",
+  output: "static",
   site: "https://insync.insure",
   redirects: {
     "/oplossingen/voorwaarden-vergelijker": "/oplossingen/ai-assistent",

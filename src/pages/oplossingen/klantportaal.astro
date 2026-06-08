@@ -26,6 +26,7 @@ import Documents from "../../assets/customer-portal/documenten.webp";
 import Contact from "../../assets/customer-portal/contact.webp";
 import CustomerPortalAirplane from "../../assets/customer-portal/mockup-airplane.webp";
 import Cta from "../../components/sections/Cta.astro";
+import Faq from "../../components/sections/Faq.astro";
 
 const showcase = [
   {
@@ -114,6 +115,25 @@ const trust = [
   { label: "AVG-proof", icon: Shield },
   { label: "Wachtwoordloos inloggen", icon: KeyRound },
   { label: "Realtime via veilige koppeling", icon: RefreshCw },
+];
+
+const faqs = [
+  {
+    q: "Kunnen we het portaal in onze eigen huisstijl aanbieden?",
+    a: "Ja, volledig white-label. Logo, kleuren en lettertypen stel je zelf in via de no-code beheeromgeving.",
+  },
+  {
+    q: "Hoe melden klanten een schade?",
+    a: "Via de AI-schadewizard: de klant vertelt in eigen woorden wat er is gebeurd en de AI stelt alleen de relevante vervolgvragen. Per merk in te richten.",
+  },
+  {
+    q: "Moeten klanten een wachtwoord onthouden?",
+    a: "Nee, inloggen gaat wachtwoordloos via een magic link.",
+  },
+  {
+    q: "Is de getoonde klantdata actueel?",
+    a: "Ja, realtime via een veilige koppeling met je backoffice.",
+  },
 ];
 ---
 
@@ -382,6 +402,8 @@ const trust = [
       </ul>
     </div>
   </section>
+
+  <Faq heading="Vragen over het klantportaal" faqs={faqs} />
 
   <Cta
     heading="Klaar om je klanten meer zelf te laten regelen?"

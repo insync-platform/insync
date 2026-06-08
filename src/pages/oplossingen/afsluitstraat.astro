@@ -18,6 +18,7 @@ import InsurancePortalConfiguration from "../../assets/insurance-portal/insuranc
 import Flow from "../../assets/insurance-portal/flow.webp";
 import Inbox from "../../assets/insurance-portal/inbox.webp";
 import Cta from "../../components/sections/Cta.astro";
+import Faq from "../../components/sections/Faq.astro";
 
 const features = [
   {
@@ -81,6 +82,25 @@ const steps = [
       "De aanvraag gaat rechtstreeks je backoffice in en je klant stroomt door naar het klantportaal.",
     image: Inbox,
     alt: "Aanvraag verwerkt in de administratie",
+  },
+];
+
+const faqs = [
+  {
+    q: "Hoe snel sluit een klant een verzekering af?",
+    a: "In enkele minuten. Kenteken en adres worden automatisch verrijkt, dus je klant typt nauwelijks.",
+  },
+  {
+    q: "Wat doet AI-assistent Nova precies?",
+    a: "Nova legt verzekeringstermen en dekkingsvragen uit op basis van je echte voorwaarden. Ze geeft geen persoonlijk advies en geen premie- of acceptatiebeloftes.",
+  },
+  {
+    q: "Komt een aanvraag automatisch in onze backoffice?",
+    a: "Ja. Elke aanvraag landt direct in je administratie en de klant stroomt door naar het klantportaal.",
+  },
+  {
+    q: "Bepalen we zelf welke producten beschikbaar zijn?",
+    a: "Ja, via productconfiguratie — zonder maatwerk.",
   },
 ];
 ---
@@ -300,6 +320,8 @@ const steps = [
       </div>
     </div>
   </section>
+
+  <Faq heading="Vragen over de afsluitstraat" faqs={faqs} />
 
   <Cta
     heading="Klaar om sneller en slimmer af te sluiten?"

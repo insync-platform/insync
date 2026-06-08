@@ -1,0 +1,19 @@
+# Insync
+
+> Insync laat AI rechtstreeks met de backoffice van verzekeringsbedrijven praten en neemt administratief werk over — voor verzekeraars, volmachten en adviseurs. De rode draad: minder klikken, meer regelen. AI doet het voorwerk, de mens beslist — lezen en opzoeken gebeurt direct, elke wijziging wordt eerst bevestigd.
+
+## Oplossingen
+- [Insync AI](https://insync.insure/oplossingen/ai-assistent): AI-werkplek voor medewerkers. Bedien de backoffice via chat of spraak in natuurlijke taal. Workflows: polisvoorwaarden vergelijken, schades beoordelen en documentanalyse.
+- [Klantportaal](https://insync.insure/oplossingen/klantportaal): selfservice-portaal in de eigen huisstijl van de verzekeraar. Klanten beheren zelf verzekeringen, documenten, facturen en schades, met een AI-schadewizard, een ingebouwde AI-assistent en een no-code beheeromgeving.
+- [Afsluitstraat](https://insync.insure/oplossingen/afsluitstraat): online verzekeringen afsluiten in minuten, begeleid door AI-assistent Nova.
+
+## Kenmerken
+- Backoffice-onafhankelijk: werkt bovenop bestaande systemen, waaronder Novulo, Anva en CCS.
+- White-label per verzekeraar; meertalig (Nederlands, Engels, Pools).
+- Privacy by design en AVG-proof; data blijft in de eigen backoffice van de klant.
+- Controle-model: AI bereidt voor en haalt op, de medewerker beslist over elke wijziging.
+
+## Meer
+- [Contact](https://insync.insure/contact)
+- [Demo inplannen](https://insync.insure/demo)
+- [Blog](https://insync.insure/blog)
