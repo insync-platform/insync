@@ -281,6 +281,67 @@
   scale: 1;
 }
 
+[data-aos="custom-fade-right"] {
+  transform: translateX(-1rem);
+  opacity: 0;
+  transition: ease-out;
+}
+[data-aos="custom-fade-right"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+[data-aos="custom-draw-down"] {
+  transform: scaleY(0) translateY(-0.5rem);
+  transform-origin: top center;
+  opacity: 0;
+  transition: cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-aos="custom-draw-down"].aos-animate {
+  transform: scaleY(1) translateY(0);
+  opacity: 1;
+}
+
+[data-aos="custom-rise-pop"] {
+  transform: translateY(1.5rem) scale(0.92);
+  opacity: 0;
+  transition: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[data-aos="custom-rise-pop"].aos-animate {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes arrow-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(0.25rem);
+    opacity: 1;
+  }
+}
+.animate-arrow-bob {
+  animation: arrow-bob 2s ease-in-out infinite;
+}
+
 /* AI Tools — card stack */
 .card-stack {
   perspective: 1200px;

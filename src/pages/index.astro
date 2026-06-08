@@ -9,14 +9,21 @@ import InsyncAiOutput from "../assets/insync-ai/output.webp";
 import IntegrationsHorizontal from "../assets/integrations-horizontal.svg";
 import IntegrationsVertical from "../assets/integrations-vertical.svg";
 import Background from "../assets/background.svg";
-import LogoEfo from "../assets/logos/efo.svg";
 import LogoDuGardijn from "../assets/logos/du-gardijn.svg";
+import LogoEfo from "../assets/logos/efo.svg";
+import LogoJw from "../assets/logos/jw.svg";
 import Button from "../components/ui/Button.astro";
 import {
   ArrowRight,
+  ArrowDown,
   ListChecks,
   MessageSquare,
   FileSearch,
+  FileText,
+  Mail,
+  Phone,
+  CircleCheck,
+  Zap,
   Search,
   Blocks,
   RefreshCw,
@@ -241,19 +248,30 @@ const journeySteps = [
         data-aos-once="true"
       >
         <p class="text-sm font-medium text-muted-foreground mb-8">
-          Vertrouwd door toonaangevende intermediairs en verzekeraars
+          Vertrouwd door diverse partijen
         </p>
         <div class="flex items-center justify-center gap-12 sm:gap-20">
-          <img
-            src={LogoEfo.src}
-            alt="EFO Verzekeringen"
-            class="h-8 sm:h-12 opacity-60 hover:opacity-100 transition-opacity duration-300"
-          />
-          <img
-            src={LogoDuGardijn.src}
-            alt="Du Gardijn"
-            class="h-8 sm:h-12 opacity-60 hover:opacity-100 transition-opacity duration-300"
-          />
+          <a href="https://dugardijn.nl" target="_blank">
+            <img
+              src={LogoDuGardijn.src}
+              alt="Du Gardijn"
+              class="h-8 sm:h-12 opacity-60 hover:opacity-100 transition-opacity duration-300"
+            />
+          </a>
+          <a href="https://efo.nl" target="_blank">
+            <img
+              src={LogoEfo.src}
+              alt="EFO Verzekeringen"
+              class="h-8 sm:h-12 opacity-60 hover:opacity-100 transition-opacity duration-300"
+            />
+          </a>
+          <a href="https://jw.nl" target="_blank">
+            <img
+              src={LogoJw.src}
+              alt="JW"
+              class="h-8 sm:h-12 opacity-60 hover:opacity-100 transition-opacity duration-300"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -283,82 +301,165 @@ const journeySteps = [
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         <!-- Left: Statement -->
         <div
-          class="lg:w-3/5 text-center lg:text-left"
+          class="max-md:flex max-md:flex-col max-md:items-center lg:w-3/5 text-center lg:text-left"
           data-aos="custom-fade-up"
           data-aos-duration="400"
           data-aos-once="true"
         >
           <h2 class="display !text-[2.25rem] sm:!text-[3rem] lg:!text-[3.5rem] mb-6">
-            Adviseurs besteden het grootste deel van hun tijd aan administratie.
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent"
-              >Niet aan advies.</span
-            >
+            Minder administratie. Meer tijd voor <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent"
+              >wat telt</span
+            >.
           </h2>
           <p class="text-lg sm:text-xl text-muted-foreground max-w-xl">
-            Verouderde systemen, handmatig werk en te veel schermen. Insync automatiseert dat — stap
-            voor stap, met AI.
+            Je team verliest uren aan polismutaties, schadedossiers en klantvragen die de klant ook
+            zelf kan oplossen. Insync lost dat op — met moderne tools voor je klant én je
+            medewerkers, bovenop je huidige backoffice.
           </p>
         </div>
 
-        <!-- Right: Stats -->
-        <div
-          class="lg:w-2/5 w-full"
-          data-aos="custom-fade-up"
-          data-aos-duration="400"
-          data-aos-delay="200"
-          data-aos-once="true"
-        >
+        <!-- Right: Before / After comparison -->
+        <div class="lg:w-2/5 w-full flex flex-col items-center">
+          <!-- Vandaag -->
           <div
-            class="flex items-center gap-3 font-semibold uppercase mb-4 text-center lg:text-left"
+            class="w-full p-6 rounded-2xl bg-muted/60 backdrop-blur-sm border border-border/60"
+            data-aos="custom-fade-up"
+            data-aos-duration="500"
+            data-aos-delay="200"
+            data-aos-once="true"
           >
-            De Insync manier
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="p-6 rounded-2xl bg-primary/10 backdrop-blur-sm border border-primary/15">
-              <div class="flex items-center gap-2 mb-8">
-                <div
-                  class="flex items-center justify-center size-12 border shadow-md rounded-lg bg-background"
-                >
-                  <Bot class="size-6 text-primary" />
-                </div>
-              </div>
-              <span class="block text-4xl sm:text-5xl font-headings font-semibold text-primary mb-1"
-                >1</span
-              >
-              <span class="text-muted-foreground text-sm">platform in plaats van vijf systemen</span
-              >
+            <div
+              class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5"
+              data-aos="custom-fade-right"
+              data-aos-duration="400"
+              data-aos-delay="300"
+              data-aos-once="true"
+            >
+              Vandaag
             </div>
-            <div class="p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-primary/15">
-              <div class="flex items-center gap-2 mb-3">
-                <div class="flex items-center justify-center size-8 rounded-lg bg-primary/10">
-                  <Clock class="size-4 text-primary" />
-                </div>
-              </div>
-              <span class="block text-4xl sm:text-5xl font-headings font-semibold text-primary mb-1"
-                >&lt;1<span class="text-3xl">min</span></span
+            <ul class="space-y-3.5">
+              <li
+                class="flex items-center gap-3"
+                data-aos="custom-fade-right"
+                data-aos-duration="400"
+                data-aos-delay="350"
+                data-aos-once="true"
               >
-              <span class="text-muted-foreground text-sm">voor een schadeanalyse met AI</span>
+                <FileText class="size-5 text-muted-foreground shrink-0" />
+                <span class="font-medium">Mutaties handmatig invoeren</span>
+              </li>
+              <li
+                class="flex items-center gap-3"
+                data-aos="custom-fade-right"
+                data-aos-duration="400"
+                data-aos-delay="450"
+                data-aos-once="true"
+              >
+                <Mail class="size-5 text-muted-foreground shrink-0" />
+                <span class="font-medium">Herhaalvragen beantwoorden</span>
+              </li>
+              <li
+                class="flex items-center gap-3"
+                data-aos="custom-fade-right"
+                data-aos-duration="400"
+                data-aos-delay="550"
+                data-aos-once="true"
+              >
+                <Phone class="size-5 text-muted-foreground shrink-0" />
+                <span class="font-medium">Schades telefonisch intaken</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Arrow connector -->
+          <div
+            class="my-4"
+            data-aos="custom-draw-down"
+            data-aos-duration="500"
+            data-aos-delay="700"
+            data-aos-once="true"
+          >
+            <ArrowDown class="size-5 text-primary animate-arrow-bob" aria-hidden="true" />
+          </div>
+
+          <!-- Met Insync -->
+          <div
+            class="relative w-full p-6 rounded-2xl bg-linear-to-br from-primary/15 via-primary/10 to-accent/10 border border-primary/30 shadow-lg shadow-primary/10 overflow-hidden"
+            data-aos="custom-rise-pop"
+            data-aos-duration="700"
+            data-aos-delay="850"
+            data-aos-once="true"
+          >
+            <Sparkles
+              class="size-40 text-secondary/50 absolute bottom-0 right-0 translate-y-1/3 translate-x-1/3"
+            />
+            <!-- Decorative glow -->
+            <div
+              class="absolute -top-16 -right-16 size-40 rounded-full bg-primary/20 blur-3xl pointer-events-none animate-pulse-glow"
+              aria-hidden="true"
+            >
             </div>
             <div
-              class="col-span-2 p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-primary/15"
+              class="absolute -bottom-16 -left-16 size-32 rounded-full bg-accent/15 blur-3xl pointer-events-none animate-pulse-glow"
+              style="animation-delay: 1.5s;"
+              aria-hidden="true"
             >
-              <div class="flex items-center gap-4">
-                <div
-                  class="flex items-center justify-center size-8 rounded-lg bg-primary/10 shrink-0"
-                >
-                  <Sparkles class="size-4 text-primary" />
-                </div>
-                <div>
-                  <span
-                    class="block text-2xl sm:text-3xl font-headings font-semibold text-primary mb-0.5"
-                    >AI-first</span
-                  >
-                  <span class="text-muted-foreground text-sm"
-                    >gebouwd met AI als kern, niet als toevoeging</span
-                  >
-                </div>
-              </div>
             </div>
+
+            <div class="relative flex items-center gap-2 mb-5">
+              <!-- <div class="flex items-center justify-center size-5 rounded-full bg-primary">
+                <Sparkles class="size-3 text-white" />
+              </div> -->
+              <span class="text-xs font-semibold uppercase tracking-widest text-primary">
+                Met Insync
+              </span>
+            </div>
+
+            <ul class="relative space-y-3">
+              <li
+                class="flex items-center gap-3"
+                data-aos="custom-fade-right"
+                data-aos-duration="400"
+                data-aos-delay="1100"
+                data-aos-once="true"
+              >
+                <div
+                  class="flex items-center justify-center size-8 rounded-lg bg-white shadow-sm border border-primary/20 shrink-0"
+                >
+                  <CircleCheck class="size-4 text-primary" />
+                </div>
+                <span class="font-medium">Klant regelt zelf in portaal</span>
+              </li>
+              <li
+                class="flex items-center gap-3"
+                data-aos="custom-fade-right"
+                data-aos-duration="400"
+                data-aos-delay="1200"
+                data-aos-once="true"
+              >
+                <div
+                  class="flex items-center justify-center size-8 rounded-lg bg-white shadow-sm border border-primary/20 shrink-0"
+                >
+                  <MessageSquare class="size-4 text-primary" />
+                </div>
+                <span class="font-medium">AI-assistent beantwoordt vragen</span>
+              </li>
+              <li
+                class="flex items-center gap-3"
+                data-aos="custom-fade-right"
+                data-aos-duration="400"
+                data-aos-delay="1300"
+                data-aos-once="true"
+              >
+                <div
+                  class="flex items-center justify-center size-8 rounded-lg bg-white shadow-sm border border-primary/20 shrink-0"
+                >
+                  <Zap class="size-4 text-primary" />
+                </div>
+                <span class="font-medium">Schade-intake via chat</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
