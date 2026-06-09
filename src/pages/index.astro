@@ -26,34 +26,84 @@ import {
   Mic,
   Palette,
   Plug,
+  ShoppingCart,
+  Check,
 } from "@lucide/astro";
 import Cta from "../components/sections/Cta.astro";
 import Faq from "../components/sections/Faq.astro";
 
-const journeySteps = [
+const scenarios = [
   {
-    eyebrow: "Klantportaal",
-    icon: Mic,
-    title: "Klant meldt schade",
-    description:
-      "Via het klantportaal meldt de klant schade met de AI-assistent die het gesprek begeleidt.",
-    color: "text-primary",
-  },
-  {
-    eyebrow: "Insync AI",
+    tab: "Schade melden",
     icon: ShieldCheck,
-    title: "AI zet alles klaar",
-    description:
-      "De melding wordt automatisch gestructureerd en beoordeeld klaargezet voor de behandelaar.",
-    color: "text-rose",
+    accent: "text-primary",
+    title: "Schade, van melding tot besluit",
+    intro: "De klant meldt, AI bereidt voor, jij beslist.",
+    steps: [
+      {
+        label: "Klantportaal",
+        title: "Klant meldt schade",
+        description: "Begeleid door de AI-schadewizard, in eigen woorden.",
+      },
+      {
+        label: "Insync AI",
+        title: "AI zet de beoordeling klaar",
+        description: "Signalen, een risico-inschatting en een aanbevolen actie.",
+      },
+      {
+        label: "Medewerker",
+        title: "Bevestigen met één klik",
+        description: "De behandelaar beslist; AI deed het voorwerk.",
+      },
+    ],
   },
   {
-    eyebrow: "Medewerker beslist",
-    icon: CircleCheck,
-    title: "Eén klik en klaar",
-    description:
-      "De behandelaar ziet een onderbouwd voorstel en bevestigt — of past het aan waar nodig.",
-    color: "text-accent",
+    tab: "Verzekering afsluiten",
+    icon: ShoppingCart,
+    accent: "text-rose",
+    title: "Van oriënteren tot polis — online",
+    intro: "De klant sluit zelf af; de aanvraag staat meteen in je backoffice.",
+    steps: [
+      {
+        label: "Afsluitstraat",
+        title: "Klant sluit online af",
+        description: "Kiest, vergelijkt en vraagt aan, begeleid door Nova.",
+      },
+      {
+        label: "Backoffice",
+        title: "Aanvraag direct verwerkt",
+        description: "Geen handmatig overtypen; alles staat klaar.",
+      },
+      {
+        label: "Klantportaal",
+        title: "Klant beheert verder",
+        description: "Polis, documenten en facturen op één plek.",
+      },
+    ],
+  },
+  {
+    tab: "Vraag van een klant",
+    icon: MessageSquare,
+    accent: "text-accent",
+    title: "Elke klantvraag, direct opgepakt",
+    intro: "Beantwoord of klaargezet — zonder dat jij hoeft te zoeken.",
+    steps: [
+      {
+        label: "Klantportaal",
+        title: "Klant stelt een vraag",
+        description: "Via de ingebouwde assistent die het dossier kent.",
+      },
+      {
+        label: "AI-assistent",
+        title: "Antwoord of actie klaargezet",
+        description: "Beantwoordt direct, of zet een actie klaar voor jou.",
+      },
+      {
+        label: "Geregeld",
+        title: "Direct of bevestigd",
+        description: "Simpele acties meteen; de rest met jouw akkoord.",
+      },
+    ],
   },
 ];
 
@@ -73,7 +123,7 @@ const trustPoints = [
   {
     title: "Privacy by design",
     description:
-      "AVG-proof, met fijnmazige toestemming. Je data blijft waar 'ie hoort.",
+      "AVG-proof, met gerichte toestemming. Je data blijft waar 'ie hoort.",
     icon: ShieldCheck,
   },
 ];
@@ -81,7 +131,7 @@ const trustPoints = [
 const faqs = [
   {
     q: "Werkt Insync met onze backoffice?",
-    a: "Insync werkt backoffice-onafhankelijk. We draaien in productie op Novulo en koppelen daarnaast met Anva en CCS.",
+    a: "Insync werkt backoffice-onafhankelijk en koppelt met je bestaande systemen, zoals Novulo, Anva en CCS.",
   },
   {
     q: "Raken we de controle kwijt aan de AI?",
@@ -159,56 +209,111 @@ const faqs = [
         </div>
       </div>
 
-      <!-- Hero visual: opdracht -> actie concept (placeholder) -->
+      <!-- Hero visual: Insync AI in app-frame met zwevende resultaatkaarten -->
       <div
         id="hero-image"
-        class="relative mt-12 sm:mt-16 mx-auto max-w-3xl will-change-transform starting:opacity-0 starting:translate-y-8 starting:scale-75 transition-[opacity,translate,scale] duration-1000 delay-500"
+        class="relative mt-16 sm:mt-24 mx-auto max-w-2xl will-change-transform starting:opacity-0 starting:translate-y-8 starting:scale-75 transition-[opacity,translate,scale] duration-1000 delay-500"
         style="transform: scale(0.85);"
       >
-        <div class="relative rounded-2xl glow-primary bg-white border p-5 sm:p-7 text-left">
-          <!-- Command -->
-          <div class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
-            Jouw opdracht
-          </div>
-          <div class="flex items-start gap-3 rounded-xl border bg-muted/40 px-4 py-3">
-            <Sparkles class="size-5 text-primary shrink-0 mt-0.5" />
-            <p class="text-sm sm:text-base font-medium">
-              "Wijzig het kenteken van Jan de Vries naar 12-ABC-3 en stuur hem een bevestiging."
-            </p>
-          </div>
+        <!-- glow -->
+        <div
+          class="absolute -inset-8 -z-10 bg-gradient-to-tr from-primary/20 via-rose/10 to-accent/15 blur-3xl rounded-[3rem]"
+          aria-hidden="true"
+        >
+        </div>
 
-          <!-- Connector -->
-          <div class="flex items-center gap-3 my-4">
-            <span
-              class="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1"
-            >
-              <Bot class="size-3.5" /> Insync AI
+        <!-- App window -->
+        <div class="relative rounded-2xl border bg-white shadow-2xl shadow-primary/10 overflow-hidden text-left">
+          <!-- Top bar -->
+          <div class="flex items-center gap-3 px-4 sm:px-5 py-3 border-b bg-muted/40">
+            <div class="flex gap-1.5" aria-hidden="true">
+              <span class="size-3 rounded-full bg-rose/40"></span>
+              <span class="size-3 rounded-full bg-warning/40"></span>
+              <span class="size-3 rounded-full bg-success/40"></span>
+            </div>
+            <div class="flex items-center gap-2 ml-1">
+              <span class="flex items-center justify-center size-6 rounded-md bg-primary/10 text-primary">
+                <Bot class="size-4" />
+              </span>
+              <span class="text-sm font-medium">Insync AI</span>
+            </div>
+            <span class="ml-auto hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span class="size-1.5 rounded-full bg-success"></span> Verbonden met backoffice
             </span>
-            <span class="text-sm text-muted-foreground">handelt het af in je backoffice</span>
           </div>
 
-          <!-- Actions -->
-          <div class="space-y-2.5">
-            <div class="flex items-center gap-3 rounded-xl border bg-background px-4 py-3">
-              <span class="flex items-center justify-center size-7 rounded-lg bg-success/10 shrink-0">
-                <Eye class="size-4 text-success" />
-              </span>
-              <span class="text-sm font-medium">Relatie opgehaald en kenteken gecontroleerd via RDW</span>
-              <span class="ml-auto text-xs text-muted-foreground hidden sm:inline">Direct geregeld</span>
-            </div>
-            <div
-              class="flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/[0.04] px-4 py-3"
-            >
-              <span class="flex items-center justify-center size-7 rounded-lg bg-primary/10 shrink-0">
-                <CircleCheck class="size-4 text-primary" />
-              </span>
-              <span class="text-sm font-medium">Wijziging en bevestigingsmail klaargezet</span>
-              <span
-                class="ml-auto inline-flex items-center gap-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5"
+          <!-- Chat body -->
+          <div class="p-4 sm:p-6 space-y-4">
+            <div class="flex justify-end">
+              <div
+                class="max-w-[80%] bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm"
               >
-                Bevestigen
+                Werk het nieuwe adres van Jan de Vries bij en stuur hem een bevestiging.
+              </div>
+            </div>
+            <div class="flex gap-2.5">
+              <span
+                class="flex items-center justify-center size-7 rounded-lg bg-primary/10 text-primary shrink-0 mt-0.5"
+              >
+                <Sparkles class="size-4" />
+              </span>
+              <div class="max-w-[85%] space-y-2.5">
+                <div class="bg-muted rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm">
+                  Ik heb het adres opgehaald en de wijziging klaargezet. Even bevestigen?
+                </div>
+                <div class="rounded-xl border border-primary/30 bg-primary/[0.04] p-3">
+                  <div class="text-xs text-muted-foreground mb-1">Wijziging klaargezet</div>
+                  <div class="text-sm font-medium mb-3">Adres → Dorpsstraat 12, 3500 Utrecht</div>
+                  <div class="flex gap-2">
+                    <span
+                      class="inline-flex items-center gap-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5"
+                    >
+                      <CircleCheck class="size-3.5" /> Bevestigen
+                    </span>
+                    <span class="inline-flex items-center rounded-lg border text-xs font-medium px-3 py-1.5"
+                      >Weigeren</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input bar -->
+          <div class="px-4 sm:px-5 py-3 border-t">
+            <div class="flex items-center gap-2 rounded-xl border bg-muted/40 px-3.5 py-2.5">
+              <span class="text-sm text-muted-foreground">Typ een opdracht…</span>
+              <span
+                class="ml-auto flex items-center justify-center size-7 rounded-lg bg-primary text-primary-foreground"
+              >
+                <ArrowRight class="size-4" />
               </span>
             </div>
+          </div>
+        </div>
+
+        <!-- Floating result cards -->
+        <div
+          class="hidden sm:flex items-center gap-2.5 absolute -top-5 -right-4 lg:-right-10 rounded-xl border bg-white shadow-lg px-3.5 py-2.5 animate-float"
+        >
+          <span class="flex items-center justify-center size-7 rounded-lg bg-success/10 text-success">
+            <CircleCheck class="size-4" />
+          </span>
+          <div class="text-xs">
+            <div class="font-semibold">Adres bijgewerkt</div>
+            <div class="text-muted-foreground">via RDW gecontroleerd</div>
+          </div>
+        </div>
+        <div
+          class="hidden sm:flex items-center gap-2.5 absolute -bottom-5 -left-4 lg:-left-10 rounded-xl border bg-white shadow-lg px-3.5 py-2.5 animate-float"
+          style="animation-delay: 1.5s;"
+        >
+          <span class="flex items-center justify-center size-7 rounded-lg bg-primary/10 text-primary">
+            <Mail class="size-4" />
+          </span>
+          <div class="text-xs">
+            <div class="font-semibold">Bevestiging verstuurd</div>
+            <div class="text-muted-foreground">in jouw huisstijl</div>
           </div>
         </div>
       </div>
@@ -285,9 +390,8 @@ const faqs = [
             >.
           </h2>
           <p class="text-lg sm:text-xl text-muted-foreground max-w-xl">
-            Mutaties, schadedossiers, facturen, herhaalvragen — je team verliest er dagelijks uren
-            aan. Werk dat de klant vaak prima zelf kan, of dat AI sneller doet. Insync neemt het over,
-            bovenop je bestaande backoffice.
+            Je team verliest dagelijks uren aan handmatig, repeterend werk — werk dat de klant vaak
+            zelf kan, of dat AI sneller doet. Insync neemt het over, bovenop je bestaande backoffice.
           </p>
         </div>
 
@@ -319,7 +423,7 @@ const faqs = [
                 data-aos-once="true"
               >
                 <FileText class="size-5 text-muted-foreground shrink-0" />
-                <span class="font-medium">Mutaties handmatig invoeren</span>
+                <span class="font-medium">Handmatig overtypen tussen systemen</span>
               </li>
               <li
                 class="flex items-center gap-3"
@@ -425,7 +529,7 @@ const faqs = [
                 >
                   <ShieldCheck class="size-4 text-primary" />
                 </div>
-                <span class="font-medium">Mutaties en schades: AI doet het voorwerk, jij bevestigt</span>
+                <span class="font-medium">Routinewerk: AI doet het voorwerk, jij bevestigt</span>
               </li>
             </ul>
           </div>
@@ -446,13 +550,12 @@ const faqs = [
         <span class="label mb-4 inline-block">Het idee</span>
         <h2 class="mb-4">AI die rechtstreeks met je backoffice praat</h2>
         <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-          De meeste software vraagt jóu om het werk te doen: klikken, zoeken, overtypen. Insync draait
-          dat om. Je geeft een opdracht in gewone taal en onze agentic AI voert de handelingen uit in
-          je backoffice. Geen los systeem ernaast — AI werkt rechtstreeks ín je administratie.
+          AI neemt het werk over — vooraan, waar je klanten zelf zaken regelen, én achteraan, waar je
+          team de backoffice bestuurt. Altijd in gewone taal, en altijd met jou aan de knoppen.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
         <div
           class="rounded-2xl bg-gradient-to-br from-primary via-rose to-accent p-[1.5px] shadow-sm shadow-primary/10"
           data-aos="custom-fade-up"
@@ -460,13 +563,12 @@ const faqs = [
           data-aos-once="true"
         >
           <div class="h-full p-7 rounded-[15px] bg-white">
-            <div class="flex items-center justify-center size-11 rounded-xl bg-success/10 text-success mb-4">
-              <Eye class="size-5" />
+            <div class="flex items-center justify-center size-11 rounded-xl bg-primary/10 text-primary mb-4">
+              <MessageSquare class="size-5" />
             </div>
-            <h4 class="text-lg font-semibold mb-1.5">Opzoeken en lezen? Direct geregeld.</h4>
+            <h4 class="text-lg font-semibold mb-1.5">Vraag of opdracht in gewone taal</h4>
             <p class="text-muted-foreground text-sm">
-              AI haalt zelfstandig op wat nodig is: relaties, polissen, schades en documenten. Geen
-              wachten, geen tussenstap.
+              Een medewerker of klant zegt gewoon wat 'ie nodig heeft.
             </p>
           </div>
         </div>
@@ -478,13 +580,29 @@ const faqs = [
           data-aos-once="true"
         >
           <div class="h-full p-7 rounded-[15px] bg-white">
+            <div class="flex items-center justify-center size-11 rounded-xl bg-success/10 text-success mb-4">
+              <Eye class="size-5" />
+            </div>
+            <h4 class="text-lg font-semibold mb-1.5">AI doet het voorwerk</h4>
+            <p class="text-muted-foreground text-sm">
+              Opzoeken, lezen en klaarzetten — direct in je backoffice.
+            </p>
+          </div>
+        </div>
+        <div
+          class="rounded-2xl bg-gradient-to-br from-primary via-rose to-accent p-[1.5px] shadow-sm shadow-primary/10"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-delay="200"
+          data-aos-once="true"
+        >
+          <div class="h-full p-7 rounded-[15px] bg-white">
             <div class="flex items-center justify-center size-11 rounded-xl bg-primary/10 text-primary mb-4">
               <CircleCheck class="size-5" />
             </div>
-            <h4 class="text-lg font-semibold mb-1.5">Iets wijzigen? Jij bevestigt.</h4>
+            <h4 class="text-lg font-semibold mb-1.5">Jij bevestigt wat verandert</h4>
             <p class="text-muted-foreground text-sm">
-              Elke wijziging zet AI volledig voor je klaar. Jij drukt op de knop. Zo blijf je altijd in
-              controle.
+              Lezen gaat vanzelf; elke wijziging gaat via een mens.
             </p>
           </div>
         </div>
@@ -604,62 +722,98 @@ const faqs = [
         </p>
       </div>
 
-      <div class="max-w-5xl mx-auto relative">
-        <div
-          class="hidden md:block absolute top-[5.5rem] left-[calc(16.67%-0.5rem)] right-[calc(16.67%-0.5rem)] h-px bg-gradient-to-r from-primary/20 via-rose/20 to-accent/20 z-0"
-          aria-hidden="true"
-        >
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6 lg:gap-8 relative z-10">
-          {
-            journeySteps.map((step, i) => (
-              <div
-                class="relative"
-                data-aos="custom-fade-up"
-                data-aos-duration="400"
-                data-aos-delay={String(i * 100)}
-                data-aos-once="true"
-              >
-                <div class="flex justify-center mb-6">
-                  <div
-                    class:list={[
-                      "flex items-center justify-center size-14 rounded-2xl shadow-sm border border-border/60 bg-white",
-                      step.color,
-                    ]}
-                  >
-                    <step.icon class="size-6" />
-                  </div>
-                </div>
-
-                <div class="text-center p-6 sm:p-8 rounded-2xl bg-white border border-border/60 shadow-sm hover:shadow-md transition-shadow duration-300">
+      <div
+        class="max-w-5xl mx-auto"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-once="true"
+      >
+        <!-- Card -->
+        <div class="rounded-3xl border border-border/60 bg-white shadow-sm p-3 sm:p-4">
+          <!-- Tabs -->
+          <div class="flex flex-col sm:flex-row gap-2 mb-2" role="tablist" aria-label="Voorbeelden">
+            {
+              scenarios.map((scenario, i) => (
+                <button
+                  type="button"
+                  class="scenario-tab relative overflow-hidden flex-1 flex items-center gap-2.5 rounded-2xl border border-transparent bg-muted/40 px-4 py-3 text-left text-muted-foreground transition-colors hover:text-foreground aria-selected:bg-white aria-selected:border-primary/30 aria-selected:text-foreground aria-selected:shadow-sm"
+                  data-index={i}
+                  role="tab"
+                  aria-selected={i === 0 ? "true" : "false"}
+                >
                   <span
                     class:list={[
-                      "text-xs font-semibold uppercase tracking-widest mb-3 block",
-                      step.color,
+                      "flex items-center justify-center size-8 rounded-lg bg-white shadow-sm border border-border/60 shrink-0",
+                      scenario.accent,
                     ]}
                   >
-                    {step.eyebrow}
+                    <scenario.icon class="size-4" />
                   </span>
-                  <h4 class="text-lg font-semibold mb-2">{step.title}</h4>
-                  <p class="text-muted-foreground text-sm">{step.description}</p>
+                  <span class="text-sm font-medium">{scenario.tab}</span>
+                  <span class="scenario-progress absolute bottom-0 left-0 h-0.5 w-0 bg-primary" />
+                </button>
+              ))
+            }
+          </div>
+
+          <!-- Panels -->
+          <div id="scenario-panels" class="rounded-2xl bg-muted/20 p-6 sm:p-8 lg:p-10">
+            {
+              scenarios.map((scenario, i) => (
+                <div class="scenario-panel" data-index={i} role="tabpanel" hidden={i !== 0}>
+                  <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="flex flex-col">
+                      <h3 class="text-2xl sm:text-3xl font-semibold mb-3">{scenario.title}</h3>
+                      <p class="text-muted-foreground mb-8">{scenario.intro}</p>
+                      <div class="mt-auto">
+                        <Button href="/demo" variant="outline" class="group">
+                          Demo inplannen
+                          <ArrowRight class="size-5 group-hover:translate-x-0.5 duration-150" />
+                        </Button>
+                      </div>
+                    </div>
+                    <div>
+                      {scenario.steps.map((step, j) => (
+                        <div
+                          class:list={[
+                            "py-4 first:pt-0 last:pb-0",
+                            j < scenario.steps.length - 1 && "border-b border-border/60",
+                          ]}
+                        >
+                          <span
+                            class:list={[
+                              "text-xs font-semibold uppercase tracking-widest block mb-1",
+                              scenario.accent,
+                            ]}
+                          >
+                            {step.label}
+                          </span>
+                          <h4 class="font-semibold mb-0.5">{step.title}</h4>
+                          <p class="text-sm text-muted-foreground">{step.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))
-          }
+              ))
+            }
+          </div>
         </div>
 
-        <div
-          class="mt-12 text-center"
-          data-aos="custom-fade-up"
-          data-aos-duration="400"
-          data-aos-delay="300"
-          data-aos-once="true"
-        >
-          <p class="text-sm text-muted-foreground">
-            Dit is slechts één voorbeeld. Alle oplossingen zijn modulair inzetbaar en komen samen in
-            één omgeving.
-          </p>
+        <!-- Fundament strip -->
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-8">
+          {
+            ["White-label", "Backoffice-onafhankelijk", "AVG-proof", "Realtime koppeling"].map(
+              (item) => (
+                <span class="flex items-center gap-2 text-sm font-medium">
+                  <span class="flex items-center justify-center size-5 rounded-md bg-foreground text-background shrink-0">
+                    <Check class="size-3.5" />
+                  </span>
+                  {item}
+                </span>
+              )
+            )
+          }
         </div>
       </div>
     </div>
@@ -730,3 +884,71 @@ const faqs = [
     text="Plan een demo in en ontdek wat agentic AI voor jouw organisatie betekent."
   />
 </Layout>
+
+<script is:inline>
+  (function () {
+    const tabs = Array.from(document.querySelectorAll(".scenario-tab"));
+    const panels = Array.from(document.querySelectorAll(".scenario-panel"));
+    if (!tabs.length) return;
+
+    const DURATION = 6000;
+    let active = 0;
+    let timer = null;
+
+    function paintProgress() {
+      tabs.forEach(function (tab, k) {
+        const bar = tab.querySelector(".scenario-progress");
+        if (!bar) return;
+        bar.style.transition = "none";
+        bar.style.width = "0%";
+        if (k === active) {
+          void bar.offsetWidth;
+          bar.style.transition = "width " + DURATION + "ms linear";
+          bar.style.width = "100%";
+        }
+      });
+    }
+
+    function show(i) {
+      active = i;
+      tabs.forEach(function (tab, k) {
+        tab.setAttribute("aria-selected", k === i ? "true" : "false");
+      });
+      panels.forEach(function (panel, k) {
+        panel.hidden = k !== i;
+      });
+      paintProgress();
+    }
+
+    function next() {
+      show((active + 1) % tabs.length);
+    }
+
+    function startTimer() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, DURATION);
+    }
+
+    function stopTimer() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () {
+        show(i);
+        startTimer();
+      });
+    });
+
+    const panelsWrap = document.getElementById("scenario-panels");
+    if (panelsWrap && panelsWrap.parentElement) {
+      const wrap = panelsWrap.parentElement;
+      wrap.addEventListener("mouseenter", stopTimer);
+      wrap.addEventListener("mouseleave", startTimer);
+    }
+
+    show(0);
+    startTimer();
+  })();
+</script>
