@@ -13,4 +13,9 @@ export default defineConfig({
   site: "https://insync.insure",
   integrations: [sitemap(), vue()],
   adapter: netlify(),
+
+  redirects: {
+    // Voorwaarden Vergelijker is opgegaan in Insync AI
+    "/oplossingen/voorwaarden-vergelijker": "/oplossingen/insync-ai",
+  },
 });

@@ -4,30 +4,31 @@ import { Image } from "astro:assets";
 import CustomerPortal from "../assets/customer-portal/home.webp";
 import CustomerPortal2 from "../assets/customer-portal/mockup.webp";
 import InsurancePortalCar from "../assets/insurance-portal/car-insurance-mockup.webp";
+import InsyncLaptopMockup from "../assets/insync-laptop-mockup.webp";
 import IntegrationsHorizontal from "../assets/integrations-horizontal.svg";
 import IntegrationsVertical from "../assets/integrations-vertical.svg";
 import Button from "../components/ui/Button.astro";
-import { ArrowRight, HeartHandshake, Files, Zap, Blocks } from "@lucide/astro";
+import { ArrowRight, HeartHandshake, Files, Zap, Blocks, MessageSquare, Sparkles } from "@lucide/astro";
 import Cta from "../components/sections/Cta.astro";
 
 const features = [
   {
-    title: "Minder herhaalvragen, meer persoonlijk advies",
-    description: "Tot 30% minder herhaalvragen dankzij self-service.",
+    title: "Minder handwerk, meer advies",
+    description: "AI en self-service nemen repeterend werk uit handen, zodat jij tijd overhoudt voor je klant.",
     icon: HeartHandshake,
   },
   {
     title: "Altijd volledig en actueel",
-    description: "Realtime data vanuit je backoffice systeem. Veilig en compliant.",
+    description: "Realtime data uit je backoffice. Veilig en compliant.",
     icon: Files,
   },
   {
-    title: "Sneller schakelen met klanten",
-    description: "Documenten en meldingen direct digitaal geregeld.",
+    title: "Van vraag naar actie",
+    description: "Klanten en medewerkers regelen zaken direct digitaal — AI zet het werk voor je klaar.",
     icon: Zap,
   },
   {
-    title: "Meegroeien met jouw dienstverlening",
+    title: "Meegroeien met je dienstverlening",
     description: "Kies alleen wat je nodig hebt. Uitbreiden kan altijd.",
     icon: Blocks,
   },
@@ -45,12 +46,12 @@ const features = [
           <div class="flex flex-col items-center lg:items-start space-y-4">
             <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500">
               <a
-                href="/oplossingen/voorwaarden-vergelijker"
+                href="/oplossingen/insync-ai"
                 class="inline-flex items-center border rounded-full text-sm px-3 py-1 hover:bg-muted duration-150"
               >
                 <div class="size-1.5 rounded-full bg-primary mr-2 shrink-0"></div>
                 <div>
-                  <span class="font-bold mr-1">Nieuw!</span>AI Voorwaarden Vergelijker
+                  <span class="font-bold mr-1">Nieuw!</span>Insync AI · chat met je backoffice
                 </div>
               </a>
             </div>
@@ -62,8 +63,9 @@ const features = [
             <p
               class="max-w-3xl w-full text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
             >
-              Insync biedt AI-tools voor adviseurs en digitale oplossingen voor hun klanten. Minder
-              administratie, meer overzicht — snel te implementeren en volledig aanpasbaar.
+              Insync is het AI-platform voor verzekeraars, volmachten en adviseurs. Met een slim
+              klantportaal én AI die rechtstreeks met je backoffice werkt, neem je administratief
+              werk weg en houd je tijd over voor advies. Snel live en volledig in je eigen huisstijl.
             </p>
           </div>
 
@@ -88,6 +90,32 @@ const features = [
             alt="Klantportaal"
             class="w-[280px] starting:opacity-0 starting:scale-95 transition-all duration-1000 delay-600"
           />
+          <div
+            class="hidden sm:flex absolute top-12 -left-2 lg:-left-6 z-10 items-center gap-3 bg-background/95 backdrop-blur border rounded-2xl shadow-lg px-4 py-3 starting:opacity-0 starting:-translate-x-2 transition-all duration-700 delay-[900ms]"
+          >
+            <div
+              class="flex items-center justify-center size-9 rounded-full bg-secondary text-primary shrink-0"
+            >
+              <MessageSquare class="size-5" />
+            </div>
+            <div class="text-sm leading-tight">
+              <div class="font-medium">Klant in het portaal</div>
+              <div class="text-muted-foreground">"Stuur mijn polisblad"</div>
+            </div>
+          </div>
+          <div
+            class="hidden sm:flex absolute bottom-12 -right-2 lg:-right-6 z-10 items-center gap-3 bg-background/95 backdrop-blur border rounded-2xl shadow-lg px-4 py-3 starting:opacity-0 starting:translate-x-2 transition-all duration-700 delay-[1100ms]"
+          >
+            <div
+              class="flex items-center justify-center size-9 rounded-full bg-primary text-primary-foreground shrink-0"
+            >
+              <Sparkles class="size-5" />
+            </div>
+            <div class="text-sm leading-tight">
+              <div class="font-medium">Insync AI</div>
+              <div class="text-muted-foreground">Klaargezet in je backoffice</div>
+            </div>
+          </div>
           <div class="starting:opacity-0 transition-all duration-2000 delay-1000 -z-10">
             <div
               class="absolute -top-[64px] -left-[64px] bg-accent/10 size-[500px] rounded-[120px] blur-[150px]"
@@ -125,11 +153,12 @@ const features = [
           <div class="text-primary font-medium mb-2">Klantportaal</div>
           <h1 class="mb-4">Digitaal gemak voor je klant</h1>
           <p class="mb-10">
-            Jouw klant verwacht overzicht, snelheid en eenvoud. Met Insync geef je hen toegang tot
-            een persoonlijk portaal waar ze zelf hun verzekeringen, documenten en schades kunnen
-            inzien. Veilig en altijd beschikbaar.
+            Jouw klant verwacht overzicht, snelheid en eenvoud. Met Insync geef je hen een
+            persoonlijk portaal waar ze zelf hun verzekeringen, documenten, facturen en schades
+            regelen. En een ingebouwde AI-assistent die hun eigen dossier kent en direct vragen
+            beantwoordt of acties klaarzet. Veilig en altijd beschikbaar.
           </p>
-          <Button href="/oplossingen/klanten" size="lg" class="w-full sm:w-auto">
+          <Button href="/oplossingen/klantportaal" size="lg" class="w-full sm:w-auto">
             Klantportaal ontdekken
             <ArrowRight class="size-5" />
           </Button>
@@ -178,6 +207,35 @@ const features = [
             Afsluitstraat ontdekken
             <ArrowRight class="size-5" aria-hidden="true" />
           </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="insync-ai" class="py-20 sm:py-28">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-32">
+        <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <div class="text-primary font-medium mb-2">Insync AI</div>
+          <h2 class="h1 mb-4">Laat AI je backoffice bedienen</h2>
+          <p class="mb-10">
+            Geef in gewone taal een opdracht en Insync AI doet het werk: klantgegevens opzoeken,
+            schades en taken voorbereiden, e-mails opstellen. Opzoeken gaat direct, elke wijziging
+            zet de AI alvast klaar — jij bevestigt met één klik. Zo houd je grip én tijd over.
+          </p>
+          <Button href="/oplossingen/insync-ai" size="lg" class="w-full sm:w-auto">
+            Insync AI ontdekken
+            <ArrowRight class="size-5" />
+          </Button>
+        </div>
+        <div
+          class="lg:max-w-[640px] w-full"
+          data-aos="custom-zoom-in"
+          data-aos-duration="400"
+          data-aos-delay="400"
+          data-aos-once="true"
+        >
+          <Image src={InsyncLaptopMockup} alt="Insync AI" class="rounded-3xl" />
         </div>
       </div>
     </div>

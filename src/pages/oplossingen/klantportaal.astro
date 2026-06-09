@@ -2,7 +2,25 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/ui/Button.astro";
-import { ArrowDown, Files, Smartphone, Shield, RefreshCw } from "@lucide/astro";
+import {
+  ArrowDown,
+  Files,
+  Smartphone,
+  Shield,
+  RefreshCw,
+  Bot,
+  Sparkles,
+  ShieldCheck,
+  Link as LinkIcon,
+  Camera,
+  CreditCard,
+  PencilLine,
+  UserRound,
+  Palette,
+  MessageCircleQuestion,
+  ListChecks,
+  Workflow,
+} from "@lucide/astro";
 import CustomerPortal from "../../assets/customer-portal/home.webp";
 import CustomerPortalAirplane from "../../assets/customer-portal/mockup-airplane.webp";
 import MyInsurances from "../../assets/customer-portal/mijn-verzekeringen.webp";
@@ -14,31 +32,65 @@ const features = [
   {
     title: "Altijd en overal toegang",
     description:
-      "Laat klanten zelf polissen, documenten, etc. inzien. Zo verminder je repeterende vragen via mail of telefoon.",
+      "Klanten regelen polissen, facturen, documenten en schades zelf, wanneer het hen uitkomt. Zo verminder je herhaalvragen via mail en telefoon.",
     icon: Smartphone,
   },
   {
-    title: "Nooit meer zoeken naar documenten",
+    title: "Alles overzichtelijk op één plek",
     description:
-      "Door selfservice-functies en centrale informatie is er minder ruis en ruimte voor persoonlijk contact.",
+      "Polissen, documenten en facturen netjes bij elkaar. Geen zoekwerk, minder ruis en meer ruimte voor persoonlijk contact.",
     icon: Files,
   },
   {
     title: "Veilig en vertrouwd",
-    description: "Het klantportaal voldoet aan de beveiligingsstandaarden, inclusief AVG.",
+    description:
+      "Voldoet aan de geldende beveiligingsstandaarden, inclusief AVG. Inloggen gaat wachtwoordloos via een veilige magic link.",
     icon: Shield,
   },
   {
     title: "Altijd synchroon met jou",
-    description: "Wat jij ziet, ziet je klant dankzij real-time data via veilige koppeling.",
+    description: "Wat jij ziet, ziet je klant. Realtime data via een veilige koppeling met je backoffice.",
     icon: RefreshCw,
   },
+];
+
+const modules = [
+  {
+    title: "Schade melden met AI",
+    description:
+      "De klant beschrijft in eigen woorden wat er is gebeurd. De AI-wizard stelt alleen relevante vragen en leest geüploade schadeformulieren automatisch uit.",
+    icon: Camera,
+  },
+  {
+    title: "Facturen inzien en betalen",
+    description: "Een helder overzicht van openstaande en betaalde facturen, met de optie om direct te betalen.",
+    icon: CreditCard,
+  },
+  {
+    title: "Wijzigingen doorgeven",
+    description: "Adres, kenteken of dekking aanpassen? De klant geeft het zelf door met de gewenste ingangsdatum.",
+    icon: PencilLine,
+  },
+  {
+    title: "Eigen gegevens beheren",
+    description: "Persoons- en bedrijfsgegevens, IBAN, betaalvoorkeur en taalkeuze: de klant houdt het zelf actueel.",
+    icon: UserRound,
+  },
+];
+
+const config = [
+  { title: "Huisstijl", description: "Logo, kleuren, lettertypes en hoeken", icon: Palette },
+  { title: "Teksten & content", description: "Per pagina, tweetalig", icon: Files },
+  { title: "FAQ", description: "Veelgestelde vragen in categorieën", icon: MessageCircleQuestion },
+  { title: "Formulieren", description: "No-code formulierenbouwer", icon: ListChecks },
+  { title: "Schadeflows", description: "Bouw je eigen schademeld-wizards", icon: Workflow },
+  { title: "AI-assistent", description: "Tone of voice en kennisbron", icon: Bot },
 ];
 ---
 
 <Layout
   title="Klantportaal"
-  description="Een modern klantportaal voor verzekeringsadviseurs en assurantiekantoren. Geef klanten 24/7 inzicht in polissen en documenten, volledig in jouw huisstijl."
+  description="Een modern klantportaal voor verzekeraars, volmachten en adviseurs. Klanten regelen 24/7 zelf hun polissen, facturen, documenten en schades, ondersteund door een ingebouwde AI-assistent. Volledig in jouw huisstijl."
 >
   <section id="hero" class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip">
     <div class="container">
@@ -53,9 +105,9 @@ const features = [
             <p
               class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
             >
-              Via het klantportaal van Insync hebben jouw klanten 24/7 toegang tot hun
-              verzekeringen, documenten en schades. Dat voorkomt onnodige vragen én versterkt jullie
-              relatie.
+              Via het klantportaal van Insync regelen jouw klanten 24/7 zelf hun verzekeringen,
+              facturen, documenten en schades. Een ingebouwde AI-assistent kent hun dossier en helpt
+              direct. Dat voorkomt onnodige vragen én versterkt jullie relatie.
             </p>
           </div>
 
@@ -117,18 +169,124 @@ const features = [
     </div>
   </section>
 
+  <section id="ai-assistant" class="py-20 sm:py-28">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <div class="text-primary font-medium mb-2">Ingebouwde AI-assistent</div>
+          <h1 class="mb-4">Een digitale medewerker, dag en nacht</h1>
+          <p class="mb-8">
+            De AI-assistent in het portaal kent het dossier van je klant. Hij beantwoordt vragen
+            over polissen en dekkingen, haalt documenten op en zet schademeldingen of wijzigingen
+            klaar. Eenvoudige zaken handelt hij direct af; de rest staat klaar voor jouw
+            medewerkers.
+          </p>
+          <ul class="space-y-5">
+            <li class="flex gap-3">
+              <ShieldCheck class="size-6 text-primary shrink-0 mt-0.5" />
+              <div>
+                <div class="font-medium">AI bereidt voor, jij beslist</div>
+                <p class="text-muted-foreground">
+                  Acties die iets wijzigen worden klaargezet — jouw medewerker bevestigt met één
+                  klik.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <Shield class="size-6 text-primary shrink-0 mt-0.5" />
+              <div>
+                <div class="font-medium">De klant houdt de regie</div>
+                <p class="text-muted-foreground">
+                  Per categorie bepaalt de klant zelf wat de assistent mag inzien. Privacy by
+                  design.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <LinkIcon class="size-6 text-primary shrink-0 mt-0.5" />
+              <div>
+                <div class="font-medium">Of koppel een eigen AI</div>
+                <p class="text-muted-foreground">
+                  Klanten kunnen veilig hun eigen ChatGPT of Claude koppelen, met expliciete
+                  toestemming en op elk moment intrekbaar.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="w-full lg:max-w-[480px] shrink-0"
+          data-aos="custom-zoom-in"
+          data-aos-duration="400"
+          data-aos-delay="300"
+          data-aos-once="true"
+        >
+          <div class="bg-background border rounded-3xl shadow-lg p-5 sm:p-6">
+            <div class="flex items-center gap-3 border-b pb-4 mb-4">
+              <div
+                class="flex items-center justify-center size-9 rounded-full bg-primary text-primary-foreground shrink-0"
+              >
+                <Sparkles class="size-5" />
+              </div>
+              <div>
+                <div class="font-medium leading-tight">Assistent</div>
+                <div class="text-xs text-success leading-tight">● Online</div>
+              </div>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex">
+                <div class="bg-muted rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%]">
+                  Hoi Sophie 👋 Waarmee kan ik je helpen?
+                </div>
+              </div>
+              <div class="flex justify-end">
+                <div
+                  class="bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%]"
+                >
+                  Ik wil een ruitschade melden
+                </div>
+              </div>
+              <div class="flex">
+                <div class="bg-muted rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%]">
+                  Ik zet de schademelding alvast voor je klaar. Kun je een foto van de ruit
+                  toevoegen?
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs border rounded-full px-3 py-1 text-muted-foreground">Mijn polissen</span>
+              <span class="text-xs border rounded-full px-3 py-1 text-muted-foreground">Laatste factuur</span>
+              <span class="text-xs border rounded-full px-3 py-1 text-muted-foreground">Groene kaart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="bg-gradient-to-t from-muted to-muted/50 py-20 sm:py-28">
     <div class="container">
       <div class="flex flex-col items-center">
         <h1
-          class="text-center max-w-[600px] mb-16"
+          class="text-center max-w-[640px] mb-4"
           data-aos="custom-fade-up"
           data-aos-duration="400"
           data-aos-once="true"
         >
-          Snel, eenvoudig en gebruiksvriendelijk
+          Alles wat je klant zelf regelt
         </h1>
-        <ul class="grid lg:grid-cols-3 gap-8">
+        <p
+          class="text-center text-muted-foreground max-w-[600px] mb-16"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-delay="100"
+          data-aos-once="true"
+        >
+          Snel, eenvoudig en gebruiksvriendelijk. Van het inzien van polissen tot het melden van
+          schade: de klant doet het zelf, in een paar klikken.
+        </p>
+        <ul class="grid lg:grid-cols-3 gap-8 w-full">
           <li
             data-aos="custom-fade-up"
             data-aos-duration="400"
@@ -146,8 +304,8 @@ const features = [
             </div>
             <h2 class="h4 mb-2">Altijd inzicht in je dekking</h2>
             <p class="text-sm text-muted-foreground">
-              Klanten zien direct welke verzekeringen ze hebben, inclusief details. Overzichtelijk
-              en actueel.
+              Klanten zien direct welke verzekeringen ze hebben, inclusief dekkingen, premie en
+              voorwaarden. Overzichtelijk en actueel.
             </p>
           </li>
           <li
@@ -168,7 +326,7 @@ const features = [
             <h2 class="h4 mb-2">Alle documenten op één plek</h2>
             <p class="text-sm text-muted-foreground">
               Polissen, verzekeringsbewijzen en facturen veilig opgeslagen en altijd beschikbaar.
-              Geen zoekwerk of e-mail nodig
+              Geen zoekwerk of e-mail nodig.
             </p>
           </li>
           <li
@@ -193,12 +351,78 @@ const features = [
             </p>
           </li>
         </ul>
+
+        <ul
+          class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 w-full mt-8"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-delay="200"
+          data-aos-once="true"
+        >
+          {
+            modules.map((module) => (
+              <li class="flex flex-col items-start bg-background border rounded-2xl p-6">
+                <div class="flex items-center justify-center text-primary border rounded-lg size-12 mb-4">
+                  <module.icon class="size-6" />
+                </div>
+                <h2 class="text-lg font-medium mb-1">{module.title}</h2>
+                <p class="text-sm text-muted-foreground">{module.description}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="white-label" class="py-20 sm:py-28">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <div class="text-primary font-medium mb-2">Volledig white-label</div>
+          <h1 class="mb-4">Jouw merk. Beheer alles zelf.</h1>
+          <p class="mb-6">
+            Het portaal draait volledig in jouw huisstijl. En je beheert het zelf, zonder
+            ontwikkelaar: van huisstijl en teksten tot formulieren, schadeflows en de AI-assistent.
+            Aanpassingen staan direct live.
+          </p>
+          <p class="text-muted-foreground">
+            Eén platform, meerdere merken — met meertalige content (NL/EN) en ondersteuning voor je
+            eigen werkwijze.
+          </p>
+        </div>
+
+        <div
+          class="w-full lg:max-w-[520px] shrink-0"
+          data-aos="custom-zoom-in"
+          data-aos-duration="400"
+          data-aos-delay="300"
+          data-aos-once="true"
+        >
+          <ul class="grid sm:grid-cols-2 gap-4">
+            {
+              config.map((item) => (
+                <li class="flex items-start gap-3 bg-background border rounded-2xl p-4">
+                  <div class="flex items-center justify-center text-primary bg-secondary rounded-lg size-10 shrink-0">
+                    <item.icon class="size-5" />
+                  </div>
+                  <div>
+                    <div class="font-medium leading-tight">{item.title}</div>
+                    <p class="text-sm text-muted-foreground leading-tight mt-0.5">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <Cta
-    text="Vraag vrijblijvend een demo aan en ontdek hoe hoe je binnen een week jouw klantportaal live kunt hebben."
+    text="Vraag vrijblijvend een demo aan en ontdek hoe je binnen een week jouw klantportaal live kunt hebben."
   />
 </Layout>
 

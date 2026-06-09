@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/ui/Button.astro";
-import { ArrowDown, Zap, Smile, Clock, Cable } from "@lucide/astro";
+import { ArrowDown, Zap, Sparkles, Clock, Cable } from "@lucide/astro";
 import InsurancePortal from "../../assets/insurance-portal/home.webp";
 import InsurancePortalCar from "../../assets/insurance-portal/car-insurance-mockup.webp";
 import InsurancePortalConfiguration from "../../assets/insurance-portal/insurance-portal-configuration.webp";
@@ -19,18 +19,19 @@ const features = [
   {
     title: "Altijd beschikbaar",
     description:
-      "Klanten kunnen 24/7 verzekeringen afsluiten of aanvragen, zonder afhankelijk te zijn van kantooruren.",
+      "Klanten sluiten 24/7 verzekeringen af of vragen ze aan, los van kantooruren.",
     icon: Clock,
+  },
+  {
+    title: "Begeleid door AI",
+    description:
+      "De ingebouwde assistent legt vragen en verzekeringstermen uit en beantwoordt dekkingsvragen op basis van jouw eigen voorwaarden.",
+    icon: Sparkles,
   },
   {
     title: "Naadloze koppeling met administratie",
     description: "Alle aanvragen komen automatisch terecht in jouw backoffice.",
     icon: Cable,
-  },
-  {
-    title: "Meer tijd voor advies",
-    description: "Jij besteedt minder tijd aan administratie en meer aan persoonlijk contact.",
-    icon: Smile,
   },
 ];
 ---
@@ -52,8 +53,9 @@ const features = [
             <p
               class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
             >
-              Laat klanten eenvoudig online verzekeringen aanvragen en afsluiten. Dynamisch opgezet,
-              volledig gekoppeld aan jouw administratie.
+              Laat klanten in een paar minuten zelf een verzekering kiezen, samenstellen en
+              aanvragen — begeleid door een ingebouwde AI-assistent. Volledig in jouw huisstijl en
+              direct gekoppeld aan je administratie.
             </p>
           </div>
 
@@ -169,8 +171,8 @@ const features = [
             </div>
             <h2 class="h4 mb-2">2. Klant doorloopt de aanvraag</h2>
             <p class="text-sm text-muted-foreground">
-              De klant kiest een verzekering en vult de benodigde gegevens in. De flow past zich
-              automatisch aan het product aan.
+              De klant kiest een verzekering en vult alleen het nodige in. Kenteken en adres worden
+              automatisch aangevuld en de AI-assistent helpt onderweg bij vragen.
             </p>
           </li>
           <li
@@ -190,7 +192,8 @@ const features = [
             </div>
             <h2 class="h4 mb-2">3. Direct verwerkt in de administratie</h2>
             <p class="text-sm text-muted-foreground">
-              De aanvraag wordt direct verwerkt in je backoffice en zichtbaar in het klantportaal.
+              Na akkoord van de klant komt de aanvraag direct in je backoffice — en is hij meteen
+              zichtbaar in het klantportaal.
             </p>
           </li>
         </ul>
