@@ -383,3 +383,211 @@
   transform: translateZ(0) translateY(0) scale(1);
   opacity: 1;
 }
+
+/* ============================================================
+   Award polish — selection, grain, reveals, spotlight, motion
+   ============================================================ */
+
+::selection {
+  background: hsl(var(--primary) / 0.18);
+}
+
+/* Subtle film grain for .grain sections */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Word-by-word heading reveal (script toggles .in-view) */
+.reveal-words .word {
+  display: inline-block;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.js .reveal-words:not(.in-view) .word {
+  opacity: 0;
+  translate: 0 0.5em;
+  filter: blur(10px);
+}
+
+/* Mouse-follow spotlight on cards (script sets --mx/--my) */
+[data-spotlight] {
+  position: relative;
+}
+[data-spotlight]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 40%),
+    hsl(var(--primary) / 0.08),
+    transparent 65%
+  );
+}
+@media (hover: hover) {
+  [data-spotlight]:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Drifting aurora orbs */
+@keyframes aurora-drift {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  33% {
+    translate: 36px -24px;
+    scale: 1.08;
+  }
+  66% {
+    translate: -28px 18px;
+    scale: 0.94;
+  }
+}
+.animate-aurora {
+  animation: aurora-drift 16s ease-in-out infinite;
+}
+
+/* Sheen sweep for badges */
+@keyframes shimmer-sweep {
+  0% {
+    translate: -160% 0;
+  }
+  55%,
+  100% {
+    translate: 260% 0;
+  }
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.5), transparent);
+  animation: shimmer-sweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Shine sweep on button hover */
+@keyframes shine-sweep {
+  to {
+    translate: 320% 0;
+  }
+}
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -45%;
+  width: 35%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.35), transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .btn-shine:hover::after {
+    opacity: 1;
+    animation: shine-sweep 0.7s ease forwards;
+  }
+}
+
+/* Typewriter caret */
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.animate-caret {
+  animation: caret-blink 1.1s steps(1) infinite;
+}
+
+/* AI thinking dots */
+@keyframes dot-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    translate: 0 0;
+  }
+  30% {
+    opacity: 1;
+    translate: 0 -3px;
+  }
+}
+.thinking-dot {
+  animation: dot-pulse 1.2s ease-in-out infinite;
+}
+.thinking-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.thinking-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Float via translate, composes with scale/opacity entrances */
+@keyframes float-soft {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal-words:not(.in-view) .word {
+    opacity: 1;
+    translate: none;
+    filter: none;
+    transition: none;
+  }
+  .animate-aurora,
+  .shimmer::after,
+  .animate-caret,
+  .thinking-dot,
+  .animate-float-soft,
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-arrow-bob {
+    animation: none !important;
+  }
+}

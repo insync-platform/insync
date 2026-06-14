@@ -101,6 +101,7 @@ const schemas =
     <link rel="canonical" href={Astro.url.href} />
 
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <Umami id="5a34bef4-d77e-4dec-8273-166ae1c8d495" />
 
     <title>{pageTitle}</title>
@@ -478,22 +479,6 @@ const schemas =
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-  }
-
-  // Hero image scroll-based zoom
-  const heroImage = document.getElementById("hero-image");
-  if (heroImage) {
-    const updateZoom = () => {
-      const rect = heroImage.getBoundingClientRect();
-      const viewportH = window.innerHeight;
-      const center = rect.top + rect.height / 2;
-      // Progress: 0 when element enters viewport bottom, 1 when centered
-      const progress = Math.max(0, Math.min(1, 1 - (center - viewportH * 0.5) / (viewportH * 0.5)));
-      const scale = 0.85 + progress * 0.15; // 0.85 -> 1.0
-      heroImage.style.transform = `scale(${scale})`;
-    };
-    window.addEventListener("scroll", updateZoom, { passive: true });
-    updateZoom();
   }
 </script>
 
