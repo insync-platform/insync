@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/ui/Button.astro";
 import AiAvatar from "../../components/AiAvatar.astro";
+import Faq from "../../components/sections/Faq.astro";
 import {
   ArrowDown,
   Files,
@@ -86,6 +87,25 @@ const config = [
   { title: "Formulieren", description: "No-code formulierenbouwer", icon: ListChecks },
   { title: "Schadeflows", description: "Bouw je eigen schademeld-wizards", icon: Workflow },
   { title: "AI-assistent", description: "Tone of voice en kennisbron", icon: Bot },
+];
+
+const faqs = [
+  {
+    q: "Kunnen we het portaal in onze eigen huisstijl aanbieden?",
+    a: "Ja, volledig white-label. Logo, kleuren en lettertypen stel je zelf in via de no-code beheeromgeving.",
+  },
+  {
+    q: "Hoe melden klanten een schade?",
+    a: "Via de AI-schadewizard: de klant vertelt in eigen woorden wat er is gebeurd en de AI stelt alleen de relevante vervolgvragen. Per merk in te richten.",
+  },
+  {
+    q: "Moeten klanten een wachtwoord onthouden?",
+    a: "Nee, inloggen gaat wachtwoordloos via een magic link.",
+  },
+  {
+    q: "Is de getoonde klantdata actueel?",
+    a: "Ja, realtime via een veilige koppeling met je backoffice.",
+  },
 ];
 ---
 
@@ -432,6 +452,8 @@ const config = [
       </div>
     </div>
   </section>
+
+  <Faq heading="Vragen over het klantportaal" faqs={faqs} />
 
   <Cta
     text="Vraag vrijblijvend een demo aan en ontdek hoe je binnen een week jouw klantportaal live kunt hebben."
