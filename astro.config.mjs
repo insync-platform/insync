@@ -11,6 +11,9 @@ export default defineConfig({
   },
 
   site: "https://insync.insure",
+  redirects: {
+    "/oplossingen/insync-ai": "/oplossingen/ai-assistent",
+  },
   integrations: [sitemap(), vue()],
   adapter: netlify(),
   output: "server",
