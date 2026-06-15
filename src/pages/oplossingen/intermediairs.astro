@@ -6,14 +6,7 @@ import Button from "../../components/ui/Button.astro";
 import { Image } from "astro:assets";
 import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
 import ClientView from "../../assets/relatie-bekijken.webp";
-import {
-  Clock,
-  MessageSquare,
-  LayoutDashboard,
-  Database,
-  ShieldCheck,
-  Brain,
-} from "@lucide/astro";
+import { Clock, MessageSquare, LayoutDashboard, Database, ShieldCheck, Brain } from "@lucide/astro";
 
 const features = [
   {
@@ -23,7 +16,7 @@ const features = [
     icon: Clock,
   },
   {
-    title: "Meer tijd voor advies",
+    title: "Meer tijd voor jouw klant",
     description:
       "Door selfservice-functies en centrale informatie is er minder ruis en ruimte voor persoonlijk contact.",
     icon: MessageSquare,
@@ -42,8 +35,7 @@ const features = [
   },
   {
     title: "Veilig en compliant",
-    description:
-      "Klant- en medewerkerportaal werken naadloos samen via een veilige koppeling.",
+    description: "Klant- en medewerkerportaal werken naadloos samen via een veilige koppeling.",
     icon: ShieldCheck,
   },
   {
@@ -59,10 +51,7 @@ const features = [
   title="Medewerkerportaal"
   description="Ontdek hoe Insync intermediairs helpt met klantinzicht, procesautomatisering en veilige koppelingen met je backoffice."
 >
-  <section
-    id="hero"
-    class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip"
-  >
+  <section id="hero" class="pt-16 sm:pt-24 2xl:pt-32 pb-16 sm:pb-28 overflow-x-clip">
     <div class="container">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         <div>
@@ -75,29 +64,21 @@ const features = [
             <p
               class="text-center lg:text-left sm:text-lg mb-10 starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-300"
             >
-              Insync is hét platform voor kantoren die hun klantrelatie willen
-              versterken met minder gedoe. Digitaal waar het kan, persoonlijk
-              waar het telt.
+              Insync is hét platform voor kantoren die hun klantrelatie willen versterken met minder
+              gedoe. Digitaal waar het kan, persoonlijk waar het telt.
             </p>
           </div>
 
           <div
             class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-450"
           >
-            <Button
-              href="#features"
-              variant="outline"
-              size="lg"
-              class="w-full lg:w-auto"
-            >
+            <Button href="#features" variant="outline" size="lg" class="w-full lg:w-auto">
               <ArrowDown class="text-primary size-6" />
               Ontdek de voordelen
             </Button>
           </div>
         </div>
-        <div
-          class="aspect-video lg:aspect-square max-w-full lg:max-w-[600px] w-full"
-        >
+        <div class="aspect-video lg:aspect-square max-w-full lg:max-w-[600px] w-full">
           <Image
             src={InsyncLaptopMockup}
             alt="Medewerkerportaal"
@@ -121,14 +102,12 @@ const features = [
         data-aos-once="true"
       >
         <div class="lg:max-w-[600px]">
-          <div class="text-primary font-medium mb-2">
-            Voordelen voor kantoren
-          </div>
+          <div class="text-primary font-medium mb-2">Voordelen voor kantoren</div>
           <h1>Wat Insync voor jou betekent</h1>
         </div>
         <p class="lg:max-w-[640px]">
-          Insync helpt je om slimmer te werken en je klanten beter te bedienen,
-          zonder dat het meer tijd kost.
+          Insync helpt je om slimmer te werken en je klanten beter te bedienen, zonder dat het meer
+          tijd kost.
         </p>
       </div>
 
@@ -183,10 +162,9 @@ const features = [
             </div>
             <h2 class="h4 mb-2">Alle klantdata op één plek. Altijd actueel.</h2>
             <p class="text-sm text-muted-foreground">
-              Van verzekeringspolissen tot aantekeningen en documenten: je hebt
-              direct overzicht van alles wat er speelt per klant. Dankzij de
-              directe koppeling met je backoffice werk je altijd met realtime
-              data. Veilig, volledig en zonder dubbel werk.
+              Van verzekeringspolissen tot aantekeningen en documenten: je hebt direct overzicht van
+              alles wat er speelt per klant. Dankzij de directe koppeling met je backoffice werk je
+              altijd met realtime data. Veilig, volledig en zonder dubbel werk.
             </p>
           </li>
           <li
@@ -204,16 +182,13 @@ const features = [
               </div>
               <!--<Image src={} alt="Verzekeringen overzicht"/>-->
               <img src="/logo.svg" alt="Insync" class="h-12 opacity-50" />
-              <span class="text-muted-foreground/75 text-sm mt-2"
-                >Binnenkort beschikbaar</span
-              >
+              <span class="text-muted-foreground/75 text-sm mt-2">Binnenkort beschikbaar</span>
             </div>
             <h2 class="h4 mb-2">Sneller contact, minder losse mailtjes</h2>
             <p class="text-sm text-muted-foreground">
-              Via het platform zie je in één oogopslag wat er speelt bij je
-              klant en neem je direct actie. Zo voorkom je onnodige vragen,
-              losse mailwisselingen en heb je meer ruimte voor persoonlijk
-              advies.
+              Via het platform zie je in één oogopslag wat er speelt bij je klant en neem je direct
+              actie. Zo voorkom je onnodige vragen, losse mailwisselingen en heb je meer ruimte voor
+              jouw klant.
             </p>
           </li>
         </ul>

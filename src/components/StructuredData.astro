@@ -30,8 +30,15 @@ interface Props {
   breadcrumbName?: string;
 }
 
-const { pageTitle, description, canonicalUrl, pathname, softwareApplication, article, breadcrumbName } =
-  Astro.props;
+const {
+  pageTitle,
+  description,
+  canonicalUrl,
+  pathname,
+  softwareApplication,
+  article,
+  breadcrumbName,
+} = Astro.props;
 
 const siteUrl = "https://insync.insure";
 
@@ -75,7 +82,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/logo.svg`,
   description:
-    "AI-tools voor verzekeringsadviseurs en digitale oplossingen voor hun klanten. Klantportaal, afsluitstraat, AI-backoffice-assistent en polisvoorwaarden vergelijker.",
+    "AI-tools voor verzekeraars, volmachten en adviseurs en digitale oplossingen voor hun klanten. Klantportaal, afsluitstraat, AI-backoffice-assistent en polisvoorwaarden vergelijker.",
   foundingDate: "2024",
   contactPoint: {
     "@type": "ContactPoint",
@@ -90,7 +97,7 @@ const organizationSchema = {
     "Verzekeringssoftware",
     "InsurTech",
     "Klantportaal verzekeringen",
-    "AI voor verzekeringsadviseurs",
+    "AI voor verzekeraars, volmachten en adviseurs",
     "Polisvoorwaarden vergelijken",
     "Backoffice automatisering",
   ],
