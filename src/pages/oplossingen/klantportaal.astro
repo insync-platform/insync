@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/ui/Button.astro";
+import AiAvatar from "../../components/AiAvatar.astro";
 import {
   ArrowDown,
   Files,
@@ -9,7 +10,7 @@ import {
   Shield,
   RefreshCw,
   Bot,
-  Sparkles,
+  BookOpen,
   ShieldCheck,
   Link as LinkIcon,
   Camera,
@@ -185,20 +186,20 @@ const config = [
             <li class="flex gap-3">
               <ShieldCheck class="size-6 text-primary shrink-0 mt-0.5" />
               <div>
-                <div class="font-medium">AI bereidt voor, jij beslist</div>
+                <div class="font-medium">Snel én zorgvuldig geholpen</div>
                 <p class="text-muted-foreground">
-                  Acties die iets wijzigen worden klaargezet — jouw medewerker bevestigt met één
-                  klik.
+                  Eenvoudige vragen regelt de assistent direct; voor de rest kijkt altijd een
+                  medewerker mee.
                 </p>
               </div>
             </li>
             <li class="flex gap-3">
-              <Shield class="size-6 text-primary shrink-0 mt-0.5" />
+              <BookOpen class="size-6 text-primary shrink-0 mt-0.5" />
               <div>
-                <div class="font-medium">De klant houdt de regie</div>
+                <div class="font-medium">Werkt zoals jouw kantoor</div>
                 <p class="text-muted-foreground">
-                  Per categorie bepaalt de klant zelf wat de assistent mag inzien. Privacy by
-                  design.
+                  Dankzij de configuratie en kennisbank kent hij je producten en spreekt hij in
+                  jouw stijl.
                 </p>
               </div>
             </li>
@@ -207,8 +208,7 @@ const config = [
               <div>
                 <div class="font-medium">Of koppel een eigen AI</div>
                 <p class="text-muted-foreground">
-                  Klanten kunnen veilig hun eigen ChatGPT of Claude koppelen, met expliciete
-                  toestemming en op elk moment intrekbaar.
+                  Klanten koppelen veilig hun eigen AI-assistent — intrekbaar wanneer ze willen.
                 </p>
               </div>
             </li>
@@ -224,11 +224,7 @@ const config = [
         >
           <div class="bg-background border rounded-3xl shadow-lg p-5 sm:p-6">
             <div class="flex items-center gap-3 border-b pb-4 mb-4">
-              <div
-                class="flex items-center justify-center size-9 rounded-full bg-primary text-primary-foreground shrink-0"
-              >
-                <Sparkles class="size-5" />
-              </div>
+              <AiAvatar size={40} class="text-primary shrink-0" />
               <div>
                 <div class="font-medium leading-tight">Assistent</div>
                 <div class="text-xs text-success leading-tight">● Online</div>
@@ -244,13 +240,13 @@ const config = [
                 <div
                   class="bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%]"
                 >
-                  Ik wil een ruitschade melden
+                  Is mijn fiets wel goed gedekt bij diefstal?
                 </div>
               </div>
               <div class="flex">
                 <div class="bg-muted rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%]">
-                  Ik zet de schademelding alvast voor je klaar. Kun je een foto van de ruit
-                  toevoegen?
+                  Ja, je fiets is via je inboedelverzekering ook buitenshuis gedekt bij diefstal, tot
+                  € 2.000. Wil je de voorwaarden inzien?
                 </div>
               </div>
             </div>

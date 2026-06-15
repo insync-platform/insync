@@ -1,0 +1,73 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 40, class: className = "" } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class:list={["ai-avatar", className]}
+  role="img"
+  aria-label="AI-assistent"
+>
+  <!-- Head outline: rounded square -->
+  <rect
+    x="8"
+    y="8"
+    width="48"
+    height="48"
+    rx="16"
+    stroke="currentColor"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <!-- Eyes -->
+  <ellipse class="ai-eye" cx="24" cy="30" rx="3.5" ry="4" fill="currentColor" />
+  <ellipse class="ai-eye ai-eye-right" cx="40" cy="30" rx="3.5" ry="4" fill="currentColor" />
+  <!-- Mouth: gentle smile -->
+  <path
+    d="M25 42 Q32 48 39 42"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>
+
+<style>
+  .ai-eye {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ai-blink 4s ease-in-out infinite;
+  }
+
+  .ai-eye-right {
+    animation-delay: 0.05s;
+  }
+
+  @keyframes ai-blink {
+    0%,
+    92%,
+    100% {
+      transform: scaleY(1);
+    }
+    95% {
+      transform: scaleY(0.05);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai-eye {
+      animation: none;
+    }
+  }
+</style>
