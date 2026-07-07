@@ -1,0 +1,75 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import ComposableFutures from "../../assets/blog/insync-composable-futures.webp";
+import { Plus } from "@lucide/astro";
+---
+
+<Layout
+  title="Insync op Composable Futures: van klikken naar regelen"
+  description="Op het Composable Futures-event van Novulo lieten we live zien wat AI nú al toevoegt voor verzekeraars, volmachten en adviseurs."
+  article={{
+    datePublished: "2026-06-26",
+    image: ComposableFutures.src,
+  }}
+>
+  <article class="py-16">
+    <div class="container max-w-[900px]">
+      <Image
+        src={ComposableFutures}
+        alt="Insync op het Composable Futures-event van Novulo"
+        class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500"
+      />
+      <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-200">
+        <h1 class="h2 mb-6">Insync op Composable Futures: van klikken naar regelen</h1>
+
+        <p class="mb-4">
+          Afgelopen week stonden we op het <strong>Composable Futures</strong>-event van Novulo, met
+          één doel: laten zien wat AI nú al toevoegt voor onze klanten in de verzekeringsbranche.
+          Geen beloftes, maar live:
+        </p>
+
+        <ul class="space-y-4 mb-4">
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              Een schademelding die je documenten uitleest en de vragen alvast invult.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">Software die de claim beoordeelt – de medewerker beslist.</div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              Je verzekeringszaken regelen vanuit de AI-chat die je toch al gebruikt (ChatGPT,
+              Claude, Mistral e.a.).
+            </div>
+          </li>
+        </ul>
+
+        <p class="mb-4">
+          Allemaal bovenop Novulo, met slimme techniek als kern in plaats van een sausje achteraf.
+          En onze oplossingen zijn snel te implementeren.
+        </p>
+
+        <p>
+          Onze overtuiging: AI vervangt je mensen niet, het geeft ze de regie. En de kantoren die nú
+          instappen, lopen straks voorop. Van klikken, naar regelen.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Ook interesse in Insync?</h2>
+        <p>
+          <strong
+            >Benieuwd hoe onze AI-oplossingen bovenop Novulo jouw kantoor kunnen versterken?</strong
+          ><br />
+          <a href="/demo" class="text-primary font-medium hover:underline">Vraag een demo aan</a> of <a
+            href="/contact"
+            class="text-primary font-medium hover:underline">neem contact op</a
+          >.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>

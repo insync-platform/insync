@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import InsyncEfo from "../../assets/blog/insync-efo.webp";
+---
+
+<Layout
+  title="Insync klantportaal live bij EFO Paardenverzekeringen"
+  description="Het Insync klantportaal is live bij EFO Paardenverzekeringen in Heerenveen, onderling verzekeraar sinds 1905. Lees over de livegang."
+  article={{
+    datePublished: "2026-07-06",
+    image: InsyncEfo.src,
+  }}
+>
+  <article class="py-16">
+    <div class="container max-w-[900px]">
+      <Image
+        src={InsyncEfo}
+        alt="Insync klantportaal live bij EFO Paardenverzekeringen"
+        class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500"
+      />
+      <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-200">
+        <h1 class="h2 mb-6">Insync klantportaal live bij EFO Paardenverzekeringen</h1>
+
+        <p class="mb-4">
+          EFO Paardenverzekeringen uit Heerenveen verzekert al sinds 1905 paarden en hun eigenaren –
+          als onderlinge, zonder winstoogmerk, met persoonlijk advies. Die persoonlijke aanpak
+          verdient een even toegankelijk digitaal portaal.
+        </p>
+
+        <p class="mb-4">
+          Daarom kunnen we met trots zeggen: het Insync klantportaal is live bij EFO. Leden vinden
+          hun polissen, documenten en gegevens overzichtelijk op één plek, terwijl EFO een
+          toekomstbestendige digitale basis krijgt die de menselijke dienstverlening versterkt in
+          plaats van vervangt.
+        </p>
+
+        <p>
+          Ook hier is de livegang het begin, niet het einde: samen verkennen we hoe AI het
+          dagelijkse werk verder kan vereenvoudigen.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Ook interesse in Insync?</h2>
+        <p>
+          <strong
+            >Benieuwd hoe het Insync klantportaal of onze AI-oplossingen jouw organisatie kunnen
+            ondersteunen – of wil je weten hoe een livegang eruitziet in de praktijk?</strong
+          ><br />
+          <a href="/demo" class="text-primary font-medium hover:underline">Vraag een demo aan</a> of <a
+            href="/contact"
+            class="text-primary font-medium hover:underline">neem contact op</a
+          >.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>

@@ -1,14 +1,50 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import InsyncNovulo from "../../assets/insync-novulo.webp";
+import InsyncNovulo from "../../assets/blog/insync-novulo.webp";
 import InsurancePortal from "../../assets/insurance-portal/car-insurance-mockup.webp";
 import InsyncLaptopMockup from "../../assets/insync-laptop-mockup.webp";
-import Documents from "../../assets/documents.webp";
-import DuGardijn from "../../assets/insync-du-gardijn.webp";
+import Documents from "../../assets/blog/documents.webp";
+import DuGardijn from "../../assets/blog/insync-du-gardijn.webp";
+import InsyncJw from "../../assets/blog/insync-jw.webp";
+import InsyncEfo from "../../assets/blog/insync-efo.webp";
+import ComposableFutures from "../../assets/blog/insync-composable-futures.webp";
+import VipCongres from "../../assets/blog/insync-vip-congress.webp";
 import Cta from "../../components/sections/Cta.astro";
 
 const posts = [
+  {
+    title: "Insync op het VIP Congres: re:Invent",
+    description:
+      "We zijn aanwezig op het VIP Congres 2026 met het thema re:Invent. Waarom verzekeraars zichzelf opnieuw uitvinden met AI als kern.",
+    date: "07-07-2026",
+    link: "/blog/insync-vip-congres",
+    thumbnail: VipCongres,
+  },
+  {
+    title: "Insync klantportaal live bij EFO Paardenverzekeringen",
+    description:
+      "Ons klantportaal is live bij EFO Paardenverzekeringen in Heerenveen, onderling verzekeraar sinds 1905.",
+    date: "06-07-2026",
+    link: "/blog/klantportaal-efo-live",
+    thumbnail: InsyncEfo,
+  },
+  {
+    title: "Insync op Composable Futures: van klikken naar regelen",
+    description:
+      "Op het Composable Futures-event van Novulo lieten we live zien wat AI nú al toevoegt voor verzekeraars, volmachten en adviseurs.",
+    date: "26-06-2026",
+    link: "/blog/insync-composable-futures",
+    thumbnail: ComposableFutures,
+  },
+  {
+    title: "Insync klantportaal live bij JW Verzekeringen",
+    description:
+      "Ons klantportaal is live bij JW Verzekeringen in Heiloo, dé online specialist in autoverzekeringen.",
+    date: "26-12-2025",
+    link: "/blog/klantportaal-jw-live",
+    thumbnail: InsyncJw,
+  },
   {
     title: "Insync live bij du Gardijn Verzekeringen",
     description:

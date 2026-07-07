@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import InsyncJw from "../../assets/blog/insync-jw.webp";
+---
+
+<Layout
+  title="Insync klantportaal live bij JW Verzekeringen"
+  description="Het Insync klantportaal is live bij JW Verzekeringen in Heiloo, dé online specialist in autoverzekeringen. Lees over de livegang."
+  article={{
+    datePublished: "2025-12-26",
+    image: InsyncJw.src,
+  }}
+>
+  <article class="py-16">
+    <div class="container max-w-[900px]">
+      <Image
+        src={InsyncJw}
+        alt="Insync klantportaal live bij JW Verzekeringen"
+        class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500"
+      />
+      <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-200">
+        <h1 class="h2 mb-6">Insync klantportaal live bij JW Verzekeringen</h1>
+
+        <p class="mb-4">
+          JW Verzekeringen uit Heiloo is dé online specialist in autoverzekeringen – van
+          personenauto tot bestelauto, taxi en koerier, binnen 2 minuten verzekerd. Bij zo'n
+          digitale propositie hoort een klantportaal dat net zo snel en helder is.
+        </p>
+
+        <p class="mb-4">
+          Daarom kunnen we met trots zeggen: het Insync klantportaal is live bij JW. Klanten zien
+          direct hun voertuigverzekeringen, documenten en gegevens op één overzichtelijke plek. En
+          JW beschikt over een schaalbare, toekomstbestendige digitale basis die meegroeit met hun
+          online dienstverlening.
+        </p>
+
+        <p>
+          De livegang is geen eindpunt, maar het startpunt. Samen kijken we vooruit naar slimme
+          AI-ondersteuning die het regelwerk verder verkort.
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Ook interesse in Insync?</h2>
+        <p>
+          <strong
+            >Benieuwd hoe het Insync klantportaal of onze AI-oplossingen jouw organisatie kunnen
+            ondersteunen – of wil je weten hoe een livegang eruitziet in de praktijk?</strong
+          ><br />
+          <a href="/demo" class="text-primary font-medium hover:underline">Vraag een demo aan</a> of <a
+            href="/contact"
+            class="text-primary font-medium hover:underline">neem contact op</a
+          >.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>

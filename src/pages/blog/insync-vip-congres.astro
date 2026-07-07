@@ -1,0 +1,90 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { Plus } from "@lucide/astro";
+import VipCongres from "../../assets/blog/insync-vip-congress.webp";
+---
+
+<Layout
+  title="Insync op het VIP Congres: re:Invent"
+  description="Insync is aanwezig op het VIP Congres 2026 met het thema re:Invent. Waarom verzekeraars zichzelf opnieuw uitvinden met AI als kern."
+  article={{
+    datePublished: "2026-07-07",
+    image: VipCongres.src,
+  }}
+>
+  <article class="py-16">
+    <div class="container max-w-[900px]">
+      <Image
+        src={VipCongres}
+        alt="Insync op het VIP Congres 2026 – re:Invent"
+        class="w-full h-64 mb-8 rounded-3xl object-cover starting:opacity-0 starting:scale-95 transition-all duration-500"
+      />
+      <div class="starting:opacity-0 starting:translate-y-2 transition-all duration-500 delay-200">
+        <h1 class="h2 mb-6">Insync op het VIP Congres: re:Invent</h1>
+
+        <p class="mb-4">
+          Vandaag zijn we aanwezig op het <strong>VIP Congres</strong> in Leusden, dit jaar met het
+          thema <strong>re:Invent</strong>. Een toepasselijk thema, want wat gisteren voor een
+          verzekeringsbedrijf werkte, is morgen verouderd. De vraag is niet óf je meebeweegt, maar of
+          je jezelf opnieuw durft uit te vinden.
+        </p>
+
+        <p class="mb-4">
+          Precies daar zit onze overtuiging. Opnieuw uitvinden is niet je backoffice vervangen of AI
+          er als sausje overheen leggen. Het is <strong>agentic AI als kern</strong>: software die
+          rechtstreeks met je backoffice praat en het administratieve werk overneemt. Opzoeken doet de
+          AI direct; elke wijziging zet ze klaar en voer je pas door na jouw akkoord. De AI doet het
+          werk, de mens beslist.
+        </p>
+
+        <p class="mb-4">
+          Dat vertalen we naar twee oplossingen die één fundament delen — dezelfde data- en AI-laag,
+          bovenop het systeem dat je al gebruikt (Novulo, Anva of CCS):
+        </p>
+
+        <ul class="space-y-4 mb-4">
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Insync AI</strong> — je hele backoffice bedienen vanuit één chat: een relatie
+              opzoeken, een schade beoordelen, een e-mail opstellen of polisvoorwaarden vergelijken.
+              Minder klikken, meer regelen.
+            </div>
+          </li>
+          <li class="flex">
+            <Plus class="size-7 text-success shrink-0 mr-1.5" />
+            <div class="mt-0.5">
+              <strong>Het klantportaal</strong> — je klanten regelen hun polissen, facturen,
+              documenten en schades zelf én sluiten nieuwe verzekeringen af in één vloeiende flow,
+              geholpen door een AI-assistent die meedenkt.
+            </div>
+          </li>
+        </ul>
+
+        <p class="mb-4">
+          Allemaal van binnenuit, bovenop wat je al hebt — en snel te implementeren. Geen jarenlang
+          migratietraject, maar een eerste stap die je vandaag al zet.
+        </p>
+
+        <p>
+          Daarom lopen we vandaag rond om het gesprek aan te gaan: met verzekeraars, volmachten,
+          adviseurs en technologiepartners. Over waar de branche naartoe beweegt, en hoe je nú de
+          eerste stap zet. Zien we je hier?
+        </p>
+
+        <h2 class="h3 mt-12 mb-6">Kwam je ons tegen op het VIP Congres?</h2>
+        <p>
+          <strong
+            >Zie in een demo wat agentic AI voor jouw kantoor betekent — toegepast op jouw eigen
+            situatie.</strong
+          ><br />
+          <a href="/demo" class="text-primary font-medium hover:underline">Vraag een demo aan</a> of <a
+            href="/contact"
+            class="text-primary font-medium hover:underline">neem contact op</a
+          >.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>
