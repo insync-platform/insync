@@ -264,10 +264,10 @@ const schemas =
     </header>
     <div
       id="mobile-menu"
-      class="hidden lg:hidden fixed top-[calc(var(--header-height)+2rem)] h-[calc(100svh-var(--header-height)-2rem)] inset-x-0 bg-background/95 backdrop-blur overflow-y-auto starting:opacity-0 transition-all duration-200 z-50"
+      class="lg:hidden fixed top-[calc(var(--header-height)+2rem)] inset-x-4 rounded-2xl bg-background/95 backdrop-blur overflow-y-auto invisible opacity-0 -translate-y-2 pointer-events-none transition-all duration-200 data-[open]:visible data-[open]:opacity-100 data-[open]:translate-y-0 data-[open]:pointer-events-auto z-50"
     >
       <nav class="pt-4 pb-8">
-        <div class="container">
+        <div class="px-6">
           <ul>
             <li>
               <a
@@ -380,6 +380,12 @@ const schemas =
         </div>
       </nav>
     </div>
+    <div
+      id="mobile-menu-overlay"
+      class="lg:hidden fixed inset-0 bg-foreground/40 backdrop-blur-sm invisible opacity-0 pointer-events-none transition-all duration-200 data-[open]:visible data-[open]:opacity-100 data-[open]:pointer-events-auto z-40"
+      aria-hidden="true"
+    >
+    </div>
 
     <slot />
 
@@ -445,6 +451,18 @@ const schemas =
     max-width: 920px;
   }
 
+  /* Keep the mobile menu aligned with the header once it scrolls down */
+  #site-header.header-scrolled + #mobile-menu {
+    top: calc(var(--header-height) + 2.5rem);
+  }
+
+  /* Give the header a background while the mobile menu is open so it sits
+     clearly in front of the overlay (it's otherwise transparent at the top) */
+  #site-header.header-menu-open {
+    background: hsl(0 0% 100% / 0.8);
+    backdrop-filter: blur(20px);
+  }
+
   [popover].popover-menu {
     animation: fadeIn 0.2s ease-in-out;
     animation-fill-mode: forwards;
@@ -500,17 +518,35 @@ const schemas =
 <script is:inline lang="ts">
   const toggleButton = document.getElementById("mobile-nav-toggle");
   const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("mobile-menu-overlay");
   const solutionsToggle = document.getElementById("mobile-solutions-toggle");
   const solutionsDropdown = document.getElementById("mobile-solutions-dropdown");
   const iconOpen = document.getElementById("mobile-menu-icon-open");
   const iconClose = document.getElementById("mobile-menu-icon-close");
 
+  const siteHeader = document.getElementById("site-header");
+
   if (toggleButton && menu) {
+    const setMenuOpen = (isOpen) => {
+      menu.toggleAttribute("data-open", isOpen);
+      overlay?.toggleAttribute("data-open", isOpen);
+      siteHeader?.classList.toggle("header-menu-open", isOpen);
+      toggleButton.setAttribute("aria-expanded", String(isOpen));
+      iconOpen.classList.toggle("hidden", isOpen);
+      iconClose.classList.toggle("hidden", !isOpen);
+    };
+
     toggleButton.addEventListener("click", () => {
-      const isHidden = menu.classList.toggle("hidden");
-      toggleButton.setAttribute("aria-expanded", String(!isHidden));
-      iconOpen.classList.toggle("hidden", !isHidden);
-      iconClose.classList.toggle("hidden", isHidden);
+      setMenuOpen(!menu.hasAttribute("data-open"));
+    });
+
+    overlay?.addEventListener("click", () => setMenuOpen(false));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.hasAttribute("data-open")) {
+        setMenuOpen(false);
+        toggleButton.focus();
+      }
     });
   }
 
