@@ -1,0 +1,60 @@
+---
+// The three layers, in the same order and with the same icons wherever they appear.
+import { Inbox, ClipboardCheck, SlidersHorizontal } from "@lucide/astro";
+
+const { links = false } = Astro.props;
+
+const layers = [
+  {
+    n: 1,
+    icon: Inbox,
+    title: "Alles op één plek",
+    text: "Mail, het klantportaal, borderellen en de AI-assistent leveren hun werk af in één werkbak. Elke zaak is al voorbereid: wat er speelt, wat Insync voorstelt en waar dat op gebaseerd is.",
+    href: "/platform#alles-op-een-plek",
+  },
+  {
+    n: 2,
+    icon: ClipboardCheck,
+    title: "Klaargezet, niet uitgevoerd",
+    text: "Insync wijzigt niets in je backoffice zonder voorstel. Je medewerker kijkt, past aan als dat nodig is en geeft akkoord. Pas dan gebeurt het.",
+    href: "/platform#klaargezet",
+  },
+  {
+    n: 3,
+    icon: SlidersHorizontal,
+    title: "Jij bepaalt wat vanzelf gaat",
+    text: "Per soort werk stel je in wat Insync zelf mag afhandelen. Begin met alles laten controleren, laat los wat elke keer goed gaat. Geld, rekeningnummers en inloggegevens gaan altijd langs een mens.",
+    href: "/platform#jij-bepaalt",
+  },
+];
+---
+
+<div class="grid gap-5 md:grid-cols-3 max-w-6xl mx-auto">
+  {
+    layers.map((layer, i) => (
+      <div
+        class="rounded-2xl bg-gradient-to-br from-primary via-rose to-accent p-[1.5px] shadow-sm shadow-primary/10"
+        data-aos="custom-fade-up"
+        data-aos-duration="400"
+        data-aos-delay={String(i * 100)}
+        data-aos-once="true"
+      >
+        <div class="flex h-full flex-col rounded-[15px] bg-white p-7">
+          <div class="mb-5 flex items-center justify-between">
+            <div class="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <layer.icon class="size-5" />
+            </div>
+            <span class="text-sm font-semibold text-muted-foreground">Laag {layer.n}</span>
+          </div>
+          <h3 class="h4 !text-xl !font-semibold mb-2">{layer.title}</h3>
+          <p class="text-muted-foreground text-sm flex-1">{layer.text}</p>
+          {links && (
+            <a href={layer.href} class="mt-5 text-sm font-medium text-primary hover:underline">
+              Lees meer
+            </a>
+          )}
+        </div>
+      </div>
+    ))
+  }
+</div>

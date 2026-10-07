@@ -1,0 +1,19 @@
+---
+// A visible placeholder for content that still waits on Patrick. Rendered in dev only, so a
+// production build never shows an unfilled placeholder.
+const { class: className = "" } = Astro.props;
+const isDev = import.meta.env.DEV;
+---
+
+{
+  isDev && (
+    <span
+      class:list={[
+        "inline-block rounded-md border border-dashed border-warning bg-warning/10 px-2 py-0.5 text-sm font-medium text-warning-dark",
+        className,
+      ]}
+    >
+      [[<slot />]]
+    </span>
+  )
+}

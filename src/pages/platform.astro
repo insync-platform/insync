@@ -1,0 +1,261 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import Cta from "../components/sections/Cta.astro";
+import PageHero from "../components/platform/PageHero.astro";
+import SectionHeading from "../components/platform/SectionHeading.astro";
+import LayerCards from "../components/platform/LayerCards.astro";
+import ProposalCard from "../components/platform/ProposalCard.astro";
+import WorkQueueMock from "../components/platform/WorkQueueMock.astro";
+import AutonomyMock from "../components/platform/AutonomyMock.astro";
+import Todo from "../components/platform/Todo.astro";
+import { backOffices } from "../data/platform";
+import { ArrowRight, Check, Pencil, X, Lock, Database } from "@lucide/astro";
+
+const choices = [
+  { icon: Check, title: "Akkoord", text: "Insync voert het uit in je backoffice." },
+  { icon: Pencil, title: "Wijzigen", text: "Pas de tekst of de gegevens aan en geef daarna akkoord." },
+  {
+    icon: X,
+    title: "Afwijzen",
+    text: "Met een reden, zodat Insync ervan leert waar het misging.",
+  },
+];
+
+const modes = [
+  {
+    title: "Voorstellen",
+    text: "Insync bereidt voor, een medewerker geeft altijd akkoord. Hier begint elk nieuw soort werk.",
+  },
+  {
+    title: "Vanzelf, met steekproef",
+    text: "Insync handelt af en legt een deel ter controle aan je team voor.",
+  },
+  {
+    title: "Vanzelf, behalve uitzonderingen",
+    text: "Insync handelt af. Alleen wat afwijkt komt bij een mens.",
+  },
+];
+
+const settings = [
+  "vanaf welk bedrag een tweede collega meekijkt (vier ogen);",
+  "hoe zeker Insync moet zijn voordat iets vanzelf mag;",
+  "met welke redenen je team afwijkt of afsluit.",
+];
+---
+
+<Layout
+  title="Het platform"
+  description="Eén werkbak voor al het werk, elke wijziging eerst als voorstel, en jij bepaalt wat vanzelf gaat. Zo werkt het platform van Insync."
+>
+  <PageHero
+    eyebrow="Het platform"
+    title="Eén platform onder al het werk van je kantoor"
+    subtitle="Insync verzamelt, bereidt voor en handelt af, in die volgorde en met jou aan het stuur."
+    secondary={{ href: "/toepassingen", label: "Bekijk de toepassingen" }}
+  />
+
+  <!-- Waarom een platform -->
+  <section class="py-16 sm:py-24">
+    <div class="container">
+      <div class="grid gap-10 lg:grid-cols-2 max-w-6xl mx-auto items-start">
+        <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <span class="label mb-4 inline-block">Waarom een platform</span>
+          <h2>Een slim antwoord is niet genoeg</h2>
+        </div>
+        <div
+          class="space-y-4 text-lg text-muted-foreground"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-delay="100"
+          data-aos-once="true"
+        >
+          <p>
+            Een AI-tool die een mail samenvat of een vraag beantwoordt, is handig. Maar daarna moet
+            een medewerker het alsnog overtypen, opzoeken en vastleggen. De tijd gaat zitten in wat
+            er ná het antwoord gebeurt.
+          </p>
+          <p class="text-foreground font-medium">
+            Insync gaat verder: het zet het werk zelf klaar in je backoffice, en laat het daar
+            afhandelen zodra jij akkoord geeft. Het levert geen tekst op, het levert werk op dat af
+            is.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-8">
+    <div class="container">
+      <LayerCards />
+    </div>
+  </section>
+
+  <!-- Laag 1 -->
+  <section id="alles-op-een-plek" class="py-20 sm:py-28 scroll-mt-24">
+    <div class="container">
+      <div class="grid items-center gap-12 [&>*]:min-w-0 lg:grid-cols-2 max-w-6xl mx-auto">
+        <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <span class="label mb-4 inline-block">Laag 1 · Alles op één plek</span>
+          <h2 class="mb-4">Eén werkbak voor alles wat aandacht vraagt</h2>
+          <p class="text-lg text-muted-foreground mb-6">
+            Werk komt binnen via veel kanalen: de mailbox, het klantportaal, borderellen van
+            maatschappijen, een vraag aan de AI-assistent. Insync brengt het samen in één lijst.
+            Elke zaak is al voorbereid:
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li>
+              <span class="font-semibold">Wat er speelt</span><span class="text-muted-foreground">: de mail, de melding of het borderel, met de klant en de polis erbij gezocht.</span
+              >
+            </li>
+            <li>
+              <span class="font-semibold">Wat Insync voorstelt</span><span class="text-muted-foreground">: bijvoorbeeld een conceptantwoord, een taak voor een collega of een notitie in het
+                dossier.</span
+              >
+            </li>
+            <li>
+              <span class="font-semibold">Waar dat op gebaseerd is</span><span class="text-muted-foreground">: de bron, zoals het dossier, de polisvoorwaarden of het borderel.</span
+              >
+            </li>
+          </ul>
+          <p class="text-muted-foreground">
+            Je ziet in één oogopslag wat op jou wacht, wat bij een collega ligt en wat vanzelf is
+            afgehandeld.
+          </p>
+        </div>
+        <div data-aos="custom-zoom-in" data-aos-duration="500" data-aos-once="true">
+          <WorkQueueMock />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Laag 2 -->
+  <section id="klaargezet" class="py-20 sm:py-28 bg-muted/20 grain scroll-mt-24">
+    <div class="container relative z-10">
+      <div class="grid items-center gap-12 [&>*]:min-w-0 lg:grid-cols-2 max-w-6xl mx-auto">
+        <div
+          class="order-2 lg:order-1 flex justify-center"
+          data-aos="custom-zoom-in"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+          <ProposalCard />
+        </div>
+        <div
+          class="order-1 lg:order-2"
+          data-aos="custom-fade-up"
+          data-aos-duration="400"
+          data-aos-once="true"
+        >
+          <span class="label mb-4 inline-block">Laag 2 · Klaargezet, niet uitgevoerd</span>
+          <h2 class="mb-4">Niets in je backoffice zonder akkoord</h2>
+          <p class="text-lg text-muted-foreground mb-6">
+            Insync leest wat nodig is uit je backoffice, maar wijzigt er niets zonder voorstel. Elk
+            voorstel laat precies zien wat er gaat gebeuren: welke klant, welke polis, welke tekst.
+            Je medewerker heeft drie keuzes:
+          </p>
+          <ul class="space-y-3 mb-6">
+            {
+              choices.map((choice) => (
+                <li class="flex items-start gap-3">
+                  <span class="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <choice.icon class="size-4" />
+                  </span>
+                  <span>
+                    <span class="font-semibold">{choice.title}</span><span class="text-muted-foreground">: {choice.text}</span>
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="text-muted-foreground">
+            Mislukt er iets in de backoffice, dan zie je dat ook. Insync probeert het opnieuw als
+            dat kan, en legt het bij een mens als dat moet. Er verdwijnt niets tussen wal en schip.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Laag 3 -->
+  <section id="jij-bepaalt" class="py-20 sm:py-28 scroll-mt-24">
+    <div class="container">
+      <div class="grid items-center gap-12 [&>*]:min-w-0 lg:grid-cols-2 max-w-6xl mx-auto">
+        <div data-aos="custom-fade-up" data-aos-duration="400" data-aos-once="true">
+          <span class="label mb-4 inline-block">Laag 3 · Jij bepaalt wat vanzelf gaat</span>
+          <h2 class="mb-4">Ruimte geven in je eigen tempo</h2>
+          <p class="text-lg text-muted-foreground mb-6">
+            Je kantoor bepaalt per soort werk hoeveel Insync zelf mag. Er zijn drie standen:
+          </p>
+          <ol class="space-y-3 mb-6">
+            {
+              modes.map((mode, i) => (
+                <li class="flex items-start gap-3">
+                  <span class="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground text-sm font-semibold">
+                    {i + 1}
+                  </span>
+                  <span>
+                    <span class="font-semibold">{mode.title}</span><span class="text-muted-foreground">: {mode.text}</span>
+                  </span>
+                </li>
+              ))
+            }
+          </ol>
+          <p class="mb-2 font-medium">Daarnaast stel je zelf in:</p>
+          <ul class="mb-6 list-disc pl-5 text-muted-foreground space-y-1">
+            {settings.map((setting) => <li>{setting}</li>)}
+          </ul>
+          <div class="flex items-start gap-3 rounded-2xl border border-primary/30 bg-primary/5 p-5">
+            <Lock class="mt-0.5 size-5 shrink-0 text-primary" />
+            <p>
+              En één ding stel je niet in: <strong
+                >betalingen, rekeningnummers en inloggegevens gaan nooit vanzelf.</strong
+              > Die grens zit in het fundament van het platform.
+            </p>
+          </div>
+        </div>
+        <div data-aos="custom-zoom-in" data-aos-duration="500" data-aos-once="true">
+          <AutonomyMock />
+        </div>
+      </div>
+      <p class="mt-14 text-center text-sm text-muted-foreground">
+        Intern noemen we deze drie lagen de werkbak, de actielaag en de doorlaatregeling.
+      </p>
+    </div>
+  </section>
+
+  <!-- Backoffice blijft de bron -->
+  <section class="py-20 sm:py-28 bg-muted/20 grain">
+    <div class="container relative z-10">
+      <SectionHeading
+        eyebrow="Je backoffice"
+        title="Je backoffice blijft leidend"
+        intro="Insync is geen nieuwe administratie. Je klant-, polis- en schadegegevens blijven in je backoffice. Insync leest ze vers op het moment dat het nodig is en schrijft er alleen in na akkoord. Wat Insync zelf bewaart, is het verloop: wat er binnenkwam, wat er werd voorgesteld, wie besliste en wat er gebeurde."
+      />
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {
+          backOffices.map((office) => (
+            <span class="inline-flex items-center gap-2 rounded-xl border border-border/60 bg-white px-4 py-2.5 shadow-sm">
+              <Database class="size-4 text-primary" />
+              <span class="font-semibold">{office.name}</span>
+              <span class="text-sm text-muted-foreground">{office.note}</span>
+            </span>
+          ))
+        }
+        <Todo>ANVA en CCS: status bevestigen</Todo>
+      </div>
+      <div class="mt-12 text-center">
+        <Button href="/zo-werk-je-ermee" variant="outline" class="group">
+          Zo werk je ermee
+          <ArrowRight class="size-5 group-hover:translate-x-0.5 duration-150" />
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <Cta
+    heading="Benieuwd wat Insync bij jouw kantoor oppakt?"
+    text="In een demo laten we zien hoe een gewone werkdag eruitziet met Insync, met jouw soort werk en jouw backoffice."
+  />
+</Layout>

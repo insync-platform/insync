@@ -1,0 +1,20 @@
+---
+const { eyebrow, title, intro, align = "center", class: className = "" } = Astro.props;
+const centered = align === "center";
+---
+
+<div
+  class:list={[centered ? "max-w-3xl mx-auto text-center" : "max-w-2xl", "mb-12 lg:mb-16", className]}
+  data-aos="custom-fade-up"
+  data-aos-duration="400"
+  data-aos-once="true"
+>
+  {eyebrow && <span class="label mb-4 inline-block">{eyebrow}</span>}
+  <h2 class:list={[intro && "mb-4"]}>{title}</h2>
+  {
+    intro && (
+      <p class:list={["text-lg text-muted-foreground", centered && "max-w-2xl mx-auto"]}>{intro}</p>
+    )
+  }
+  <slot />
+</div>

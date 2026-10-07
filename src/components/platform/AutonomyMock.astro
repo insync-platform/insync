@@ -1,0 +1,47 @@
+---
+// A mock-up of the settings that decide what goes by itself. Fictitious values only.
+import { Lock } from "@lucide/astro";
+
+const modes = ["Voorstellen", "Steekproef", "Uitzonderingen"];
+const rows = [
+  { label: "Borderellen", mode: 2 },
+  { label: "Wijzigingen doorgeven", mode: 1 },
+  { label: "Klantvragen per mail", mode: 0 },
+];
+---
+
+<div class="w-full rounded-2xl border border-border/60 bg-white shadow-xl shadow-primary/10">
+  <div class="border-b px-5 py-4">
+    <div class="font-semibold">Wat gaat vanzelf?</div>
+    <div class="text-xs text-muted-foreground">Per soort werk, voor jouw kantoor</div>
+  </div>
+  <ul class="divide-y">
+    {
+      rows.map((row) => (
+        <li class="flex flex-col gap-2 px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
+          <span class="text-sm font-medium">{row.label}</span>
+          <span class="inline-flex rounded-lg bg-muted p-0.5 text-xs">
+            {modes.map((mode, i) => (
+              <span
+                class:list={[
+                  "rounded-md px-2 py-1 font-medium",
+                  i === row.mode ? "bg-white text-foreground shadow-sm" : "text-muted-foreground",
+                ]}
+              >
+                {mode}
+              </span>
+            ))}
+          </span>
+        </li>
+      ))
+    }
+    <li class="flex items-center justify-between gap-3 px-5 py-3">
+      <span class="text-sm font-medium">Vier ogen vanaf</span>
+      <span class="rounded-md border px-2 py-1 text-xs font-medium">€ 2.500</span>
+    </li>
+    <li class="flex items-center gap-2 bg-muted/60 px-5 py-3 text-xs text-muted-foreground rounded-b-2xl">
+      <Lock class="size-3.5 shrink-0" />
+      Betalingen, rekeningnummers en inloggegevens gaan altijd langs een mens.
+    </li>
+  </ul>
+</div>

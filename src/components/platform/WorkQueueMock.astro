@@ -1,0 +1,46 @@
+---
+// A mock-up of the work queue: one list, every channel. Fictitious data only.
+import { Mail, FileSpreadsheet, ShieldCheck, Bot, Globe } from "@lucide/astro";
+
+const rows = [
+  { icon: Mail, channel: "Mail", title: "Klantvraag · M. de Vries", state: "Wacht op jou", tone: "warning" },
+  { icon: ShieldCheck, channel: "Klantportaal", title: "Schademelding · autoruit", state: "Wacht op jou", tone: "warning" },
+  { icon: Bot, channel: "AI-assistent", title: "Verhuizing doorgeven · J. Bakker", state: "Bij Sanne", tone: "info" },
+  { icon: FileSpreadsheet, channel: "Borderel", title: "Prolongatienota september", state: "Vanzelf afgehandeld", tone: "success" },
+  { icon: Globe, channel: "Mail", title: "Wijziging kenteken · T. Smit", state: "Vanzelf afgehandeld", tone: "success" },
+];
+
+const tones: Record<string, string> = {
+  warning: "bg-warning/10 text-warning-dark",
+  info: "bg-primary/10 text-primary",
+  success: "bg-success/10 text-success-dark",
+};
+---
+
+<div class="w-full rounded-2xl border border-border/60 bg-white shadow-xl shadow-primary/10">
+  <div class="flex items-center justify-between border-b px-5 py-4">
+    <div class="font-semibold">Werkbak</div>
+    <div class="flex gap-1.5 text-xs">
+      <span class="rounded-full bg-foreground px-2.5 py-1 font-medium text-background">Alles</span>
+      <span class="rounded-full bg-muted px-2.5 py-1 font-medium text-muted-foreground">Wacht op jou · 2</span>
+    </div>
+  </div>
+  <ul class="divide-y">
+    {
+      rows.map((row) => (
+        <li class="flex items-center gap-3 px-5 py-3">
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
+            <row.icon class="size-4" />
+          </span>
+          <div class="min-w-0 flex-1">
+            <div class="truncate text-sm font-medium">{row.title}</div>
+            <div class="text-xs text-muted-foreground">{row.channel}</div>
+          </div>
+          <span class:list={["shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold", tones[row.tone]]}>
+            {row.state}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</div>

@@ -1,0 +1,54 @@
+---
+import Button from "../ui/Button.astro";
+import { ArrowRight } from "@lucide/astro";
+import Background from "../../assets/background.svg";
+
+const { eyebrow, title, subtitle, secondary } = Astro.props;
+---
+
+<section class="relative pt-32 sm:pt-40 pb-16 sm:pb-24 overflow-hidden">
+  <div
+    class="absolute inset-x-0 top-0 h-[80svh] -z-10 opacity-70"
+    style="mask-image: linear-gradient(to bottom, black 40%, transparent);"
+    aria-hidden="true"
+  >
+    <img src={Background.src} alt="" class="w-full h-full object-cover" />
+  </div>
+  <div class="container">
+    <div class="max-w-3xl mx-auto text-center">
+      {
+        eyebrow && (
+          <span class="label mb-5 inline-block starting:opacity-0 transition-opacity duration-500">
+            {eyebrow}
+          </span>
+        )
+      }
+      <h1
+        class="mb-6 starting:opacity-0 starting:translate-y-6 transition-all duration-700 delay-100"
+      >
+        {title}
+      </h1>
+      <p
+        class="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 starting:opacity-0 starting:translate-y-6 transition-all duration-700 delay-200"
+      >
+        {subtitle}
+      </p>
+      <div
+        class="flex flex-col sm:flex-row justify-center gap-4 starting:opacity-0 starting:translate-y-6 transition-all duration-700 delay-300"
+      >
+        <Button href="/demo" size="lg" class="glow-primary" data-umami-event="Demo CTA">
+          Demo inplannen
+          <ArrowRight class="size-5" />
+        </Button>
+        {
+          secondary && (
+            <Button href={secondary.href} size="lg" variant="outline">
+              {secondary.label}
+            </Button>
+          )
+        }
+      </div>
+    </div>
+    <slot />
+  </div>
+</section>

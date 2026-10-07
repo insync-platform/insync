@@ -1,0 +1,204 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import Cta from "../components/sections/Cta.astro";
+import PageHero from "../components/platform/PageHero.astro";
+import SectionHeading from "../components/platform/SectionHeading.astro";
+import SoonBadge from "../components/platform/SoonBadge.astro";
+import Todo from "../components/platform/Todo.astro";
+import { backOffices, show, status } from "../data/platform";
+import { ArrowRight, LayoutDashboard, Building2, Plug, Check, Database } from "@lucide/astro";
+
+const routes = [
+  {
+    icon: LayoutDashboard,
+    title: "In de werkomgeving van Insync",
+    text: "Voor kantoren die al hun werk op één plek willen zien. Je team werkt vanuit de werkbak, gebruikt de AI-assistent en beheert het klantportaal, met één inlog.",
+    soon: false,
+    points: [
+      { text: "Eén lijst voor al het werk, uit elk kanaal" },
+      { text: "AI-assistent erbij, vanuit elke klant, polis of zaak" },
+      { text: "Beheer van instellingen, redenen en het klantportaal op dezelfde plek" },
+    ],
+  },
+  {
+    icon: Building2,
+    title: "In je eigen backoffice",
+    text: "Voor kantoren die in hun backoffice willen blijven werken. Insync werkt op de achtergrond: wat klopt, handelt het af. Wat aandacht nodig heeft, staat als taak in je backoffice.",
+    soon: false,
+    points: [
+      { text: "Je team hoeft Insync niet te openen" },
+      { text: "Afwijkingen komen binnen als gewone taak, met uitleg" },
+      {
+        text: "Een Insync-paneel naast het dossier in je backoffice, om voorstellen daar te bekijken en akkoord te geven",
+        soon: status.embeddedPanel === "soon",
+      },
+    ],
+  },
+  {
+    icon: Plug,
+    title: "Via een koppeling",
+    text: "Voor kantoren met eigen software, en voor partners die namens een kantoor werken. Je levert een zaak aan, volgt de voortgang en geeft akkoord vanuit je eigen systeem.",
+    soon: status.api === "soon",
+    points: [
+      { text: "Dezelfde toepassingen als in de werkomgeving" },
+      { text: "Dezelfde instellingen en dezelfde verantwoording" },
+      ...(show.pricing ? [{ text: "Per zaak afgerekend" }] : []),
+    ],
+  },
+];
+
+const steps = [
+  { title: "Kennismaking", text: "We kijken samen welk werk de meeste tijd kost." },
+  {
+    title: "Inrichten",
+    text: "We koppelen je backoffice en mailbox, op een aparte testomgeving.",
+  },
+  {
+    title: "Testen",
+    text: 'Insync draait mee met echte voorbeelden van je kantoor. Alles staat op "voorstellen".',
+  },
+  {
+    title: "Live",
+    text: "Je team werkt ermee. Wat goed gaat, geef je stap voor stap meer ruimte.",
+  },
+];
+---
+
+<Layout
+  title="Zo werk je ermee"
+  description="In de werkomgeving van Insync, in je eigen backoffice of via een koppeling. Insync past zich aan je kantoor aan."
+>
+  <PageHero
+    eyebrow="Zo werk je ermee"
+    title="Geen overstap nodig"
+    subtitle="Insync past zich aan je kantoor aan, niet andersom. Kies waar je team werkt."
+    secondary={{ href: "/platform", label: "Hoe het platform werkt" }}
+  />
+
+  <!-- Drie manieren -->
+  <section class="pb-20 sm:pb-28">
+    <div class="container">
+      <div class="grid gap-5 lg:grid-cols-3 max-w-6xl mx-auto">
+        {
+          routes.map((route, i) => (
+            <div
+              class="flex flex-col rounded-3xl border border-border/60 bg-white p-7 sm:p-8 shadow-sm"
+              data-aos="custom-fade-up"
+              data-aos-duration="400"
+              data-aos-delay={String(i * 100)}
+              data-aos-once="true"
+            >
+              <div class="mb-5 flex items-center justify-between gap-3">
+                <div class="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <route.icon class="size-5" />
+                </div>
+                {route.soon && <SoonBadge />}
+              </div>
+              <h2 class="h4 !text-xl !font-semibold mb-3">{route.title}</h2>
+              <p class="text-muted-foreground mb-6">{route.text}</p>
+              <ul class="mt-auto space-y-2.5">
+                {route.points.map((point) => (
+                  <li class="flex items-start gap-2.5 text-sm">
+                    <Check class="mt-0.5 size-4 shrink-0 text-primary" />
+                    <span>
+                      {point.text} {"soon" in point && point.soon && <SoonBadge class="ml-1" />}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+
+      {
+        show.duGardijnExample ? (
+          <figure class="mt-10 max-w-3xl mx-auto rounded-2xl border-l-4 border-primary bg-muted/40 p-6">
+            <p class="text-sm font-semibold mb-1">Zo loopt het bij du Gardijn</p>
+            <p class="text-muted-foreground">
+              De borderelcontrole loopt op de achtergrond. Een kloppend borderel sluit zonder dat
+              iemand ernaar kijkt; een afwijking staat als taak in hun backoffice.
+            </p>
+          </figure>
+        ) : (
+          <div class="mt-10 text-center">
+            <Todo>Voorbeeld du Gardijn: tonen na akkoord (show.duGardijnExample)</Todo>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <!-- Hetzelfde fundament -->
+  <section class="py-20 sm:py-28 bg-muted/20 grain">
+    <div class="container relative z-10">
+      <SectionHeading
+        eyebrow="Altijd hetzelfde fundament"
+        title="Welke route je ook kiest"
+        intro="Of je nu in de werkbak werkt, in je backoffice of via een koppeling: het voorwerk is hetzelfde, jouw instellingen gelden overal, en elke beslissing wordt op dezelfde manier vastgelegd. Onze eigen werkomgeving kan niets wat een andere route niet kan."
+        class="!mb-0"
+      />
+    </div>
+  </section>
+
+  <!-- Backoffices -->
+  <section id="backoffices" class="py-20 sm:py-28">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Backoffices"
+        title="Bovenop je bestaande backoffice"
+        intro="Insync vervangt je backoffice niet. Het maakt 'm slimmer."
+      />
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {
+          backOffices.map((office) => (
+            <span class="inline-flex items-center gap-2 rounded-xl border border-border/60 bg-white px-4 py-2.5 shadow-sm">
+              <Database class="size-4 text-primary" />
+              <span class="font-semibold">{office.name}</span>
+              <span class="text-sm text-muted-foreground">{office.note}</span>
+            </span>
+          ))
+        }
+        <Todo>ANVA en CCS: status bevestigen</Todo>
+      </div>
+      <p class="mt-8 text-center text-muted-foreground">
+        Werk je met een ander pakket? <a href="/contact" class="font-medium text-primary hover:underline"
+          >Laat het ons weten</a
+        >, dan bekijken we samen wat er kan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Starten -->
+  <section id="starten" class="py-20 sm:py-28 bg-muted/20 grain">
+    <div class="container relative z-10">
+      <SectionHeading eyebrow="Starten" title="Zo begin je" />
+      <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+        {
+          steps.map((step, i) => (
+            <li
+              class="rounded-2xl border border-border/60 bg-white p-6 shadow-sm"
+              data-aos="custom-fade-up"
+              data-aos-duration="400"
+              data-aos-delay={String(i * 100)}
+              data-aos-once="true"
+            >
+              <span class="mb-4 flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-semibold">
+                {i + 1}
+              </span>
+              <h3 class="text-lg font-semibold mb-1.5">{step.title}</h3>
+              <p class="text-sm text-muted-foreground">{step.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+      <div class="mt-12 text-center">
+        <Button href="/demo" size="lg" class="glow-primary">
+          Demo inplannen
+          <ArrowRight class="size-5" />
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>
