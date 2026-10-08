@@ -1,0 +1,339 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs = [
+  {
+    "q": "Werkt het met onze backoffice?",
+    "a": "Insync werkt bovenop Novulo, ANVA en CCS en koppelt met je Microsoft 365-mailbox. Werk je met een ander pakket, vraag het ons; in de demo laten we zien wat voor jouw backoffice mogelijk is."
+  },
+  {
+    "q": "Vervangt Insync onze backoffice?",
+    "a": "Nee. Je backoffice blijft de bron van waarheid. Insync leest vers vóór elke wijziging en bewaart zelf alleen het proces: de zaak, het voorstel, het besluit en het verloop."
+  },
+  {
+    "q": "Kunnen we werken zonder de werkbak?",
+    "a": "Ja. Wat mag, gaat vanzelf en een uitzondering wordt een taak in je backoffice. Ook het klantportaal kan los draaien: inzendingen gaan dan per e-mail of naar je eigen systeem."
+  },
+  {
+    "q": "Kan de eigen AI-assistent van een klant meekijken?",
+    "a": "Alleen als de klant dat toestaat, per soort gegevens, en de klant kan het altijd intrekken. Geld, IBAN en account zijn nooit bereikbaar voor een externe AI."
+  },
+  {
+    "q": "Hoe snel zijn we live?",
+    "a": "Je begint op de testomgeving met één zaaktype, op Voorstellen. Je klantportaal staat binnen een week live."
+  }
+];
+---
+
+<Layout
+  title="Integraties"
+  description="Insync werkt bovenop Novulo, ANVA en CCS. Eén veilig pad naar je backoffice, voor de werkbak, het klantportaal, je eigen applicaties en AI-agents."
+  faqs={faqs}
+>
+<main>
+
+<!-- 1. Hero -->
+<section data-hero aria-labelledby="kop-integraties" style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8vw, 88px) 24px 0; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Integraties</span>
+<h1 id="kop-integraties" style="margin: 0; font-size: clamp(44px, 6.4vw, 92px); line-height: 1; font-weight: 500; letter-spacing: -0.045em">Werkt bovenop de backoffice die je al hebt</h1>
+</div>
+<div style="flex: 0 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #52525B">Insync AI is het AI-platform voor verzekeraars, volmachten en adviseurs: de AI doet het voorwerk in je eigen backoffice, een mens beslist, en jij bepaalt hoeveel ruimte de AI krijgt.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #52525B">Je houdt je backoffice, je mailbox en je eigen software. Insync sluit erop aan en vervangt niets.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px">
+<a href="/demo" style="background: #0A0A0A; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Demo inplannen</a>
+<a href="https://docs.insync.insure" style="border: 1px solid rgba(10,10,10,0.16); color: #0A0A0A; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Naar de docs hub</a>
+</div>
+</div>
+</div>
+
+<figure role="img" aria-label="Drie lagen. Bovenaan de plekken waar gewerkt wordt: de werkbak van Insync, het klantportaal, je eigen applicaties en AI-agents. In het midden Insync. Onderaan je eigen backoffice: Novulo, ANVA of CCS." style="margin: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(16px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<div style="border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500"><span style="width: 10px; height: 10px; border-radius: 999px; background: #5B59F8"></span>Werkbak</span><span style="font-size: 14px; color: #52525B">van Insync, voor je team</span></div>
+<div style="border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500"><span style="width: 10px; height: 10px; border-radius: 999px; background: #C6F432; box-shadow: 0 0 0 1px rgba(10,10,10,0.18)"></span>Klantportaal</span><span style="font-size: 14px; color: #52525B">en online afsluiten, voor je klanten</span></div>
+<div style="border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500"><span style="width: 10px; height: 10px; border-radius: 999px; border: 1.5px solid #52525B; box-sizing: border-box"></span>Eigen applicaties</span><span style="font-size: 14px; color: #52525B">CRM, portaal, eigen software</span></div>
+<div style="border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500"><span style="width: 10px; height: 10px; border-radius: 999px; border: 1.5px solid #52525B; box-sizing: border-box"></span>AI-agents</span><span style="font-size: 14px; color: #52525B">van jou, en die van je klant</span></div>
+</div>
+<div style="border-radius: 16px; background: #5B59F8; color: #FFFFFF; padding: 24px 22px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px"><span style="display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 600; letter-spacing: -0.02em"><span style="width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF"></span>Insync</span><span style="font-size: 15px; color: #FFFFFF">voorwerk · voorstel · uitvoering · regels</span></div>
+<div style="border-radius: 16px; background: #0A0A0A; color: #FFFFFF; padding: 20px 22px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px"><span style="font-size: 17px; font-weight: 500">Jouw backoffice</span><span style="font-size: 16px; font-weight: 600; letter-spacing: 0.01em; color: #E4E4E7">Novulo · ANVA · CCS</span></div>
+</figure>
+</section>
+
+<!-- Klantenrij -->
+<section aria-labelledby="kop-klanten" style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 18px">
+<h2 id="kop-klanten" style="margin: 0; font-size: 14px; font-weight: 400; color: #71717A">Vertrouwd door kantoren als</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(28px, 5vw, 64px)">
+<li style="font-size: 24px; font-weight: 600; letter-spacing: -0.03em; color: #3F3F46">du Gardijn</li>
+<li style="font-size: 24px; font-weight: 500; letter-spacing: -0.01em; color: #3F3F46">EFO Verzekeringen</li>
+<li style="font-size: 26px; font-weight: 600; letter-spacing: 0.02em; color: #3F3F46">JW</li>
+</ul>
+</section>
+
+<!-- 2. Backoffice -->
+<section id="backoffice" aria-labelledby="kop-backoffice" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">01 / Backoffice</span>
+<h2 id="kop-backoffice" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Je backoffice blijft gewoon je backoffice.</h2>
+</div>
+<p style="margin: 0; flex: 0 1 420px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Hij blijft de bron van waarheid. Insync leest vers uit je backoffice vóór elke wijziging.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<article style="border-radius: 24px; background: #F4F4F5; padding: 28px; min-height: 168px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Backoffice</span>
+<h3 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.03em">Novulo</h3>
+</article>
+<article style="border-radius: 24px; background: #F4F4F5; padding: 28px; min-height: 168px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Backoffice</span>
+<h3 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: 0.02em">ANVA</h3>
+</article>
+<article style="border-radius: 24px; background: #F4F4F5; padding: 28px; min-height: 168px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Backoffice</span>
+<h3 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: 0.04em">CCS</h3>
+</article>
+<article style="border-radius: 24px; border: 1px dashed rgba(10,10,10,0.24); padding: 28px; min-height: 168px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Ander pakket?</span>
+<a href="/demo" style="font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; text-decoration: none; color: #5B59F8">Vraag het ons →</a>
+</article>
+</div>
+</section>
+
+<!-- 3. Waar je werkt -->
+<section id="werkplekken" aria-labelledby="kop-werkplekken" style="background: #FAFAFA; border-top: 1px solid rgba(10,10,10,0.06); border-bottom: 1px solid rgba(10,10,10,0.06)">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">02 / Waar je werkt</span>
+<h2 id="kop-werkplekken" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Overal hetzelfde voorwerk, overal dezelfde regels</h2>
+</div>
+<p style="margin: 0; flex: 0 1 420px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Voor je team én je klanten. Kies zelf waar het werk wordt afgehandeld.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+
+<article aria-labelledby="kop-wp-werkbak" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Werkbak</span><span style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #FFFFFF; color: #52525B">Productie</span></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF; box-shadow: inset 3px 0 0 #5B59F8"><div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #71717A">Schademelding</span><span style="font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Waterschade keuken</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #FFEDD5; color: #9A3412; white-space: nowrap">Nieuw</span></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF"><div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #71717A">Verzoek</span><span style="font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Jansen B.V. verhuist</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #ECECFE; color: #3F3DB8; white-space: nowrap">Opgepakt</span></div>
+</div>
+<div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Voor je team</span>
+<h3 id="kop-wp-werkbak" style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Werkbak van Insync</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Alles wat aandacht vraagt op één plek, al voorbereid met een voorstel en de bron.</p>
+</div>
+</article>
+
+<article aria-labelledby="kop-wp-portaal" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center">
+<div style="width: 100%; max-width: 230px; border-radius: 18px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.10); overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #0F766E; color: #FFFFFF; font-size: 12px; font-weight: 600"><span style="width: 12px; height: 12px; border-radius: 4px; background: #FFFFFF"></span>Polder Verzekeringen</div>
+<div style="padding: 10px 12px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 500">Waterschade keuken</span><span style="font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 999px; background: #CCFBF1; color: #115E59; white-space: nowrap">In behandeling</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 500">Autoverzekering</span><span style="font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 999px; background: #F4F4F5; color: #3F3F46; white-space: nowrap">Aangevraagd</span></div>
+<span style="margin-top: 2px; text-align: center; font-size: 12px; font-weight: 500; padding: 7px 10px; border-radius: 999px; background: #0F766E; color: #FFFFFF">Schade melden</span>
+</div>
+</div>
+</div>
+<div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #C6F432; color: #0A0A0A">Voor je klanten</span>
+<h3 id="kop-wp-portaal" style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Klantportaal en online afsluiten</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Klanten regelen zelf en sluiten online af. Wat ze indienen, komt als zaak bij je team.</p>
+</div>
+</article>
+
+<article aria-labelledby="kop-wp-apps" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Jouw software</span>
+<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF; font-size: 13px"><span style="flex: 0 0 64px; color: #71717A">CRM</span><span style="flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Adreswijziging Jansen</span><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF; font-size: 13px"><span style="flex: 0 0 64px; color: #71717A">Eigen app</span><span style="flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Prolongatienota oktober</span><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Klopt</span></div>
+</div>
+<div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #F4F4F5; color: #3F3F46">Jouw keuze</span>
+<h3 id="kop-wp-apps" style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Je eigen applicaties</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Dezelfde zaken en voorstellen in je CRM, je eigen portaal of je eigen software.</p>
+</div>
+</article>
+
+<article aria-labelledby="kop-wp-agents" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Assistent van de klant</span>
+<span style="align-self: flex-end; max-width: 85%; font-size: 13px; line-height: 1.4; padding: 8px 11px; border-radius: 12px 12px 4px 12px; background: #0A0A0A; color: #FFFFFF">Is mijn fiets gedekt bij diefstal?</span>
+<span style="align-self: flex-start; max-width: 90%; font-size: 13px; line-height: 1.4; padding: 8px 11px; border-radius: 12px 12px 12px 4px; background: #FFFFFF; color: #27272A">Ja, via je inboedelverzekering ook buitenshuis, tot € 2.000.</span>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #52525B"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" stroke="#52525B" stroke-width="2"></rect><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="#52525B" stroke-width="2" stroke-linecap="round"></path></svg>Met toestemming van de klant</span>
+</div>
+<div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #F4F4F5; color: #3F3F46">Team en klant</span>
+<h3 id="kop-wp-agents" style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">AI-agents, ook die van je klant</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Jouw agents en de eigen assistent van je klant werken met dezelfde regels. Geld en IBAN blijven buiten bereik.</p>
+</div>
+</article>
+
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; border-radius: 24px; border: 1px solid rgba(10,10,10,0.12); background: #FFFFFF; padding: 20px 24px">
+<span style="width: 40px; height: 40px; border-radius: 12px; background: #0A0A0A; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#FFFFFF" stroke-width="1.6"></rect><path d="M8 12.2l2.6 2.6L16 9.4" stroke="#C6F432" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+<p style="margin: 0; flex: 1 1 420px; min-width: 0; font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: -0.01em">Of zonder scherm: wat mag, gaat vanzelf; een uitzondering wordt een taak in je backoffice.</p>
+<span style="font-size: 14px; color: #52525B">Zo werkt het bij du Gardijn, in Novulo.</span>
+</div>
+
+</div>
+</section>
+
+<!-- 4. Hoe werk binnenkomt -->
+<section aria-labelledby="kop-kanalen" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">03 / Kanalen</span>
+<h2 id="kop-kanalen" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Uit elk kanaal één stroom</h2>
+</div>
+<p style="margin: 0; flex: 0 1 420px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Waar het werk ook binnenkomt, het wordt een zaak met een voorstel.</p>
+</div>
+<ul aria-label="Kanalen" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 10px">
+<li style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.12); font-size: 16px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#0A0A0A" stroke-width="1.6"></rect><path d="M3.5 7l8.5 6 8.5-6" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>E-mail <span style="font-weight: 400; color: #52525B">via Microsoft 365</span></li>
+<li style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: #C6F432; color: #0A0A0A; font-size: 16px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5" stroke="#0A0A0A" stroke-width="1.6"></rect><path d="M11 17.5h2" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg>Klantportaal</li>
+<li style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.12); font-size: 16px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5v7a2.5 2.5 0 01-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 014 13.5v-7z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"></path></svg>AI-assistent</li>
+<li style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.12); font-size: 16px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>API</li>
+<li style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.12); font-size: 16px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.5a5 5 0 00-5 5v3.2L5.5 16h13L17 12.7V9.5a5 5 0 00-5-5zM10 18.5a2 2 0 004 0" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Signalen</li>
+</ul>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding-top: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Het rondje</span>
+<ol data-rondje="inline" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; color: #3F3F46">
+<li style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #C6F432; box-shadow: 0 0 0 1px rgba(10,10,10,0.18)"></span>Klant meldt schade in het portaal<span aria-hidden="true" style="color: #71717A; padding-left: 4px">→</span></li>
+<li style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #5B59F8"></span>Zaak met AI-beoordeling in de werkbak<span aria-hidden="true" style="color: #71717A; padding-left: 4px">→</span></li>
+<li style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #5B59F8"></span>Medewerker geeft akkoord<span aria-hidden="true" style="color: #71717A; padding-left: 4px">→</span></li>
+<li style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #C6F432; box-shadow: 0 0 0 1px rgba(10,10,10,0.18)"></span>Klant ziet de status in het portaal</li>
+</ol>
+</div>
+</section>
+
+<!-- 5. Middelste CTA-band -->
+<section aria-labelledby="kop-cta-midden" style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+<div style="border-radius: 28px; background: #F4F4F5; padding: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
+<h2 id="kop-cta-midden" style="margin: 0; flex: 1 1 480px; min-width: 0; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.2; font-weight: 500; letter-spacing: -0.025em">Zie hoe Insync op jouw backoffice aansluit.</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a href="/demo" style="background: #0A0A0A; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Demo inplannen</a>
+<a href="/klantportaal" style="font-weight: 500; font-size: 15px; text-decoration: none; color: #5B59F8">Bekijk het klantportaal →</a>
+</div>
+</div>
+</section>
+
+<!-- 6. Livegaan -->
+<section aria-labelledby="kop-livegaan" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">04 / Livegaan</span>
+<h2 id="kop-livegaan" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Klein beginnen, veilig opschalen</h2>
+</div>
+<p style="margin: 0; flex: 0 1 420px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Live in vier stappen. Ruimte geven doe je stap voor stap.</p>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<li style="border-radius: 24px; background: #F4F4F5; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF; font-family: 'JetBrains Mono', monospace; font-size: 14px; display: flex; align-items: center; justify-content: center">1</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Koppelen op test</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">We koppelen de testomgeving van je backoffice. Productie blijft onaangeroerd.</p>
+</li>
+<li style="border-radius: 24px; background: #F4F4F5; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF; font-family: 'JetBrains Mono', monospace; font-size: 14px; display: flex; align-items: center; justify-content: center">2</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Eén zaaktype aan, op Voorstellen</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Je kiest één soort werk. Elk voorstel gaat langs een medewerker.</p>
+</li>
+<li style="border-radius: 24px; background: #F4F4F5; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF; font-family: 'JetBrains Mono', monospace; font-size: 14px; display: flex; align-items: center; justify-content: center">3</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Meten</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Je ziet welke voorstellen ongewijzigd akkoord krijgen, en welke niet.</p>
+</li>
+<li style="border-radius: 24px; background: #0A0A0A; color: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #C6F432; color: #0A0A0A; font-family: 'JetBrains Mono', monospace; font-size: 14px; display: flex; align-items: center; justify-content: center">4</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Naar productie</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #A1A1AA">Dezelfde regels op productie. Daarna geef je stap voor stap meer ruimte.</p>
+</li>
+</ol>
+</section>
+
+<!-- 7. Voor developers -->
+<section id="developers" aria-labelledby="kop-developers" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 96px">
+<div style="border-radius: 28px; background: #F4F4F5; padding: clamp(24px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">05 / Voor developers</span>
+<h2 id="kop-developers" style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.06; font-weight: 500; letter-spacing: -0.035em">Voor developers</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #52525B">De korte versie staat hiernaast. Alles over koppelen, sleutels en voorbeelden vind je in de docs hub.</p>
+<a href="https://docs.insync.insure" style="align-self: flex-start; margin-top: 8px; background: #0A0A0A; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 17px; padding: 16px 28px; border-radius: 999px; min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px">Naar de docs hub<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #52525B">docs.insync.insure</span>
+</div>
+<dl style="flex: 1.5 1 460px; min-width: 0; margin: 0; display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(10,10,10,0.12)">
+<dt style="flex: 0 0 200px; max-width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; padding-top: 2px">REST-API en webhooks</dt>
+<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Zaken uitlezen, documenten aanleveren, akkoord geven. Een melding bij elke gebeurtenis.</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(10,10,10,0.12)">
+<dt style="flex: 0 0 200px; max-width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; padding-top: 2px">MCP</dt>
+<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Voor AI-agents, van jou en van je klant. Dezelfde acties, dezelfde regels.</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(10,10,10,0.12)">
+<dt style="flex: 0 0 200px; max-width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; padding-top: 2px">Test en productie</dt>
+<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Twee omgevingen, elk met een eigen koppeling met je backoffice.</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(10,10,10,0.12)">
+<dt style="flex: 0 0 200px; max-width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; padding-top: 2px">Geen achterdeur</dt>
+<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Onze eigen schermen kunnen niets wat een koppeling niet kan.</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(10,10,10,0.12); border-bottom: 1px solid rgba(10,10,10,0.12)">
+<dt style="flex: 0 0 200px; max-width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; padding-top: 2px">Idempotent</dt>
+<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 15px; line-height: 1.55; color: #52525B">Een tweede aanroep voert niets dubbel uit.</dd>
+</div>
+</dl>
+</div>
+</section>
+
+<!-- 8. FAQ -->
+<section aria-labelledby="kop-faq" style="border-top: 1px solid rgba(10,10,10,0.08)">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px 64px; align-items: flex-start">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">06 / Vragen</span>
+<h2 id="kop-faq" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Vragen over integratie</h2>
+</div>
+<div style="flex: 1.5 1 480px; min-width: 0; display: flex; flex-direction: column; border-bottom: 1px solid rgba(10,10,10,0.12)">
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Werkt het met onze backoffice?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Insync werkt bovenop Novulo, ANVA en CCS en koppelt met je Microsoft 365-mailbox. Werk je met een ander pakket, vraag het ons; in de demo laten we zien wat voor jouw backoffice mogelijk is.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Vervangt Insync onze backoffice?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Nee. Je backoffice blijft de bron van waarheid. Insync leest vers vóór elke wijziging en bewaart zelf alleen het proces: de zaak, het voorstel, het besluit en het verloop.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Kunnen we werken zonder de werkbak?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Ja. Wat mag, gaat vanzelf en een uitzondering wordt een taak in je backoffice. Ook het klantportaal kan los draaien: inzendingen gaan dan per e-mail of naar je eigen systeem.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Kan de eigen AI-assistent van een klant meekijken?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Alleen als de klant dat toestaat, per soort gegevens, en de klant kan het altijd intrekken. Geld, IBAN en account zijn nooit bereikbaar voor een externe AI.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Hoe snel zijn we live?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Je begint op de testomgeving met één zaaktype, op Voorstellen. Je klantportaal staat binnen een week live.</p>
+</details>
+</div>
+</div>
+</section>
+
+<!-- 9. Afsluitende CTA -->
+<section aria-labelledby="kop-cta" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 112px">
+<div style="border-radius: 28px; background: #0A0A0A; color: #FFFFFF; padding: clamp(32px, 6vw, 80px); display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-end; justify-content: space-between">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span data-stamp style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; background: #C6F432; color: #0A0A0A; font-weight: 600; font-size: 15px; transform: rotate(-6deg); box-shadow: 0 8px 20px rgba(10,10,10,0.15)"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Akkoord</span>
+<h2 id="kop-cta" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Zie Insync naast jouw backoffice</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #A1A1AA; max-width: 560px">In een demo laten we zien hoe Insync aansluit, en waar je team en je klanten het werk regelen.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="/demo" style="background: #C6F432; color: #0A0A0A; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Demo inplannen</a>
+<a href="/veiligheid" style="border: 1px solid rgba(255,255,255,0.24); color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Lees over veiligheid en regie</a>
+</div>
+</div>
+</section>
+
+</main>
+</Layout>

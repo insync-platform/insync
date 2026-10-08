@@ -12,7 +12,13 @@ export default defineConfig({
 
   site: "https://insync.insure",
   redirects: {
-    "/oplossingen/insync-ai": "/oplossingen/ai-assistent",
+    "/oplossingen/insync-ai": "/insync-ai",
+    "/oplossingen/ai-assistent": "/insync-ai",
+    "/oplossingen/voorwaarden-vergelijker": "/insync-ai",
+    "/oplossingen/intermediairs": "/",
+    "/oplossingen/klantportaal": "/klantportaal",
+    "/oplossingen/afsluitstraat": "/klantportaal",
+    "/contact": "/demo",
   },
   integrations: [sitemap(), vue()],
   adapter: netlify(),

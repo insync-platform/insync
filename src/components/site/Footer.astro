@@ -1,0 +1,68 @@
+---
+const columns = [
+  {
+    title: "Insync AI",
+    links: [
+      { href: "/insync-ai#werkbak", label: "Werkbak" },
+      { href: "/insync-ai#ai-assistent", label: "AI-assistent" },
+      { href: "/insync-ai#doorlaatregeling", label: "Doorlaatregeling" },
+      { href: "/insync-ai#zaaktypes", label: "Zaaktypes" },
+    ],
+  },
+  {
+    title: "Uitbreiden",
+    links: [
+      { href: "/klantportaal#zelf-regelen", label: "Klantportaal" },
+      { href: "/klantportaal#schade-melden", label: "Schade melden" },
+      { href: "/klantportaal#klantassistent", label: "Klantassistent" },
+      { href: "/klantportaal#online-afsluiten", label: "Online afsluiten" },
+    ],
+  },
+  {
+    title: "Insync",
+    links: [
+      { href: "/integraties", label: "Integraties" },
+      { href: "/veiligheid", label: "Veiligheid en regie" },
+      { href: "https://docs.insync.insure", label: "Docs hub" },
+      { href: "/blog", label: "Blog" },
+      { href: "/demo", label: "Contact en demo" },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a href="/" class="site-logo site-logo--light">
+          <span class="site-logo__dot" aria-hidden="true"></span>Insync
+        </a>
+        <p>
+          Insync AI is het AI-platform voor verzekeraars, volmachten en adviseurs. De AI doet het
+          voorwerk in je eigen backoffice. Een mens beslist.
+        </p>
+        <p class="site-footer__motto">Minder klikken, meer regelen.</p>
+      </div>
+      <nav aria-label="Footer" class="site-footer__nav">
+        {
+          columns.map((col) => (
+            <div>
+              <span class="eyebrow">{col.title}</span>
+              {col.links.map((l) => (
+                <a href={l.href}>{l.label}</a>
+              ))}
+            </div>
+          ))
+        }
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© {new Date().getFullYear()} Insync · Gemaakt in Nederland</span>
+      <span class="site-footer__legal">
+        <a href="/privacybeleid">Privacybeleid</a>
+        <a href="https://www.linkedin.com/company/insync-platform" rel="noopener">LinkedIn</a>
+      </span>
+    </div>
+  </div>
+</footer>

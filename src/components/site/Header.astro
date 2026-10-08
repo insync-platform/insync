@@ -1,0 +1,33 @@
+---
+const { pathname } = Astro.url;
+
+const items = [
+  { href: "/insync-ai", label: "Insync AI" },
+  { href: "/integraties", label: "Integraties" },
+  { href: "/veiligheid", label: "Veiligheid" },
+  { href: "/klantportaal", label: "Klantportaal" },
+  { href: "/blog", label: "Blog" },
+];
+
+const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+---
+
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo" aria-label="Insync, naar de homepage">
+      <span class="site-logo__dot" aria-hidden="true"></span>Insync
+    </a>
+    <nav aria-label="Hoofdmenu" class="site-nav">
+      {
+        items.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a href="/demo" class="btn btn--dark btn--sm site-header__cta" data-umami-event="Demo CTA header">
+      Demo inplannen
+    </a>
+  </div>
+</header>

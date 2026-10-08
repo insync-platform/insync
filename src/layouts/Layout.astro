@@ -1,34 +1,41 @@
 ---
 import "../styles/global.css";
-import Button from "../components/ui/Button.astro";
-import {
-  ChevronDown,
-  Users,
-  Menu,
-  X,
-  ShoppingCart,
-  Bot,
-  MessageSquare,
-  ShieldCheck,
-  Mic,
-} from "@lucide/astro";
-import { Image } from "astro:assets";
-import LinkedIn from "../assets/linkedin.svg";
+import "../styles/site.css";
+import Header from "../components/site/Header.astro";
+import Footer from "../components/site/Footer.astro";
 import Umami from "../components/Umami.astro";
+
+interface Faq {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  title?: string;
+  fullTitle?: string;
+  description?: string;
+  faqs?: Faq[];
+  software?: boolean;
+  article?: {
+    datePublished?: string;
+    dateModified?: string;
+    image?: string;
+  };
+}
 
 const {
   title,
-  description = "Insync laat AI rechtstreeks met je backoffice praten en neemt administratief werk over — voor verzekeraars, volmachten en adviseurs. Minder klikken, meer regelen.",
+  fullTitle,
+  description = "Insync doet het voorwerk in je eigen backoffice, voor je team én je klanten. Een mens beslist, en jij bepaalt hoeveel ruimte de AI krijgt.",
+  faqs = [],
+  software = false,
   article,
 } = Astro.props;
 
-const defaultTitle = "Insync – Minder klikken, meer regelen";
-const pageTitle = title ? `${title} – Insync` : defaultTitle;
-const { pathname } = Astro.url;
+const pageTitle = fullTitle ?? (title ? `${title} – Insync` : "Insync – Minder klikken, meer regelen");
 const siteUrl = "https://insync.insure";
 const ogImage = `${siteUrl}/og-image.jpg`;
 
-// Structured Data
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -36,41 +43,61 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/logo.svg`,
   description:
-    "Insync biedt AI-oplossingen voor verzekeraars, volmachten en adviseurs: agentic AI op de backoffice, een klantportaal en een afsluitstraat.",
+    "Insync is het AI-platform voor verzekeraars, volmachten en adviseurs: de AI doet het voorwerk in je eigen backoffice, voor je team én je klanten. Een mens beslist.",
   sameAs: ["https://www.linkedin.com/company/insync-platform"],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    url: `${siteUrl}/contact`,
+    telephone: "+31-6-18282389",
+    email: "hello@insync.insure",
+    url: `${siteUrl}/demo`,
   },
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Insync AI",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "AI-verwerkingsplatform voor verzekeraars, volmachten en adviseurs: een werkbak met voorbereide zaken, een actielaag die pas na een besluit wijzigt, en een doorlaatregeling waarmee je bepaalt wat vanzelf mag.",
+  publisher: { "@type": "Organization", name: "Insync" },
 };
 
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: pageTitle,
-  description: description,
+  description,
   url: Astro.url.href,
-  publisher: {
-    "@type": "Organization",
-    name: "Insync",
-  },
+  inLanguage: "nl-NL",
+  publisher: { "@type": "Organization", name: "Insync" },
 };
+
+const faqSchema = faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    }
+  : null;
 
 const articleSchema = article
   ? {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: title,
-      description: description,
+      description,
       url: Astro.url.href,
       publisher: {
         "@type": "Organization",
         name: "Insync",
-        logo: {
-          "@type": "ImageObject",
-          url: `${siteUrl}/logo.svg`,
-        },
+        logo: { "@type": "ImageObject", url: `${siteUrl}/logo.svg` },
       },
       ...(article.datePublished && { datePublished: article.datePublished }),
       ...(article.dateModified && { dateModified: article.dateModified }),
@@ -78,19 +105,23 @@ const articleSchema = article
     }
   : null;
 
-const schemas =
-  pathname === "/"
-    ? [organizationSchema, webPageSchema]
-    : articleSchema
-      ? [webPageSchema, articleSchema]
-      : [webPageSchema];
+const schemas = [
+  webPageSchema,
+  (software || Astro.url.pathname === "/") && organizationSchema,
+  software && softwareSchema,
+  faqSchema,
+  articleSchema,
+].filter(Boolean);
 ---
 
 <!doctype html>
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
@@ -99,6 +130,13 @@ const schemas =
     <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={Astro.url.href} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
 
     <meta name="generator" content={Astro.generator} />
     <Umami id="5a34bef4-d77e-4dec-8273-166ae1c8d495" />
@@ -119,471 +157,20 @@ const schemas =
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <meta name="theme-color" content="#5B59F8" />
+    <meta name="theme-color" content="#FFFFFF" />
 
-    {
-      schemas.map((schema) => (
-        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-      ))
-    }
+    {schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
   </head>
-  <body>
-    <header
-      id="site-header"
-      class="fixed top-2 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[1280px] h-[var(--header-height)] border border-transparent flex items-center rounded-2xl z-50 transition-all duration-400 ease-out"
-    >
-      <div class="w-full px-4">
-        <div class="flex items-center justify-between">
-          <a href="/">
-            <img src="/logo.svg" alt="Insync" class="h-8 sm:h-9" />
-          </a>
-          <nav class="hidden lg:block font-medium">
-            <ul class="flex gap-x-8">
-              <li>
-                <a
-                  href="/"
-                  class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background/50 duration-150"
-                  aria-current={pathname === "/" ? "page" : undefined}>Home</a
-                >
-              </li>
-              <li class="relative group" id="desktop-solutions-menu">
-                <button
-                  id="desktop-solutions-toggle"
-                  class="peer flex items-center rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background/50 duration-150"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Oplossingen
-                  <ChevronDown class="size-5 ml-2" />
-                </button>
-
-                <div
-                  id="desktop-solutions-dropdown"
-                  class="absolute left-1/2 -translate-x-1/2 opacity-0 peer-focus-visible:opacity-100 group-hover:opacity-100 has-[a:focus-visible]:opacity-100 pointer-events-none group-hover:pointer-events-auto [&.dropdown-open]:opacity-100 [&.dropdown-open]:pointer-events-auto transition-opacity duration-200 p-4 pt-5"
-                >
-                  <div
-                    class="grid grid-cols-2 gap-x-6 w-[640px] bg-background border rounded-xl shadow-md p-4"
-                  >
-                    <div class="space-y-3">
-                      <div class="text-sm font-semibold text-muted-foreground">
-                        Voor medewerkers
-                      </div>
-                      <ul class="space-y-2">
-                        <li>
-                          <a
-                            href="/oplossingen/ai-assistent"
-                            class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
-                          >
-                            <div
-                              class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5"
-                              aria-hidden="true"
-                            >
-                              <Bot class="size-5" />
-                            </div>
-                            <div>
-                              <span class="block font-medium text-foreground">Insync AI</span>
-                              De AI-werkplek voor je team
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="space-y-3">
-                      <div class="text-sm font-semibold text-muted-foreground">Voor klanten</div>
-                      <ul class="space-y-2">
-                        <li>
-                          <a
-                            href="/oplossingen/klantportaal"
-                            class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
-                          >
-                            <div
-                              class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5"
-                              aria-hidden="true"
-                            >
-                              <Users class="size-5" />
-                            </div>
-                            <div>
-                              <span class="block font-medium text-foreground">Klantportaal</span>
-                              Portaal met AI schademelding
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/oplossingen/afsluitstraat"
-                            class="flex rounded-lg p-1.5 text-sm text-muted-foreground hover:bg-muted -mx-1.5"
-                          >
-                            <div
-                              class="flex items-center justify-center bg-secondary text-primary rounded size-9 mr-3 shrink-0 mt-0.5"
-                              aria-hidden="true"
-                            >
-                              <ShoppingCart class="size-5" />
-                            </div>
-                            <div>
-                              <span class="block font-medium text-foreground">Afsluitstraat</span>
-                              Afsluiten met AI chat assistent
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <a
-                  href="/blog"
-                  class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background/50 duration-150"
-                  aria-current={pathname === "/blog" ? "page" : undefined}>Blog</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  class="inline-block rounded-md py-1 px-2 hover:shadow-[0_0_0_1px_var(--color-border)] hover:bg-background/50 duration-150"
-                  aria-current={pathname === "/contact" ? "page" : undefined}>Contact</a
-                >
-              </li>
-            </ul>
-          </nav>
-          <Button href="/demo" class="hidden lg:inline-flex" data-umami-event="Proefaccount CTA"
-            >Demo inplannen</Button
-          >
-          <Button
-            id="mobile-nav-toggle"
-            size="icon"
-            variant="ghost"
-            class="inline-flex lg:hidden -mr-2"
-            aria-label="Open menu"
-          >
-            <Menu class="size-6" id="mobile-menu-icon-open" />
-            <X class="size-6 hidden" id="mobile-menu-icon-close" />
-          </Button>
-        </div>
-      </div>
-    </header>
-    <div
-      id="mobile-menu"
-      class="lg:hidden fixed top-[calc(var(--header-height)+2rem)] inset-x-4 rounded-2xl bg-background/95 backdrop-blur overflow-y-auto invisible opacity-0 -translate-y-2 pointer-events-none transition-all duration-200 data-[open]:visible data-[open]:opacity-100 data-[open]:translate-y-0 data-[open]:pointer-events-auto z-50"
-    >
-      <nav class="pt-4 pb-8">
-        <div class="px-6">
-          <ul>
-            <li>
-              <a
-                href="/"
-                class="block py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200"
-              >
-                Home
-              </a>
-            </li>
-            <li class="relative group">
-              <button
-                class="flex items-center justify-between w-full py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200"
-                aria-haspopup="true"
-                aria-expanded="false"
-                type="button"
-                id="mobile-solutions-toggle"
-                onclick="toggleMobileSolutionsDropdown()"
-              >
-                Oplossingen
-                <ChevronDown class="size-5" />
-              </button>
-              <div
-                class="hidden mb-3 starting:opacity-0 starting:-translate-y-2 duration-200 z-10"
-                id="mobile-solutions-dropdown"
-              >
-                <div>
-                  <div class="text-sm font-semibold text-muted-foreground mb-3">
-                    Voor medewerkers
-                  </div>
-                  <ul class="space-y-2">
-                    <li>
-                      <a
-                        href="/oplossingen/ai-assistent"
-                        class="flex rounded-lg text-muted-foreground py-1"
-                      >
-                        <div
-                          class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 shrink-0 mr-3"
-                        >
-                          <Bot class="size-6" />
-                        </div>
-                        <div>
-                          <span class="block font-medium text-foreground">Insync AI</span>
-                          De AI-werkplek voor je team
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="mt-6">
-                  <div class="text-sm font-semibold text-muted-foreground mb-3">Voor klanten</div>
-                  <ul class="space-y-2">
-                    <li>
-                      <a
-                        href="/oplossingen/klantportaal"
-                        class="flex rounded-lg text-muted-foreground py-1"
-                      >
-                        <div
-                          class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 shrink-0 mr-3"
-                        >
-                          <Users class="size-6" />
-                        </div>
-                        <div>
-                          <span class="block font-medium text-foreground">Klantportaal</span>
-                          Portaal met AI schademelding
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/oplossingen/afsluitstraat"
-                        class="flex rounded-lg text-muted-foreground py-1"
-                      >
-                        <div
-                          class="flex items-center justify-center bg-secondary text-primary rounded-md size-11 shrink-0 mr-3"
-                        >
-                          <ShoppingCart class="size-6" />
-                        </div>
-                        <div>
-                          <span class="block font-medium text-foreground">Afsluitstraat</span>
-                          Afsluiten met AI chat assistent
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li>
-              <a
-                href="/blog"
-                class="block py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contact"
-                class="block py-4 text-xl text-foreground no-underline font-medium rounded-md duration-200"
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <Button href="/demo" size="lg" class="w-full mt-4" data-umami-event="Proefaccount CTA"
-                >Demo inplannen</Button
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <body class="site">
+    <a href="#inhoud" class="skip-link">Naar de inhoud</a>
+    <Header />
+    <div id="inhoud">
+      <slot />
     </div>
-    <div
-      id="mobile-menu-overlay"
-      class="lg:hidden fixed inset-0 bg-foreground/40 backdrop-blur-sm invisible opacity-0 pointer-events-none transition-all duration-200 data-[open]:visible data-[open]:opacity-100 data-[open]:pointer-events-auto z-40"
-      aria-hidden="true"
-    >
-    </div>
+    <Footer />
 
-    <slot />
-
-    <footer class="border-t py-12">
-      <div class="container">
-        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-8">
-          <div class="flex items-center gap-6">
-            <a href="/">
-              <img src="/logo.svg" alt="Insync" class="h-7" />
-            </a>
-            <nav class="flex gap-6 text-sm text-muted-foreground">
-              <a href="/oplossingen/ai-assistent" class="hover:text-foreground duration-150"
-                >Insync AI</a
-              >
-              <a href="/oplossingen/klantportaal" class="hover:text-foreground duration-150"
-                >Klantportaal</a
-              >
-              <a href="/blog" class="hover:text-foreground duration-150">Blog</a>
-              <a href="/contact" class="hover:text-foreground duration-150">Contact</a>
-            </nav>
-          </div>
-          <div class="flex items-center gap-6">
-            <Button
-              href="https://www.linkedin.com/company/insync-platform"
-              variant="ghost"
-              size="icon"
-              target="_blank"
-            >
-              <img src={LinkedIn.src} alt="LinkedIn" class="size-4" />
-            </Button>
-            <nav class="flex gap-6 text-sm text-muted-foreground">
-              <a href="/privacybeleid" class="hover:text-foreground duration-150">Privacybeleid</a>
-            </nav>
-          </div>
-        </div>
-        <div class="mt-8 pt-8 border-t text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Insync. Alle rechten voorbehouden.
-        </div>
-      </div>
-    </footer>
-
-    <script src="../utils/aos.js"></script>
+    <script>
+      import "../scripts/motion";
+    </script>
   </body>
 </html>
-
-<style>
-  :root {
-    --header-height: 64px;
-  }
-
-  nav a:active,
-  nav a[aria-current="page"] {
-    color: var(--color-primary);
-  }
-
-  /* Header scroll states */
-  #site-header.header-scrolled {
-    background: hsl(0 0% 100% / 0.8);
-    backdrop-filter: blur(20px);
-    /*border-color: var(--border);*/
-    box-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.1);
-    top: 16px;
-    max-width: 920px;
-  }
-
-  /* Keep the mobile menu aligned with the header once it scrolls down */
-  #site-header.header-scrolled + #mobile-menu {
-    top: calc(var(--header-height) + 2.5rem);
-  }
-
-  /* Give the header a background while the mobile menu is open so it sits
-     clearly in front of the overlay (it's otherwise transparent at the top) */
-  #site-header.header-menu-open {
-    background: hsl(0 0% 100% / 0.8);
-    backdrop-filter: blur(20px);
-  }
-
-  [popover].popover-menu {
-    animation: fadeIn 0.2s ease-in-out;
-    animation-fill-mode: forwards;
-    transform-origin: top center;
-
-    &:popover-open {
-      position: absolute;
-      top: var(--header-height);
-      margin: 0;
-      left: 50%;
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      translate: -50% -1rem;
-    }
-    to {
-      translate: -50% 0;
-    }
-  }
-</style>
-
-<script is:inline>
-  // Header scroll effect
-  const header = document.getElementById("site-header");
-  if (header) {
-    const onScroll = () => {
-      header.classList.toggle("header-scrolled", window.scrollY > 20);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
-
-  // Hero image scroll-based zoom
-  const heroImage = document.getElementById("hero-image");
-  if (heroImage) {
-    const updateZoom = () => {
-      const rect = heroImage.getBoundingClientRect();
-      const viewportH = window.innerHeight;
-      const center = rect.top + rect.height / 2;
-      // Progress: 0 when element enters viewport bottom, 1 when centered
-      const progress = Math.max(0, Math.min(1, 1 - (center - viewportH * 0.5) / (viewportH * 0.5)));
-      const scale = 0.85 + progress * 0.15; // 0.85 -> 1.0
-      heroImage.style.transform = `scale(${scale})`;
-    };
-    window.addEventListener("scroll", updateZoom, { passive: true });
-    updateZoom();
-  }
-</script>
-
-<script is:inline lang="ts">
-  const toggleButton = document.getElementById("mobile-nav-toggle");
-  const menu = document.getElementById("mobile-menu");
-  const overlay = document.getElementById("mobile-menu-overlay");
-  const solutionsToggle = document.getElementById("mobile-solutions-toggle");
-  const solutionsDropdown = document.getElementById("mobile-solutions-dropdown");
-  const iconOpen = document.getElementById("mobile-menu-icon-open");
-  const iconClose = document.getElementById("mobile-menu-icon-close");
-
-  const siteHeader = document.getElementById("site-header");
-
-  if (toggleButton && menu) {
-    const setMenuOpen = (isOpen) => {
-      menu.toggleAttribute("data-open", isOpen);
-      overlay?.toggleAttribute("data-open", isOpen);
-      siteHeader?.classList.toggle("header-menu-open", isOpen);
-      toggleButton.setAttribute("aria-expanded", String(isOpen));
-      iconOpen.classList.toggle("hidden", isOpen);
-      iconClose.classList.toggle("hidden", !isOpen);
-    };
-
-    toggleButton.addEventListener("click", () => {
-      setMenuOpen(!menu.hasAttribute("data-open"));
-    });
-
-    overlay?.addEventListener("click", () => setMenuOpen(false));
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menu.hasAttribute("data-open")) {
-        setMenuOpen(false);
-        toggleButton.focus();
-      }
-    });
-  }
-
-  function toggleMobileSolutionsDropdown() {
-    if (solutionsDropdown && solutionsToggle) {
-      const isOpen = !solutionsDropdown.classList.toggle("hidden");
-      solutionsToggle.setAttribute("aria-expanded", String(isOpen));
-    }
-  }
-
-  // Desktop solutions dropdown - click/tap support for touch devices
-  const desktopSolutionsToggle = document.getElementById("desktop-solutions-toggle");
-  const desktopSolutionsDropdown = document.getElementById("desktop-solutions-dropdown");
-  const desktopSolutionsMenu = document.getElementById("desktop-solutions-menu");
-
-  if (desktopSolutionsToggle && desktopSolutionsDropdown) {
-    desktopSolutionsToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isOpen = desktopSolutionsDropdown.classList.toggle("dropdown-open");
-      desktopSolutionsToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-      if (desktopSolutionsMenu && !desktopSolutionsMenu.contains(e.target)) {
-        desktopSolutionsDropdown.classList.remove("dropdown-open");
-        desktopSolutionsToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // Close dropdown when pressing Escape
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && desktopSolutionsDropdown.classList.contains("dropdown-open")) {
-        desktopSolutionsDropdown.classList.remove("dropdown-open");
-        desktopSolutionsToggle.setAttribute("aria-expanded", "false");
-        desktopSolutionsToggle.focus();
-      }
-    });
-  }
-</script>

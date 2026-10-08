@@ -1,0 +1,722 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs = [
+  {
+    "q": "Werkt Insync AI met onze backoffice?",
+    "a": "Insync AI werkt bovenop backoffices als Novulo, ANVA en CCS, en koppelt met je Microsoft 365-mailbox. Je backoffice blijft de bron van waarheid; Insync vervangt niets."
+  },
+  {
+    "q": "Wie beslist over een voorstel?",
+    "a": "Een medewerker. Alleen wat je kantoor in de doorlaatregeling zelf op Steekproef of Automatisch zet, gaat vanzelf. Elk zaaktype begint op Voorstellen."
+  },
+  {
+    "q": "Wat gaat er nooit vanzelf?",
+    "a": "Geld, IBAN en inloggegevens. Daar beslist altijd een mens, en die grens is niet in te stellen. Ook een mail aan een klant en een schade-uitkering gaan altijd langs een medewerker."
+  },
+  {
+    "q": "Wat kost Insync AI?",
+    "a": "Dat hangt af van de zaaktypes die je gebruikt en het volume. In de demo maken we een voorstel dat past bij jouw kantoor."
+  },
+  {
+    "q": "Hoe snel zijn we live?",
+    "a": "Je begint op je testomgeving met één zaaktype, bijvoorbeeld de totalencontrole. Werkt dat zoals je wilt, dan zet je het op productie en voeg je het volgende soort werk toe."
+  }
+];
+---
+
+<Layout
+  title="Insync AI"
+  description="De werkbak, de actielaag en de doorlaatregeling: Insync AI bereidt elke zaak voor in je eigen backoffice. Jij beslist, Insync voert uit."
+  faqs={faqs}
+  software
+>
+<main>
+
+<!-- 1. Hero -->
+<section data-hero aria-labelledby="hero-kop" style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) 24px 0; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px 56px">
+<div style="flex: 1 1 620px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(10,10,10,0.12); border-radius: 999px; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #52525B; text-transform: uppercase; letter-spacing: 0.08em"><span style="width: 8px; height: 8px; border-radius: 999px; background: #5B59F8"></span>Insync AI · voor je team</span>
+<h1 id="hero-kop" style="margin: 0; font-size: clamp(44px, 6.4vw, 92px); line-height: 1; font-weight: 500; letter-spacing: -0.045em">Jij beslist. Het voorwerk is al gedaan.</h1>
+</div>
+<div style="flex: 1 1 360px; max-width: 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; color: #52525B">Insync AI is het AI-platform voor verzekeraars, volmachten en adviseurs: de AI doet het voorwerk in je eigen backoffice, een mens beslist, en jij bepaalt hoeveel ruimte de AI krijgt.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="/demo" style="background: #0A0A0A; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Demo inplannen</a>
+<a href="/insync-ai#zaaktypes" style="border: 1px solid rgba(10,10,10,0.16); color: #0A0A0A; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Bekijk de zaaktypes</a>
+</div>
+</div>
+</div>
+
+<figure aria-label="Productbeeld: de werkbak van Insync AI in split-weergave, met links de lijst met zaken en rechts een schademelding uit het klantportaal met voorstel en bron" style="margin: 0; width: 100%; border-radius: 28px; background: #5B59F8; padding: clamp(16px, 5vw, 64px) clamp(12px, 4.5vw, 64px) 0; box-sizing: border-box; overflow: hidden">
+<div style="border-radius: 16px 16px 0 0; background: #FFFFFF; box-shadow: 0 24px 60px rgba(10,10,10,0.20); overflow: hidden">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)">
+<div style="display: flex; gap: 8px"><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #52525B; padding: 3px 9px; border-radius: 999px; background: #F4F4F5">Productie</span>
+</div>
+<div style="display: flex; flex-wrap: wrap">
+
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; border-right: 1px solid rgba(10,10,10,0.08); background: #FFFFFF">
+<div style="padding: 18px 16px 14px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 20px; font-weight: 600; letter-spacing: -0.02em">Werkbak</span>
+<div style="display: flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: #F4F4F5; align-self: flex-start; font-size: 13px">
+<span style="padding: 6px 12px; border-radius: 999px; background: #FFFFFF; color: #0A0A0A; font-weight: 500; box-shadow: 0 1px 2px rgba(10,10,10,0.08)">Van mij <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #52525B">3</span></span>
+<span style="padding: 6px 12px; color: #3F3F46">Niet toegewezen <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px">4</span></span>
+<span style="padding: 6px 12px; color: #3F3F46">Alles <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px">12</span></span>
+</div>
+<span style="font-size: 12px; color: #71717A">12 items · 2 urgent · 4 niet toegewezen</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-top: 1px solid rgba(10,10,10,0.06); background: #FAFAFA; box-shadow: inset 3px 0 0 #5B59F8">
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #71717A"><span style="width: 7px; height: 7px; border-radius: 999px; background: #DC2626"></span>Schademelding · M. de Vries · Klantportaal</span><span style="font-size: 14px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Waterschade keuken</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A">18 min</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412; white-space: nowrap">Nieuw</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-top: 1px solid rgba(10,10,10,0.06)">
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #71717A"><span style="width: 7px; height: 7px; border-radius: 999px; background: #DC2626"></span>Klantvraag · E. Bakker · E-mail</span><span style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Is mijn bagage meeverzekerd op wintersport?</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A">35 min</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412; white-space: nowrap">Nieuw</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-top: 1px solid rgba(10,10,10,0.06)">
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; color: #71717A">Verzoek · Jansen B.V. · E-mail</span><span style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Verhuist per 1 november naar Kerkstraat 4</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A">1 u</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #ECECFE; color: #3F3DB8; white-space: nowrap">Opgepakt</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-top: 1px solid rgba(10,10,10,0.06)">
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; color: #71717A">Opdracht via de AI-assistent · K. Visser</span><span style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Taak: voertuig wijzigen op de autopolis</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A">2 u</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #DCFCE7; color: #166534; white-space: nowrap">Afgehandeld</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-top: 1px solid rgba(10,10,10,0.06)">
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; color: #71717A">Totalencontrole · E-mail met pdf</span><span style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Provisienota september wijkt af op 2 polisregels</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A">1 d</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412; white-space: nowrap">Wacht op fiattering</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-top: 1px solid rgba(10,10,10,0.06)">
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; color: #71717A">Verzoek · Pieters Transport · API</span><span style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Nieuwe bedrijfsauto per 15 oktober</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A">2 d</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FEE2E2; color: #991B1B; white-space: nowrap">Controleren</span>
+</div>
+<div style="padding: 12px 16px 16px; border-top: 1px solid rgba(10,10,10,0.06); display: flex; align-items: center; gap: 6px; font-size: 12px; color: #71717A"><span style="width: 7px; height: 7px; border-radius: 999px; background: #DC2626"></span>Urgent eerst, daarna de oudste zaak</div>
+</div>
+
+<div style="position: relative; flex: 1.25 1 420px; min-width: 0; display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 14px 20px; border-bottom: 1px solid rgba(10,10,10,0.08); min-height: 52px; box-sizing: border-box">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #52525B">Zaak 2093</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412">Nieuw</span>
+</div>
+<span aria-hidden="true" style="position: absolute; top: 10px; right: 18px"><span data-stamp style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; background: #C6F432; color: #0A0A0A; font-weight: 600; font-size: 15px; transform: rotate(-6deg); box-shadow: 0 8px 20px rgba(10,10,10,0.15)"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Akkoord</span></span>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 20px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.25">Waterschade keuken</span>
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: #52525B"><span style="padding: 2px 9px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14)">Klantportaal</span><span style="color: #3F3DB8; font-weight: 500">M. de Vries</span><span>Schademelding · 18 min</span></span>
+</div>
+<div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 10px; background: #FAFAFA; border: 1px solid rgba(10,10,10,0.06); font-size: 13px; line-height: 1.5"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3F3DB8; padding-top: 2px; white-space: nowrap">WAAROM BIJ JOU</span><span style="color: #3F3F46">Schademelding staat op Voorstellen: een behandelaar beslist.</span></div>
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Wat er speelt</span>
+<span style="font-size: 14px; line-height: 1.55; color: #27272A">De klant meldt via het portaal een lekkende leiding onder het aanrecht. Foto’s en het schadeformulier zijn bijgevoegd.</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Wat Insync voorstelt</span>
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); overflow: hidden; font-size: 13px">
+<div style="padding: 10px 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="font-weight: 600">AI-beoordeling</span><span style="font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">geen besluit</span></div>
+<div style="padding: 8px 12px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="color: #71717A">Dekking</span><span style="font-weight: 500">Waarschijnlijk gedekt · zekerheid 82%</span></div>
+<div style="padding: 8px 12px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="color: #71717A">Risico · advies</span><span style="font-weight: 500">3/10 · reguliere schade</span></div>
+<div style="padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; background: #FAFAFA"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Bij akkoord · Insync voert uit</span><span style="color: #27272A">Notitie met de beoordeling · taak voor de behandelaar · bericht aan de klant in het portaal: schade ontvangen</span></div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Waar dat op rust · Onderbouwing en bron</span>
+<div style="border-left: 2px solid #5B59F8; padding: 4px 0 4px 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 500; color: #3F3DB8">Woonhuisverzekering, art. 7.1</span><span style="font-size: 13px; line-height: 1.5; color: #27272A">“Gedekt is schade door water dat onvoorzien is gestroomd uit een leiding of een daarop aangesloten toestel.”</span></div>
+</div>
+</div>
+<div style="margin-top: auto; padding: 14px 20px; border-top: 1px solid rgba(10,10,10,0.08); background: #FAFAFA; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; line-height: 1.5; color: #3F3F46"><span style="font-weight: 500; color: #0A0A0A">Na akkoord:</span> Insync voert uit in de backoffice en laat de klant de status zien.</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span>
+<span style="font-size: 13px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Wegzetten</span>
+<span style="font-size: 13px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Meer · Doorzetten</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</figure>
+</section>
+
+<!-- 2. Klantenrij -->
+<section aria-labelledby="klanten-kop" style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px">
+<h2 id="klanten-kop" style="margin: 0; font-size: 14px; font-weight: 400; color: #71717A">Kantoren die met Insync werken</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(28px, 5vw, 64px)">
+<li style="font-size: 24px; font-weight: 600; letter-spacing: -0.03em; color: #3F3F46">du Gardijn</li>
+<li style="font-size: 24px; font-weight: 500; letter-spacing: -0.01em; color: #3F3F46">EFO Verzekeringen</li>
+<li style="font-size: 26px; font-weight: 600; letter-spacing: 0.02em; color: #3F3F46">JW</li>
+</ul>
+</section>
+
+<!-- 3. Drie lagen in één oogopslag -->
+<section aria-labelledby="lagen-kop" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">In één oogopslag</span>
+<h2 id="lagen-kop" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Alles voorbereid. Niets zonder besluit.</h2>
+</div>
+<p style="margin: 0; flex: 0 1 420px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Insync AI werkt in drie lagen bovenop je backoffice. Je backoffice blijft gewoon je backoffice.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+
+<article aria-labelledby="laag1-kop" style="border-radius: 24px; background: #F4F4F5; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #3F3DB8">01</span>
+<h3 id="laag1-kop" style="margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Werkbak</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #52525B">Alles wat aandacht vraagt, op één plek, al voorbereid met een voorstel en de bron.</p>
+<span aria-hidden="true" style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px"><span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: #FFEDD5; color: #9A3412">Nieuw</span><span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Opgepakt</span><span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: #DCFCE7; color: #166534">Afgehandeld</span></span>
+<a href="/insync-ai#werkbak" style="margin-top: auto; padding-top: 8px; font-weight: 500; font-size: 15px; text-decoration: none; color: #3F3DB8">Zo werkt de werkbak →</a>
+</article>
+
+<article aria-labelledby="laag2-kop" style="border-radius: 24px; background: #F4F4F5; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #3F3DB8">02</span>
+<h3 id="laag2-kop" style="margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Actielaag</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #52525B">Eerst een voorstel, dan pas een wijziging. En eerlijk over of het gelukt is.</p>
+<span aria-hidden="true" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding-top: 4px; font-size: 12px; color: #52525B"><span style="padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14); background: #FFFFFF">Voorstel</span>→<span style="padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14); background: #FFFFFF">Akkoord</span>→<span style="font-weight: 500; padding: 4px 10px; border-radius: 999px; background: #DCFCE7; color: #166534">Gelukt</span></span>
+<a href="/insync-ai#actielaag" style="margin-top: auto; padding-top: 8px; font-weight: 500; font-size: 15px; text-decoration: none; color: #3F3DB8">Zo werkt de actielaag →</a>
+</article>
+
+<article aria-labelledby="laag3-kop" style="border-radius: 24px; background: #0A0A0A; color: #FFFFFF; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C6F432">03</span>
+<h3 id="laag3-kop" style="margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Doorlaatregeling</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #A1A1AA">Jij bepaalt per soort werk wat vanzelf mag. Geld en IBAN nooit.</p>
+<span aria-hidden="true" style="align-self: flex-start; display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(255,255,255,0.12); font-size: 12px; margin-top: 4px"><span style="padding: 4px 10px; border-radius: 999px; background: #FFFFFF; color: #0A0A0A; font-weight: 500">Voorstellen</span><span style="padding: 4px 10px; color: #E4E4E7">Steekproef</span><span style="padding: 4px 10px; color: #E4E4E7">Automatisch</span></span>
+<a href="/insync-ai#doorlaatregeling" style="margin-top: auto; padding-top: 8px; font-weight: 500; font-size: 15px; text-decoration: none; color: #C6F432">Zo werkt de doorlaatregeling →</a>
+</article>
+
+</div>
+
+<p style="margin: 0; padding-top: 24px; border-top: 1px solid rgba(10,10,10,0.08); font-size: 17px; line-height: 1.55; color: #52525B"><span style="color: #0A0A0A; font-weight: 500">Daarnaast: de AI-assistent.</span> Voor werk zonder vaste vorm, zoals een telefoongesprek. <a href="/insync-ai#ai-assistent" style="font-weight: 500; text-decoration: none; color: #3F3DB8">Bekijk de AI-assistent →</a></p>
+</section>
+
+<!-- 4. Werkbak -->
+<section id="werkbak" aria-labelledby="werkbak-kop" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; border-top: 1px solid rgba(10,10,10,0.08)">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">01 / Werkbak</span>
+<h2 id="werkbak-kop" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Je opent een zaak en het zoekwerk is al gedaan</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #52525B">De werkbak is de ene plek waar je ziet wat op je wacht. Insync heeft elke zaak voorbereid. Jij controleert en beslist.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 20px">
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Eén stroom uit elk kanaal</span><span style="font-size: 16px; line-height: 1.55; color: #52525B">Mail, het klantportaal, de AI-assistent en de API komen samen in één lijst.</span></div></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Elk item voorbereid</span><span style="font-size: 16px; line-height: 1.55; color: #52525B">Wat er speelt, wat Insync voorstelt en waar dat op rust. Zonder bron staat er geen knop Akkoord.</span></div></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Van mij · Niet toegewezen · Alles</span><span style="font-size: 16px; line-height: 1.55; color: #52525B">Urgent staat altijd bovenaan, daarna de oudste zaak.</span></div></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Doorzetten naar een collega</span><span style="font-size: 16px; line-height: 1.55; color: #52525B">Hoort een zaak bij iemand anders, dan zet je hem door. Het verloop houdt bij wie wat deed.</span></div></li>
+</ul>
+</div>
+
+<figure aria-label="Productbeeld: zaken uit vier kanalen in één lijst, met een geopend menu om een zaak door te zetten naar een collega" style="flex: 1.3 1 500px; min-width: 0; margin: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(16px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<div aria-hidden="true" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px">
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); color: #27272A"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1.75" y="3.25" width="12.5" height="9.5" rx="1.5" stroke="#3F3DB8" stroke-width="1.5"></rect><path d="M2.5 4.5L8 8.75l5.5-4.25" stroke="#3F3DB8" stroke-width="1.5" stroke-linejoin="round"></path></svg>E-mail</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #C6F432; color: #0A0A0A; font-weight: 500"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="4" y="1.5" width="8" height="13" rx="2" stroke="#0A0A0A" stroke-width="1.5"></rect><path d="M7 12h2" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path></svg>Klantportaal</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); color: #27272A"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" stroke="#3F3DB8" stroke-width="1.5" stroke-linejoin="round"></path></svg>AI-assistent</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); color: #27272A"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4" stroke="#3F3DB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>API</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: center; color: #71717A"><svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M8 2v15M3 12l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+
+<div style="border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)">
+<span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em">Werkbak</span>
+<span style="display: flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: #F4F4F5; font-size: 12px"><span style="padding: 4px 10px; color: #3F3F46">Van mij 3</span><span style="padding: 4px 10px; border-radius: 999px; background: #FFFFFF; color: #0A0A0A; font-weight: 500; box-shadow: 0 1px 2px rgba(10,10,10,0.08)">Niet toegewezen 4</span><span style="padding: 4px 10px; color: #3F3F46">Alles 12</span></span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.06)">
+<span style="width: 7px; height: 7px; border-radius: 999px; background: #DC2626; flex: 0 0 auto"></span>
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #71717A">Klantvraag · E. Bakker</span><span style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Conceptantwoord klaar · Reisverzekering, art. 4.2</span></div>
+<span style="font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14); color: #3F3F46">E-mail</span>
+<span style="font-size: 12px; color: #71717A">Niet toegewezen</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.06)">
+<span style="width: 7px; height: 7px; border-radius: 999px; background: #DC2626; flex: 0 0 auto"></span>
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #71717A">Schademelding · M. de Vries</span><span style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Waterschade keuken · AI-beoordeling klaar</span></div>
+<span style="font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14); color: #3F3F46">Klantportaal</span>
+<span style="font-size: 12px; color: #71717A">Niet toegewezen</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); background: #FAFAFA; box-shadow: inset 3px 0 0 #5B59F8">
+<span style="width: 7px; height: 7px; border-radius: 999px; background: transparent; flex: 0 0 auto"></span>
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #71717A">Verzoek · Pieters Transport</span><span style="font-size: 14px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Nieuwe bedrijfsauto per 15 oktober · taak klaargezet</span></div>
+<span style="font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14); color: #3F3F46">API</span>
+<span style="font-size: 12px; color: #71717A">Niet toegewezen</span>
+</div>
+
+<div style="padding: 12px 16px 16px; display: flex; justify-content: flex-end">
+<div style="width: 100%; max-width: 330px; border-radius: 14px; border: 1px solid rgba(10,10,10,0.10); background: #FFFFFF; box-shadow: 0 16px 40px rgba(10,10,10,0.14); padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Doorzetten naar een collega</span>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px">
+<span style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; background: #ECECFE; color: #0A0A0A"><span style="width: 24px; height: 24px; border-radius: 999px; background: #5B59F8; color: #FFFFFF; font-size: 10px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center">SM</span><span style="flex: 1 1 auto; min-width: 0">S. Meijer</span><span style="font-size: 12px; color: #3F3DB8">Gekozen</span></span>
+<span style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; color: #27272A"><span style="width: 24px; height: 24px; border-radius: 999px; background: #F4F4F5; color: #52525B; font-size: 10px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center">JB</span>J. de Boer</span>
+<span style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; color: #27272A"><span style="width: 24px; height: 24px; border-radius: 999px; background: #F4F4F5; color: #52525B; font-size: 10px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center">TV</span>T. Visser</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px solid rgba(10,10,10,0.08)"><span style="font-size: 12px; color: #52525B">Vrijgeven aan het team</span><span style="font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Doorzetten</span></div>
+</div>
+</div>
+</div>
+<figcaption style="padding-top: 4px; font-size: 14px; color: #52525B">Uit elk kanaal één lijst. Een zaak voor een collega zet je met één keuze door.</figcaption>
+</figure>
+</section>
+
+<!-- 5. Actielaag -->
+<section id="actielaag" aria-labelledby="actielaag-kop" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap-reverse; gap: 56px; align-items: center; border-top: 1px solid rgba(10,10,10,0.08)">
+<figure aria-label="Productbeeld: een voorstel met de actielijst Bij akkoord en het verloop van de uitvoering" style="flex: 1.3 1 500px; min-width: 0; margin: 0; border-radius: 28px; background: #ECECFE; padding: clamp(16px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<div style="border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)">
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #52525B">Zaak 2038 · Klantvraag</span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Wordt uitgevoerd</span></div>
+<span style="font-size: 18px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.3">Antwoord op: Is mijn bagage meeverzekerd op wintersport?</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Bij akkoord</span>
+<ol style="margin: 0; padding: 0; list-style: none; border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); overflow: hidden">
+<li style="padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; border-bottom: 1px solid rgba(10,10,10,0.06)">
+<span style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14px; font-weight: 500">E-mail aan E. Bakker met het antwoord</span><span style="font-size: 12px; color: #71717A">Insync voert uit</span></span>
+<span style="font-size: 12px; padding: 3px 9px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #3F3F46">Onomkeerbaar</span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #DCFCE7; color: #166534">Gelukt</span>
+</li>
+<li style="padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; border-bottom: 1px solid rgba(10,10,10,0.06)">
+<span style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14px; font-weight: 500">Notitie in het dossier: klantvraag per mail beantwoord</span><span style="font-size: 12px; color: #71717A">Insync voert uit</span></span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Wordt uitgevoerd</span>
+</li>
+<li style="padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px">
+<span style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14px; font-weight: 500">Polisblad nasturen per post</span><span style="font-size: 12px; color: #71717A">Jij voert dit uit in de administratie en meldt het daarna</span></span>
+<span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412">Wacht op jou</span>
+</li>
+</ol>
+</div>
+</div>
+
+<div style="border-radius: 16px; background: #FFFFFF; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Verloop van een actie</span>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px">
+<li style="padding: 5px 11px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14); color: #3F3F46">Voorgesteld</li>
+<li aria-hidden="true" style="color: #71717A">→</li>
+<li style="padding: 5px 11px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.14); color: #3F3F46">Akkoord · S. Meijer, 09:42</li>
+<li aria-hidden="true" style="color: #71717A">→</li>
+<li style="padding: 5px 11px; border-radius: 999px; background: #ECECFE; color: #3F3DB8; font-weight: 500">Wordt uitgevoerd</li>
+<li aria-hidden="true" style="color: #71717A">→</li>
+<li style="padding: 5px 11px; border-radius: 999px; background: #DCFCE7; color: #166534; font-weight: 500">Gelukt</li>
+</ol>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px">
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column; gap: 6px"><span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FEE2E2; color: #991B1B">Controleren</span><span style="font-size: 13px; line-height: 1.5; color: #52525B">Niet zeker of het aankwam. Jij kijkt in de backoffice en meldt: uitgevoerd, ja of nee.</span></div>
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column; gap: 6px"><span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412">Wacht op fiattering</span><span style="font-size: 13px; line-height: 1.5; color: #52525B">Akkoord en naar fiattering. Een collega kiest Fiatteren.</span></div>
+</div>
+</div>
+<figcaption style="font-size: 14px; color: #3F3DB8">Een voorstel met de actielijst “Bij akkoord” en het verloop van de uitvoering.</figcaption>
+</figure>
+
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">02 / Actielaag</span>
+<h2 id="actielaag-kop" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Eerst een voorstel, dan pas een wijziging</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #52525B">Een voorstel zegt in gewone zinnen wat er gaat gebeuren: welke klant, welke polis, welke tekst. Tot er een besluit is, verandert er in je backoffice niets.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 20px">
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Je ziet wie het uitvoert</span><span style="font-size: 16px; line-height: 1.55; color: #52525B">“Insync voert uit”, of “Jij voert dit uit in de administratie en meldt het daarna”.</span></div></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Eerlijk over de uitvoering</span><span style="font-size: 16px; line-height: 1.55; color: #52525B">Na akkoord zie je “Gelukt”. Weet Insync niet zeker of het aankwam, dan staat er “Controleren”, in plaats van een gok.</span></div></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Vier ogen waar dat moet</span><span style="font-size: 16px; line-height: 1.55; color: #52525B">Vraagt het beleid twee handtekeningen, dan fiatteert een collega. Wie akkoord gaf, kan niet zelf fiatteren.</span></div></li>
+</ul>
+</div>
+</section>
+
+<!-- 6. Doorlaatregeling -->
+<section id="doorlaatregeling" aria-labelledby="doorlaat-kop" style="max-width: 1240px; margin: 0 auto; padding: 24px 24px 104px">
+<div style="border-radius: 28px; background: #0A0A0A; color: #FFFFFF; padding: clamp(28px, 5vw, 72px) clamp(20px, 5vw, 72px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA; text-transform: uppercase; letter-spacing: 0.08em">03 / Doorlaatregeling</span>
+<h2 id="doorlaat-kop" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Jij bepaalt wat vanzelf mag</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #A1A1AA">Per zaaktype en per soort actie kies je een stand. Ruimte geven doe je stap voor stap, als je het werk kent.</p>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px">
+<div style="border-radius: 16px; background: #161616; border: 1px solid rgba(255,255,255,0.08); padding: 16px; display: flex; flex-direction: column; gap: 6px"><dt style="font-size: 16px; font-weight: 500; color: #FFFFFF">Voorstellen</dt><dd style="margin: 0; font-size: 14px; line-height: 1.5; color: #A1A1AA">Een mens beslist.</dd></div>
+<div style="border-radius: 16px; background: #161616; border: 1px solid rgba(255,255,255,0.08); padding: 16px; display: flex; flex-direction: column; gap: 6px"><dt style="font-size: 16px; font-weight: 500; color: #FFFFFF">Steekproef</dt><dd style="margin: 0; font-size: 14px; line-height: 1.5; color: #A1A1AA">Gaat vanzelf; een deel controleer je achteraf.</dd></div>
+<div style="border-radius: 16px; background: #161616; border: 1px solid rgba(255,255,255,0.08); padding: 16px; display: flex; flex-direction: column; gap: 6px"><dt style="font-size: 16px; font-weight: 500; color: #FFFFFF">Automatisch</dt><dd style="margin: 0; font-size: 14px; line-height: 1.5; color: #A1A1AA">Gaat vanzelf; een uitzondering gaat naar een mens.</dd></div>
+</dl>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px">
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#C6F432" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; line-height: 1.55; color: #A1A1AA"><span style="color: #FFFFFF; font-weight: 500">Elk zaaktype begint op Voorstellen.</span> Je geeft pas ruimte als je ziet hoe het gaat.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#C6F432" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; line-height: 1.55; color: #A1A1AA"><span style="color: #FFFFFF; font-weight: 500">Eerst op test.</span> Je probeert een stand op de testomgeving, daarna pas op productie.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#C6F432" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; line-height: 1.55; color: #A1A1AA"><span style="color: #FFFFFF; font-weight: 500">Een harde grens.</span> Geld, IBAN en inloggegevens: altijd een mens. Dat is niet in te stellen.</span></li>
+</ul>
+</div>
+
+<div style="flex: 1.1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<figure aria-label="Productbeeld: de instellingen van de doorlaatregeling op de testomgeving" style="margin: 0; border-radius: 16px; background: #FFFFFF; color: #0A0A0A; overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)">
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="margin-left: auto; display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: #F4F4F5; font-size: 12px"><span style="padding: 3px 10px; color: #3F3F46">Productie</span><span style="padding: 3px 10px; border-radius: 999px; background: #FFFFFF; color: #0A0A0A; font-weight: 500; box-shadow: 0 1px 2px rgba(10,10,10,0.08)">Test</span></span>
+</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Beheer · Werkstroom · Doorlaatregeling</span>
+
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); overflow: hidden">
+<div style="padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid rgba(10,10,10,0.06)">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Verzoek · taak op de klant</span><span style="font-size: 12px; color: #71717A">Schrijven</span></span>
+<span style="display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: #F4F4F5; font-size: 12px"><span style="padding: 4px 10px; color: #3F3F46">Voorstellen</span><span style="padding: 4px 10px; color: #3F3F46">Steekproef</span><span style="padding: 4px 10px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF; font-weight: 500">Automatisch</span></span>
+</div>
+<div style="padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid rgba(10,10,10,0.06)">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Totalencontrole · kloppende nota sluiten</span><span style="font-size: 12px; color: #71717A">Conclusie</span></span>
+<span style="display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: #F4F4F5; font-size: 12px"><span style="padding: 4px 10px; color: #3F3F46">Voorstellen</span><span style="padding: 4px 10px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF; font-weight: 500">Steekproef</span><span style="padding: 4px 10px; color: #3F3F46">Automatisch</span></span>
+</div>
+<div style="padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Klantvraag · e-mail aan de klant</span><span style="font-size: 12px; color: #71717A">Onomkeerbaar</span></span>
+<span style="display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: #F4F4F5; font-size: 12px"><span style="padding: 4px 10px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF; font-weight: 500">Voorstellen</span><span style="padding: 4px 10px; color: #3F3F46">Steekproef</span><span style="padding: 4px 10px; color: #3F3F46">Automatisch</span></span>
+</div>
+</div>
+
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Geld, IBAN en inloggegevens</span><span style="font-size: 12px; color: #71717A">Harde grens · niet in te stellen</span></span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 999px; background: #F4F4F5; color: #0A0A0A"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="#0A0A0A" stroke-width="1.5"></rect><path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="#0A0A0A" stroke-width="1.5"></path></svg>Altijd een mens</span>
+</div>
+
+<span style="font-size: 13px; line-height: 1.5; color: #52525B">Op productie vraagt Insync eerst: “Dit geldt meteen voor nieuwe zaken in productie.”</span>
+</div>
+</figure>
+
+<div style="border-radius: 16px; background: #161616; border: 1px solid rgba(255,255,255,0.08); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #C6F432; text-transform: uppercase; letter-spacing: 0.08em">Verloop van een zaak</span>
+<span style="font-size: 15px; line-height: 1.5; color: #E4E4E7">Automatisch afgehandeld, volgens de doorlaatregeling zoals die gold op 3 okt.</span>
+<span style="font-size: 13px; line-height: 1.5; color: #A1A1AA">Ook wat vanzelf ging, is te verantwoorden: wie, wanneer, waarom en onder welk beleid.</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- 7. Middelste CTA-band -->
+<section aria-labelledby="midcta-kop" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 24px">
+<div style="border-radius: 28px; background: #F4F4F5; padding: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<h2 id="midcta-kop" style="margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.15; font-weight: 500; letter-spacing: -0.02em">Zie het voorwerk met jouw eigen soort werk</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #52525B">In een demo lopen we de werkbak door met de zaken die bij jouw kantoor het vaakst terugkomen.</p>
+</div>
+<a href="/demo" style="background: #0A0A0A; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Demo inplannen</a>
+</div>
+</section>
+
+<!-- 8. AI-assistent -->
+<section id="ai-assistent" aria-labelledby="assistent-kop" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">04 / AI-assistent</span>
+<h2 id="assistent-kop" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Voor werk zonder vaste vorm</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #52525B">Tijdens een telefoongesprek, bij een lastige dekkingsvraag of een eenmalige opdracht. Je typt of praat, en de assistent werkt in je eigen backoffice.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px">
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; line-height: 1.55; color: #52525B"><span style="color: #0A0A0A; font-weight: 500">Chat en spraak.</span> In het Nederlands, Engels en Pools.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; line-height: 1.55; color: #52525B"><span style="color: #0A0A0A; font-weight: 500">Context als chips.</span> Een relatie, polis, schade of zaak geef je mee, en haal je weer weg wanneer je wilt.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; line-height: 1.55; color: #52525B"><span style="color: #0A0A0A; font-weight: 500">Een wijziging wordt een voorstelkaart.</span> Je geeft akkoord in het gesprek. Dezelfde actielaag, dezelfde regels.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 3px"><circle cx="10" cy="10" r="9" stroke="#5B59F8" stroke-width="1.5"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#5B59F8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; line-height: 1.55; color: #52525B"><span style="color: #0A0A0A; font-weight: 500">De harde grens geldt ook hier.</span> Vraag je een IBAN te wijzigen, dan zet de assistent het door naar de werkbak.</span></li>
+</ul>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 8px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -0.02em">Gereedschap dat de assistent gebruikt</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px">
+<div style="border-radius: 16px; background: #F4F4F5; padding: 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; font-weight: 500">Voorwaarden vergelijken</span><span style="font-size: 14px; line-height: 1.5; color: #52525B">Verschillen per thema, met de passage waar het staat.</span></div>
+<div style="border-radius: 16px; background: #F4F4F5; padding: 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; font-weight: 500">Opzoeken bij RDW, KvK en postcode</span><span style="font-size: 14px; line-height: 1.5; color: #52525B">Kenteken, bedrijf en adres, terwijl de klant aan de lijn is.</span></div>
+</div>
+</div>
+</div>
+
+<figure aria-label="Productbeeld: een gesprek met de AI-assistent, met contextchips, een voorstelkaart en een vraag over een rekeningnummer die naar de werkbak is doorgezet" style="flex: 1.3 1 500px; min-width: 0; margin: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(12px, 4vw, 48px); box-sizing: border-box">
+<div style="border-radius: 16px; background: #FFFFFF; box-shadow: 0 20px 50px rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)">
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span>
+<span style="font-size: 14px; font-weight: 600; margin-left: 8px">AI-assistent</span>
+<span style="margin-left: auto; font-size: 12px; color: #71717A">Nieuwe chat</span>
+</div>
+<div data-chat style="padding: 20px; display: flex; flex-direction: column; gap: 14px; background: #FAFAFA">
+<div style="align-self: flex-end; max-width: 84%; display: flex; flex-direction: column; align-items: flex-end; gap: 6px">
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #52525B"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="4" y="1" width="4" height="6.5" rx="2" stroke="#52525B" stroke-width="1.3"></rect><path d="M2.5 6a3.5 3.5 0 007 0M6 9.5V11" stroke="#52525B" stroke-width="1.3" stroke-linecap="round"></path></svg>Ingesproken · Nederlands</span>
+<div style="border-radius: 16px 16px 4px 16px; background: #0A0A0A; color: #FFFFFF; padding: 12px 16px; font-size: 14px; line-height: 1.5">K. Visser heeft per 15 oktober een nieuwe auto, kenteken GZ-418-T. Kun je dat op zijn autopolis zetten?</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #52525B">
+<span style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7.2l2.6 2.6L11 4.4" stroke="#166534" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Polis gevonden: Autoverzekering K. Visser</span>
+<span style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7.2l2.6 2.6L11 4.4" stroke="#166534" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Kenteken opgezocht bij de RDW</span>
+</div>
+<div style="align-self: flex-start; max-width: 92%; font-size: 14px; line-height: 1.5; color: #27272A">Ik heb de wijziging klaargezet. Kijk je even mee?</div>
+
+<div style="border-radius: 14px; border: 1.5px solid #5B59F8; background: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3F3DB8; text-transform: uppercase; letter-spacing: 0.08em">Voorstel</span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412">Wacht op jouw akkoord</span></div>
+<span style="font-size: 16px; font-weight: 500">Taak voor K. Visser</span>
+<span style="border-left: 2px solid rgba(10,10,10,0.16); padding-left: 10px; font-size: 13px; line-height: 1.5; color: #3F3F46">“Voertuig wijzigen op de autopolis per 15 oktober.”</span>
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+<div style="display: flex; flex-wrap: wrap; gap: 4px 12px"><span style="flex: 0 0 110px; color: #71717A">Kenteken</span><span><span style="text-decoration: line-through; color: #71717A">HX-207-B</span> → <span style="font-weight: 500">GZ-418-T</span></span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 12px"><span style="flex: 0 0 110px; color: #71717A">Ingangsdatum</span><span style="font-weight: 500">15 oktober</span></div>
+</div>
+<span style="font-size: 12px; line-height: 1.5; color: #52525B">Bij jou omdat: een opdracht uit de AI-assistent keur je altijd zelf goed</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span>
+<span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Afwijzen</span>
+<span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Doorzetten ▾</span>
+</div>
+</div>
+
+<div style="align-self: flex-end; max-width: 84%; border-radius: 16px 16px 4px 16px; background: #0A0A0A; color: #FFFFFF; padding: 12px 16px; font-size: 14px; line-height: 1.5">Hij betaalt voortaan van een ander rekeningnummer. Kun je dat ook aanpassen?</div>
+<div style="align-self: flex-start; max-width: 92%; font-size: 14px; line-height: 1.5; color: #27272A">Een rekeningnummer wijzig ik niet zelf. Ik heb het doorgezet, zodat een collega het afhandelt.</div>
+<div style="border-radius: 14px; border: 1px solid rgba(10,10,10,0.12); background: #FFFFFF; padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px">
+<span style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; font-weight: 500">Doorgezet naar de werkbak</span><span style="font-size: 12px; color: #52525B">Zaak 2052 · Bij “niet toegewezen”, voor het hele team</span></span>
+<span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Openen in de werkbak</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 4px 6px 4px 10px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Relatie: K. Visser<span aria-hidden="true" style="color: #3F3DB8">×</span></span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 4px 6px 4px 10px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Polis: Autoverzekering<span aria-hidden="true" style="color: #3F3DB8">×</span></span>
+<span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px dashed rgba(10,10,10,0.24); color: #52525B">+ Context toevoegen</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.12); background: #FFFFFF; padding: 8px 8px 8px 18px">
+<span style="flex: 1 1 auto; min-width: 0; font-size: 14px; color: #71717A">Vraag me alles…</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 3px 8px; border-radius: 999px; background: #F4F4F5; color: #52525B">NL · EN · PL</span>
+<span style="width: 32px; height: 32px; border-radius: 999px; background: #0A0A0A; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto"><svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="4" y="1" width="4" height="6.5" rx="2" stroke="#FFFFFF" stroke-width="1.3"></rect><path d="M2.5 6a3.5 3.5 0 007 0M6 9.5V11" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"></path></svg></span>
+</div>
+</div>
+</div>
+</div>
+<figcaption style="padding-top: 16px; font-size: 14px; color: #52525B">Een ingesproken opdracht wordt een voorstelkaart. Het rekeningnummer gaat naar een mens.</figcaption>
+</figure>
+</section>
+
+<!-- 9. Zaaktypes -->
+<section id="zaaktypes" aria-labelledby="zaaktypes-kop" style="border-top: 1px solid rgba(10,10,10,0.08)">
+<div style="max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">05 / Zaaktypes</span>
+<h2 id="zaaktypes-kop" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Herhaald werk, elke keer al voorbereid</h2>
+</div>
+<p style="margin: 0; flex: 0 1 400px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Kies een zaaktype. Je ziet wat er binnenkomt, wat Insync doet en waar jij beslist. Elk zaaktype zet je apart aan.</p>
+</div>
+
+<div role="tablist" aria-label="Zaaktypes" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: #F4F4F5; align-self: flex-start; max-width: 100%; box-sizing: border-box">
+<button type="button" class="zt-tab" role="tab" id="zt-tab-0" aria-controls="zt-paneel-0" aria-selected="true" style="border: 0; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 500; padding: 10px 20px; min-height: 44px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Klantvraag</button>
+<button type="button" class="zt-tab" role="tab" id="zt-tab-1" aria-controls="zt-paneel-1" aria-selected="false" style="border: 0; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 500; padding: 10px 20px; min-height: 44px; border-radius: 999px; background: transparent; color: #3F3F46">Verzoek</button>
+<button type="button" class="zt-tab" role="tab" id="zt-tab-2" aria-controls="zt-paneel-2" aria-selected="false" style="border: 0; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 500; padding: 10px 20px; min-height: 44px; border-radius: 999px; background: transparent; color: #3F3F46">Schademelding</button>
+<button type="button" class="zt-tab" role="tab" id="zt-tab-3" aria-controls="zt-paneel-3" aria-selected="false" style="border: 0; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 500; padding: 10px 20px; min-height: 44px; border-radius: 999px; background: transparent; color: #3F3F46">Totalencontrole</button>
+</div>
+
+<!-- Tab 1: Klantvraag -->
+<div role="tabpanel" id="zt-paneel-0" tabindex="0" aria-labelledby="zt-tab-0" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding-top: 8px">
+<h3 style="margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.12; font-weight: 500; letter-spacing: -0.02em">Klantvraag: een conceptantwoord met bron</h3>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Binnen</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Een mail met een vraag van een klant.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">→ Insync doet</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Zoekt klant en polis, leest de voorwaarden en schrijft een antwoord met grondslag. Vraagt de klant om advies, dan meldt Insync dat.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #3F3DB8; text-transform: uppercase; letter-spacing: 0.08em">→ Jij beslist</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Je leest, past aan en verstuurt. Een mail is onomkeerbaar, dus dit doet altijd een mens.</dd></div>
+</dl>
+</div>
+<div style="flex: 1.3 1 440px; min-width: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(14px, 3vw, 40px); box-sizing: border-box">
+<div style="border-radius: 16px; background: #FFFFFF; box-shadow: 0 16px 40px rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)"><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="margin-left: auto; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412">Nieuw</span></div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Is mijn bagage meeverzekerd op wintersport?</span><span style="font-size: 12px; color: #71717A">Klantvraag · E-mail · E. Bakker</span></div>
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 10px 12px; background: #FAFAFA; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 12px"><span style="font-weight: 600">Conceptantwoord</span><span style="color: #71717A">Versie 1</span></div>
+<div style="padding: 12px; font-size: 13px; line-height: 1.55; color: #27272A">Beste mevrouw Bakker, ja: uw bagage is ook op wintersport meeverzekerd, tot het bedrag op uw polisblad. Uw ski-uitrusting valt daar ook onder.</div>
+</div>
+<div style="border-left: 2px solid #5B59F8; padding: 4px 0 4px 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #3F3DB8; text-transform: uppercase; letter-spacing: 0.06em">Bron · Reisverzekering, art. 4.2 Bagage</span><span style="font-size: 12px; line-height: 1.5; color: #3F3F46">“Verzekerd is de bagage die u voor de reis meeneemt, tot het bedrag op uw polisblad.”</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: #27272A"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #71717A; text-transform: uppercase; letter-spacing: 0.06em">Bij akkoord</span>E-mail aan de klant<span style="font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #3F3F46">Onomkeerbaar</span>· notitie in het dossier</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(10,10,10,0.08)"><span style="font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span><span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Wijzigen</span><span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Wegzetten</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Tab 2: Verzoek -->
+<div role="tabpanel" id="zt-paneel-1" tabindex="0" hidden aria-labelledby="zt-tab-1" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding-top: 8px">
+<h3 style="margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.12; font-weight: 500; letter-spacing: -0.02em">Verzoek: de taak staat al klaar</h3>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Binnen</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Een klant geeft iets door, zoals een verhuizing of een nieuwe auto.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">→ Insync doet</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Bepaalt de categorie, vat het samen en bevestigt welke klant het is.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #3F3DB8; text-transform: uppercase; letter-spacing: 0.08em">→ Jij beslist</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Akkoord, en er staat een taak op de klant in je backoffice. Dit kan ook op Automatisch.</dd></div>
+</dl>
+</div>
+<div style="flex: 1.3 1 440px; min-width: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(14px, 3vw, 40px); box-sizing: border-box">
+<div style="border-radius: 16px; background: #FFFFFF; box-shadow: 0 16px 40px rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)"><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="margin-left: auto; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412">Nieuw</span></div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Jansen B.V. verhuist per 1 november naar Kerkstraat 4</span><span style="font-size: 12px; color: #71717A">Verzoek · E-mail · Jansen B.V. (op afzenderadres)</span></div>
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); overflow: hidden; font-size: 13px">
+<div style="padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 4px 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="flex: 0 0 96px; color: #71717A">Relatie</span><span style="font-weight: 500">Jansen B.V.</span></div>
+<div style="padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 4px 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="flex: 0 0 96px; color: #71717A">Adres</span><span><span style="text-decoration: line-through; color: #71717A">Dorpsstraat 12</span> → <span style="font-weight: 500">Kerkstraat 4</span></span></div>
+<div style="padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 4px 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="flex: 0 0 96px; color: #71717A">Ingangsdatum</span><span style="font-weight: 500">1 november</span></div>
+<div style="padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 4px 12px"><span style="flex: 0 0 96px; color: #71717A">Taak</span><span style="font-weight: 500">Adreswijziging verwerken</span></div>
+</div>
+<div style="border-left: 2px solid #5B59F8; padding: 4px 0 4px 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #3F3DB8; text-transform: uppercase; letter-spacing: 0.06em">Bron · E-mail, vandaag 08:51</span><span style="font-size: 12px; line-height: 1.5; color: #3F3F46">“Per 1 november zitten wij op Kerkstraat 4. Willen jullie dit aanpassen?”</span></div>
+<span style="font-size: 12px; line-height: 1.5; color: #3F3F46"><span style="font-weight: 500; color: #0A0A0A">Na akkoord:</span> Insync voert uit: een taak voor Jansen B.V. in de backoffice.</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(10,10,10,0.08)"><span style="font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span><span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Wegzetten</span><span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Doorzetten</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Tab 3: Schademelding -->
+<div role="tabpanel" id="zt-paneel-2" tabindex="0" hidden aria-labelledby="zt-tab-2" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding-top: 8px">
+<h3 style="margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.12; font-weight: 500; letter-spacing: -0.02em">Schademelding: beoordeeld, niet besloten</h3>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Binnen</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Een melding uit het klantportaal of per mail.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">→ Insync doet</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Controleert klant, polis, schadesoort en datum. Beoordeelt dekking, aansprakelijkheid en risico, met citaten uit de voorwaarden.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #3F3DB8; text-transform: uppercase; letter-spacing: 0.08em">→ Jij beslist</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">De behandelaar beslist: akkoord, of afwijzen met een reden. Een uitkering gaat nooit automatisch.</dd></div>
+</dl>
+</div>
+<div style="flex: 1.3 1 440px; min-width: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(14px, 3vw, 40px); box-sizing: border-box">
+<div style="border-radius: 16px; background: #FFFFFF; box-shadow: 0 16px 40px rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)"><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="margin-left: auto; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Opgepakt</span></div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 8px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Waterschade keuken</span><span style="font-size: 12px; color: #71717A">Schademelding · Klantportaal · M. de Vries</span></div>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; padding: 3px 4px 3px 10px; border-radius: 999px; background: #ECECFE; color: #3F3DB8; white-space: nowrap">AI-beoordeling<span style="padding: 1px 8px; border-radius: 999px; background: #FFFFFF; color: #52525B">geen besluit</span></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; border: 1px solid rgba(10,10,10,0.08)">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px"><span style="color: #52525B">Dekking</span><span style="font-weight: 500">Waarschijnlijk gedekt</span></div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="flex: 1 1 auto; height: 6px; border-radius: 999px; background: #F4F4F5; overflow: hidden; display: flex"><span style="width: 82%; background: #5B59F8; border-radius: 999px"></span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #52525B">zekerheid 82%</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid rgba(10,10,10,0.08)">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px"><span style="color: #52525B">Risico</span><span style="font-weight: 500">3/10</span></div>
+<div style="display: flex; gap: 3px"><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #0A0A0A"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #0A0A0A"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #0A0A0A"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #E4E4E7"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #E4E4E7"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #E4E4E7"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #E4E4E7"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #E4E4E7"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #E4E4E7"></span><span style="flex: 1 1 0; height: 6px; border-radius: 2px; background: #E4E4E7"></span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; padding: 12px; border-radius: 10px; border: 1px solid rgba(10,10,10,0.08); font-size: 13px"><span style="color: #52525B">Advies</span><span style="font-weight: 500">Behandelen als reguliere schade</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; background: #FAFAFA; border-left: 3px solid #5B59F8">
+<span style="font-size: 12px; line-height: 1.5; color: #27272A">“Gedekt is schade door water dat onvoorzien is gestroomd uit een leiding of een daarop aangesloten toestel.”</span>
+<span style="font-size: 12px; font-weight: 500; color: #3F3DB8">Woonhuisverzekering, art. 7.1</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(10,10,10,0.08)"><span style="font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span><span style="font-size: 13px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Wegzetten</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Tab 4: Totalencontrole -->
+<div role="tabpanel" id="zt-paneel-3" tabindex="0" hidden aria-labelledby="zt-tab-3" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding-top: 8px">
+<h3 style="margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.12; font-weight: 500; letter-spacing: -0.02em">Totalencontrole: elke nota naast je backoffice</h3>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Binnen</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Een mail met een borderel, prolongatienota of provisienota als pdf.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">→ Insync doet</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Leest de nota en vergelijkt totalen en polisregels met de backoffice. Uitkomst: Klopt, Wijkt af of Beoordelen.</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #3F3DB8; text-transform: uppercase; letter-spacing: 0.08em">→ Jij beslist</dt><dd style="margin: 0; font-size: 16px; line-height: 1.5; color: #27272A">Alleen over afwijkingen. Een kloppende nota sluit stil, als je dat toestaat.</dd></div>
+</dl>
+<div style="border-left: 2px solid #5B59F8; padding: 4px 0 4px 16px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">In de praktijk · du Gardijn</span>
+<span style="font-size: 16px; line-height: 1.55; color: #27272A">Bij du Gardijn sluit een kloppend borderel stil. Een afwijking wordt automatisch een taak in Novulo.</span>
+</div>
+</div>
+<div style="flex: 1.3 1 440px; min-width: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(14px, 3vw, 40px); box-sizing: border-box">
+<div style="border-radius: 16px; background: #FFFFFF; box-shadow: 0 16px 40px rgba(10,10,10,0.10); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(10,10,10,0.08)"><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: rgba(10,10,10,0.12)"></span><span style="margin-left: auto; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #DCFCE7; color: #166534">Afgehandeld</span></div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em">Prolongatienota oktober</span><span style="font-size: 12px; color: #71717A">Totalencontrole · E-mail met pdf · nota-oktober.pdf</span></div>
+<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); overflow: hidden; font-size: 13px">
+<div style="padding: 10px 12px; display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="color: #52525B">Totaal nota</span><span style="font-family: 'JetBrains Mono', monospace; font-weight: 500">€ 18.420,00</span></div>
+<div style="padding: 10px 12px; display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="color: #52525B">Backoffice</span><span style="font-family: 'JetBrains Mono', monospace; font-weight: 500">€ 18.420,00</span></div>
+<div style="padding: 10px 12px; display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="color: #52525B">Polisregels</span><span style="font-family: 'JetBrains Mono', monospace; font-weight: 500">142 van 142 gelijk</span></div>
+<div style="padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px"><span style="color: #52525B">Conclusie</span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #DCFCE7; color: #166534">Klopt</span></div>
+</div>
+<span style="font-size: 12px; line-height: 1.5; color: #52525B">Automatisch afgehandeld, volgens de doorlaatregeling zoals die gold op 3 okt.</span>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding-top: 24px; border-top: 1px solid rgba(10,10,10,0.08)">
+<span style="font-size: 14px; color: #71717A; margin-right: 6px">Ook voorbereid</span>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px">
+<li style="font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Opdracht via de AI-assistent</li>
+<li style="font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Adreswijziging</li>
+<li style="font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Dekkingsvraag</li>
+<li style="font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Polistoets</li>
+<li style="font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Signaal: prolongatie</li>
+<li style="font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Signaal: gat in de dekking</li>
+<li style="font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Signaal: achterstand</li>
+<li style="font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10,10,10,0.16); color: #27272A">Signaal: voorwaardenwijziging</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 10. Werkt samen met het klantportaal -->
+<section aria-labelledby="portaal-kop" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 104px">
+<div style="border-radius: 28px; background: #FAFAFA; border: 1px solid rgba(10,10,10,0.06); padding: clamp(28px, 5vw, 64px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 999px; background: #C6F432; color: #0A0A0A">Werkt samen met het klantportaal</span>
+<h2 id="portaal-kop" style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.06; font-weight: 500; letter-spacing: -0.035em">Wat je klant in het portaal regelt, ligt hier al klaar</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #52525B">Een schademelding of wijziging uit het klantportaal komt als zaak in je werkbak, al voorbereid. Na jouw akkoord ziet de klant de status terug. Het portaal zelf richt je in vanuit Insync AI: huisstijl, teksten, formulieren en schadeflows.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 15px; font-weight: 500">
+<a href="/klantportaal" style="text-decoration: none; color: #0A0A0A">Bekijk het klantportaal →</a>
+<a href="/klantportaal#beheer" style="text-decoration: none; color: #3F3DB8">Zo beheer je het portaal →</a>
+</div>
+</div>
+
+<ol data-rondje="cards" aria-label="Het rondje van klant naar werkbak en terug" style="flex: 1.2 1 440px; min-width: 0; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px">
+<li style="border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 24px; height: 24px; border-radius: 999px; background: #C6F432; color: #0A0A0A; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center">1</span><span style="font-size: 15px; font-weight: 500">Klant meldt schade</span></span>
+<span aria-hidden="true" style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.08); padding: 10px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #0F766E"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0F766E"></span>Polder Verzekeringen</span><span style="font-size: 12px; line-height: 1.45; color: #27272A">“Er lekt water onder het aanrecht.”</span><span style="align-self: flex-start; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: #0F766E; color: #FFFFFF">Melding versturen</span></span>
+</li>
+<li style="border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 24px; height: 24px; border-radius: 999px; background: #C6F432; color: #0A0A0A; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center">2</span><span style="font-size: 15px; font-weight: 500">Zaak in je werkbak</span></span>
+<span aria-hidden="true" style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.08); padding: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; color: #71717A">Schademelding · Klantportaal</span><span style="align-self: flex-start; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">AI-beoordeling · geen besluit</span></span>
+</li>
+<li style="border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 24px; height: 24px; border-radius: 999px; background: #C6F432; color: #0A0A0A; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center">3</span><span style="font-size: 15px; font-weight: 500">Jij geeft akkoord</span></span>
+<span aria-hidden="true" style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.08); padding: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span><span style="font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Gelukt</span></span>
+</li>
+<li style="border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 24px; height: 24px; border-radius: 999px; background: #C6F432; color: #0A0A0A; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center">4</span><span style="font-size: 15px; font-weight: 500">Klant ziet de status</span></span>
+<span aria-hidden="true" style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.08); padding: 10px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #0F766E"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0F766E"></span>Mijn schades</span><span style="font-size: 12px; color: #27272A">Waterschade keuken · <span style="font-weight: 500">In behandeling</span></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- 11a. FAQ -->
+<section aria-labelledby="faq-kop" style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 112px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start; border-top: 1px solid rgba(10,10,10,0.08)">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">FAQ</span>
+<h2 id="faq-kop" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Vragen over Insync AI</h2>
+</div>
+<div style="flex: 1.4 1 480px; min-width: 0; display: flex; flex-direction: column; border-bottom: 1px solid rgba(10,10,10,0.12)">
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Werkt Insync AI met onze backoffice?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Insync AI werkt bovenop backoffices als Novulo, ANVA en CCS, en koppelt met je Microsoft 365-mailbox. Je backoffice blijft de bron van waarheid; Insync vervangt niets.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Wie beslist over een voorstel?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Een medewerker. Alleen wat je kantoor in de doorlaatregeling zelf op Steekproef of Automatisch zet, gaat vanzelf. Elk zaaktype begint op Voorstellen.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Wat gaat er nooit vanzelf?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Geld, IBAN en inloggegevens. Daar beslist altijd een mens, en die grens is niet in te stellen. Ook een mail aan een klant en een schade-uitkering gaan altijd langs een medewerker.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Wat kost Insync AI?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Dat hangt af van de zaaktypes die je gebruikt en het volume. In de demo maken we een voorstel dat past bij jouw kantoor.</p>
+</details>
+<details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Hoe snel zijn we live?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Je begint op je testomgeving met één zaaktype, bijvoorbeeld de totalencontrole. Werkt dat zoals je wilt, dan zet je het op productie en voeg je het volgende soort werk toe.</p>
+</details>
+</div>
+</section>
+
+<!-- 11b. Afsluitende CTA -->
+<section aria-labelledby="cta-kop" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 112px">
+<div style="border-radius: 28px; background: #5B59F8; color: #FFFFFF; padding: clamp(48px, 8vw, 112px) clamp(24px, 6vw, 80px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+<h2 id="cta-kop" style="margin: 0; font-size: clamp(40px, 6vw, 84px); line-height: 1; font-weight: 500; letter-spacing: -0.045em; color: #FFFFFF">Minder klikken, meer regelen.</h2>
+<p style="margin: 0; max-width: 560px; font-size: 19px; line-height: 1.55; color: #FFFFFF">Plan een demo en zie hoe Insync AI het voorwerk doet in jouw backoffice. Jij beslist.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px 28px; margin-top: 8px">
+<a href="/demo" style="background: #FFFFFF; color: #0A0A0A; text-decoration: none; font-weight: 500; font-size: 16px; padding: 14px 26px; border-radius: 999px; min-height: 48px; box-sizing: border-box; display: inline-flex; align-items: center">Demo inplannen</a>
+<a href="/klantportaal" style="color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 16px">Bekijk het klantportaal →</a>
+</div>
+</div>
+</section>
+
+</main>
+</Layout>
