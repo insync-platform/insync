@@ -245,6 +245,14 @@ segs.forEach((seg, n) => {
 });
 
 // ---------------------------------------------------------------
+// Abstracte tekeningen tekenen zich in
+// ---------------------------------------------------------------
+document.querySelectorAll<SVGElement>("[data-sketch]").forEach((sketch) => {
+  if (reduce) return sketch.classList.add("is-in");
+  onceInView(sketch, () => sketch.classList.add("is-in"));
+});
+
+// ---------------------------------------------------------------
 // Zwevende kaarten op fotomockups komen na de foto binnen
 // ---------------------------------------------------------------
 document.querySelectorAll<HTMLElement>("[data-float]").forEach((card) => {

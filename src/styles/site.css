@@ -1304,3 +1304,256 @@ main details summary:hover {
     margin-top: -48px;
   }
 }
+
+/* ---------- Abstracte tekeningen (Sketch.astro) ---------- */
+
+.sketch {
+  --s: #0a0a0a;
+  --p: #ffffff;
+  --m: #e4e4e7;
+  --m2: #a1a1aa;
+  --t: #ececfe;
+  --a: #5b59f8;
+  --l: #c6f432;
+  display: block;
+  width: 100%;
+  max-width: var(--sketch-max, 420px);
+  height: auto;
+  margin: auto;
+  overflow: visible;
+}
+.sketch--dark {
+  --s: #ffffff;
+  --p: #1f1f1f;
+  --m: rgba(255, 255, 255, 0.16);
+  --m2: rgba(255, 255, 255, 0.45);
+  --t: rgba(124, 122, 250, 0.28);
+  --a: #8b89ff;
+}
+.sketch--indigo {
+  --s: #ffffff;
+  --p: rgba(255, 255, 255, 0.12);
+  --m: rgba(255, 255, 255, 0.28);
+  --m2: rgba(255, 255, 255, 0.6);
+  --t: rgba(255, 255, 255, 0.2);
+  --a: #ffffff;
+}
+
+.sketch .k-line {
+  fill: none;
+  stroke: var(--s);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sketch .k-dashed {
+  stroke-dasharray: 4 6;
+  opacity: 0.45;
+}
+.sketch .k-card {
+  fill: var(--p);
+  stroke: var(--s);
+  stroke-width: 1.4;
+}
+.sketch .k-bar {
+  fill: var(--m);
+}
+.sketch .k-bar-strong {
+  fill: var(--m2);
+}
+.sketch .k-tint {
+  fill: var(--t);
+}
+.sketch .k-acc {
+  fill: var(--a);
+}
+.sketch .k-acc-line {
+  fill: none;
+  stroke: var(--a);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+.sketch .k-lime {
+  fill: var(--l);
+}
+.sketch .k-ink {
+  fill: var(--s);
+}
+.sketch .k-paper {
+  fill: var(--p);
+}
+.sketch--indigo .k-paper {
+  fill: #5b59f8;
+}
+.sketch .k-paper-bar {
+  fill: var(--p);
+  opacity: 0.75;
+}
+.sketch--indigo .k-paper-bar {
+  fill: #5b59f8;
+}
+.sketch .k-check {
+  fill: none;
+  stroke: #0a0a0a;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sketch .k-cursor {
+  fill: var(--s);
+  stroke: var(--p);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+.sketch .k-track {
+  fill: var(--m);
+}
+.sketch .k-knob {
+  fill: var(--a);
+}
+.sketch--indigo .k-knob {
+  fill: #ffffff;
+}
+.sketch .k-gauge-bg,
+.sketch .k-gauge {
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+.sketch .k-gauge-bg {
+  stroke: var(--m);
+}
+.sketch .k-gauge {
+  stroke: var(--a);
+}
+.sketch text {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  fill: var(--s);
+}
+.sketch .k-label {
+  opacity: 0.6;
+}
+.sketch .k-figure {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.sketch .k-stamp-text {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  fill: #0a0a0a;
+}
+
+/* Inbeweging: lijnen tekenen zich, vormen komen op, de stempel landt. */
+.js .sketch .draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.js .sketch.is-in .draw {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.1s var(--ease-out) var(--dd, 0ms);
+}
+.js .sketch .pop,
+.js .sketch .stamp-pop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.js .sketch .pop {
+  transform: translateY(6px);
+}
+.js .sketch.is-in .pop {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.5s ease var(--dd, 0ms),
+    transform 0.7s var(--ease-out) var(--dd, 0ms);
+}
+.js .sketch.is-in .stamp-pop {
+  animation: sketch-stamp 0.55s var(--ease-spring) var(--dd, 0ms) both;
+}
+@keyframes sketch-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.js .sketch .movers {
+  opacity: 0;
+}
+.js .sketch.is-in .movers {
+  opacity: 1;
+  transition: opacity 0.4s ease 1s;
+}
+
+/* Doorlaatregeling: de knop schuift stap voor stap naar Automatisch */
+.sketch .k-knob {
+  transform-box: view-box;
+}
+.js .sketch.is-in .k-knob {
+  animation: sketch-knob 2.6s var(--ease-out) 0.5s both;
+}
+@keyframes sketch-knob {
+  0%,
+  10% {
+    transform: translateX(0);
+  }
+  40%,
+  55% {
+    transform: translateX(76px);
+  }
+  85%,
+  100% {
+    transform: translateX(152px);
+  }
+}
+
+/* Agents: banen draaien langzaam, zoals in het logo */
+.sketch .orbit {
+  transform-box: view-box;
+  transform-origin: 180px 120px;
+  animation: sketch-orbit 28s linear infinite;
+}
+.sketch .orbit--rev {
+  animation-direction: reverse;
+  animation-duration: 36s;
+}
+@keyframes sketch-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketch .movers,
+  .sketch .orbit {
+    animation: none;
+  }
+  .sketch .movers {
+    display: none;
+  }
+  .js .sketch .draw {
+    stroke-dashoffset: 0;
+  }
+  .js .sketch .pop,
+  .js .sketch .stamp-pop {
+    opacity: 1;
+    transform: none;
+  }
+  .js .sketch .k-knob {
+    transform: translateX(152px);
+  }
+}

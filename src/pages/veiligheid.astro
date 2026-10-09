@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Sketch from "../components/site/Sketch.astro";
 import KlantLogos from "../components/site/KlantLogos.astro";
 
 const faqs = [
@@ -207,35 +208,9 @@ const faqs = [
 <section id="verantwoording" aria-labelledby="kop-verantwoording" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px">
 <div style="border-radius: 28px; background: #0A0A0A; color: #FFFFFF; padding: clamp(24px, 5vw, 64px); display: flex; flex-wrap: wrap-reverse; gap: 48px 56px; align-items: center">
 
-<figure role="img" aria-label="Verloop van een verzoek: binnengekomen via het klantportaal, voorstel klaargezet, automatisch afgehandeld volgens de doorlaatregeling zoals die gold op 3 oktober, taak aangemaakt in de backoffice, en de klant ziet de status in het portaal." style="flex: 1.1 1 440px; min-width: 0; margin: 0; border-radius: 16px; background: #161616; border: 1px solid rgba(255,255,255,0.10); padding: 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px">
-<span style="font-size: 16px; font-weight: 600">Verloop</span>
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA">Zaak 2026-1051 · Verzoek</span>
+<div aria-hidden="true" style="flex: 1.1 1 440px; min-width: 0; border-radius: 28px; background: #161616; padding: clamp(24px, 4vw, 48px); box-sizing: border-box; display: flex; min-height: 340px">
+<Sketch kind="trail" tone="dark" max="400px" />
 </div>
-<span style="font-size: 14px; color: #E4E4E7">Jansen B.V. verhuist per 1 november naar Kerkstraat 4</span>
-<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
-<li style="display: flex; gap: 14px">
-<div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 auto"><span style="width: 10px; height: 10px; border-radius: 999px; border: 2px solid #71717A; box-sizing: border-box; margin-top: 5px"></span><span style="flex: 1 1 auto; width: 1px; background: rgba(255,255,255,0.16); min-height: 24px"></span></div>
-<div style="padding-bottom: 16px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Binnen via het klantportaal</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA">8 okt. 09:12 · ingevuld door de klant</span></div>
-</li>
-<li style="display: flex; gap: 14px">
-<div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 auto"><span style="width: 10px; height: 10px; border-radius: 999px; border: 2px solid #71717A; box-sizing: border-box; margin-top: 5px"></span><span style="flex: 1 1 auto; width: 1px; background: rgba(255,255,255,0.16); min-height: 24px"></span></div>
-<div style="padding-bottom: 16px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Voorstel klaargezet: taak in de backoffice</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA">8 okt. 09:13 · Insync · bron: het formulier</span></div>
-</li>
-<li style="display: flex; gap: 14px">
-<div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 auto"><span style="width: 10px; height: 10px; border-radius: 999px; background: #C6F432; margin-top: 5px"></span><span style="flex: 1 1 auto; width: 1px; background: rgba(255,255,255,0.16); min-height: 24px"></span></div>
-<div style="padding-bottom: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; font-weight: 500; line-height: 1.4">Automatisch afgehandeld, volgens de doorlaatregeling zoals die gold op 3 okt.</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA">8 okt. 09:13 · stand Automatisch · geen uitzondering</span></div>
-</li>
-<li style="display: flex; gap: 14px">
-<div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 auto"><span style="width: 10px; height: 10px; border-radius: 999px; border: 2px solid #71717A; box-sizing: border-box; margin-top: 5px"></span><span style="flex: 1 1 auto; width: 1px; background: rgba(255,255,255,0.16); min-height: 24px"></span></div>
-<div style="padding-bottom: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; font-weight: 500; display: flex; flex-wrap: wrap; align-items: center; gap: 8px">Taak aangemaakt in de backoffice <span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Gelukt</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA">8 okt. 09:14 · Insync voert uit</span></div>
-</li>
-<li style="display: flex; gap: 14px">
-<div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 auto"><span style="width: 10px; height: 10px; border-radius: 999px; border: 2px solid #71717A; box-sizing: border-box; margin-top: 5px"></span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Klant ziet de status in het portaal</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA">8 okt. 09:14 · Klantportaal</span></div>
-</li>
-</ol>
-</figure>
 
 <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA; text-transform: uppercase; letter-spacing: 0.08em">03 / Verantwoording</span>
@@ -279,31 +254,9 @@ const faqs = [
 </dl>
 </div>
 
-<figure role="img" aria-label="Telefoon met het klantportaal van het fictieve kantoor Polder Verzekeringen. De klant ziet welke gegevens zijn eigen AI-assistent mag zien: polissen en dekking en documenten staan aan, schades en facturen uit. Geld, IBAN en account zijn nooit beschikbaar. Onderaan de knop Toegang intrekken." style="flex: 1 1 320px; min-width: 0; margin: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(20px, 4vw, 40px); box-sizing: border-box; display: flex; justify-content: center">
-<div style="width: 100%; max-width: 390px; border-radius: 36px; background: #0A0A0A; padding: 10px; box-sizing: border-box; box-shadow: 0 24px 60px rgba(10,10,10,0.16)">
-<div style="border-radius: 28px; background: #FFFFFF; overflow: hidden; display: flex; flex-direction: column">
-<div style="display: flex; justify-content: center; padding: 10px 0 4px"><span style="width: 84px; height: 6px; border-radius: 999px; background: #E4E4E7"></span></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 20px; border-bottom: 1px solid rgba(10,10,10,0.08)">
-<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #0F766E"><span style="width: 16px; height: 16px; border-radius: 5px; background: #0F766E"></span>Polder Verzekeringen</span>
-<span style="font-size: 11px; padding: 3px 8px; border-radius: 999px; background: #F4F4F5; color: #52525B">NL</span>
+<div aria-hidden="true" style="flex: 1 1 320px; min-width: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(24px, 4vw, 48px); box-sizing: border-box; display: flex; min-height: 340px">
+<Sketch kind="vault" max="400px" />
 </div>
-<div style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 19px; font-weight: 600; letter-spacing: -0.02em">Je eigen assistent</span>
-<span style="font-size: 13px; line-height: 1.45; color: #52525B">Gekoppeld op 2 okt. Kies wat je assistent mag zien.</span>
-</div>
-<div style="display: flex; flex-direction: column; border-radius: 14px; border: 1px solid rgba(10,10,10,0.08)">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="font-size: 14px">Polissen en dekking</span><span style="width: 36px; height: 22px; border-radius: 999px; background: #0F766E; padding: 3px; box-sizing: border-box; display: flex; justify-content: flex-end"><span style="width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF"></span></span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="font-size: 14px">Documenten</span><span style="width: 36px; height: 22px; border-radius: 999px; background: #0F766E; padding: 3px; box-sizing: border-box; display: flex; justify-content: flex-end"><span style="width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF"></span></span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="font-size: 14px">Schades</span><span style="width: 36px; height: 22px; border-radius: 999px; background: #E4E4E7; padding: 3px; box-sizing: border-box; display: flex; justify-content: flex-start"><span style="width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF"></span></span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="font-size: 14px">Facturen</span><span style="width: 36px; height: 22px; border-radius: 999px; background: #E4E4E7; padding: 3px; box-sizing: border-box; display: flex; justify-content: flex-start"><span style="width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF"></span></span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; background: #FAFAFA; border-radius: 0 0 14px 14px"><span style="font-size: 14px; color: #52525B">Geld, IBAN en account</span><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; color: #3F3F46"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" stroke="#3F3F46" stroke-width="2"></rect><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="#3F3F46" stroke-width="2" stroke-linecap="round"></path></svg>Nooit</span></div>
-</div>
-<span style="text-align: center; font-size: 14px; font-weight: 500; padding: 11px 16px; border-radius: 999px; border: 1px solid rgba(15,118,110,0.4); color: #0F766E">Toegang intrekken</span>
-</div>
-</div>
-</div>
-</figure>
 </div>
 </div>
 </section>

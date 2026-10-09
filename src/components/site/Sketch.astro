@@ -1,0 +1,423 @@
+---
+/**
+ * Abstracte lijntekeningen als vervanging voor drukke productbeelden.
+ * Dunne lijnen, een enkel indigo of limoen accent, nauwelijks tekst.
+ * Lijnen met `draw` tekenen zich in als de tekening in beeld komt (motion.ts).
+ *
+ * tone: "light" op een licht vlak, "dark" op zwart, "indigo" op het merkvlak.
+ */
+interface Props {
+  kind:
+    | "inflow"
+    | "prepare"
+    | "decide"
+    | "dial"
+    | "steps"
+    | "review"
+    | "chat"
+    | "compare"
+    | "apps"
+    | "agents"
+    | "phone"
+    | "trail"
+    | "vault"
+    | "form"
+    | "brands";
+  tone?: "light" | "dark" | "indigo";
+  max?: string;
+}
+
+const { kind, tone = "light", max = "420px" } = Astro.props;
+
+const inflowPaths = [
+  "M62 48 C130 48 128 124 190 124",
+  "M62 96 C126 96 130 124 190 124",
+  "M62 144 C126 144 130 124 190 124",
+  "M62 192 C130 192 128 124 190 124",
+];
+const risk = Array.from({ length: 10 }, (_, i) => i);
+const rows = [70, 92, 114, 136, 158];
+---
+
+<svg
+  class:list={["sketch", `sketch--${tone}`]}
+  viewBox="0 0 360 240"
+  aria-hidden="true"
+  focusable="false"
+  style={`--sketch-max: ${max}`}
+  data-sketch
+>
+  {
+    kind === "inflow" && (
+      <g>
+        {inflowPaths.map((d, i) => (
+          <path class="k-line draw" d={d} pathLength="1" style={`--dd: ${i * 120}ms`} />
+        ))}
+        <rect class="k-card" x="28" y="34" width="28" height="28" rx="8" />
+        <path class="k-line" d="M34 43 L42 49 L50 43" />
+        <rect class="k-acc" x="28" y="82" width="28" height="28" rx="14" />
+        <circle class="k-paper" cx="42" cy="96" r="4" />
+        <rect class="k-card" x="28" y="130" width="28" height="28" rx="8" />
+        <rect class="k-bar" x="35" y="140" width="14" height="3" rx="1.5" />
+        <rect class="k-bar" x="35" y="146" width="10" height="3" rx="1.5" />
+        <rect class="k-lime" x="28" y="178" width="28" height="28" rx="8" />
+        <circle class="k-ink" cx="42" cy="192" r="3.5" />
+
+        <rect class="k-card pop" x="204" y="60" width="116" height="100" rx="14" opacity="0.45" style="--dd: 500ms" />
+        <rect class="k-card pop" x="197" y="67" width="128" height="104" rx="14" opacity="0.75" style="--dd: 600ms" />
+        <g class="pop" style="--dd: 700ms">
+          <rect class="k-card" x="190" y="74" width="140" height="108" rx="14" />
+          <rect class="k-bar-strong" x="206" y="92" width="64" height="8" rx="4" />
+          <rect class="k-bar" x="206" y="110" width="104" height="6" rx="3" />
+          <rect class="k-bar" x="206" y="122" width="84" height="6" rx="3" />
+          <rect class="k-tint" x="206" y="148" width="50" height="16" rx="8" />
+          <circle class="k-acc" cx="216" cy="156" r="3" />
+          <circle class="k-lime" cx="306" cy="156" r="9" />
+          <path class="k-check" d="M301.5 156 l3 3 l6 -6.5" />
+        </g>
+        <g class="movers">
+          {inflowPaths.map((d, i) => (
+            <circle class="k-acc" r="3.5">
+              <animateMotion dur="3.2s" begin={`${i * 0.8}s`} repeatCount="indefinite" path={d} />
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.8;1" dur="3.2s" begin={`${i * 0.8}s`} repeatCount="indefinite" />
+            </circle>
+          ))}
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "prepare" && (
+      <g>
+        <g class="pop" style="--dd: 0ms">
+          <path class="k-card" d="M40 40 H120 L146 66 V202 H40 Z" />
+          <path class="k-line" d="M120 40 V66 H146" />
+          <rect class="k-bar" x="54" y="82" width="70" height="6" rx="3" />
+          <rect class="k-bar" x="54" y="96" width="78" height="6" rx="3" />
+          <rect class="k-bar" x="54" y="110" width="58" height="6" rx="3" />
+          <rect class="k-acc" x="54" y="132" width="78" height="10" rx="5" />
+          <rect class="k-bar" x="54" y="156" width="70" height="6" rx="3" />
+          <rect class="k-bar" x="54" y="170" width="50" height="6" rx="3" />
+        </g>
+        <path class="k-line draw" d="M136 137 C172 137 170 100 206 100" pathLength="1" style="--dd: 300ms" />
+        <circle class="k-acc pop" cx="206" cy="100" r="4" style="--dd: 900ms" />
+        <g class="pop" style="--dd: 700ms">
+          <rect class="k-card" x="210" y="60" width="116" height="124" rx="14" />
+          <rect class="k-bar-strong" x="224" y="78" width="62" height="8" rx="4" />
+          <rect class="k-bar" x="224" y="96" width="88" height="6" rx="3" />
+          <rect class="k-bar" x="224" y="108" width="72" height="6" rx="3" />
+          <rect class="k-tint" x="224" y="126" width="70" height="16" rx="8" />
+          <circle class="k-acc" cx="234" cy="134" r="3" />
+          <rect class="k-ink" x="224" y="156" width="42" height="14" rx="7" />
+          <rect class="k-card" x="272" y="156" width="38" height="14" rx="7" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "decide" && (
+      <g>
+        <g class="pop" style="--dd: 0ms">
+          <rect class="k-card" x="84" y="50" width="176" height="140" rx="16" />
+          <rect class="k-bar-strong" x="104" y="72" width="88" height="8" rx="4" />
+          <rect class="k-bar" x="104" y="92" width="134" height="6" rx="3" />
+          <rect class="k-bar" x="104" y="104" width="112" height="6" rx="3" />
+          <rect class="k-bar" x="104" y="116" width="124" height="6" rx="3" />
+          <rect class="k-ink" x="104" y="150" width="58" height="22" rx="11" />
+          <rect class="k-card" x="170" y="150" width="54" height="22" rx="11" />
+        </g>
+        <path class="k-cursor pop" d="M148 166 v19 l5 -5 l4 9 l3.5 -1.5 l-4 -8.5 h7 z" style="--dd: 600ms" />
+        <g class="stamp-pop" style="--dd: 1000ms">
+          <g transform="rotate(-8 252 60)">
+            <rect class="k-lime" x="206" y="42" width="96" height="34" rx="9" />
+            <path class="k-check" d="M220 59 l6 6 l11 -12" />
+            <text class="k-stamp-text" x="243" y="64">Akkoord</text>
+          </g>
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "dial" && (
+      <g>
+        <rect class="k-track" x="30" y="92" width="240" height="48" rx="24" />
+        <rect class="k-knob" x="36" y="98" width="76" height="36" rx="18" />
+        <text class="k-label" x="74" y="164" text-anchor="middle">Voorstellen</text>
+        <text class="k-label" x="150" y="164" text-anchor="middle">Steekproef</text>
+        <text class="k-label" x="226" y="164" text-anchor="middle">Automatisch</text>
+        <path class="k-line k-dashed" d="M296 62 V172" />
+        <g class="pop" style="--dd: 400ms">
+          <rect class="k-card" x="312" y="112" width="28" height="22" rx="5" />
+          <path class="k-line" d="M318 112 v-6 a8 8 0 0 1 16 0 v6" />
+          <circle class="k-ink" cx="326" cy="123" r="2.5" />
+          <text class="k-label" x="326" y="164" text-anchor="middle">Geld</text>
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "steps" && (
+      <g>
+        <path class="k-line draw" d="M60 156 H300" pathLength="1" />
+        <g class="pop" style="--dd: 200ms">
+          <rect class="k-card" x="18" y="62" width="84" height="60" rx="12" />
+          <rect class="k-bar-strong" x="30" y="76" width="44" height="6" rx="3" />
+          <rect class="k-bar" x="30" y="90" width="58" height="5" rx="2.5" />
+          <rect class="k-bar" x="30" y="100" width="48" height="5" rx="2.5" />
+          <path class="k-line" d="M60 122 V146" />
+          <circle class="k-card" cx="60" cy="156" r="9" />
+        </g>
+        <g class="pop" style="--dd: 600ms">
+          <rect class="k-card" x="138" y="62" width="84" height="60" rx="12" />
+          <rect class="k-ink" x="150" y="78" width="40" height="14" rx="7" />
+          <rect class="k-bar" x="150" y="100" width="56" height="5" rx="2.5" />
+          <path class="k-line" d="M180 122 V146" />
+          <circle class="k-acc" cx="180" cy="156" r="9" />
+        </g>
+        <g class="pop" style="--dd: 1000ms">
+          <rect class="k-card" x="258" y="62" width="84" height="60" rx="12" />
+          <rect class="k-bar-strong" x="270" y="76" width="50" height="6" rx="3" />
+          <rect class="k-bar" x="270" y="90" width="58" height="5" rx="2.5" />
+          <rect class="k-bar" x="270" y="100" width="40" height="5" rx="2.5" />
+          <path class="k-line" d="M300 122 V144" />
+          <circle class="k-lime" cx="300" cy="156" r="12" />
+          <path class="k-check" d="M294.5 156 l4 4 l7.5 -8" />
+        </g>
+        <text class="k-label" x="60" y="190" text-anchor="middle">Voorstel</text>
+        <text class="k-label" x="180" y="190" text-anchor="middle">Besluit</text>
+        <text class="k-label" x="300" y="190" text-anchor="middle">Uitgevoerd</text>
+      </g>
+    )
+  }
+
+  {
+    kind === "review" && (
+      <g>
+        <path class="k-gauge-bg" d="M100 142 A80 80 0 0 1 260 142" />
+        <path class="k-gauge draw" d="M100 142 A80 80 0 0 1 247.5 99.1" pathLength="1" style="--dd: 200ms" />
+        <text class="k-figure" x="180" y="134" text-anchor="middle">82%</text>
+        <text class="k-label" x="180" y="152" text-anchor="middle">zekerheid</text>
+        {risk.map((i) => (
+          <rect
+            class:list={[i < 3 ? "k-ink" : "k-bar", "pop"]}
+            x={60 + i * 24}
+            y="182"
+            width="20"
+            height="6"
+            rx="3"
+            style={`--dd: ${700 + i * 50}ms`}
+          />
+        ))}
+        <text class="k-label" x="60" y="208">risico</text>
+      </g>
+    )
+  }
+
+  {
+    kind === "chat" && (
+      <g>
+        <g class="pop" style="--dd: 0ms">
+          <rect class="k-ink" x="146" y="36" width="176" height="48" rx="18" />
+          <rect class="k-paper-bar" x="164" y="53" width="116" height="6" rx="3" />
+          <rect class="k-paper-bar" x="164" y="65" width="82" height="6" rx="3" />
+        </g>
+        <g class="pop" style="--dd: 450ms">
+          <rect class="k-card" x="38" y="100" width="210" height="72" rx="18" />
+          <rect class="k-bar" x="56" y="118" width="156" height="6" rx="3" />
+          <rect class="k-bar" x="56" y="132" width="172" height="6" rx="3" />
+          <rect class="k-bar" x="56" y="146" width="110" height="6" rx="3" />
+        </g>
+        <g class="pop" style="--dd: 800ms">
+          <rect class="k-tint" x="38" y="184" width="112" height="22" rx="11" />
+          <path class="k-acc-line" d="M52 189.5 h6 l3 3 v8 h-9 z" />
+          <rect class="k-acc" x="68" y="192" width="68" height="6" rx="3" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "compare" && (
+      <g>
+        <rect class="k-card pop" x="48" y="38" width="104" height="146" rx="12" style="--dd: 0ms" />
+        <rect class="k-card pop" x="208" y="38" width="104" height="146" rx="12" style="--dd: 150ms" />
+        {rows.map((y, i) => (
+          <g>
+            <rect class="k-bar" x="62" y={y} width={i === 0 ? 50 : 70} height="6" rx="3" />
+            <rect class="k-bar" x="222" y={y} width={i === 0 ? 50 : 70} height="6" rx="3" />
+            <path class="k-line draw" d={`M140 ${y + 3} H220`} pathLength="1" style={`--dd: ${400 + i * 120}ms`} />
+          </g>
+        ))}
+        <g class="stamp-pop" style="--dd: 1200ms">
+          <circle class="k-lime" cx="180" cy="208" r="14" />
+          <path class="k-check" d="M173 208 l5 5 l9 -10" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "apps" && (
+      <g>
+        <g class="pop" style="--dd: 0ms">
+          <rect class="k-card" x="36" y="48" width="184" height="140" rx="14" />
+          <path class="k-line" d="M36 72 H220" />
+          <circle class="k-bar-strong" cx="52" cy="60" r="3.5" />
+          <circle class="k-bar-strong" cx="63" cy="60" r="3.5" />
+          <circle class="k-bar-strong" cx="74" cy="60" r="3.5" />
+          <rect class="k-bar" x="52" y="88" width="56" height="40" rx="8" />
+          <rect class="k-bar" x="116" y="88" width="88" height="8" rx="4" />
+          <rect class="k-bar" x="116" y="104" width="70" height="6" rx="3" />
+          <rect class="k-bar" x="116" y="116" width="78" height="6" rx="3" />
+          <rect class="k-bar" x="52" y="144" width="152" height="6" rx="3" />
+          <rect class="k-bar" x="52" y="158" width="120" height="6" rx="3" />
+        </g>
+        <path class="k-line draw" d="M220 118 H282" pathLength="1" style="--dd: 400ms" />
+        <text class="k-label pop" x="251" y="108" text-anchor="middle" style="--dd: 700ms">API</text>
+        <g class="pop" style="--dd: 800ms">
+          <circle class="k-acc" cx="302" cy="118" r="20" />
+          <circle class="k-paper" cx="302" cy="118" r="6" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "agents" && (
+      <g>
+        <g class="orbit">
+          <ellipse class="k-line" cx="180" cy="120" rx="118" ry="42" transform="rotate(-22 180 120)" />
+          <circle class="k-card" cx="289" cy="76" r="9" />
+        </g>
+        <g class="orbit orbit--rev">
+          <ellipse class="k-line" cx="180" cy="120" rx="118" ry="42" transform="rotate(22 180 120)" />
+          <circle class="k-lime" cx="71" cy="76" r="9" />
+          <circle class="k-card" cx="289" cy="164" r="7" />
+        </g>
+        <circle class="k-acc" cx="180" cy="120" r="18" />
+        <circle class="k-paper" cx="180" cy="120" r="6" />
+      </g>
+    )
+  }
+
+  {
+    kind === "phone" && (
+      <g>
+        <g class="pop" style="--dd: 0ms">
+          <rect class="k-card" x="124" y="22" width="112" height="198" rx="22" />
+          <rect class="k-ink" x="162" y="31" width="36" height="8" rx="4" />
+          <rect class="k-acc" x="138" y="52" width="14" height="14" rx="4" />
+          <rect class="k-bar" x="158" y="56" width="48" height="6" rx="3" />
+          <rect class="k-bar-strong" x="138" y="80" width="76" height="9" rx="4.5" />
+          <rect class="k-bar" x="138" y="95" width="54" height="5" rx="2.5" />
+          <rect class="k-card" x="138" y="112" width="84" height="22" rx="7" />
+          <rect class="k-card" x="138" y="140" width="84" height="22" rx="7" />
+          <rect class="k-card" x="138" y="168" width="84" height="22" rx="7" />
+        </g>
+        <g class="pop" style="--dd: 600ms">
+          <rect class="k-card" x="50" y="150" width="62" height="28" rx="14" />
+          <rect class="k-bar" x="62" y="162" width="38" height="5" rx="2.5" />
+        </g>
+        <g class="stamp-pop" style="--dd: 900ms">
+          <circle class="k-lime" cx="236" cy="28" r="9" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "trail" && (
+      <g>
+        <path class="k-line draw" d="M80 40 V200" pathLength="1" />
+        {[46, 88, 130, 172].map((y, i) => (
+          <g class="pop" style={`--dd: ${200 + i * 220}ms`}>
+            <circle class:list={[i === 2 ? "k-lime" : i === 3 ? "k-acc" : "k-card"]} cx="80" cy={y} r="7" />
+            <rect class="k-bar-strong" x="104" y={y - 8} width={[150, 120, 170, 132][i]} height="7" rx="3.5" />
+            <rect class="k-bar" x="104" y={y + 4} width={[96, 80, 110, 70][i]} height="5" rx="2.5" />
+          </g>
+        ))}
+        <g class="pop" style="--dd: 1200ms">
+          <rect class="k-card" x="288" y="176" width="28" height="22" rx="5" />
+          <path class="k-line" d="M294 176 v-6 a8 8 0 0 1 16 0 v6" />
+          <circle class="k-ink" cx="302" cy="187" r="2.5" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "vault" && (
+      <g>
+        <rect class="k-line k-dashed" x="64" y="28" width="184" height="184" rx="30" />
+        <g class="pop" style="--dd: 0ms">
+          <path class="k-card" d="M108 88 V152 A48 14 0 0 0 204 152 V88" />
+          <ellipse class="k-card" cx="156" cy="88" rx="48" ry="14" />
+          <path class="k-line" d="M108 120 A48 14 0 0 0 204 120" />
+        </g>
+        <path class="k-line draw" d="M204 120 H290" pathLength="1" style="--dd: 400ms" />
+        <g class="pop" style="--dd: 800ms">
+          <circle class="k-acc" cx="304" cy="120" r="14" />
+          <circle class="k-paper" cx="304" cy="120" r="4.5" />
+          <rect class="k-card" x="286" y="148" width="36" height="28" rx="6" />
+          <rect class="k-bar" x="294" y="157" width="20" height="4" rx="2" />
+          <rect class="k-bar" x="294" y="165" width="14" height="4" rx="2" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "form" && (
+      <g>
+        <g class="pop" style="--dd: 0ms">
+          <path class="k-card" d="M44 48 H156 a16 16 0 0 1 16 16 V114 a16 16 0 0 1 -16 16 H76 L58 146 V130 H44 a16 16 0 0 1 -16 -16 V64 a16 16 0 0 1 16 -16 Z" />
+        </g>
+        <path class="k-line draw" d="M46 74 q8 -6 16 0 t16 0 t16 0 t16 0 t16 0 t16 0" pathLength="1" style="--dd: 300ms" />
+        <path class="k-line draw" d="M46 92 q8 -6 16 0 t16 0 t16 0 t16 0 t16 0" pathLength="1" style="--dd: 500ms" />
+        <path class="k-line draw" d="M46 110 q8 -6 16 0 t16 0 t16 0" pathLength="1" style="--dd: 700ms" />
+        <path class="k-line draw" d="M180 104 H202 M196 98 l6 6 l-6 6" pathLength="1" style="--dd: 800ms" />
+        <g class="pop" style="--dd: 900ms">
+          <rect class="k-card" x="210" y="36" width="122" height="168" rx="14" />
+          <rect class="k-tint" x="224" y="54" width="94" height="22" rx="7" />
+          <rect class="k-acc" x="232" y="62" width="48" height="6" rx="3" />
+          <rect class="k-tint" x="224" y="84" width="94" height="22" rx="7" />
+          <rect class="k-acc" x="232" y="92" width="62" height="6" rx="3" />
+          <rect class="k-tint" x="224" y="114" width="94" height="22" rx="7" />
+          <rect class="k-acc" x="232" y="122" width="36" height="6" rx="3" />
+          <rect class="k-card" x="224" y="144" width="94" height="22" rx="7" />
+          <text class="k-label" x="232" y="159">?</text>
+          <rect class="k-ink" x="224" y="176" width="94" height="16" rx="8" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    kind === "brands" && (
+      <g>
+        <g class="pop" style="--dd: 0ms">
+          <rect class="k-card" x="52" y="24" width="112" height="192" rx="24" />
+          <rect x="68" y="44" width="16" height="16" rx="5" fill="#0F766E" />
+          <rect class="k-bar" x="90" y="49" width="44" height="6" rx="3" />
+          <rect class="k-bar-strong" x="68" y="76" width="70" height="9" rx="4.5" />
+          <rect x="68" y="98" width="80" height="24" rx="10" fill="#0F766E" />
+          <rect class="k-card" x="68" y="130" width="80" height="20" rx="10" />
+          <rect class="k-card" x="68" y="156" width="80" height="20" rx="10" />
+        </g>
+        <g class="pop" style="--dd: 300ms">
+          <rect class="k-card" x="196" y="24" width="112" height="192" rx="6" />
+          <rect x="212" y="44" width="16" height="16" rx="1" fill="#B45309" />
+          <rect class="k-bar" x="234" y="49" width="44" height="6" rx="1" />
+          <rect class="k-bar-strong" x="212" y="76" width="70" height="9" rx="1" />
+          <rect x="212" y="98" width="80" height="24" rx="2" fill="#B45309" />
+          <rect class="k-card" x="212" y="130" width="80" height="20" rx="2" />
+          <rect class="k-card" x="212" y="156" width="80" height="20" rx="2" />
+        </g>
+      </g>
+    )
+  }
+</svg>

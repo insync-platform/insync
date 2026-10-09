@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Sketch from "../components/site/Sketch.astro";
 import KlantLogos from "../components/site/KlantLogos.astro";
 
 const faqs = [
@@ -111,10 +112,8 @@ const faqs = [
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
 
 <article aria-labelledby="kop-wp-werkbak" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
-<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Werkbak</span><span style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #FFFFFF; color: #52525B">Productie</span></div>
-<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF; border: 1.5px solid #5B59F8"><div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #71717A">Schademelding</span><span style="font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Waterschade keuken</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #FFEDD5; color: #9A3412; white-space: nowrap">Nieuw</span></div>
-<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF"><div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #71717A">Verzoek</span><span style="font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Jansen B.V. verhuist</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #ECECFE; color: #3F3DB8; white-space: nowrap">Opgepakt</span></div>
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 210px; box-sizing: border-box; display: flex">
+<Sketch kind="inflow" max="280px" />
 </div>
 <div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
 <span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #ECECFE; color: #3F3DB8">Voor je team</span>
@@ -124,15 +123,8 @@ const faqs = [
 </article>
 
 <article aria-labelledby="kop-wp-portaal" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
-<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center">
-<div style="width: 100%; max-width: 230px; border-radius: 18px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.10); overflow: hidden; display: flex; flex-direction: column">
-<div style="display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #0F766E; color: #FFFFFF; font-size: 12px; font-weight: 600"><span style="width: 12px; height: 12px; border-radius: 4px; background: #FFFFFF"></span>Polder Verzekeringen</div>
-<div style="padding: 10px 12px; display: flex; flex-direction: column; gap: 8px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 500">Waterschade keuken</span><span style="font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 999px; background: #CCFBF1; color: #115E59; white-space: nowrap">In behandeling</span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 500">Autoverzekering</span><span style="font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 999px; background: #F4F4F5; color: #3F3F46; white-space: nowrap">Aangevraagd</span></div>
-<span style="margin-top: 2px; text-align: center; font-size: 12px; font-weight: 500; padding: 7px 10px; border-radius: 999px; background: #0F766E; color: #FFFFFF">Schade melden</span>
-</div>
-</div>
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 210px; box-sizing: border-box; display: flex">
+<Sketch kind="phone" max="280px" />
 </div>
 <div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
 <span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #C6F432; color: #0A0A0A">Voor je klanten</span>
@@ -142,10 +134,8 @@ const faqs = [
 </article>
 
 <article aria-labelledby="kop-wp-apps" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
-<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Jouw software</span>
-<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF; font-size: 13px"><span style="flex: 0 0 64px; color: #71717A">CRM</span><span style="flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Adreswijziging Jansen</span><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #0A0A0A; color: #FFFFFF">Akkoord</span></div>
-<div style="display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; background: #FFFFFF; font-size: 13px"><span style="flex: 0 0 64px; color: #71717A">Eigen app</span><span style="flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Prolongatienota oktober</span><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Klopt</span></div>
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 210px; box-sizing: border-box; display: flex">
+<Sketch kind="apps" max="280px" />
 </div>
 <div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
 <span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #F4F4F5; color: #3F3F46">Jouw keuze</span>
@@ -155,11 +145,8 @@ const faqs = [
 </article>
 
 <article aria-labelledby="kop-wp-agents" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px; display: flex; flex-direction: column">
-<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 196px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Assistent van de klant</span>
-<span style="align-self: flex-end; max-width: 85%; font-size: 13px; line-height: 1.4; padding: 8px 11px; border-radius: 12px 12px 4px 12px; background: #0A0A0A; color: #FFFFFF">Is mijn fiets gedekt bij diefstal?</span>
-<span style="align-self: flex-start; max-width: 90%; font-size: 13px; line-height: 1.4; padding: 8px 11px; border-radius: 12px 12px 12px 4px; background: #FFFFFF; color: #27272A">Ja, via je inboedelverzekering ook buitenshuis, tot € 2.000.</span>
-<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #52525B"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" stroke="#52525B" stroke-width="2"></rect><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="#52525B" stroke-width="2" stroke-linecap="round"></path></svg>Met toestemming van de klant</span>
+<div aria-hidden="true" style="border-radius: 16px; background: #F4F4F5; padding: 16px; min-height: 210px; box-sizing: border-box; display: flex">
+<Sketch kind="agents" max="280px" />
 </div>
 <div style="padding: 20px 12px 12px; display: flex; flex-direction: column; gap: 8px">
 <span style="align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: #F4F4F5; color: #3F3F46">Team en klant</span>
