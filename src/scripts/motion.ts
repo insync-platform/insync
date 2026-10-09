@@ -245,6 +245,14 @@ segs.forEach((seg, n) => {
 });
 
 // ---------------------------------------------------------------
+// Zwevende kaarten op fotomockups komen na de foto binnen
+// ---------------------------------------------------------------
+document.querySelectorAll<HTMLElement>("[data-float]").forEach((card) => {
+  if (reduce) return card.classList.add("is-in");
+  onceInView(card.closest(".photo-mock") ?? card, () => card.classList.add("is-in"));
+});
+
+// ---------------------------------------------------------------
 // Balkjes lopen vol (zekerheid 82%)
 // ---------------------------------------------------------------
 document.querySelectorAll<HTMLElement>("main span[style*='height: 6px'] > span[style*='width:']").forEach((bar) => {

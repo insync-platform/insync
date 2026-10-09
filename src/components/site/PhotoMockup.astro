@@ -1,0 +1,44 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  /** Beeldverhouding van het fotovlak, bijvoorbeeld "4 / 3". */
+  ratio?: string;
+  /** Beeldverhouding op een smal scherm. */
+  ratioSm?: string;
+  /** Welk deel van de foto in beeld blijft bij bijsnijden. */
+  focus?: string;
+  sizes?: string;
+  style?: string;
+  loading?: "eager" | "lazy";
+}
+
+const {
+  src,
+  alt,
+  ratio = "4 / 3",
+  ratioSm,
+  focus = "50% 50%",
+  sizes = "(max-width: 820px) 100vw, 640px",
+  style = "",
+  loading = "lazy",
+} = Astro.props;
+---
+
+<figure class="photo-mock" style={`--ratio: ${ratio}; ${ratioSm ? `--ratio-sm: ${ratioSm}; ` : ""}${style}`}>
+  <div class="photo-mock__frame">
+    <Image
+      src={src}
+      alt={alt}
+      widths={[480, 720, 960, 1280, 1600].filter((w) => w <= src.width)}
+      sizes={sizes}
+      loading={loading}
+      class="photo-mock__img"
+      style={`object-position: ${focus}`}
+    />
+  </div>
+  <slot />
+</figure>

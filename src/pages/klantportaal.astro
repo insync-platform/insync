@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PhotoMockup from "../components/site/PhotoMockup.astro";
+import FloatCard from "../components/site/FloatCard.astro";
+import portaalFoto from "../assets/customer-portal/mockup.webp";
+import afsluitenFoto from "../assets/insurance-portal/car-insurance-mockup.webp";
 import KlantLogos from "../components/site/KlantLogos.astro";
 
 const faqs = [
@@ -46,79 +50,27 @@ const faqs = [
 </div>
 </div>
 
-<figure aria-label="Productbeeld: het klantportaal van het fictieve kantoor Polder Verzekeringen op twee telefoons. Links het overzicht van de polissen, rechts een gesprek met de klantassistent over een gestolen fiets." style="margin: 0; width: 100%; border-radius: 28px; background: #C6F432; padding: clamp(20px, 5vw, 64px) clamp(12px, 4vw, 64px); box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: clamp(20px, 4vw, 56px)">
-
-<!-- Telefoon 1: overzicht -->
-<div style="flex: 1 1 300px; max-width: 390px; min-width: 0; border-radius: 36px; background: #0A0A0A; padding: 9px; box-sizing: border-box; box-shadow: 0 30px 60px rgba(10,10,10,0.22)">
-<div style="border-radius: 28px; background: #FFFFFF; overflow: hidden; display: flex; flex-direction: column; color: #0A0A0A">
-<div aria-hidden="true" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 24px 8px; font-size: 13px; font-weight: 600"><span>9:41</span><span style="width: 84px; height: 24px; border-radius: 999px; background: #0A0A0A"></span><svg width="44" height="12" viewBox="0 0 44 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#0A0A0A"></rect><rect x="5" y="5" width="3" height="7" rx="1" fill="#0A0A0A"></rect><rect x="10" y="3" width="3" height="9" rx="1" fill="#0A0A0A"></rect><rect x="15" y="1" width="3" height="11" rx="1" fill="#0A0A0A"></rect><rect x="23.5" y="1.5" width="17" height="9" rx="2.5" stroke="#0A0A0A"></rect><rect x="25.5" y="3.5" width="11" height="5" rx="1" fill="#0A0A0A"></rect></svg></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 20px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)">
-<span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; letter-spacing: -0.01em"><span style="width: 26px; height: 26px; border-radius: 8px; background: #0F766E; color: #FFFFFF; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center">P</span>Polder Verzekeringen</span>
-<span style="width: 32px; height: 32px; border-radius: 999px; background: #F0FDFA; color: #0F766E; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center">MV</span>
-</div>
-<div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 14px; background: #FAFAFA">
-<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em">Goedemorgen, Marieke</span><span style="font-size: 13px; color: #52525B">Al je verzekeringen bij Polder op één plek.</span></div>
-<div style="display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); font-size: 12px">
-<span style="flex: 1 1 0; min-width: 0; text-align: center; padding: 7px 8px; border-radius: 999px; background: #0F766E; color: #FFFFFF; font-weight: 500">Privé</span>
-<span style="flex: 1.6 1 0; min-width: 0; text-align: center; padding: 7px 8px; border-radius: 999px; color: #3F3F46; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">De Vries Interieur B.V.</span>
-</div>
-<div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 14px; background: #F0FDFA; border: 1px solid rgba(15,118,110,0.20)">
-<span style="flex: 0 0 auto; width: 8px; height: 8px; margin-top: 5px; border-radius: 999px; background: #0F766E"></span>
-<div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 13px; font-weight: 600">Waterschade keuken</span><span style="font-size: 12px; line-height: 1.45; color: #3F3F46">Je melding is in behandeling. Bijgewerkt vandaag, 10:42.</span></div>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 2px"><span style="font-size: 15px; font-weight: 600">Mijn polissen</span><span style="font-size: 12px; color: #0F766E; font-weight: 500">Alles bekijken</span></div>
-<div style="border-radius: 14px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); display: flex; flex-direction: column">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500">Inboedelverzekering</span><span style="font-size: 12px; color: #71717A">Polis PV-204811</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Actief</span></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500">Woonhuisverzekering</span><span style="font-size: 12px; color: #71717A">Polis PV-204812</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Actief</span></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500">Autoverzekering</span><span style="font-size: 12px; color: #71717A">Kenteken GH-512-K</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Actief</span></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px"><div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500">Doorlopende reisverzekering</span><span style="font-size: 12px; color: #71717A">Polis PV-198340</span></div><span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: #DCFCE7; color: #166534">Actief</span></div>
-</div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
-<span style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 14px; background: #0F766E; color: #FFFFFF; font-size: 13px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3.5v8M10 14.5v.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"></path><circle cx="10" cy="10" r="8" stroke="#FFFFFF" stroke-width="1.6"></circle></svg>Schade melden</span>
-<span style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 14px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); font-size: 13px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 3.5l4 4L7 17H3v-4z" stroke="#0F766E" stroke-width="1.6" stroke-linejoin="round"></path></svg>Wijziging doorgeven</span>
-<span style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 14px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); font-size: 13px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5.5 2.5h6l3 3v12h-9z" stroke="#0F766E" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8 10h4.5M8 13h4.5" stroke="#0F766E" stroke-width="1.6" stroke-linecap="round"></path></svg>Documenten</span>
-<span style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 14px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); font-size: 13px; font-weight: 500"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3.5 5.5a2 2 0 012-2h9a2 2 0 012 2v6a2 2 0 01-2 2H9l-3.5 3v-3a2 2 0 01-2-2z" stroke="#0F766E" stroke-width="1.6" stroke-linejoin="round"></path></svg>Vraag de assistent</span>
-</div>
-</div>
-<div aria-hidden="true" style="display: flex; justify-content: space-around; padding: 10px 8px 8px; border-top: 1px solid rgba(10,10,10,0.06); font-size: 11px; color: #71717A"><span style="color: #0F766E; font-weight: 600">Overzicht</span><span>Polissen</span><span>Schades</span><span>Profiel</span></div>
-<div aria-hidden="true" style="display: flex; justify-content: center; padding: 4px 0 10px"><span style="width: 120px; height: 5px; border-radius: 999px; background: #0A0A0A"></span></div>
-</div>
-</div>
-
-<!-- Telefoon 2: klantassistent -->
-<div style="flex: 1 1 300px; max-width: 390px; min-width: 0; margin-top: clamp(0px, 4vw, 56px); border-radius: 36px; background: #0A0A0A; padding: 9px; box-sizing: border-box; box-shadow: 0 30px 60px rgba(10,10,10,0.22)">
-<div style="border-radius: 28px; background: #FFFFFF; overflow: hidden; display: flex; flex-direction: column; color: #0A0A0A">
-<div aria-hidden="true" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 24px 8px; font-size: 13px; font-weight: 600"><span>9:41</span><span style="width: 84px; height: 24px; border-radius: 999px; background: #0A0A0A"></span><svg width="44" height="12" viewBox="0 0 44 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#0A0A0A"></rect><rect x="5" y="5" width="3" height="7" rx="1" fill="#0A0A0A"></rect><rect x="10" y="3" width="3" height="9" rx="1" fill="#0A0A0A"></rect><rect x="15" y="1" width="3" height="11" rx="1" fill="#0A0A0A"></rect><rect x="23.5" y="1.5" width="17" height="9" rx="2.5" stroke="#0A0A0A"></rect><rect x="25.5" y="3.5" width="11" height="5" rx="1" fill="#0A0A0A"></rect></svg></div>
-<div style="display: flex; align-items: center; gap: 12px; padding: 8px 20px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)">
-<svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4l-6 6 6 6" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<span style="width: 34px; height: 34px; border-radius: 999px; background: #F0FDFA; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3.5 5.5a2 2 0 012-2h9a2 2 0 012 2v6a2 2 0 01-2 2H9l-3.5 3v-3a2 2 0 01-2-2z" stroke="#0F766E" stroke-width="1.6" stroke-linejoin="round"></path></svg></span>
-<div style="display: flex; flex-direction: column; gap: 1px; min-width: 0"><span style="font-size: 15px; font-weight: 600">Assistent</span><span style="font-size: 12px; color: #71717A">Polder Verzekeringen · kent je dossier</span></div>
-</div>
-<div data-chat style="padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 12px; background: #FAFAFA">
-<span style="align-self: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; letter-spacing: 0.08em">VANDAAG</span>
-<span style="align-self: flex-end; max-width: 82%; border-radius: 18px 18px 4px 18px; background: #0F766E; color: #FFFFFF; padding: 11px 14px; font-size: 14px; line-height: 1.45">Is mijn fiets gedekt bij diefstal?</span>
-<div style="align-self: flex-start; max-width: 88%; border-radius: 18px 18px 18px 4px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 14px; line-height: 1.45">Ja, via je inboedelverzekering ook buitenshuis, tot € 2.000.</span>
-<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; padding: 4px 9px; border-radius: 999px; background: #F0FDFA; color: #0F766E"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 1.75h5.5L12.25 4.5v9.75H4z" stroke="#0F766E" stroke-width="1.5" stroke-linejoin="round"></path></svg>Inboedelverzekering, art. 3.4</span>
-</div>
-<span style="align-self: flex-end; max-width: 82%; border-radius: 18px 18px 4px 18px; background: #0F766E; color: #FFFFFF; padding: 11px 14px; font-size: 14px; line-height: 1.45">Fijn. Hij is gisteren bij het station gestolen.</span>
-<div style="align-self: flex-start; max-width: 92%; border-radius: 18px 18px 18px 4px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 14px; line-height: 1.45">Vervelend. Ik heb een schademelding voor je klaargezet. Kijk hem na en verstuur hem als het klopt.</span>
-<div style="border-radius: 12px; border: 1px solid rgba(10,10,10,0.10); padding: 10px 12px; display: flex; flex-direction: column; gap: 4px">
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #71717A; letter-spacing: 0.08em">SCHADEMELDING · CONCEPT</span>
-<span style="font-size: 14px; font-weight: 500">Diefstal fiets · 7 oktober</span>
-<span style="font-size: 12px; color: #52525B">Inboedelverzekering · PV-204811</span>
-</div>
-<span style="align-self: flex-start; font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #0F766E; color: #FFFFFF">Nakijken en versturen</span>
-</div>
-</div>
-<div aria-hidden="true" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px 6px; border-top: 1px solid rgba(10,10,10,0.06)"><span style="flex: 1 1 auto; padding: 10px 14px; border-radius: 999px; background: #F4F4F5; font-size: 13px; color: #71717A">Stel je vraag…</span><span style="width: 36px; height: 36px; border-radius: 999px; background: #0F766E; display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M5 9l5-5 5 5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div>
-<div aria-hidden="true" style="display: flex; justify-content: center; padding: 8px 0 10px"><span style="width: 120px; height: 5px; border-radius: 999px; background: #0A0A0A"></span></div>
-</div>
-</div>
-
-</figure>
-<p style="margin: -36px 0 0; font-size: 13px; color: #52525B; text-align: center">Voorbeeld in de huisstijl van een fictief kantoor, Polder Verzekeringen. Jouw portaal draagt jouw merk.</p>
+<PhotoMockup
+  src={portaalFoto}
+  alt="Een klant bekijkt het klantportaal op haar telefoon: het startscherm met verzekeringen, facturen, schade melden en contact."
+  ratio="16 / 9"
+  ratioSm="4 / 3"
+  focus="40% 45%"
+  sizes="(max-width: 1240px) 100vw, 1192px"
+  loading="eager"
+  style="width: 100%"
+>
+<FloatCard place="top-right" order={0} width="320px" style="--top: 40px; --right: 40px">
+<div class="fc-meta"><span>Klantassistent</span><span>22:14</span></div>
+<span class="fc-bubble-me">Is mijn fiets gedekt bij diefstal?</span>
+<span class="fc-bubble-ai">Ja, via je inboedelverzekering ook buitenshuis, tot € 2.000.</span>
+<span class="fc-source"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 1.75h5.5L12.25 4.5v9.75H4z" stroke="#3F3DB8" stroke-width="1.5" stroke-linejoin="round"></path><path d="M6 8h4.5M6 10.75h4.5" stroke="#3F3DB8" stroke-width="1.5" stroke-linecap="round"></path></svg>Inboedelverzekering, art. 3.4</span>
+</FloatCard>
+<FloatCard place="bottom-right" order={1} width="340px" style="--bottom: 40px; --right: 72px">
+<div class="fc-row"><span class="fc-icon" style="background: #C6F432"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.8C8 1.8 3.5 6.6 3.5 9.6a4.5 4.5 0 009 0C12.5 6.6 8 1.8 8 1.8z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"></path></svg></span><span style="display: flex; flex-direction: column; min-width: 0"><span class="fc-title">Waterschade keuken</span><span class="fc-sub">Schademelding · gisteren</span></span><span class="fc-badge" style="background: #ECECFE; color: #3F3DB8">In behandeling</span></div>
+</FloatCard>
+</PhotoMockup>
+<p style="margin: -32px 0 0; font-size: 13px; color: #52525B; text-align: center">Je klant vraagt, meldt en volgt alles zelf, ook buiten kantoortijden. Jouw portaal draagt jouw merk.</p>
 </section>
 
 <!-- 2. Klantenrij -->
@@ -385,47 +337,24 @@ const faqs = [
 </ol>
 </div>
 
-<figure aria-label="Productbeeld: online een reisverzekering afsluiten bij Polder Verzekeringen, stap 2 van 4. De klant kiest wie er meereizen, waarheen en welke extra dekking, met een premie-indicatie en een vraag aan de assistent." style="flex: 1 1 440px; min-width: 0; margin: 0; border-radius: 28px; background: #F4F4F5; padding: clamp(20px, 4vw, 48px) clamp(12px, 3vw, 40px); box-sizing: border-box; display: flex; justify-content: center">
-<div style="flex: 1 1 300px; max-width: 390px; min-width: 0; border-radius: 36px; background: #0A0A0A; padding: 9px; box-sizing: border-box; box-shadow: 0 24px 50px rgba(10,10,10,0.18)">
-<div style="border-radius: 28px; background: #FFFFFF; overflow: hidden; display: flex; flex-direction: column; color: #0A0A0A">
-<div aria-hidden="true" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 24px 8px; font-size: 13px; font-weight: 600"><span>21:47</span><span style="width: 84px; height: 24px; border-radius: 999px; background: #0A0A0A"></span><svg width="44" height="12" viewBox="0 0 44 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#0A0A0A"></rect><rect x="5" y="5" width="3" height="7" rx="1" fill="#0A0A0A"></rect><rect x="10" y="3" width="3" height="9" rx="1" fill="#0A0A0A"></rect><rect x="15" y="1" width="3" height="11" rx="1" fill="#0A0A0A"></rect><rect x="23.5" y="1.5" width="17" height="9" rx="2.5" stroke="#0A0A0A"></rect><rect x="25.5" y="3.5" width="11" height="5" rx="1" fill="#0A0A0A"></rect></svg></div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding: 8px 20px 14px; border-bottom: 1px solid rgba(10,10,10,0.06)">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px"><span style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4l-6 6 6 6" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Reisverzekering</span><span style="font-size: 12px; color: #52525B">Stap 2 van 4</span></div>
-<div aria-hidden="true" style="display: flex; gap: 4px"><span style="flex: 1 1 0; height: 4px; border-radius: 999px; background: #0F766E"></span><span style="flex: 1 1 0; height: 4px; border-radius: 999px; background: #0F766E"></span><span style="flex: 1 1 0; height: 4px; border-radius: 999px; background: #E4E4E7"></span><span style="flex: 1 1 0; height: 4px; border-radius: 999px; background: #E4E4E7"></span></div>
-<div style="display: flex; justify-content: space-between; font-size: 11px; color: #71717A"><span>Over jou</span><span style="color: #0F766E; font-weight: 600">Dekking</span><span>Controleren</span><span>Afsluiten</span></div>
-</div>
-<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 14px; background: #FAFAFA">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 15px; font-weight: 600">Wie reizen er mee?</span>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<span style="display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 12px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.10); font-size: 13px"><span style="width: 16px; height: 16px; border-radius: 999px; border: 1.5px solid #A1A1AA; box-sizing: border-box"></span>Alleen ik</span>
-<span style="display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 12px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.10); font-size: 13px"><span style="width: 16px; height: 16px; border-radius: 999px; border: 1.5px solid #A1A1AA; box-sizing: border-box"></span>Ik en mijn partner</span>
-<span style="display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 12px; background: #F0FDFA; border: 1.5px solid #0F766E; font-size: 13px; font-weight: 500"><span style="width: 16px; height: 16px; border-radius: 999px; border: 5px solid #0F766E; box-sizing: border-box; background: #FFFFFF"></span>Mijn gezin</span>
-</div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 15px; font-weight: 600">Waar reis je naartoe?</span>
-<div style="display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.10); font-size: 13px"><span style="flex: 1 1 0; text-align: center; padding: 7px 8px; border-radius: 999px; background: #0F766E; color: #FFFFFF; font-weight: 500">Europa</span><span style="flex: 1 1 0; text-align: center; padding: 7px 8px; border-radius: 999px; color: #3F3F46">Wereld</span></div>
-</div>
-<div style="display: flex; flex-direction: column; border-radius: 12px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.10)">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 12px; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 13px"><span>Wintersport</span><span aria-hidden="true" style="width: 34px; height: 20px; border-radius: 999px; background: #0F766E; display: inline-flex; align-items: center; justify-content: flex-end; padding: 2px; box-sizing: border-box"><span style="width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF"></span></span></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 12px; font-size: 13px"><span>Annulering</span><span aria-hidden="true" style="width: 34px; height: 20px; border-radius: 999px; background: #E4E4E7; display: inline-flex; align-items: center; justify-content: flex-start; padding: 2px; box-sizing: border-box"><span style="width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF"></span></span></div>
-</div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #F0FDFA; border: 1px solid rgba(15,118,110,0.20)">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #3F3F46">Premie-indicatie</span><span style="font-size: 11px; color: #52525B">Op basis van je keuzes</span></div>
-<span style="font-size: 17px; font-weight: 600; color: #0A0A0A">€ 4,85 <span style="font-size: 12px; font-weight: 400; color: #52525B">p/m</span></span>
-</div>
-<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 14px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.08)">
-<span style="display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #0F766E; letter-spacing: 0.08em"><svg width="12" height="12" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3.5 5.5a2 2 0 012-2h9a2 2 0 012 2v6a2 2 0 01-2 2H9l-3.5 3v-3a2 2 0 01-2-2z" stroke="#0F766E" stroke-width="1.8" stroke-linejoin="round"></path></svg>VRAAG HET DE ASSISTENT</span>
-<span style="align-self: flex-end; max-width: 88%; border-radius: 14px 14px 4px 14px; background: #0F766E; color: #FFFFFF; padding: 8px 12px; font-size: 13px; line-height: 1.4">Is mijn ski-uitrusting dan ook verzekerd?</span>
-<span style="align-self: flex-start; max-width: 92%; border-radius: 14px 14px 14px 4px; background: #F4F4F5; padding: 8px 12px; font-size: 13px; line-height: 1.4">Ja, met Wintersport erbij valt je ski-uitrusting onder de bagagedekking.</span>
-</div>
-<span style="text-align: center; font-size: 14px; font-weight: 500; padding: 12px 16px; border-radius: 999px; background: #0F766E; color: #FFFFFF">Volgende</span>
-</div>
-<div aria-hidden="true" style="display: flex; justify-content: center; padding: 6px 0 10px; background: #FAFAFA"><span style="width: 120px; height: 5px; border-radius: 999px; background: #0A0A0A"></span></div>
-</div>
-</div>
-</figure>
+<PhotoMockup
+  src={afsluitenFoto}
+  alt="Een klant heeft net online een autoverzekering afgesloten: op de telefoon staat 'Je auto is nu verzekerd!'"
+  ratio="4 / 5"
+  focus="50% 45%"
+  sizes="(max-width: 820px) 100vw, 560px"
+  style="flex: 1 1 440px; max-width: 560px; margin: 0 auto"
+>
+<FloatCard place="top-left" order={0} width="270px" style="--top: 32px">
+<div class="fc-meta"><span>Vraag tijdens het afsluiten</span></div>
+<span class="fc-bubble-me">Valt ruitschade ook onder WA+?</span>
+<span class="fc-bubble-ai">Ja. WA+ dekt naast schade aan anderen ook ruitschade.</span>
+</FloatCard>
+<FloatCard place="bottom-right" order={1} width="300px" style="--bottom: 36px">
+<div class="fc-row"><span class="fc-icon" style="background: #ECECFE"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 9.5l1.6-6A1 1 0 014.6 2.8h6.8a1 1 0 01.97.7L14 9.5V13a.8.8 0 01-.8.8H2.8A.8.8 0 012 13V9.5z" stroke="#3F3DB8" stroke-width="1.5" stroke-linejoin="round"></path><path d="M2 9.5h3.5l1 1.6h3l1-1.6H14" stroke="#3F3DB8" stroke-width="1.5" stroke-linejoin="round"></path></svg></span><span style="display: flex; flex-direction: column; min-width: 0"><span class="fc-title">Nieuwe aanvraag</span><span class="fc-sub">Autoverzekering WA+ · BC-123-D</span></span></div>
+<div class="fc-row" style="font-size: 12px; color: #166534; gap: 6px"><svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7.2l2.6 2.6L11 4.4" stroke="#166534" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Direct in je backoffice, zonder overtypen</div>
+</FloatCard>
+</PhotoMockup>
 
 </div>
 </section>

@@ -1,0 +1,26 @@
+---
+/**
+ * Een zwevende kaart boven op een fotomockup. Positie met de CSS-variabelen
+ * in `style` (top/right/bottom/left), of met een van de vaste plekken.
+ */
+interface Props {
+  place?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  /** Volgorde van binnenkomen (0, 1, 2 …). */
+  order?: number;
+  width?: string;
+  style?: string;
+}
+
+const { place = "bottom-left", order = 0, width = "280px", style = "" } = Astro.props;
+---
+
+<div
+  class:list={["float-card", `float-card--${place}`]}
+  aria-hidden="true"
+  data-float
+  style={`--order: ${order}; --w: ${width}; ${style}`}
+>
+  <div class="float-card__inner">
+    <slot />
+  </div>
+</div>

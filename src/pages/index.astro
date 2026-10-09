@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PhotoMockup from "../components/site/PhotoMockup.astro";
+import FloatCard from "../components/site/FloatCard.astro";
+import portaalReisFoto from "../assets/customer-portal/mockup-airplane.webp";
 import KlantLogos from "../components/site/KlantLogos.astro";
 
 const faqs = [
@@ -472,24 +475,21 @@ const faqs = [
 <section id="klantportaal" aria-labelledby="uitbreiding-kop" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px 0">
 <div style="border-radius: 28px; background: #FAFAFA; border: 1px solid rgba(10,10,10,0.06); padding: clamp(24px, 4vw, 48px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px clamp(32px, 5vw, 72px)">
 
-<div role="img" aria-label="Voorbeeld: het klantportaal van Polder Verzekeringen op een telefoon, met polissen, schade melden, de assistent en verzekering afsluiten" style="flex: 0 0 240px; margin: 0 auto; width: 240px; border-radius: 36px; background: #0A0A0A; padding: 8px; box-sizing: border-box; box-shadow: 0 20px 48px rgba(10,10,10,0.18)">
-<div style="border-radius: 28px; background: #FFFFFF; overflow: hidden; display: flex; flex-direction: column">
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 18px 6px; font-size: 10px; font-weight: 600; color: #0A0A0A"><span>9:41</span><span style="width: 56px; height: 16px; border-radius: 999px; background: #0A0A0A"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 9px">5G</span></div>
-<div style="display: flex; align-items: center; gap: 7px; padding: 8px 16px; border-bottom: 1px solid rgba(10,10,10,0.06)"><span style="width: 18px; height: 18px; border-radius: 6px; background: #0F766E; flex: 0 0 auto"></span><span style="font-size: 11px; font-weight: 600; color: #134E4A">Polder Verzekeringen</span></div>
-<div style="padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em">Goedemiddag, Ilse</span><span style="font-size: 11px; color: #52525B">Al je verzekeringen op één plek.</span></div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px">
-<span style="text-align: center; font-size: 11px; font-weight: 500; padding: 8px 6px; border-radius: 10px; background: #0F766E; color: #FFFFFF">Schade melden</span>
-<span style="text-align: center; font-size: 11px; font-weight: 500; padding: 8px 6px; border-radius: 10px; border: 1px solid rgba(10,10,10,0.12); color: #27272A">Wijziging doorgeven</span>
-</div>
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #52525B; text-transform: uppercase; letter-spacing: 0.08em">Mijn polissen</span>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(10,10,10,0.08); font-size: 11px"><span>Inboedelverzekering</span><span style="font-size: 10px; padding: 2px 7px; border-radius: 999px; background: #F0FDFA; color: #115E59">Actief</span></div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(10,10,10,0.08); font-size: 11px"><span>Autoverzekering</span><span style="font-size: 10px; padding: 2px 7px; border-radius: 999px; background: #F0FDFA; color: #115E59">Actief</span></div>
-<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 10px; border-radius: 10px; background: #F4F4F5; font-size: 11px"><span style="color: #52525B">Assistent</span><span style="color: #0A0A0A">Is mijn fiets gedekt bij diefstal?</span></div>
-<span style="font-size: 11px; font-weight: 500; color: #115E59">Verzekering afsluiten →</span>
-</div>
-</div>
-</div>
+<PhotoMockup
+  src={portaalReisFoto}
+  alt="Een reiziger bekijkt in het vliegtuig zijn reisverzekering in het klantportaal."
+  ratio="1 / 1"
+  focus="54% 42%"
+  sizes="(max-width: 820px) 100vw, 560px"
+  style="flex: 1 1 420px; max-width: 560px"
+>
+<FloatCard place="bottom-left" order={0} width="290px" style="--bottom: -36px">
+<div class="fc-meta"><span>Klantassistent</span><span>23:47</span></div>
+<span class="fc-bubble-me">Is mijn bagage meeverzekerd op wintersport?</span>
+<span class="fc-bubble-ai">Ja, ook op wintersport. Je ski-uitrusting valt eronder.</span>
+<span class="fc-source"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 1.75h5.5L12.25 4.5v9.75H4z" stroke="#3F3DB8" stroke-width="1.5" stroke-linejoin="round"></path><path d="M6 8h4.5M6 10.75h4.5" stroke="#3F3DB8" stroke-width="1.5" stroke-linecap="round"></path></svg>Reisverzekering, art. 4.2</span>
+</FloatCard>
+</PhotoMockup>
 
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">06 / Uitbreiding</span>
