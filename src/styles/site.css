@@ -1070,3 +1070,16 @@ main details summary:hover {
     gap: 40px;
   }
 }
+
+/* ---------- Kaarten met een visual: visuals per rij even hoog ---------- */
+
+/* Elke kaart beslaat twee rijen van het raster (visual en tekst). Met subgrid
+   delen kaarten die naast elkaar staan dezelfde rijhoogtes. */
+@supports (grid-template-rows: subgrid) {
+  .feature-card {
+    display: grid !important;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    row-gap: 0;
+  }
+}
