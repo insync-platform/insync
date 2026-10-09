@@ -105,10 +105,6 @@ main :is(p, dd, li) > a:not([style]):hover {
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
-  transition:
-    transform 0.25s var(--ease-out),
-    background-color 0.2s ease,
-    box-shadow 0.25s ease;
 }
 .btn--sm {
   font-size: 14px;
@@ -118,44 +114,112 @@ main :is(p, dd, li) > a:not([style]):hover {
   background: var(--ink);
   color: #fff;
 }
-.btn--dark:hover {
-  color: #fff;
-  background: #27272a;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(10, 10, 10, 0.16);
+
+/* Knoppen: een vulling die van onderen inschuift, een klein beetje lift,
+   en een korte indruk bij klikken. De ontwerpknoppen (inline gestyled)
+   krijgen via motion.ts een variant-klasse (.pb--dark, .pb--light, …). */
+.btn,
+.pb {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+.btn::before,
+.pb::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--pb-fill, var(--indigo));
+  transform: translateY(102%);
+  transition: transform 0.45s var(--ease-out);
+}
+.btn:hover::before,
+.pb:hover::before,
+.btn:focus-visible::before,
+.pb:focus-visible::before {
+  transform: translateY(0);
+}
+.btn:hover,
+.pb:hover {
+  transform: translateY(-2px);
+}
+.btn:active,
+.pb:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.1s;
+}
+.btn svg,
+.pb svg {
+  transition: transform 0.35s var(--ease-out);
+}
+.btn:hover svg:last-child,
+.pb:hover svg:last-child {
+  transform: translateX(3px);
 }
 
-/* Knoppen uit het ontwerp (inline gestyled) krijgen dezelfde hover. */
-main a[style*="border-radius: 999px"][style*="background: #0A0A0A"],
-main button[style*="border-radius: 999px"][style*="background: #0A0A0A"] {
-  transition:
-    transform 0.25s var(--ease-out),
-    background-color 0.2s ease,
-    box-shadow 0.25s ease;
+/* Zwart → indigo */
+.btn--dark,
+.pb--dark {
+  --pb-fill: var(--indigo);
 }
-main a[style*="border-radius: 999px"][style*="background: #0A0A0A"]:hover,
-main button[style*="border-radius: 999px"][style*="background: #0A0A0A"]:hover {
-  color: #fff;
-  background: #27272a !important;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(10, 10, 10, 0.16);
+.btn--dark:hover,
+.pb--dark:hover {
+  color: #fff !important;
+  box-shadow: 0 10px 24px -8px rgba(91, 89, 248, 0.55);
 }
-main a[style*="border-radius: 999px"][style*="background: #C6F432"]:hover {
-  color: var(--ink);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(10, 10, 10, 0.14);
+
+/* Wit op een kleurvlak → limoen, de kleur van akkoord */
+.pb--light {
+  --pb-fill: var(--lime);
 }
-main a[style*="border-radius: 999px"][style*="border: 1px solid rgba(10,10,10,0.16)"] {
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+.pb--light:hover {
+  color: var(--ink) !important;
+  box-shadow: 0 10px 24px -10px rgba(10, 10, 10, 0.45);
 }
-main a[style*="border-radius: 999px"][style*="border: 1px solid rgba(10,10,10,0.16)"]:hover {
-  color: var(--ink);
-  border-color: rgba(10, 10, 10, 0.4) !important;
-  background: var(--surface-soft);
+
+/* Limoen → wit */
+.pb--lime {
+  --pb-fill: #ffffff;
 }
-main a[style*="border-radius: 999px"][style*="rgba(255,255,255"]:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.5) !important;
+.pb--lime:hover {
+  color: var(--ink) !important;
+  box-shadow: 0 10px 24px -10px rgba(198, 244, 50, 0.6);
+}
+
+/* Omlijnd op licht → zacht grijs vlak, donkerdere rand */
+.pb--outline {
+  --pb-fill: var(--surface);
+}
+.pb--outline:hover {
+  color: var(--ink) !important;
+  border-color: rgba(10, 10, 10, 0.32) !important;
+}
+
+/* Omlijnd op donker → licht vlak */
+.pb--outline-dark {
+  --pb-fill: rgba(255, 255, 255, 0.12);
+}
+.pb--outline-dark:hover {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+@media (hover: none) {
+  .btn:hover,
+  .pb:hover {
+    transform: none;
+  }
+  .btn:hover::before,
+  .pb:hover::before {
+    transform: translateY(102%);
+  }
 }
 
 /* Het pijltje in tekstlinks schuift een stukje mee. */
@@ -262,28 +326,210 @@ a:hover > .arrow {
   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.08);
 }
 
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.site-header__cta-short {
+  display: none;
+}
+
+/* Hamburger: twee streepjes die een kruis worden */
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s var(--ease-out);
+}
+.menu-toggle:active {
+  transform: scale(0.94);
+}
+.menu-toggle span {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  height: 1.75px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition:
+    transform 0.4s var(--ease-spring),
+    top 0.3s var(--ease-out),
+    background-color 0.25s ease;
+}
+.menu-toggle span:first-child {
+  top: 18px;
+}
+.menu-toggle span:last-child {
+  top: 24.5px;
+}
+.menu-toggle[aria-expanded="true"] {
+  background: var(--ink);
+}
+.menu-toggle[aria-expanded="true"] span {
+  top: 21.25px;
+  background: #fff;
+}
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: rotate(45deg);
+}
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: rotate(-45deg);
+}
+
+/* Het mobiele menu: een wit vel onder de header, links met dossiernummers */
+.mobile-menu {
+  position: fixed;
+  inset: var(--header-h, 73px) 0 0;
+  z-index: 49;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #fff;
+  padding: 8px var(--gutter) calc(32px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s var(--ease-out);
+}
+.mobile-menu[hidden] {
+  display: none;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  transform: none;
+}
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu__link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+.mobile-menu__num {
+  flex: 0 0 24px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--ink-3);
+  transition: color 0.2s ease;
+}
+.mobile-menu__label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.mobile-menu__hint {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ink-2);
+}
+.mobile-menu__link[aria-current="page"] .mobile-menu__num {
+  color: var(--indigo);
+}
+.mobile-menu__link[aria-current="page"]::after {
+  content: "";
+  align-self: center;
+  margin-left: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--indigo);
+}
+.mobile-menu__link:active .mobile-menu__label {
+  color: var(--indigo);
+}
+.mobile-menu__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mobile-menu__footer p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-2);
+  text-align: center;
+}
+.mobile-menu__footer a:not(.btn) {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+.mobile-menu__cta {
+  width: 100%;
+  min-height: 52px;
+  font-size: 16px;
+}
+.mobile-menu__motto {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3) !important;
+}
+
+/* Items komen na elkaar binnen */
+.mobile-menu__link,
+.mobile-menu__footer {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s var(--ease-out);
+}
+.mobile-menu.is-open .mobile-menu__link,
+.mobile-menu.is-open .mobile-menu__footer {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(60ms + var(--i) * 45ms);
+}
+
+html.menu-open {
+  overflow: hidden;
+}
+html.menu-open .site-header {
+  box-shadow: none;
+  border-bottom-color: var(--line);
+}
+
 @media (max-width: 820px) {
-  .site-header__inner {
-    flex-wrap: wrap;
-    row-gap: 12px;
-  }
   .site-nav {
-    order: 3;
-    flex: 1 1 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    justify-content: space-between;
-    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, #000 88%, transparent);
-  }
-  .site-nav::-webkit-scrollbar {
     display: none;
   }
-  .site-nav a {
-    padding: 8px 12px;
+  .menu-toggle {
+    display: inline-block;
   }
-  .site-header.is-scrolled .site-nav {
+  .site-header__inner,
+  .site-header.is-scrolled .site-header__inner {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+@media (max-width: 380px) {
+  .site-header__cta-long {
     display: none;
+  }
+  .site-header__cta-short {
+    display: inline;
   }
 }
 
@@ -544,14 +790,18 @@ main details summary:hover {
     box-shadow: 0 8px 20px rgba(10, 10, 10, 0.15);
   }
 }
-[data-stamp] {
-  cursor: default;
-  transition: transform 0.3s var(--ease-spring);
-}
-[data-stamp].is-stamped:hover {
-  animation: none;
+.js [data-stamp].is-done {
   opacity: 1;
-  transform: rotate(-2deg) scale(1.05) !important;
+  animation: none;
+}
+[data-stamp].is-done {
+  transition:
+    transform 0.45s var(--ease-spring),
+    box-shadow 0.45s ease;
+}
+[data-stamp].is-done:hover {
+  transform: rotate(-2deg) translateY(-2px) scale(1.06) !important;
+  box-shadow: 0 14px 28px rgba(10, 10, 10, 0.18) !important;
 }
 /* De Akkoord-knop in het voorstel wordt even ingedrukt vlak voor de stempel. */
 .is-pressed {
@@ -686,5 +936,137 @@ main details summary:hover {
   }
   .js [data-stamp] {
     transform: rotate(-6deg) !important;
+  }
+}
+
+/* ---------- Klantlogo's ---------- */
+
+.klant-logos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px clamp(36px, 6vw, 72px);
+}
+.klant-logos--center {
+  justify-content: center;
+}
+.klant-logos a {
+  display: block;
+  line-height: 0;
+}
+.klant-logos img {
+  display: block;
+  width: auto;
+  height: calc(var(--logo-h) * var(--s, 1));
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition:
+    filter 0.4s ease,
+    opacity 0.4s ease,
+    transform 0.4s var(--ease-out);
+}
+.klant-logos a:hover img,
+.klant-logos a:focus-visible img {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+.klant-logos--lg {
+  --logo-h: 56px;
+}
+.klant-logos--sm {
+  --logo-h: 34px;
+  gap: 16px 32px;
+}
+@media (max-width: 640px) {
+  .klant-logos--lg {
+    --logo-h: 36px;
+    gap: 16px 36px;
+  }
+}
+
+/* ---------- Mobiel ---------- */
+
+@media (max-width: 640px) {
+  /* Werkbak-tabel in de hero: per zaak een compacte regel */
+  .wb-table {
+    min-width: 0 !important;
+  }
+  .wb-head {
+    display: none !important;
+  }
+  .wb-row {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "type status"
+      "desc desc";
+    row-gap: 4px !important;
+    padding: 12px 14px !important;
+  }
+  .wb-row > :nth-child(1) {
+    grid-area: type;
+  }
+  .wb-row > :nth-child(2) {
+    display: none;
+  }
+  .wb-row > :nth-child(3) {
+    grid-area: desc;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .wb-row > :nth-child(4) {
+    grid-area: status;
+  }
+
+  /* Pill-groepen (filters, tabs, standen) niet laten afbreken maar laten scrollen */
+  .pill-group {
+    flex-wrap: nowrap !important;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .pill-group::-webkit-scrollbar {
+    display: none;
+  }
+  [role="tablist"].pill-group {
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+    mask-image: linear-gradient(90deg, #000 85%, transparent);
+  }
+  .pill-group > * {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .pill {
+    font-size: 14px !important;
+    gap: 8px !important;
+    padding: 10px 14px 10px 12px !important;
+  }
+  .seg,
+  .pill-group.seg {
+    display: flex !important;
+    width: 100%;
+    overflow: visible;
+  }
+  .seg > span {
+    flex: 1 1 auto !important;
+    min-width: 0;
+    text-align: center;
+    font-size: 11.5px !important;
+    padding: 5px 4px !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer__nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 36px;
+  }
+  .site-footer__inner {
+    padding-top: 56px;
+    gap: 40px;
   }
 }

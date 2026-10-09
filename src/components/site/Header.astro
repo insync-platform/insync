@@ -2,11 +2,11 @@
 const { pathname } = Astro.url;
 
 const items = [
-  { href: "/insync-ai", label: "Insync AI" },
-  { href: "/integraties", label: "Integraties" },
-  { href: "/veiligheid", label: "Veiligheid" },
-  { href: "/klantportaal", label: "Klantportaal" },
-  { href: "/blog", label: "Blog" },
+  { href: "/insync-ai", label: "Insync AI", hint: "Voor je team" },
+  { href: "/integraties", label: "Integraties", hint: "Bovenop je backoffice" },
+  { href: "/veiligheid", label: "Veiligheid", hint: "Jij houdt de regie" },
+  { href: "/klantportaal", label: "Klantportaal", hint: "Voor je klanten" },
+  { href: "/blog", label: "Blog", hint: "Nieuws en inzichten" },
 ];
 
 const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
@@ -26,8 +26,100 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(`${h
         ))
       }
     </nav>
-    <a href="/demo" class="btn btn--dark btn--sm site-header__cta" data-umami-event="Demo CTA header">
-      Demo inplannen
-    </a>
+    <div class="site-header__actions">
+      <a href="/demo" class="btn btn--dark btn--sm site-header__cta" data-umami-event="Demo CTA header">
+        <span class="site-header__cta-long">Demo inplannen</span><span class="site-header__cta-short">Demo</span>
+      </a>
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Menu openen"
+        data-menu-toggle
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobiel menu" class="mobile-menu__nav">
+      <a href="/" class="mobile-menu__link" aria-current={pathname === "/" ? "page" : undefined} style="--i: 0">
+        <span class="mobile-menu__num">00</span>
+        <span class="mobile-menu__label">Home<span class="mobile-menu__hint">Het hele verhaal</span></span>
+      </a>
+      {
+        items.map((item, i) => (
+          <a
+            href={item.href}
+            class="mobile-menu__link"
+            aria-current={isActive(item.href) ? "page" : undefined}
+            style={`--i: ${i + 1}`}
+          >
+            <span class="mobile-menu__num">{String(i + 1).padStart(2, "0")}</span>
+            <span class="mobile-menu__label">
+              {item.label}
+              <span class="mobile-menu__hint">{item.hint}</span>
+            </span>
+          </a>
+        ))
+      }
+    </nav>
+    <div class="mobile-menu__footer" style={`--i: ${items.length + 1}`}>
+      <a href="/demo" class="btn btn--dark mobile-menu__cta" data-umami-event="Demo CTA mobiel menu">
+        Demo inplannen
+      </a>
+      <p>
+        Liever bellen? <a href="tel:+31618282389">06 1828 2389</a>
+      </p>
+      <p class="mobile-menu__motto">Minder klikken, meer regelen.</p>
+    </div>
   </div>
 </header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+
+  if (header && toggle && menu) {
+    let closeTimer: number | undefined;
+
+    const setOpen = (open: boolean) => {
+      clearTimeout(closeTimer);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Menu sluiten" : "Menu openen");
+      document.documentElement.classList.toggle("menu-open", open);
+      if (open) {
+        document.documentElement.style.setProperty("--header-h", `${header.getBoundingClientRect().bottom}px`);
+        menu.hidden = false;
+        void menu.offsetWidth; // reflow, zodat de openingstransitie start
+        menu.classList.add("is-open");
+      } else {
+        menu.classList.remove("is-open");
+        // Wacht tot de sluitanimatie klaar is voordat het menu uit de toegankelijkheidsboom gaat.
+        closeTimer = window.setTimeout(() => (menu.hidden = true), 320);
+      }
+    };
+
+    toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+
+    menu.addEventListener("click", (e) => {
+      if ((e.target as Element).closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    // Groter scherm: menu dicht.
+    window.matchMedia("(min-width: 821px)").addEventListener("change", (e) => {
+      if (e.matches) setOpen(false);
+    });
+  }
+</script>

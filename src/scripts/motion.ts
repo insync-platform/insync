@@ -33,6 +33,53 @@ if (header) {
 }
 
 // ---------------------------------------------------------------
+// Mobiel: grote vaste witruimtes uit het ontwerp (voor 1440px) inkorten
+// ---------------------------------------------------------------
+if (main) {
+  const small = window.matchMedia("(max-width: 640px)");
+  type Saved = { el: HTMLElement; prop: "paddingTop" | "paddingBottom" | "gap"; value: string };
+  const saved: Saved[] = [];
+  main.querySelectorAll<HTMLElement>("[style]").forEach((el) => {
+    for (const prop of ["paddingTop", "paddingBottom", "gap"] as const) {
+      const value = el.style[prop];
+      // Alleen enkelvoudige px-waarden; clamp() is al vloeiend.
+      if (/^\d+px$/.test(value) && parseFloat(value) >= (prop === "gap" ? 48 : 72)) saved.push({ el, prop, value });
+    }
+  });
+  const apply = () => {
+    for (const { el, prop, value } of saved) {
+      const px = parseFloat(value);
+      el.style[prop] = small.matches ? `${Math.max(prop === "gap" ? 32 : 56, Math.round(px * 0.62))}px` : value;
+    }
+  };
+  apply();
+  small.addEventListener("change", apply);
+}
+
+// ---------------------------------------------------------------
+// Knoppen uit het ontwerp: variant bepalen aan de hand van de inline stijl
+// ---------------------------------------------------------------
+document.querySelectorAll<HTMLElement>("main a, main button").forEach((el) => {
+  const s = el.style;
+  if (s.borderRadius !== "999px" || el.classList.contains("zt-tab") || el.classList.contains("btn")) return;
+  const bg = s.backgroundColor;
+  const border = s.borderColor || s.border;
+  let variant = "";
+  if (bg === "rgb(10, 10, 10)") variant = "dark";
+  else if (bg === "rgb(255, 255, 255)") variant = "light";
+  else if (bg === "rgb(198, 244, 50)") variant = "lime";
+  else if (border.includes("255, 255, 255")) variant = "outline-dark";
+  else if (border) variant = "outline";
+  if (variant) el.classList.add("pb", `pb--${variant}`);
+});
+
+// Pill-groepen (filters, tabs, standen): op mobiel laten scrollen i.p.v. afbreken.
+// Herkenning gebeurt hier, omdat het style-attribuut later door de animaties wordt herschreven.
+document.querySelectorAll<HTMLElement>("main [style*='border-radius: 999px'][style*='flex-wrap: wrap']").forEach((el) => {
+  if (el.style.backgroundColor === "rgb(244, 244, 245)" && el.children.length > 1) el.classList.add("pill-group");
+});
+
+// ---------------------------------------------------------------
 // Tekstlinks met "→": het pijltje schuift mee bij hover
 // ---------------------------------------------------------------
 document.querySelectorAll<HTMLAnchorElement>("main a").forEach((a) => {
@@ -141,8 +188,11 @@ if (main && !reduce) {
 // De Akkoord-stempel
 // ---------------------------------------------------------------
 document.querySelectorAll<HTMLElement>("[data-stamp]").forEach((stamp) => {
+  // Na het stempelen gaat de animatie eraf, zodat hover met een transitie
+  // vanuit de rustpositie kan bewegen in plaats van te verspringen.
+  stamp.addEventListener("animationend", () => stamp.classList.add("is-done"));
   if (reduce) {
-    stamp.classList.add("is-stamped");
+    stamp.classList.add("is-stamped", "is-done");
     return;
   }
   // Staat er een Akkoord-knop in dezelfde kaart, dan wordt die eerst ingedrukt.
@@ -176,6 +226,7 @@ const segs = Array.from(document.querySelectorAll<HTMLElement>("main span, main 
   return kids.length === 3 && kids.every((k, i) => k.textContent?.trim() === STANDEN[i]);
 });
 segs.forEach((seg, n) => {
+  seg.classList.add("seg");
   const kids = Array.from(seg.children) as HTMLElement[];
   const target = kids.findIndex((k) => k.style.fontWeight === "500");
   if (target <= 0 || reduce) return;
@@ -272,6 +323,9 @@ if (tablist) {
         panel.classList.add("is-entering");
       }
     });
+    // Op mobiel scrolt de tabbalk mee, zodat de gekozen tab helemaal zichtbaar is.
+    const offset = tabs[index].getBoundingClientRect().left - tablist.getBoundingClientRect().left;
+    tablist.scrollTo({ left: tablist.scrollLeft + offset - 16, behavior: reduce ? "auto" : "smooth" });
     if (focus) tabs[index].focus();
   };
   tabs.forEach((tab, i) => {

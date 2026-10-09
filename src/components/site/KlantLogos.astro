@@ -1,0 +1,31 @@
+---
+import LogoDuGardijn from "../../assets/logos/du-gardijn.svg";
+import LogoEfo from "../../assets/logos/efo.svg";
+import LogoJw from "../../assets/logos/jw.svg";
+
+interface Props {
+  size?: "lg" | "sm";
+  align?: "center" | "start";
+  labelledby?: string;
+}
+
+const { size = "lg", align = "center", labelledby } = Astro.props;
+
+const klanten = [
+  { name: "du Gardijn", href: "https://dugardijn.nl", logo: LogoDuGardijn, scale: 1 },
+  { name: "EFO Verzekeringen", href: "https://efo.nl", logo: LogoEfo, scale: 1.15 },
+  { name: "JW", href: "https://jw.nl", logo: LogoJw, scale: 0.8 },
+];
+---
+
+<ul class:list={["klant-logos", `klant-logos--${size}`, `klant-logos--${align}`]} aria-labelledby={labelledby}>
+  {
+    klanten.map((k) => (
+      <li>
+        <a href={k.href} target="_blank" rel="noopener" style={`--s: ${k.scale}`}>
+          <img src={k.logo.src} alt={k.name} width={k.logo.width} height={k.logo.height} loading="lazy" />
+        </a>
+      </li>
+    ))
+  }
+</ul>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import KlantLogos from "../components/site/KlantLogos.astro";
 
 const faqs = [
   {
@@ -73,23 +74,23 @@ const faqs = [
 <div style="display: flex; flex-wrap: wrap-reverse; gap: 16px; align-items: stretch">
 
 <div style="flex: 1.7 1 520px; min-width: 0; border-radius: 14px; border: 1px solid rgba(10,10,10,0.08); background: #FFFFFF; overflow-x: auto">
-<div style="min-width: 560px">
-<div style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; padding: 10px 16px; border-bottom: 1px solid rgba(10,10,10,0.08); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">
+<div class="wb-table" style="min-width: 560px">
+<div class="wb-head" style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; padding: 10px 16px; border-bottom: 1px solid rgba(10,10,10,0.08); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">
 <span>Type</span><span>Klant</span><span>Omschrijving</span><span>Status</span>
 </div>
-<div style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); background: #FAFAFA; box-shadow: inset 3px 0 0 #5B59F8; font-size: 14px">
+<div class="wb-row" style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); background: #FAFAFA; box-shadow: inset 3px 0 0 #5B59F8; font-size: 14px">
 <span style="font-weight: 500">Klantvraag</span><span style="color: #3F3F46">M. Bakker</span><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Is mijn bagage meeverzekerd op wintersport?</span><span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #ECECFE; color: #3F3DB8; white-space: nowrap">Wordt uitgevoerd</span></span>
 </div>
-<div style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 14px">
+<div class="wb-row" style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 14px">
 <span style="font-weight: 500; display: inline-flex; align-items: center; gap: 6px">Schademelding<span title="Urgent" style="width: 7px; height: 7px; border-radius: 999px; background: #DC2626"></span></span><span style="color: #3F3F46">M. de Vries</span><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Waterschade keuken · via het klantportaal · AI-beoordeling klaar</span><span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412; white-space: nowrap">Nieuw</span></span>
 </div>
-<div style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 14px">
+<div class="wb-row" style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 14px">
 <span style="font-weight: 500">Verzoek</span><span style="color: #3F3F46">Jansen B.V.</span><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Verhuist per 1 november naar Kerkstraat 4</span><span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #ECECFE; color: #3F3DB8; white-space: nowrap">Opgepakt</span></span>
 </div>
-<div style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 14px">
+<div class="wb-row" style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid rgba(10,10,10,0.06); font-size: 14px">
 <span style="font-weight: 500">Totalencontrole</span><span style="color: #71717A">—</span><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Prolongatienota oktober · € 18.420,00 · Klopt</span><span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #DCFCE7; color: #166534; white-space: nowrap">Afgehandeld</span></span>
 </div>
-<div style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; font-size: 14px">
+<div class="wb-row" style="display: grid; grid-template-columns: 124px 100px minmax(0, 1fr) 124px; gap: 12px; align-items: center; padding: 14px 16px; font-size: 14px">
 <span style="font-weight: 500">Totalencontrole</span><span style="color: #71717A">—</span><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Provisienota september · wijkt af op 2 polisregels</span><span><span style="font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: #FFEDD5; color: #9A3412; white-space: nowrap">Nieuw</span></span>
 </div>
 </div>
@@ -133,11 +134,7 @@ const faqs = [
 <!-- 2. Klantenrij -->
 <section aria-labelledby="klanten-kop" style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px">
 <h2 id="klanten-kop" style="margin: 0; font-size: 14px; font-weight: 400; color: #71717A">Vertrouwd door kantoren als</h2>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(28px, 5vw, 64px)">
-<li style="font-size: 24px; font-weight: 600; letter-spacing: -0.03em; color: #3F3F46">du Gardijn</li>
-<li style="font-size: 24px; font-weight: 500; letter-spacing: -0.01em; color: #3F3F46">EFO Verzekeringen</li>
-<li style="font-size: 26px; font-weight: 600; letter-spacing: 0.02em; color: #3F3F46">JW</li>
-</ul>
+<KlantLogos size="lg" align="center" />
 </section>
 
 <!-- 3. Het platform in drie lagen -->

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import KlantLogos from "../components/site/KlantLogos.astro";
 
 const faqs = [
   {
@@ -57,19 +58,15 @@ const faqs = [
 
 <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(10,10,10,0.08)">
 <h2 id="klanten-titel" style="margin: 0; font-size: 14px; font-weight: 400; color: #71717A">Vertrouwd door kantoren als</h2>
-<ul aria-labelledby="klanten-titel" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 36px">
-<li style="font-size: 19px; font-weight: 600; letter-spacing: -0.03em; color: #3F3F46">du Gardijn</li>
-<li style="font-size: 19px; font-weight: 500; letter-spacing: -0.01em; color: #3F3F46">EFO Verzekeringen</li>
-<li style="font-size: 20px; font-weight: 600; letter-spacing: 0.02em; color: #3F3F46">JW</li>
-</ul>
+<KlantLogos size="sm" align="start" labelledby="klanten-titel" />
 </div>
 </div>
 
 <div style="flex: 1.1 1 460px; min-width: 0; position: relative; border-radius: 28px; background: #F4F4F5; padding: clamp(12px, 2vw, 20px); box-sizing: border-box">
 <div aria-hidden="true" style="position: absolute; top: -16px; right: clamp(16px, 3vw, 32px); z-index: 1"><span data-stamp style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; background: #C6F432; color: #0A0A0A; font-weight: 600; font-size: 15px; transform: rotate(-6deg); box-shadow: 0 8px 20px rgba(10,10,10,0.15)"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Akkoord</span></div>
 <form id="aanvragen" method="POST" data-demo-form aria-labelledby="form-titel" style="border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.06); padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px">
-<div style="display: flex; flex-direction: column; gap: 6px; padding-right: 72px">
-<h2 id="form-titel" style="margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Vraag een demo aan</h2>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="form-titel" style="margin: 0; padding-right: 96px; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Vraag een demo aan</h2>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #52525B">Zes korte vragen. Daarna kiezen we samen een moment.</p>
 </div>
 
@@ -261,7 +258,7 @@ const faqs = [
 
     // Nog één keer stempelen.
     if (stamp) {
-      stamp.classList.remove("is-stamped");
+      stamp.classList.remove("is-stamped", "is-done");
       void stamp.offsetWidth;
       stamp.classList.add("is-stamped");
     }

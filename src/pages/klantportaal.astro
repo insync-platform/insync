@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import KlantLogos from "../components/site/KlantLogos.astro";
 
 const faqs = [
   {
@@ -123,11 +124,7 @@ const faqs = [
 <!-- 2. Klantenrij -->
 <section aria-labelledby="klanten-kop" style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px">
 <h2 id="klanten-kop" style="margin: 0; font-size: 14px; font-weight: 400; color: #71717A">Vertrouwd door kantoren als</h2>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(28px, 5vw, 64px)">
-<li style="font-size: 24px; font-weight: 600; letter-spacing: -0.03em; color: #3F3F46">du Gardijn</li>
-<li style="font-size: 24px; font-weight: 500; letter-spacing: -0.01em; color: #3F3F46">EFO Verzekeringen</li>
-<li style="font-size: 26px; font-weight: 600; letter-spacing: 0.02em; color: #3F3F46">JW</li>
-</ul>
+<KlantLogos size="lg" align="center" />
 </section>
 
 <!-- 3. 24/7 zelf regelen -->
