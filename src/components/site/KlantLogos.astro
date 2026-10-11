@@ -12,9 +12,9 @@ interface Props {
 const { size = "lg", align = "center", labelledby } = Astro.props;
 
 const klanten = [
-  { name: "du Gardijn", href: "https://dugardijn.nl", logo: LogoDuGardijn, scale: 1 },
-  { name: "EFO Verzekeringen", href: "https://efo.nl", logo: LogoEfo, scale: 1.15 },
-  { name: "JW", href: "https://jw.nl", logo: LogoJw, scale: 0.8 },
+  { name: "du Gardijn", href: "/blog/eerste-klanten-live", logo: LogoDuGardijn, scale: 1 },
+  { name: "EFO Verzekeringen", href: "/blog/klantportaal-efo-live", logo: LogoEfo, scale: 1.15 },
+  { name: "JW", href: "/blog/klantportaal-jw-live", logo: LogoJw, scale: 0.8 },
 ];
 ---
 
@@ -22,7 +22,7 @@ const klanten = [
   {
     klanten.map((k) => (
       <li>
-        <a href={k.href} target="_blank" rel="noopener" style={`--s: ${k.scale}`}>
+        <a href={k.href} title={`Lees hoe ${k.name} met Insync werkt`} style={`--s: ${k.scale}`}>
           <img src={k.logo.src} alt={k.name} width={k.logo.width} height={k.logo.height} loading="lazy" />
         </a>
       </li>
