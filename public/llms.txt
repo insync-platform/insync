@@ -1,13 +1,13 @@
 # Insync
 
-> Insync is het AI-platform voor verzekeraars, volmachten en adviseurs in Nederland: de AI doet het voorwerk in de eigen backoffice van het kantoor, voor het team én de klanten. Een mens beslist, en het kantoor bepaalt hoeveel ruimte de AI krijgt.
+> Insync is het AI-platform voor adviseurs, volmachten en verzekeraars in Nederland: de AI doet het voorwerk in de eigen backoffice van het kantoor, voor het team én de klanten. Een mens beslist, en het kantoor bepaalt hoeveel ruimte de AI krijgt.
 
 Insync werkt bovenop de bestaande backoffice (onder meer Novulo, ANVA en CCS) en vervangt die niet. Het platform heeft twee kanten die op elkaar aansluiten:
 
 - Insync AI (voor het team): een werkbak met alles wat aandacht vraagt, per zaak voorbereid met een voorstel en de bron; een actielaag (eerst een voorstel, dan pas een wijziging in de backoffice); een doorlaatregeling (per zaaktype instellen wat vanzelf mag: Voorstellen, Steekproef of Automatisch); en een AI-assistent voor werk zonder vaste vorm. Zaaktypes: klantvraag, verzoek, schademelding met AI-beoordeling, totalencontrole (borderel, prolongatie- en provisienota) en meer.
 - Klantportaal (voor de klanten van het kantoor): white-label portaal waarin klanten 24/7 zelf hun verzekeringen regelen, schade melden met AI, een klantassistent gebruiken die het dossier kent, hun eigen AI-assistent veilig koppelen, en online een verzekering aanvragen of afsluiten.
 
-Wat een klant in het portaal meldt, komt als zaak in de werkbak; een medewerker beslist; de klant ziet de status terug. Geld, IBAN en inloggegevens gaan nooit vanzelf, ook niet via een AI-assistent. Koppelen kan ook vanuit eigen applicaties en AI-agents, via API, webhooks en MCP. Technische documentatie: https://docs.insync.insure.
+Wat een klant in het portaal meldt, komt als zaak in de werkbak; een medewerker beslist; de klant ziet de status terug. Geld, IBAN en inloggegevens gaan nooit vanzelf, ook niet via een AI-assistent. Data wordt opgeslagen en gehost in de EU; alleen het versturen van e-mail loopt via een Amerikaanse dienst (Resend). Koppelen kan ook vanuit eigen applicaties en AI-agents, via API, webhooks en MCP. Technische documentatie: https://docs.insync.insure.
 
 ## Pagina's
 
