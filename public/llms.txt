@@ -13,7 +13,7 @@ Wat een klant in het portaal meldt, komt als zaak in de werkbak; een medewerker 
 
 - [Insync AI](https://insync.insure/insync-ai): werkbak, actielaag, doorlaatregeling, AI-assistent en zaaktypes
 - [Klantportaal](https://insync.insure/klantportaal): zelf regelen, schade melden met AI, klantassistent, eigen AI koppelen, online afsluiten, eigen huisstijl
-- [Integraties](https://insync.insure/integraties): backoffices, werkplekken, kanalen, livegaan en developers
+- [Integraties](https://insync.insure/integraties): backoffices, kanalen (e-mail, WhatsApp, klantportaal, AI-assistent), afhandelen, flexibel starten en developers
 - [Veiligheid en regie](https://insync.insure/veiligheid): regie, harde grens, verantwoording (Wft, AI Act) en privacy
 - [Demo inplannen](https://insync.insure/demo)
 
