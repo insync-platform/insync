@@ -1,8 +1,8 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify";
+import cloudflare from "@astrojs/cloudflare";
 import vue from "@astrojs/vue";
 
 export default defineConfig({
@@ -21,6 +21,12 @@ export default defineConfig({
     "/contact": "/demo",
   },
   integrations: [sitemap(), vue()],
-  adapter: netlify(),
-  output: "server",
+  // Pagina's worden bij de build gegenereerd; alleen de actions draaien in de Worker.
+  adapter: cloudflare({ imageService: "compile" }),
+  session: false,
+  env: {
+    schema: {
+      RESEND_API_KEY: envField.string({ context: "server", access: "secret" }),
+    },
+  },
 });

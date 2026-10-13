@@ -1,8 +1,7 @@
 import { ActionError, defineAction } from "astro:actions";
+import { RESEND_API_KEY } from "astro:env/server";
 import { Resend } from "resend";
 import { z } from "astro:schema";
-
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 const escapeHtml = (value: string) =>
   value
@@ -49,6 +48,7 @@ export const server = {
         .map(([label, value]) => `<p><strong>${label}:</strong> ${escapeHtml(value)}</p>`)
         .join("");
 
+      const resend = new Resend(RESEND_API_KEY);
       const { data, error } = await resend.emails.send({
         from: "Insync <hello@insync.insure>",
         to: ["hello@insync.insure"],
