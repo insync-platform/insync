@@ -865,19 +865,29 @@ main details summary:hover {
   transition: transform 1.2s var(--ease-out) 0.2s;
 }
 
-/* Het rondje: klant → werkbak → akkoord → klant. */
-[data-rondje] > li {
+/* Het rondje: klant → werkbak → akkoord → klant.
+   Het optillen loopt via `translate` (los van `transform`), zodat het niet
+   botst met het inschuiven van [data-reveal]. De tweede selector wint van
+   `.js [data-reveal].is-in`, die anders de transitie overschrijft en de
+   schaduw laat verspringen. */
+[data-rondje] > li,
+.js [data-rondje] > li[data-reveal].is-in {
   transition:
-    transform 0.5s var(--ease-out),
-    box-shadow 0.5s ease,
+    opacity 0.7s var(--ease-out) var(--d, 0ms),
+    transform 0.8s var(--ease-out) var(--d, 0ms),
+    translate 0.6s var(--ease-out),
+    box-shadow 0.6s ease,
     color 0.3s ease;
 }
+[data-rondje="cards"] > li {
+  box-shadow: 0 14px 30px -12px rgba(10, 10, 10, 0);
+}
 [data-rondje="cards"] > li.is-active {
-  transform: translateY(-4px);
+  translate: 0 -4px;
   box-shadow: 0 14px 30px -12px rgba(10, 10, 10, 0.22);
 }
 [data-rondje="pills"] > li.is-active {
-  transform: translateY(-3px);
+  translate: 0 -3px;
 }
 [data-rondje="inline"] > li {
   transition: color 0.3s ease;
