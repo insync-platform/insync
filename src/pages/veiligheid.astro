@@ -13,12 +13,12 @@ const faqs = [
     "a": "Standaard een medewerker: elk nieuw zaaktype begint op Voorstellen. Alleen wat jij per soort werk op Automatisch zet, gaat vanzelf, en een uitzondering gaat dan nog steeds naar een mens."
   },
   {
-    "q": "Kan de AI zelf een betaling doen of een IBAN wijzigen?",
-    "a": "Nee. Geld, IBAN en inloggegevens vallen onder de harde grens: daar beslist altijd een mens. Die grens is niet instelbaar, ook niet voor de klantassistent."
+    "q": "Kan de AI zelf gevoelige gegevens wijzigen?",
+    "a": "Nee. Bij gevoelige gegevens beslist altijd een mens. Dat is niet instelbaar, ook niet voor de klantassistent."
   },
   {
     "q": "Wat ziet de eigen AI-assistent van een klant?",
-    "a": "Alleen de gegevens waarvoor de klant toestemming geeft, per soort. De klant kan die toestemming altijd intrekken. Geld, IBAN en account zijn nooit bereikbaar."
+    "a": "Alleen de gegevens waarvoor de klant toestemming geeft, per soort. De klant kan die toestemming altijd intrekken. Gevoelige gegevens zijn nooit bereikbaar."
   },
   {
     "q": "Geeft Insync advies aan onze klanten?",
@@ -33,7 +33,7 @@ const faqs = [
 
 <Layout
   title="Veiligheid en regie"
-  description="Eerst een voorstel, dan een wijziging. Geld, IBAN en inloggegevens altijd via een mens. Alles is terug te vinden: wie, wanneer, waarom en onder welk beleid."
+  description="Eerst een voorstel, dan een wijziging. Gevoelige gegevens altijd via een mens. Alles is terug te vinden: wie, wanneer, waarom en onder welk beleid."
   faqs={faqs}
 >
 <main>
@@ -43,7 +43,7 @@ const faqs = [
 <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">Veiligheid en regie</span>
 <h1 id="kop-veiligheid" style="margin: 0; font-size: clamp(44px, 6.4vw, 92px); line-height: 1; font-weight: 500; letter-spacing: -0.045em">De AI doet het voorwerk. Jij houdt de regie.</h1>
-<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #52525B; max-width: 560px">Niets verandert in je backoffice zonder besluit. Geld, IBAN en inloggegevens gaan altijd langs een mens, en bij elk besluit staat vast wie, wanneer, waarom en onder welk beleid.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #52525B; max-width: 560px">Niets verandert in je backoffice zonder besluit. Gevoelige gegevens gaan altijd langs een mens, en bij elk besluit staat vast wie, wanneer, waarom en onder welk beleid.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="/demo" style="background: #0A0A0A; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Demo inplannen</a>
 <a href="/veiligheid#regie" style="border: 1px solid rgba(10,10,10,0.16); color: #0A0A0A; text-decoration: none; font-weight: 500; font-size: 15px; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Bekijk de zes beloftes</a>
@@ -129,8 +129,8 @@ const faqs = [
 
 <article style="border-radius: 24px; background: #0A0A0A; color: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 12px">
 <span style="width: 44px; height: 44px; border-radius: 14px; background: #C6F432; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" stroke="#0A0A0A" stroke-width="1.7"></rect><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="#0A0A0A" stroke-width="1.7" stroke-linecap="round"></path></svg></span>
-<h3 style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Een harde grens</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #A1A1AA">Geld, IBAN en inloggegevens gaan nooit vanzelf. Altijd een mens, en dat is niet instelbaar.</p>
+<h3 style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2">Gevoelige gegevens blijven mensenwerk</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #A1A1AA">Die gaan nooit vanzelf. Altijd een mens, en dat is niet instelbaar.</p>
 </article>
 
 <article style="border-radius: 24px; background: #F4F4F5; padding: 28px; display: flex; flex-direction: column; gap: 12px">
@@ -153,10 +153,10 @@ const faqs = [
 <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">02 / Harde grens</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717A; text-transform: uppercase; letter-spacing: 0.08em">02 / Wat mag de AI</span>
 <h2 id="kop-harde-grens" style="margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; font-weight: 500; letter-spacing: -0.04em">Wat mag de AI zelf?</h2>
 </div>
-<p style="margin: 0; flex: 0 1 420px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Hoe zwaarder de gevolgen, hoe eerder een mens beslist. Geld blijft mensenwerk.</p>
+<p style="margin: 0; flex: 0 1 420px; min-width: 0; font-size: 18px; line-height: 1.55; color: #52525B">Hoe zwaarder de gevolgen, hoe eerder een mens beslist. Gevoelige gegevens blijven mensenwerk.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
 
@@ -183,8 +183,8 @@ const faqs = [
 
 <article style="border-radius: 24px; background: #0A0A0A; color: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 12px">
 <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A1AA">04</span>
-<h3 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em">Geld, IBAN, account</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #A1A1AA">Een betaling, een rekeningnummer, inloggegevens. Nooit vanzelf, niet instelbaar.</p>
+<h3 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em">Gevoelige gegevens</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #A1A1AA">Gegevens waar je geen risico mee wilt lopen. Nooit vanzelf, niet instelbaar.</p>
 <span style="align-self: flex-start; margin-top: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 999px; background: #C6F432; color: #0A0A0A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" stroke="#0A0A0A" stroke-width="2"></rect><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"></path></svg>Altijd een mens</span>
 </article>
 
@@ -192,7 +192,7 @@ const faqs = [
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(10,10,10,0.12); padding: 20px 24px">
 <span style="font-size: 12px; font-weight: 500; padding: 4px 11px; border-radius: 999px; background: #C6F432; color: #0A0A0A">Voor je klanten</span>
-<p style="margin: 0; flex: 1 1 480px; min-width: 0; font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: -0.01em">Ook de klantassistent en de eigen AI van je klant kunnen nooit bij geld, IBAN of inloggegevens.</p>
+<p style="margin: 0; flex: 1 1 480px; min-width: 0; font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: -0.01em">Ook de klantassistent en de eigen AI van je klant kunnen nooit bij gevoelige gegevens.</p>
 </div>
 </div>
 </section>
@@ -308,12 +308,12 @@ const faqs = [
 <p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Standaard een medewerker: elk nieuw zaaktype begint op Voorstellen. Alleen wat jij per soort werk op Automatisch zet, gaat vanzelf, en een uitzondering gaat dan nog steeds naar een mens.</p>
 </details>
 <details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Kan de AI zelf een betaling doen of een IBAN wijzigen?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
-<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Nee. Geld, IBAN en inloggegevens vallen onder de harde grens: daar beslist altijd een mens. Die grens is niet instelbaar, ook niet voor de klantassistent.</p>
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Kan de AI zelf gevoelige gegevens wijzigen?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Nee. Bij gevoelige gegevens beslist altijd een mens. Dat is niet instelbaar, ook niet voor de klantassistent.</p>
 </details>
 <details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Wat ziet de eigen AI-assistent van een klant?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
-<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Alleen de gegevens waarvoor de klant toestemming geeft, per soort. De klant kan die toestemming altijd intrekken. Geld, IBAN en account zijn nooit bereikbaar.</p>
+<p style="margin: 0; padding: 0 40px 24px 0; font-size: 16px; line-height: 1.6; color: #52525B">Alleen de gegevens waarvoor de klant toestemming geeft, per soort. De klant kan die toestemming altijd intrekken. Gevoelige gegevens zijn nooit bereikbaar.</p>
 </details>
 <details class="fq" style="border-top: 1px solid rgba(10,10,10,0.12)">
 <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; font-weight: 500; letter-spacing: -0.01em">Geeft Insync advies aan onze klanten?<svg class="fq-ic" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex: 0 0 auto"><path d="M10 4v12M4 10h12" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"></path></svg></summary>
